@@ -199,7 +199,7 @@ def test_reading_materials(page) -> None:
     drag_to(page, core_handle, practice_header, target_y_ratio=0.08)
     actual_root = direct_item_ids(root_list)
     require(actual_root == [SECTION_FOUNDATIONS, UNIT_CORE, SECTION_PRACTICE],
-            f"Content was not moved out to document level: root={actual_root}, practice={direct_item_ids(practice_list)}, foundations={direct_item_ids(foundations_list)}, status={page.locator("#editor-status-message").inner_text()}")
+            f"Content was not moved out to document level: root={actual_root}, practice={direct_item_ids(practice_list)}, foundations={direct_item_ids(foundations_list)}, status={page.locator('#editor-status-message').inner_text()}")
     require(stored_sequence(page, MATERIAL_ID, "marin:contentSequence")
             == [SECTION_FOUNDATIONS, UNIT_CORE, SECTION_PRACTICE],
             "Document-level content move was not saved")
