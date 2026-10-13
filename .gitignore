@@ -4,3 +4,14 @@ node_modules/
 .env
 __pycache__/
 *.pyc
+
+# Generated publication output and local review evidence
+dist/
+build/
+tests/screenshots/
+
+# One-off local patch/handoff artifacts
+*.patch
+reference/
+opencode/
+DEFECT-REPORT.md

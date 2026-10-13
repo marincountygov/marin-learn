@@ -1,10 +1,10 @@
 schema: 1
 
 project:
-  name: APP_NAME
-  repo: APP_REPO
+  name: Marin Learn
+  repo: marin-learn
   type: app
-  owner: APP_OWNER
+  owner: County of Marin
   audience: staff
   status: alpha
 
@@ -13,7 +13,7 @@ platform:
 
 deployment:
   target: github-pages
-  url: https://marincountygov.github.io/APP_REPO/
+  url: https://marincountygov.github.io/marin-learn/
 
 # Declare whether the deployed app uses AI (not tools used to build it), then
 # uncomment. Until declared, the Tech page says "Not documented".

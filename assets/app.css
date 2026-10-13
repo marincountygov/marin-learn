@@ -1,11 +1,1379 @@
-/*
-  App-specific styles only.
-  Load order: vendor/marinos/marinos.css, then this file.
+/* Marin Learn viewer styles.
+ *
+ * Pico CSS and the MarinOS App Shell in vendor/marinos/marinos.css own the
+ * baseline typography, controls, spacing, and theme. This file defines only
+ * viewer-specific layouts and components. Colors resolve through shared Pico
+ * and MarinOS tokens so light and dark modes remain synchronized.
+ */
 
-  The shell bundles the shared Marin UI/Pico baseline and shell components.
-  Use the components and tokens provided by the pinned shell before adding CSS.
-  Scope new rules to the application's workflow or its own class prefix.
-  Do not override shell-owned header, banner, footer, or information-section
-  layout here. Shared fixes belong upstream in marin-app-shell (or marin-ui),
-  followed by a reviewed shell release, not an edit to vendor/marinos/.
-*/
+:root {
+  --learn-surface: var(--pico-card-background-color);
+  --learn-surface-subtle: var(--pico-card-sectioning-background-color);
+  --learn-surface-hover: var(--app-table-row-hover);
+  --learn-border-subtle: var(--pico-card-border-color);
+  --learn-border-strong: var(--pico-form-element-border-color);
+  --learn-text: var(--pico-color);
+  --learn-muted: var(--pico-muted-color);
+  --learn-accent: var(--pico-primary);
+  --learn-accent-hover: var(--pico-primary-hover);
+  --learn-accent-on-tint: var(--app-accent-on-tint);
+  --learn-focus: var(--pico-primary-focus);
+  --learn-success: var(--app-success);
+  --learn-danger: var(--app-danger-text);
+  --learn-warning: var(--app-warning);
+  --learn-warning-text: color-mix(in srgb, var(--learn-warning) 45%, var(--learn-text));
+  --learn-accent-tint: color-mix(in srgb, var(--learn-accent) 12%, var(--learn-surface));
+  --learn-accent-tint-soft: color-mix(in srgb, var(--learn-accent) 7%, var(--learn-surface));
+  --learn-success-tint: color-mix(in srgb, var(--learn-success) 14%, var(--learn-surface));
+  --learn-danger-tint: color-mix(in srgb, var(--app-danger) 12%, var(--learn-surface));
+  --learn-warning-tint: color-mix(in srgb, var(--learn-warning) 18%, var(--learn-surface));
+  --learn-overlay: rgb(0 0 0 / 0.62);
+  --learn-shadow-raised: 0 0.5rem 1.5rem rgb(0 0 0 / 0.16);
+  --learn-shadow-modal: 0 0.75rem 2.25rem rgb(0 0 0 / 0.24);
+}
+
+
+#start .text-muted {
+  color: var(--learn-muted);
+}
+
+/* Link-styled buttons retain native button semantics without Pico's filled
+ * button presentation. */
+.link-button {
+  width: auto;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  color: var(--learn-accent);
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: inherit;
+  text-align: start;
+  text-decoration: none;
+}
+
+.link-button:hover,
+.link-button:focus-visible {
+  background: transparent;
+  box-shadow: none;
+  color: var(--learn-accent-hover);
+  text-decoration: underline;
+}
+
+.link-button:focus-visible {
+  outline: 2px solid var(--learn-focus);
+  outline-offset: 0.2rem;
+}
+
+/* Shared viewer badges extend the App Shell badge foundation. */
+.app-badge.badge--level {
+  border: 1px solid var(--learn-border-subtle);
+  background: color-mix(in srgb, var(--learn-muted) 12%, var(--learn-surface));
+  color: var(--learn-text);
+  font-size: 0.75rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.app-badge.badge--resource,
+.app-badge.quiz-weight-badge {
+  border: 1px solid color-mix(in srgb, var(--learn-accent) 32%, var(--learn-border-subtle));
+  background: var(--learn-accent-tint);
+  color: var(--learn-accent-on-tint);
+  font-size: 0.75rem;
+}
+
+.app-badge.badge--success {
+  border: 1px solid color-mix(in srgb, var(--learn-success) 45%, var(--learn-border-subtle));
+  background: var(--learn-success-tint);
+  color: var(--learn-success);
+}
+
+.app-badge.badge--error {
+  border: 1px solid color-mix(in srgb, var(--app-danger) 45%, var(--learn-border-subtle));
+  background: var(--learn-danger-tint);
+  color: var(--learn-danger);
+}
+
+/* Catalog */
+.catalog-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  align-items: flex-end;
+}
+
+.catalog-search-group {
+  flex: 1 1 18rem;
+  min-width: 0;
+}
+
+.catalog-filter-group {
+  flex: 0 1 12.5rem;
+}
+
+.catalog-label {
+  display: block;
+  margin-bottom: 0.375rem;
+  color: var(--learn-muted);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.catalog-status {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  color: var(--learn-muted);
+  font-size: 0.95rem;
+}
+
+.catalog-status--spaced {
+  margin-top: 2rem;
+}
+
+.catalog-status--error {
+  color: var(--learn-danger);
+}
+
+.catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.catalog-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-width: 0;
+  margin: 0;
+  cursor: pointer;
+  transition:
+    transform var(--pico-transition),
+    box-shadow var(--pico-transition),
+    outline-color var(--pico-transition);
+  outline: 2px solid transparent;
+  outline-offset: 0.125rem;
+}
+
+.catalog-card:hover {
+  transform: translateY(-0.125rem);
+  box-shadow: var(--learn-shadow-raised);
+  outline-color: color-mix(in srgb, var(--learn-accent) 55%, transparent);
+}
+
+.catalog-card:focus-visible {
+  transform: translateY(-0.125rem);
+  box-shadow: var(--learn-shadow-raised);
+  outline-color: var(--learn-accent);
+}
+
+.catalog-card-title {
+  margin: 0 0 0.5rem;
+  font-size: 1.15rem;
+}
+
+.catalog-card-meta,
+.catalog-resource-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.catalog-card-body {
+  flex-grow: 1;
+}
+
+.catalog-card-abstract {
+  display: -webkit-box;
+  margin: 0;
+  overflow: hidden;
+  color: var(--learn-text);
+  font-size: 0.925rem;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+.catalog-card-footer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.catalog-card-action {
+  color: var(--learn-accent);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.catalog-empty-notice {
+  grid-column: 1 / -1;
+  padding: 2rem 0;
+  color: var(--learn-muted);
+  font-style: italic;
+  text-align: center;
+}
+
+.catalog-error-box {
+  max-width: 37.5rem;
+  margin: 2rem auto;
+  padding: 2rem;
+  border: 1px solid var(--learn-danger);
+  border-radius: var(--pico-border-radius);
+  background: var(--learn-surface);
+  text-align: center;
+}
+
+/* Reserved catalog modal styles. */
+.catalog-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  border: 0;
+  background: var(--learn-overlay);
+}
+
+.catalog-modal-content {
+  display: flex;
+  width: min(100%, 37.5rem);
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 2rem;
+  border: 1px solid var(--learn-border-subtle);
+  border-radius: var(--pico-border-radius);
+  background: var(--learn-surface);
+  box-shadow: var(--learn-shadow-modal);
+}
+
+.catalog-modal-header,
+.catalog-modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.catalog-modal-header {
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--learn-border-subtle);
+}
+
+.catalog-modal-header h3 {
+  margin: 0;
+}
+
+.catalog-modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  font-size: 0.95rem;
+}
+
+.catalog-modal-note {
+  margin-top: 0.5rem;
+  padding: 0.75rem 1rem;
+  border-left: 0.25rem solid var(--learn-accent);
+  border-radius: var(--pico-border-radius);
+  background: var(--learn-surface-subtle);
+  color: var(--learn-muted);
+}
+
+.catalog-modal-footer {
+  padding-top: 1rem;
+  border-top: 1px solid var(--learn-border-subtle);
+  justify-content: flex-end;
+}
+
+/* Learning-set overview uses the same card grid as the catalog. */
+.landing-page {
+  display: flex;
+  width: 100%;
+  min-width: 0;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.landing-breadcrumb {
+  margin-bottom: -1rem;
+}
+
+.landing-header h2 {
+  margin-bottom: 0.5rem;
+  font-size: 2rem;
+}
+
+.landing-abstract {
+  margin-top: 1rem;
+  color: var(--learn-text);
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* Resource cards inherit Pico's article presentation and the catalog's
+ * header/body/footer pattern. Avoid another bordered container around them. */
+.landing-resources h3,
+.landing-objectives h3 {
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+}
+
+.landing-resource-grid {
+  margin-top: 0;
+}
+
+.landing-resource-card {
+  position: relative;
+}
+
+/* The footer link's hit area covers the entire card, but remains a native
+ * anchor for keyboard navigation, open-in-new-tab, and copying its URL. */
+.landing-resource-card .resource-action {
+  text-decoration: none;
+}
+
+.landing-resource-card .resource-action::after {
+  position: absolute;
+  inset: 0;
+  content: '';
+}
+
+.landing-resource-card:hover .resource-action {
+  color: var(--learn-accent-hover);
+  text-decoration: underline;
+}
+
+.landing-resource-card:focus-within {
+  outline-color: var(--learn-accent);
+  box-shadow: var(--learn-shadow-raised);
+}
+
+.landing-resource-card .resource-action:focus-visible {
+  outline: 0;
+}
+
+.landing-objectives {
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--learn-border-subtle);
+}
+
+.landing-objectives-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+/* Continuous reader */
+.reader-layout {
+  display: grid;
+  grid-template-columns: minmax(14rem, 17.5rem) minmax(0, 1fr);
+  gap: 2rem;
+  align-items: start;
+}
+
+.reader-sidebar {
+  position: sticky;
+  top: 1rem;
+  padding: 1.25rem;
+  border: 1px solid var(--learn-border-subtle);
+  border-radius: var(--pico-border-radius);
+  background: var(--learn-surface);
+}
+
+.reader-sidebar-back {
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--learn-border-subtle);
+  text-align: start;
+}
+
+.reader-toc {
+  text-align: start;
+}
+
+.reader-toc h4 {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--learn-border-subtle);
+  font-size: 1rem;
+  text-align: start;
+}
+
+.reader-toc ul {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-align: start;
+}
+
+.reader-toc li {
+  width: 100%;
+  padding: 0;
+  text-align: start;
+}
+
+.reader-toc a {
+  display: block;
+  width: 100%;
+  padding: 0.4rem 0.5rem;
+  border-radius: var(--pico-border-radius);
+  color: var(--learn-text);
+  font-size: 0.9rem;
+  text-align: start;
+  text-decoration: none;
+}
+
+.reader-toc a:hover,
+.reader-toc a:focus-visible {
+  background: var(--learn-surface-hover);
+  color: var(--learn-accent-on-tint);
+}
+
+.reader-toc a:focus-visible {
+  outline: 2px solid var(--learn-focus);
+  outline-offset: 0.125rem;
+}
+
+.reader-main {
+  width: 100%;
+  max-width: 46.875rem;
+  min-width: 0;
+}
+
+.reader-header {
+  margin-top: 0;
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--learn-border-subtle);
+}
+
+.reader-header h1 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 2.25rem;
+}
+
+.reader-abstract {
+  color: var(--learn-muted);
+  font-size: 1.15rem;
+  line-height: 1.6;
+}
+
+.reader-toolbar {
+  margin-top: 1rem;
+}
+
+.reader-toolbar [role="button"] {
+  width: auto;
+  margin: 0;
+}
+
+.reader-content-sequence {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+/* Reader units intentionally form one continuous document rather than Pico
+ * cards. Reset only the article presentation while retaining Pico typography. */
+.reader-unit {
+  scroll-margin-top: 1rem;
+  margin: 0;
+  padding: 0 0 2.5rem;
+  border: 0;
+  border-bottom: 1px solid var(--learn-border-subtle);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.reader-unit:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.reader-unit > .reader-unit-header {
+  margin: 0 0 1.25rem;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+.reader-unit-header h3 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+}
+
+.reader-unit-abstract {
+  margin-bottom: 0;
+  color: var(--learn-muted);
+  font-style: italic;
+}
+
+.reader-unit-body {
+  line-height: 1.7;
+}
+
+.reader-unit-body h4,
+.reader-unit-body h5,
+.reader-unit-body h6 {
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.reader-unit-body p,
+.reader-unit-body ul,
+.reader-unit-body ol {
+  margin-bottom: 1rem;
+}
+
+.reader-unit-body ul,
+.reader-unit-body ol {
+  padding-left: 1.5rem;
+}
+
+.reader-unit-body .table-scroll {
+  width: 100%;
+  margin-bottom: 1.5rem;
+  overflow-x: auto;
+}
+
+.reader-unit-body table {
+  width: 100%;
+  margin-bottom: 0;
+}
+
+.reader-unit-body img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 1rem 0;
+  border-radius: var(--pico-border-radius);
+}
+
+/* Slide viewer */
+.slides-viewer-container {
+  display: flex;
+  max-width: 62.5rem;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin: 0 auto;
+}
+
+.slides-top-bar,
+.slides-control-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 1.25rem;
+  border: 1px solid var(--learn-border-subtle);
+  border-radius: var(--pico-border-radius);
+  background: var(--learn-surface);
+}
+
+.slides-title-info {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  text-align: center;
+}
+
+.slides-pres-name {
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.slides-counter {
+  color: var(--learn-muted);
+  font-size: 0.8rem;
+}
+
+.slides-top-actions {
+  display: flex;
+  flex: 0 0 auto;
+  gap: 0.5rem;
+}
+
+.slides-top-actions button {
+  width: auto;
+  margin: 0;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.85rem;
+}
+
+.slides-top-actions button[aria-pressed="true"] {
+  border-color: var(--learn-accent);
+  background: var(--learn-accent-tint);
+  color: var(--learn-accent-on-tint);
+}
+
+.slide-canvas-wrapper {
+  width: 100%;
+}
+
+.slide-canvas {
+  position: relative;
+  display: flex;
+  aspect-ratio: 16 / 9;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 3rem;
+  overflow-y: auto;
+  border: 1px solid var(--learn-border-subtle);
+  border-radius: var(--pico-border-radius);
+  background: var(--learn-surface);
+  box-shadow: var(--pico-card-box-shadow);
+  cursor: pointer;
+}
+
+:fullscreen .slides-viewer-container {
+  box-sizing: border-box;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  padding: 2rem;
+  overflow-y: auto;
+  flex-direction: column;
+  justify-content: space-between;
+  background: var(--pico-background-color);
+}
+
+.slide-layout--title {
+  align-items: center;
+  justify-content: center;
+  background:
+    linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--learn-accent) 30%, var(--learn-surface)),
+      color-mix(in srgb, var(--learn-accent) 7%, var(--learn-surface))
+    );
+  text-align: center;
+}
+
+.slide-layout--title .slide-header h2 {
+  margin-bottom: 1rem;
+  color: var(--learn-text);
+  font-size: 3rem;
+}
+
+.slide-layout--section {
+  justify-content: center;
+  border-left: 0.5rem solid var(--learn-accent);
+  background: var(--learn-surface-subtle);
+}
+
+.slide-layout--section .slide-header h2 {
+  font-size: 2.5rem;
+}
+
+.slide-header h2 {
+  margin: 0;
+  color: var(--learn-text);
+  font-size: 2rem;
+}
+
+.slide-body {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+  font-size: 1.15rem;
+  line-height: 1.6;
+}
+
+.slide-layout--split .slide-body {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: center;
+}
+
+.slide-layout--media .slide-markdown-body img {
+  display: block;
+  max-width: 100%;
+  max-height: 22rem;
+  margin-inline: auto;
+  object-fit: contain;
+}
+
+.slide-layout--quote .slide-body {
+  align-items: center;
+  text-align: center;
+}
+
+.slide-layout--quote blockquote {
+  max-width: 50rem;
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.slide-content-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.slide-content-item h4 {
+  margin: 0;
+  color: var(--learn-accent);
+  font-size: 1.25rem;
+}
+
+.slide-content-item p {
+  margin: 0;
+  color: var(--learn-text);
+}
+
+.slides-control-bar {
+  padding-block: 1rem;
+}
+
+.slides-control-bar button {
+  width: auto;
+  margin: 0;
+}
+
+.slides-keyboard-hint {
+  color: var(--learn-muted);
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+.slides-notes-panel {
+  padding: 1.5rem;
+  border: 1px solid var(--learn-border-subtle);
+  border-radius: var(--pico-border-radius);
+  background: var(--learn-surface);
+  box-shadow: var(--pico-card-box-shadow);
+}
+
+.slides-notes-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--learn-border-subtle);
+}
+
+.slides-notes-header h4 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.slides-notes-body {
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Quiz viewer */
+.quiz-viewer-container {
+  display: flex;
+  max-width: 50rem;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin: 0 auto;
+}
+
+.quiz-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 1.25rem;
+  border: 1px solid var(--learn-border-subtle);
+  border-radius: var(--pico-border-radius);
+  background: var(--learn-surface);
+}
+
+.quiz-title-info {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  text-align: center;
+}
+
+.quiz-name {
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.quiz-counter {
+  color: var(--learn-muted);
+  font-size: 0.8rem;
+}
+
+.quiz-progress-indicator {
+  width: 7.5rem;
+  flex: 0 0 auto;
+}
+
+.quiz-progress-indicator progress {
+  height: 0.5rem;
+  margin-bottom: 0;
+}
+
+.quiz-main-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 2rem;
+  border: 1px solid var(--learn-border-subtle);
+  border-radius: var(--pico-border-radius);
+  background: var(--learn-surface);
+  box-shadow: var(--pico-card-box-shadow);
+}
+
+.quiz-question-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--learn-border-subtle);
+}
+
+.quiz-question-header h2 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.quiz-question-prompt {
+  font-size: 1.15rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.quiz-question-prompt > :last-child {
+  margin-bottom: 0;
+}
+
+.quiz-options-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.quiz-options-group > .quiz-option-label {
+  display: flex;
+  width: 100%;
+  flex: 0 0 auto;
+  align-items: flex-start;
+  gap: 1rem;
+  margin: 0;
+  padding: 1rem;
+  border: 1px solid var(--learn-border-subtle);
+  border-radius: var(--pico-border-radius);
+  background: var(--learn-surface-subtle);
+  color: var(--learn-text);
+  cursor: pointer;
+  transition:
+    border-color var(--pico-transition),
+    background-color var(--pico-transition),
+    color var(--pico-transition);
+}
+
+.quiz-option-label:hover {
+  border-color: var(--learn-accent);
+  background: var(--learn-surface-hover);
+  color: var(--learn-accent-on-tint);
+}
+
+.quiz-option-label:focus-within {
+  border-color: var(--learn-accent);
+  box-shadow: 0 0 0 var(--pico-outline-width) var(--learn-focus);
+}
+
+.quiz-option-label.selected {
+  border-color: var(--learn-accent);
+  background: var(--learn-accent-tint);
+  color: var(--learn-accent-on-tint);
+}
+
+.quiz-option-label input[type="radio"],
+.quiz-option-label input[type="checkbox"] {
+  flex: 0 0 auto;
+  margin-top: 0.2rem;
+}
+
+.quiz-option-text {
+  min-width: 0;
+  flex-grow: 1;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.quiz-option-text p,
+.review-option-content p {
+  margin: 0;
+}
+
+.quiz-hint-details {
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--learn-border-subtle);
+  border-radius: var(--pico-border-radius);
+  background: var(--learn-surface-subtle);
+}
+
+.quiz-hint-details summary {
+  color: var(--learn-accent);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.quiz-hint-body {
+  margin-top: 0.75rem;
+  color: var(--learn-muted);
+  font-size: 0.95rem;
+}
+
+.quiz-item-feedback {
+  padding: 1rem;
+  border-left: 0.25rem solid;
+  border-radius: var(--pico-border-radius);
+  color: var(--learn-text);
+}
+
+.quiz-item-feedback.correct {
+  border-left-color: var(--learn-success);
+  background: var(--learn-success-tint);
+}
+
+.quiz-item-feedback.incorrect {
+  border-left-color: var(--learn-danger);
+  background: var(--learn-danger-tint);
+}
+
+.quiz-item-feedback.correct strong {
+  color: var(--learn-success);
+}
+
+.quiz-item-feedback.incorrect strong {
+  color: var(--learn-danger);
+}
+
+.quiz-nav-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--learn-border-subtle);
+}
+
+.quiz-nav-actions button,
+.quiz-step-buttons button {
+  width: auto;
+  margin: 0;
+}
+
+.quiz-step-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-left: auto;
+}
+
+/* Quiz results */
+.quiz-results-hero {
+  margin-bottom: 1.5rem;
+  padding: 2.5rem 1.5rem;
+  border: 1px solid var(--learn-border-subtle);
+  border-radius: var(--pico-border-radius);
+  text-align: center;
+}
+
+.quiz-results-hero.passed {
+  border-color: color-mix(in srgb, var(--learn-success) 45%, var(--learn-border-subtle));
+  background: var(--learn-success-tint);
+}
+
+.quiz-results-hero.failed {
+  border-color: color-mix(in srgb, var(--app-danger) 45%, var(--learn-border-subtle));
+  background: var(--learn-danger-tint);
+}
+
+.quiz-results-hero h2 {
+  margin-bottom: 1rem;
+  font-size: 2rem;
+}
+
+.quiz-score-display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.quiz-grade-badge {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--learn-border-subtle);
+  border-radius: var(--pico-border-radius);
+  background: var(--learn-surface);
+  color: var(--learn-text);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.quiz-percentage-score {
+  color: var(--learn-accent-on-tint);
+  font-size: 2.5rem;
+  font-weight: 800;
+}
+
+.quiz-score-meta {
+  margin-bottom: 0.5rem;
+  color: var(--learn-muted);
+  font-size: 1rem;
+}
+
+.quiz-grade-message {
+  max-width: 37.5rem;
+  margin: 0 auto;
+  font-size: 1.05rem;
+  font-style: italic;
+}
+
+.quiz-review-section,
+.quiz-review-list,
+.review-card,
+.review-options-grid {
+  display: flex;
+  flex-direction: column;
+}
+
+.quiz-review-section {
+  gap: 1rem;
+}
+
+.quiz-review-list {
+  gap: 1.25rem;
+}
+
+.review-card {
+  gap: 1rem;
+  padding: 1.5rem;
+  border: 1px solid var(--learn-border-subtle);
+  border-radius: var(--pico-border-radius);
+  background: var(--learn-surface);
+}
+
+.review-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.review-card-header h4 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.review-options-grid {
+  gap: 0.5rem;
+}
+
+.review-option-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid transparent;
+  border-radius: var(--pico-border-radius);
+  background: var(--learn-surface-subtle);
+  color: var(--learn-text);
+  font-size: 0.95rem;
+}
+
+.review-option-row.is-correct-selected {
+  border-color: var(--learn-success);
+  background: var(--learn-success-tint);
+}
+
+.review-option-row.is-correct {
+  background: color-mix(in srgb, var(--learn-success) 8%, var(--learn-surface));
+}
+
+.review-option-row.is-incorrect {
+  border-color: var(--learn-danger);
+  background: var(--learn-danger-tint);
+}
+
+.review-option-row.is-correct-selected .review-status-tag,
+.review-option-row.is-correct .review-status-tag {
+  color: var(--learn-success);
+}
+
+.review-option-row.is-incorrect .review-status-tag {
+  color: var(--learn-danger);
+}
+
+.review-status-tag {
+  flex: 0 0 auto;
+  font-size: 0.8rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.quiz-explanation {
+  padding: 0.75rem 1rem;
+  border-left: 0.25rem solid var(--learn-accent);
+  border-radius: var(--pico-border-radius);
+  background: var(--learn-surface-subtle);
+  font-size: 0.9rem;
+}
+
+.quiz-source-link {
+  color: var(--learn-muted);
+  font-size: 0.9rem;
+}
+
+.quiz-results-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.quiz-results-actions button {
+  width: auto;
+  margin: 0;
+}
+
+/* Responsive viewer layouts */
+@media (max-width: 61.9375rem) {
+  .reader-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .reader-sidebar {
+    position: static;
+  }
+
+  .reader-main {
+    max-width: none;
+  }
+}
+
+@media (max-width: 43.75rem) {
+  .catalog-controls {
+    align-items: stretch;
+  }
+
+  .catalog-filter-group {
+    flex: 1 1 100%;
+  }
+
+  .slides-top-bar,
+  .quiz-top-bar {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+  }
+
+  .slides-title-info,
+  .quiz-title-info {
+    grid-column: 1 / -1;
+    grid-row: 1;
+  }
+
+  .slides-top-bar > .link-button,
+  .quiz-top-bar > .link-button {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .slides-top-actions,
+  .quiz-progress-indicator {
+    grid-column: 2;
+    grid-row: 2;
+    justify-self: end;
+  }
+
+  .slide-canvas {
+    min-height: 18rem;
+    padding: 1.5rem;
+    aspect-ratio: auto;
+  }
+
+  .slide-layout--title .slide-header h2 {
+    font-size: 2rem;
+  }
+
+  .slide-layout--section .slide-header h2,
+  .slide-header h2 {
+    font-size: 1.75rem;
+  }
+
+  .slide-layout--split .slide-body {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .slides-control-bar {
+    flex-wrap: wrap;
+  }
+
+  .slides-keyboard-hint {
+    order: 3;
+    width: 100%;
+  }
+
+  .quiz-main-card {
+    padding: 1.25rem;
+  }
+
+  .quiz-nav-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .quiz-step-buttons {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .quiz-step-buttons button {
+    flex: 1 1 0;
+  }
+
+  .quiz-score-display,
+  .quiz-results-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .review-card-header,
+  .review-option-row {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 30rem) {
+  .landing-header h2,
+  .reader-header h1 {
+    font-size: 1.75rem;
+  }
+
+  .reader-sidebar,
+  .slides-top-bar,
+  .slides-control-bar,
+  .slides-notes-panel,
+  .quiz-top-bar,
+  .quiz-main-card,
+  .review-card {
+    padding-inline: 1rem;
+  }
+
+  .slides-top-bar,
+  .quiz-top-bar {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .slides-top-bar > .link-button,
+  .quiz-top-bar > .link-button,
+  .slides-top-actions,
+  .quiz-progress-indicator {
+    grid-column: 1;
+  }
+
+  .slides-top-bar > .link-button,
+  .quiz-top-bar > .link-button {
+    grid-row: 2;
+  }
+
+  .slides-top-actions,
+  .quiz-progress-indicator {
+    grid-row: 3;
+    width: 100%;
+    justify-self: stretch;
+  }
+
+  .slides-top-actions button {
+    flex: 1 1 0;
+  }
+
+  .quiz-progress-indicator {
+    width: 100%;
+  }
+
+  .quiz-question-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+/* Print */
+@media print {
+  marin-os-banner,
+  marin-app-header,
+  marin-app-footer,
+  marin-app-feedback,
+  .reader-sidebar,
+  .landing-breadcrumb,
+  .reader-toolbar,
+  .slides-top-bar,
+  .slides-control-bar,
+  .slides-notes-panel,
+  .quiz-top-bar,
+  .quiz-nav-actions,
+  .quiz-results-actions {
+    display: none !important;
+  }
+
+  .reader-layout {
+    display: block !important;
+  }
+
+  .reader-main {
+    max-width: none !important;
+  }
+
+  .reader-unit {
+    padding: 0 !important;
+    border: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    page-break-inside: avoid;
+  }
+
+  .slide-canvas {
+    border: 0 !important;
+    box-shadow: none !important;
+    aspect-ratio: auto !important;
+    page-break-inside: avoid;
+  }
+}

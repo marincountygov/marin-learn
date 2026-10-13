@@ -19,6 +19,13 @@ PREFIX = "/template-test/"
 MANIFEST = json.loads((ROOT / "vendor/marinos/manifest.json").read_text(encoding="utf-8"))
 SECURITY = json.loads((ROOT / "security.json").read_text(encoding="utf-8"))
 CATALOG = [{"name": "Smoke Test App", "url": "https://marincountygov.github.io/smoke-test/"}]
+# App Shell 1.10.0 loads these shared MarinOS feeds lazily from its
+# Accessibility and Tech sections. Empty app maps exercise the documented
+# unavailable states without guessing which apps have live metrics.
+LIGHTHOUSE = {"apps": {}}
+TECH = {"apps": {}}
+LOCAL_CATALOG = json.loads((ROOT / "catalog.json").read_text(encoding="utf-8"))
+MARIN_MANIFEST = (ROOT / "marin.yml").read_text(encoding="utf-8")
 COMMITS = [{
     "sha": "1234567890abcdef1234567890abcdef12345678",
     "html_url": "https://github.com/marincountygov/test-fixture/commit/1234567",
@@ -70,6 +77,28 @@ def configure(context, base_url: str) -> tuple[list[str], list[str]]:
     external: list[str] = []
     origin = urlsplit(base_url).netloc
 
+    # Shell 1.10.0 uses a separate MarinOS development server on localhost:8935
+    # for Tech/Lighthouse when the app itself is served on loopback. This smoke
+    # test has no such server, so respond to exactly those two requests with
+    # fixtures. The CSP test separately verifies that the deployed URLs are
+    # permitted by the real security policy. Other fetches remain unmodified.
+    context.add_init_script(script=f"""(() => {{
+      const originalFetch = window.fetch.bind(window);
+      const devFeeds = {{
+        'http://localhost:8935/data/lighthouse.json': {json.dumps(LIGHTHOUSE)},
+        'http://localhost:8935/data/tech.json': {json.dumps(TECH)},
+      }};
+      window.fetch = (input, options) => {{
+        const url = typeof input === 'string' ? input : input.url;
+        if (Object.prototype.hasOwnProperty.call(devFeeds, url)) {{
+          return Promise.resolve(new Response(JSON.stringify(devFeeds[url]), {{
+            status: 200, headers: {{'Content-Type': 'application/json'}}
+          }}));
+        }}
+        return originalFetch(input, options);
+      }};
+    }})();""")
+
     def intercept(route) -> None:
         url = urlsplit(route.request.url)
         if url.netloc == origin:
@@ -77,6 +106,14 @@ def configure(context, base_url: str) -> tuple[list[str], list[str]]:
         elif url.hostname == "marincountygov.github.io" and url.path == "/marin-os/catalog.json":
             external.append(route.request.url)
             route.fulfill(status=200, content_type="application/json", body=json.dumps(CATALOG),
+                          headers={"Access-Control-Allow-Origin": "*"})
+        elif url.hostname == "marincountygov.github.io" and url.path == "/marin-os/data/lighthouse.json":
+            external.append(route.request.url)
+            route.fulfill(status=200, content_type="application/json", body=json.dumps(LIGHTHOUSE),
+                          headers={"Access-Control-Allow-Origin": "*"})
+        elif url.hostname == "marincountygov.github.io" and url.path == "/marin-os/data/tech.json":
+            external.append(route.request.url)
+            route.fulfill(status=200, content_type="application/json", body=json.dumps(TECH),
                           headers={"Access-Control-Allow-Origin": "*"})
         elif url.hostname == "api.github.com" and url.path.endswith("/commits"):
             external.append(route.request.url)
@@ -115,6 +152,34 @@ def no_overflow(page) -> None:
             "The page has horizontal overflow")
 
 
+def inline_module(path: Path, cache: dict[Path, str] | None = None) -> str:
+    """Inline the actual viewer ES module graph as data: URLs for offline Chromium.
+
+    Classic-script injection silently failed once the viewer adopted imports.
+    Follow relative, static ``from`` imports only; never rewrite app source.
+    """
+    cache = {} if cache is None else cache
+    path = path.resolve()
+    path.relative_to(ROOT.resolve())  # Reject path traversal outside this repo.
+    if path in cache:
+        return cache[path]
+    source = path.read_text(encoding="utf-8")
+
+    def replace_import(match):
+        target = (path.parent / match.group("target")).resolve()
+        if target.suffix != ".js":
+            raise ValueError(f"Unexpected non-JavaScript import: {target}")
+        return f"{match.group('prefix')}{match.group('quote')}{inline_module(target, cache)}{match.group('quote')}"
+
+    source = re.sub(
+        r"(?P<prefix>\bfrom\s*)(?P<quote>['\"])(?P<target>\.{1,2}/[^'\"]+)(?P=quote)",
+        replace_import, source,
+    )
+    uri = "data:text/javascript;base64," + base64.b64encode(source.encode("utf-8")).decode("ascii")
+    cache[path] = uri
+    return uri
+
+
 def fixture_page(context, current_page, url: str, *, javascript: bool = True):
     """Render the real source bytes without browser networking.
 
@@ -139,24 +204,35 @@ def fixture_page(context, current_page, url: str, *, javascript: bool = True):
     html = html.replace("</head>", f"<style>{css}</style><style>{app_css}</style></head>")
     page.set_content(html)
     if javascript:
-        page.evaluate("""([catalog, security, commits, hash]) => {
+        page.evaluate("""([catalog, localCatalog, security, commits, lighthouse, tech, manifest, hash]) => {
           window.location.hash = hash;
           window.__fixtureRequests = [];
           window.fetch = async (input) => {
             const url = String(input);
             window.__fixtureRequests.push(url);
-            let body;
-            if (url.includes('catalog.json')) body = catalog;
-            else if (url.includes('security.json')) body = security;
-            else if (url.includes('api.github.com')) body = commits;
+            let body, contentType = 'application/json';
+            if (url === 'catalog.json') body = localCatalog;
+            else if (url.endsWith('/marin-os/catalog.json')) body = catalog;
+            else if (url === 'security.json') body = security;
+            else if (url === 'marin.yml') { body = manifest; contentType = 'text/yaml'; }
+            else if (url.endsWith('/data/lighthouse.json')) body = lighthouse;
+            else if (url.endsWith('/data/tech.json')) body = tech;
+            else if (url.startsWith('https://api.github.com/')) body = commits;
             else throw new Error(`Unexpected fixture request: ${url}`);
-            return new Response(JSON.stringify(body), {
-              status: 200, headers: {'Content-Type': 'application/json'}
+            return new Response(contentType === 'application/json' ? JSON.stringify(body) : body, {
+              status: 200, headers: {'Content-Type': contentType}
             });
           };
-        }""", [CATALOG, SECURITY, COMMITS, urlsplit(url).fragment])
+        }""", [CATALOG, LOCAL_CATALOG, SECURITY, COMMITS, LIGHTHOUSE, TECH, MARIN_MANIFEST, urlsplit(url).fragment])
         page.add_script_tag(content=(ROOT / "vendor/marinos/marinos.js").read_text(encoding="utf-8"))
-        page.add_script_tag(content=(ROOT / "assets/app.js").read_text(encoding="utf-8"))
+        # Import the real ES modules, then dispatch DOMContentLoaded: set_content
+        # already fired it before the modules were installed. This preserves
+        # the production entry-point without shipping a test-only bundle.
+        page.evaluate("""async (entry) => {
+          await import(entry);
+          document.dispatchEvent(new Event('DOMContentLoaded'));
+        }""", inline_module(ROOT / "assets/app.js"))
+        page.wait_for_function("document.querySelector('#catalog-status')?.textContent?.startsWith('Showing ')")
     return page
 
 
@@ -198,12 +274,13 @@ def run(screenshots: Path | None, in_memory: bool = False) -> None:
             require(page.locator("#app-nav a").all_text_contents() == ["About", "Updates"],
                     "Header navigation differs from the starter contract")
             require(page.locator(".app-footer__nav a").all_text_contents()
-                    == ["About", "Security", "Accessibility", "Updates"], "Footer links differ")
+                    == ["About", "Security", "Accessibility", "Tech", "Updates"], "Footer links differ")
             require(page.locator(".app-footer__app-name").evaluate("el => el.tagName") == "SPAN",
                     "Footer app name should remain plain text")
-            require(page.locator(".app-icon svg rect").count() == 4, "Starter icon did not render")
-            home = page.locator(".app-identity > a.app-identity__home[href='./']")
-            require(home.locator(".app-title-row").count() == 1, "Identity is not wrapped by the home link")
+            require(page.locator(".app-icon svg path").count() == 3, "Marin Learn graduation-cap icon did not render")
+            home = page.locator(".app-title a.app-title__link[href='./']")
+            require(home.count() == 1, "Application title should link to home")
+            require(page.locator(".app-identity > .app-title-row").count() == 1, "Header title row is missing")
             duplicates = page.evaluate("""() => {
               const ids = [...document.querySelectorAll('[id]')].map(el => el.id);
               return ids.filter((id, index) => ids.indexOf(id) !== index);
@@ -218,10 +295,22 @@ def run(screenshots: Path | None, in_memory: bool = False) -> None:
             require(page.locator("#about h2").count() == 1, "About heading duplicated")
             page.locator(".app-footer__nav a[href='#security']").click()
             route_is(page, "security")
-            page.locator("[data-security-content]").get_by_text(SECURITY["publicSecurity"]["profile"]).wait_for()
+            page.locator("[data-security-content]").get_by_text(SECURITY["publicSecurity"]["controls"][0]).wait_for()
+            audience_match = re.search(r"(?m)^  audience:\s*(staff|public|developers)\s*$", MARIN_MANIFEST)
+            if audience_match:
+                audience_label = {"staff": "County staff", "public": "The public",
+                                  "developers": "Developers"}[audience_match.group(1)]
+                require(f"Built for: {audience_label}" in page.locator("[data-security-content]").inner_text(),
+                        "Shell 1.10.0 did not use the audience from marin.yml")
             page.locator(".app-footer__nav a[href='#accessibility']").click()
             route_is(page, "accessibility")
             require(page.locator("#accessibility h2").count() == 1, "Accessibility heading duplicated")
+            page.locator("[data-accessibility-status]").get_by_text(
+                "An accessibility score isn't available for this application yet.").wait_for()
+            page.locator(".app-footer__nav a[href='#tech']").click()
+            route_is(page, "tech")
+            page.locator("[data-tech-status]").get_by_text(
+                "Technology information isn't available for this application yet.").wait_for()
             page.locator("#app-nav a[href='#updates']").click()
             route_is(page, "updates")
             page.locator("[data-updates-list]").get_by_text("Shell integration smoke test", exact=True).wait_for()
@@ -230,8 +319,13 @@ def run(screenshots: Path | None, in_memory: bool = False) -> None:
             feed_requests = page.evaluate("window.__fixtureRequests") if in_memory else external
             require(any(urlsplit(url).path == f"/repos/{full_repo}/commits" for url in feed_requests),
                     "Updates used the wrong repository")
+            if in_memory:
+                require(any(url.endswith("/data/lighthouse.json") for url in feed_requests),
+                        "Accessibility did not request MarinOS Lighthouse data")
+                require(any(url.endswith("/data/tech.json") for url in feed_requests),
+                        "Tech did not request MarinOS technology data")
             page.go_back()
-            route_is(page, "accessibility")
+            route_is(page, "tech")
             page.go_forward()
             route_is(page, "updates")
 
@@ -242,7 +336,7 @@ def run(screenshots: Path | None, in_memory: bool = False) -> None:
             require(page.locator(".marinos-menu__toggle").evaluate("el => el === document.activeElement"),
                     "Catalog Escape did not restore focus")
 
-            for key in ("start", "about", "security", "accessibility", "updates"):
+            for key in ("start", "about", "security", "accessibility", "tech", "updates"):
                 page = navigate(context, page, f"{base_url}#{key}")
                 ready(page)
                 route_is(page, key)
@@ -254,7 +348,7 @@ def run(screenshots: Path | None, in_memory: bool = False) -> None:
                 page.goto(f"{base_url}?example=1#about", wait_until="networkidle")
                 ready(page)
                 page.evaluate("window.__homeNavigationSentinel = true")
-                page.locator(".app-identity__home").click()
+                page.locator(".app-title__link").click()
                 page.wait_for_url(base_url)
                 ready(page)
                 route_is(page, "start")

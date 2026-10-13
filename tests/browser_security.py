@@ -9,10 +9,12 @@ import shutil
 import sys
 from urllib.parse import urlsplit
 
-from browser_smoke import ROOT, CATALOG, COMMITS, serve, ready, require
+from browser_smoke import ROOT, CATALOG, COMMITS, LIGHTHOUSE, TECH, serve, ready, require
 
 API_URL = "https://api.github.com/repos/marincountygov/APP_REPO/commits?per_page=15"
 CATALOG_URL = "https://marincountygov.github.io/marin-os/catalog.json"
+LIGHTHOUSE_URL = "https://marincountygov.github.io/marin-os/data/lighthouse.json"
+TECH_URL = "https://marincountygov.github.io/marin-os/data/tech.json"
 BLOCKED_URL = "https://blocked.example/security-probe"
 BLOCKED_CATALOG_URL = "https://marincountygov.github.io/not-the-catalog.json"
 
@@ -63,6 +65,12 @@ def run(in_memory: bool = False) -> None:
                 elif route.request.url == CATALOG_URL:
                     route.fulfill(status=200, content_type="application/json", body=json.dumps(CATALOG),
                                   headers={"Access-Control-Allow-Origin": "*"})
+                elif route.request.url == LIGHTHOUSE_URL:
+                    route.fulfill(status=200, content_type="application/json", body=json.dumps(LIGHTHOUSE),
+                                  headers={"Access-Control-Allow-Origin": "*"})
+                elif route.request.url == TECH_URL:
+                    route.fulfill(status=200, content_type="application/json", body=json.dumps(TECH),
+                                  headers={"Access-Control-Allow-Origin": "*"})
                 elif url.hostname == "api.github.com" and url.path.endswith("/commits"):
                     route.fulfill(status=200, content_type="application/json", body=json.dumps(COMMITS),
                                   headers={"Access-Control-Allow-Origin": "*"})
@@ -90,11 +98,13 @@ def run(in_memory: bool = False) -> None:
                   blocked: event.blockedURI, disposition: event.disposition});
               });
             }""")
-            result = page.evaluate("""async ([api, catalog, denied, wrongPath, favicon]) => {
+            result = page.evaluate("""async ([api, catalog, lighthouse, tech, denied, wrongPath, favicon]) => {
               const allowed = [];
-              for (const url of [api, catalog]) {
+              for (const url of [api, catalog, lighthouse, tech]) {
                 const response = await fetch(url);
-                allowed.push(response.ok && Array.isArray(await response.json()));
+                const data = await response.json();
+                allowed.push(response.ok && (url === api || url === catalog
+                  ? Array.isArray(data) : typeof data?.apps === 'object'));
               }
               let rejected = 0;
               for (const url of [denied, wrongPath]) {
@@ -124,8 +134,8 @@ def run(in_memory: bool = False) -> None:
               button.click();
               button.remove();
               return {allowed, rejected, imageLoaded};
-            }""", [API_URL, CATALOG_URL, BLOCKED_URL, BLOCKED_CATALOG_URL, source.favicon])
-            require(result["allowed"] == [True, True], "Configured feeds were blocked by CSP/CORS")
+            }""", [API_URL, CATALOG_URL, LIGHTHOUSE_URL, TECH_URL, BLOCKED_URL, BLOCKED_CATALOG_URL, source.favicon])
+            require(result["allowed"] == [True] * 4, "Configured App Shell feeds were blocked by CSP/CORS")
             require(result["rejected"] == 2, "Unapproved connection succeeded")
             require(result["imageLoaded"], "The data: image allowance failed")
             page.wait_for_function("""() => {
@@ -145,7 +155,8 @@ def run(in_memory: bool = False) -> None:
             require(not errors, f"Unexpected page errors: {errors}")
             if not in_memory:
                 expected_referrer = f"http://{origin}/"
-                external = [headers for url, headers in requests if url == CATALOG_URL or url.startswith(API_URL)]
+                external = [headers for url, headers in requests
+                            if url in (CATALOG_URL, LIGHTHOUSE_URL, TECH_URL) or url.startswith(API_URL)]
                 require(bool(external) and all(h.get("referer") == expected_referrer for h in external),
                         "Cross-origin Referer must contain only the origin, not the app path/query")
                 require(any(urlsplit(url).path.endswith("/security.json") for url, _ in requests),

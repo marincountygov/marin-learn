@@ -1,12 +1,12 @@
-# APP_NAME
+# Marin Learn
 
 ## About this app
 
-- **Purpose:** APP_DESCRIPTION
-- **Audience:**
-- **Owner:** APP_OWNER
-- **Repo:** APP_REPO
-- **Status:** Not yet built
+- **Purpose:** Learn through structured content, presentations, and quizzes.
+- **Audience:** County staff
+- **Owner:** County of Marin
+- **Repo:** marincountygov/marin-learn
+- **Status:** Alpha (Phase 1 scaffold)
 
 ## Getting started
 
@@ -69,6 +69,16 @@ bash scripts/check.sh
 ```
 
 The checked-in tags work without a build step. The read-only checks reject missing, duplicate, misplaced, or stale policies. The default allows the shell's catalog/Updates requests and `data:` images for the existing favicon/Pico icons; scripts, styles, and fonts remain same-origin. Header-only hosting gaps remain documented rather than being represented by ineffective meta tags. Starter review dates, ownership, and advertised controls still need an actual app/deployment review. See [SECURITY.md](SECURITY.md) and the [security setup notes](docs/development.md#security-setup).
+
+## PowerPoint export
+
+Marin Learn Authoring can generate an editable `.pptx` derivative from any slide deck in **Review and Download**. The browser first runs presentation-scoped checks, keeps warnings nonblocking, routes blocking issues back to the affected slide, then generates, remediates, structurally validates, and downloads the PowerPoint file without uploading the learning package.
+
+The exporter under `js/pptx/` consumes the same shared presentation model used by the public viewer and editor preview. PptxGenJS and JSZip are reviewed and vendored under `vendor/pptxgenjs/`; the browser loads that same-origin runtime only after the author requests a PowerPoint file. The deployed application still has no production build step, CDN, backend, or Node requirement, and the generated PPTX is not added to the canonical Marin Learn ZIP or IndexedDB workspace.
+
+For repository review and CI, `node scripts/generate_pptx.mjs packages --out build/pptx-review` runs the same exporter through a hash-verified Node adapter. `scripts/validate_pptx.py` independently inspects the resulting OOXML, and `scripts/render_pptx.py` produces PDF/PNG review evidence when LibreOffice and Poppler are available. The continuous `pptx-review.yml` workflow uploads temporary review artifacts without publishing them.
+
+Before a controlled pilot or production release, the dispatch-only `pptx-release-candidate.yml` workflow adds a deterministic 14-slide conformance package and initializes checksum-bound results for the 22-case Microsoft PowerPoint and assistive-technology gate. `scripts/pptx_release_gate.py` emits a documented `ready`, `hold`, or `escalate` disposition and can package the complete evidence set. A passing gate does not add PowerPoint files to the public catalog or GitHub Pages. See `docs/pptx/SPEC.md`, `docs/pptx/ARCHITECTURE.md`, `docs/pptx/CI.md`, `docs/pptx/TESTING.md`, `docs/pptx/RELEASE.md`, and `docs/pptx/MANUAL-ACCEPTANCE.md`.
 
 ## Related resources
 

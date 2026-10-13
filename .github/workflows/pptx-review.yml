@@ -1,0 +1,121 @@
+name: Build PowerPoint review artifacts
+
+on:
+  pull_request:
+    paths:
+      - "packages/**"
+      - "schema/**"
+      - "js/core/**"
+      - "js/pptx/**"
+      - "editor/index.html"
+      - "editor/assets/app.js"
+      - "editor/assets/pptx-export.js"
+      - "security.json"
+      - "vendor/pptxgenjs/**"
+      - "scripts/check.sh"
+      - "scripts/generate_pptx.mjs"
+      - "scripts/validate_pptx.py"
+      - "scripts/render_pptx.py"
+      - "scripts/build_pptx_release_fixture.py"
+      - "scripts/pptx_release_gate.py"
+      - "tests/**"
+      - "docs/pptx/**"
+      - ".github/workflows/pptx-review.yml"
+      - ".github/workflows/pptx-release-candidate.yml"
+  push:
+    branches: ["main"]
+    paths:
+      - "packages/**"
+      - "schema/**"
+      - "js/core/**"
+      - "js/pptx/**"
+      - "editor/index.html"
+      - "editor/assets/app.js"
+      - "editor/assets/pptx-export.js"
+      - "security.json"
+      - "vendor/pptxgenjs/**"
+      - "scripts/check.sh"
+      - "scripts/generate_pptx.mjs"
+      - "scripts/validate_pptx.py"
+      - "scripts/render_pptx.py"
+      - "scripts/build_pptx_release_fixture.py"
+      - "scripts/pptx_release_gate.py"
+      - "tests/**"
+      - "docs/pptx/**"
+      - ".github/workflows/pptx-review.yml"
+      - ".github/workflows/pptx-release-candidate.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: "pptx-review-${{ github.ref }}"
+  cancel-in-progress: true
+
+jobs:
+  build-review-artifacts:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Set up Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: "22"
+          package-manager-cache: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.11"
+
+      - name: Install rendering tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends libreoffice-impress poppler-utils imagemagick
+
+      - name: Run repository checks
+        run: bash scripts/check.sh
+
+      - name: Generate PowerPoint review files
+        run: |
+          mkdir -p build/pptx-review
+          set -o pipefail
+          node scripts/generate_pptx.mjs packages \
+            --out build/pptx-review \
+            --summary build/pptx-review/results.json \
+            | tee build/pptx-review/generation.log
+
+      - name: Run independent OOXML validation
+        if: ${{ always() && hashFiles('build/pptx-review/**/*.pptx') != '' }}
+        run: |
+          set -o pipefail
+          python3 scripts/validate_pptx.py build/pptx-review \
+            --require-manifest \
+            --write-sidecars \
+            --out build/pptx-review/independent-validation.json \
+            | tee build/pptx-review/independent-validation.log
+
+      - name: Render review evidence
+        if: ${{ always() && hashFiles('build/pptx-review/**/*.pptx') != '' }}
+        run: |
+          mkdir -p build/pptx-rendered
+          set -o pipefail
+          python3 scripts/render_pptx.py build/pptx-review \
+            --out build/pptx-rendered \
+            --summary build/pptx-rendered/render-results.json \
+            | tee build/pptx-rendered/render.log
+
+      - name: Upload PowerPoint review evidence
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: marin-learn-pptx-review-${{ github.run_number }}
+          path: |
+            build/pptx-review
+            build/pptx-rendered
+          if-no-files-found: warn
+          retention-days: 14

@@ -31,3 +31,30 @@ Replace this template-specific document with app-specific architecture, behavior
 - `marin-ui`: design system consumed through the shell release, not independently synced into this app.
 - `marin-digital-standards`: accessibility, content, brand, security, and product-design requirements.
 - `marin-skills/marin-app-builder`: scaffolding workflow that must reflect this component-based starter.
+
+# Add to the Marin Learn project's AGENTS.md
+
+## Editor integration - mandatory gates
+
+* The learner-facing Marin Learn viewer is the accepted product baseline. `/` remains the public catalog; `/editor/` is a separate authoring application.
+* Authoritative editor contracts are `docs/editor/SPEC.md`, `docs/editor/UX-CONTENT.md`, `docs/editor/IMPLEMENTATION.md`, and `docs/editor/TESTING.md`.
+* Integrate the v0.1.0 functional core as **reference or selective implementation**, not as a second competing runtime or a styling template.
+* Work in two stages: **Stage A functional integration**, then (only after explicit approval) **Stage B document-first UX redesign**.
+* Authorize and implement exactly one named subphase at a time. Stop after a completion report; never silently advance.
+* The default editor audience is occasional, non-technical staff. Hide schema terms by default, prefer task-oriented copy and a continuous Reading Materials editor, and support pasted Word/Docs/web content.
+* The legacy `contenteditable`/`document.execCommand` editor and legacy header/sidebar/CSS are not acceptable final UX foundations.
+* Preserve the approved `marin-learn/v1` schema, individual Markdown files, package format, stable UUID references, quiz/slide semantics, and existing viewer/publication behavior.
+* Use current Marin App Shell / marin-ui and Marin Digital Standards. Sibling MarinOS repositories are read-only.
+* Production remains static, local-only editing; no CDN, authentication, backend, telemetry, or public publishing action is implied.
+* After each subphase report files changed, tests actually run, MarinOS/accessibility checks, visual evidence, unresolved issues, and explicitly **STOP - awaiting approval**.
+
+## Editor integration file precedence
+
+1. Approved current MarinOS integration conventions for shell-managed behavior.
+2. `schema/marin-learn-v1.schema.json`, `docs/MARKDOWN.md`, and `docs/PACKAGE.md` for canonical formats.
+3. `docs/viewer/SPEC.md` for the published learner experience.
+4. `docs/editor/\*` for editor behavior and UX.
+5. Legacy v0.1.0 modules as historical migration evidence.
+
+
+

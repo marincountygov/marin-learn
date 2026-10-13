@@ -1,0 +1,293 @@
+{
+  "schema": 1,
+  "planVersion": "1.0.0",
+  "title": "Marin Learn PPTX manual acceptance plan",
+  "statusValues": [
+    "not_run",
+    "pass",
+    "fail",
+    "blocked",
+    "not_applicable",
+    "escalate"
+  ],
+  "targets": {
+    "pilot": {
+      "readyDisposition": "ready-for-controlled-pilot"
+    },
+    "production": {
+      "readyDisposition": "ready-for-production"
+    }
+  },
+  "conditionalScopeKeys": {
+    "chartsPresent": "At least one release-candidate deck contains a chart.",
+    "unmanagedFontEnvironmentInScope": "The target audience may open decks on devices without Jost and Open Sans.",
+    "officialIdentityApprovalRequiredForPilot": "The controlled pilot requires final brand/template approval rather than interim text identity.",
+    "pdfOrHandoutsDistributed": "Printed handouts or PDF derivatives will be distributed."
+  },
+  "cases": [
+    {
+      "id": "MANUAL-001",
+      "title": "Open, render, and visual-integrity review",
+      "risk": "critical",
+      "pilotRequirement": "required",
+      "productionRequirement": "required",
+      "conditionKey": null,
+      "evidenceFileRequired": false,
+      "screenReaderRequired": false,
+      "procedure": "Open every Node- and browser-generated candidate in the County-supported desktop PowerPoint. Record repair, corruption, compatibility, or blocked-content warnings; inspect every slide in Normal and Slide Show views for clipping, wrapping, overlap, missing content, malformed tables, and image distortion.",
+      "expectedResult": "No repair prompt or material visual defect. Content matches the supplied render evidence."
+    },
+    {
+      "id": "MANUAL-002",
+      "title": "PowerPoint Accessibility Checker",
+      "risk": "critical",
+      "pilotRequirement": "required",
+      "productionRequirement": "required",
+      "conditionKey": null,
+      "evidenceFileRequired": true,
+      "screenReaderRequired": false,
+      "procedure": "Run Review > Check Accessibility on every candidate, expand every error, warning, and tip, save evidence, then save, close, reopen, and run the checker again.",
+      "expectedResult": "No unresolved errors. Every warning or tip has a documented disposition."
+    },
+    {
+      "id": "MANUAL-003",
+      "title": "Reading Order and Selection panes",
+      "risk": "critical",
+      "pilotRequirement": "required",
+      "productionRequirement": "required",
+      "conditionKey": null,
+      "evidenceFileRequired": false,
+      "screenReaderRequired": false,
+      "procedure": "Inspect every slide, prioritizing the release fixture's media, split, quote, table, and image slides. Confirm title-first logical order, grouped related content, skipped decorative objects, and undamaged visual stacking.",
+      "expectedResult": "The assistive-technology order matches the intended meaning and the unique slide title is first."
+    },
+    {
+      "id": "MANUAL-004",
+      "title": "Title quality and Outline view",
+      "risk": "high",
+      "pilotRequirement": "required",
+      "productionRequirement": "required",
+      "conditionKey": null,
+      "evidenceFileRequired": false,
+      "screenReaderRequired": false,
+      "procedure": "Use Outline view to verify every slide has one unique and useful title and no competing duplicate title object.",
+      "expectedResult": "All slides are identifiable and navigable by title alone."
+    },
+    {
+      "id": "MANUAL-005",
+      "title": "Informative image alternative-text quality",
+      "risk": "critical",
+      "pilotRequirement": "required",
+      "productionRequirement": "required",
+      "conditionKey": null,
+      "evidenceFileRequired": false,
+      "screenReaderRequired": false,
+      "procedure": "Inspect informative images in the release fixture and production candidates. Confirm contextual alt text, no redundant 'image of' phrasing, no local path or data URI, and one announcement in the intended order.",
+      "expectedResult": "Each informative image has concise, contextual alternative text announced exactly once."
+    },
+    {
+      "id": "MANUAL-006",
+      "title": "Decorative-object behavior",
+      "risk": "critical",
+      "pilotRequirement": "required",
+      "productionRequirement": "required",
+      "conditionKey": null,
+      "evidenceFileRequired": false,
+      "screenReaderRequired": false,
+      "procedure": "Inspect decorative images, rules, and accents in Alt Text and Reading Order interfaces and with a screen reader.",
+      "expectedResult": "Decorative objects are marked decorative and skipped without filename, empty graphic, or duplicate announcements."
+    },
+    {
+      "id": "MANUAL-007",
+      "title": "Table structure and navigation",
+      "risk": "critical",
+      "pilotRequirement": "required",
+      "productionRequirement": "required",
+      "conditionKey": null,
+      "evidenceFileRequired": false,
+      "screenReaderRequired": false,
+      "procedure": "Use the release fixture table slide. Confirm first-row headers, a simple unmerged grid, coherent cell navigation, header context, and a usable exit path.",
+      "expectedResult": "The table is editable, navigable, and understandable by row and column."
+    },
+    {
+      "id": "MANUAL-008",
+      "title": "Hyperlink operation and purpose",
+      "risk": "high",
+      "pilotRequirement": "required",
+      "productionRequirement": "required",
+      "conditionKey": null,
+      "evidenceFileRequired": false,
+      "screenReaderRequired": false,
+      "procedure": "Navigate every representative link using the keyboard, verify useful visible text and announced role, and activate the destination.",
+      "expectedResult": "Links are reachable, descriptive, and operational."
+    },
+    {
+      "id": "MANUAL-009",
+      "title": "List structure and announcement",
+      "risk": "high",
+      "pilotRequirement": "required",
+      "productionRequirement": "required",
+      "conditionKey": null,
+      "evidenceFileRequired": false,
+      "screenReaderRequired": false,
+      "procedure": "Inspect bullets, numbering, and nesting in PowerPoint and with a screen reader. Confirm they are native list structures rather than typed glyphs.",
+      "expectedResult": "Lists preserve editable structure, nesting, and understandable announcement."
+    },
+    {
+      "id": "MANUAL-010",
+      "title": "Search, selection, copy, and editability",
+      "risk": "critical",
+      "pilotRequirement": "required",
+      "productionRequirement": "required",
+      "conditionKey": null,
+      "evidenceFileRequired": false,
+      "screenReaderRequired": false,
+      "procedure": "Search for accented text and representative titles; copy body, code, list, and table text to a plain-text editor; edit a title, paragraph, list item, table cell, and image position.",
+      "expectedResult": "Content remains real, searchable, selectable, copyable, and editable rather than flattened imagery."
+    },
+    {
+      "id": "MANUAL-011",
+      "title": "Language metadata and pronunciation",
+      "risk": "high",
+      "pilotRequirement": "required",
+      "productionRequirement": "required",
+      "conditionKey": null,
+      "evidenceFileRequired": false,
+      "screenReaderRequired": false,
+      "procedure": "Inspect document and run proofing language and read representative Unicode and accented text with a screen reader.",
+      "expectedResult": "English (United States) is assigned unless source content says otherwise, and pronunciation is reasonable."
+    },
+    {
+      "id": "MANUAL-012",
+      "title": "Chart labels and non-color differentiation",
+      "risk": "high",
+      "pilotRequirement": "conditional",
+      "productionRequirement": "conditional",
+      "conditionKey": "chartsPresent",
+      "evidenceFileRequired": false,
+      "screenReaderRequired": false,
+      "procedure": "When a release candidate contains a chart, inspect direct labels, grayscale behavior, adjacent text alternative, chart alt text, and screen-reader behavior.",
+      "expectedResult": "The chart takeaway is available without color and through an accurate text alternative."
+    },
+    {
+      "id": "MANUAL-013",
+      "title": "Screen-reader end-to-end spot test",
+      "risk": "critical",
+      "pilotRequirement": "required",
+      "productionRequirement": "required",
+      "conditionKey": null,
+      "evidenceFileRequired": true,
+      "screenReaderRequired": true,
+      "procedure": "Navigate representative title, content, split, media, quote, table, list, Unicode, and decorative-object slides by slide and object using the County-supported screen reader.",
+      "expectedResult": "The complete meaning and sequence are understandable without sight; no required content is skipped, duplicated, or traps navigation."
+    },
+    {
+      "id": "MANUAL-014",
+      "title": "Speaker notes",
+      "risk": "high",
+      "pilotRequirement": "required",
+      "productionRequirement": "required",
+      "conditionKey": null,
+      "evidenceFileRequired": false,
+      "screenReaderRequired": false,
+      "procedure": "Inspect Notes view for every slide and verify notes are editable, in the notes body, and excluded from the normal slide reading sequence.",
+      "expectedResult": "Every authored note is usable and remains attached to the correct slide."
+    },
+    {
+      "id": "MANUAL-015",
+      "title": "Approved fonts installed",
+      "risk": "critical",
+      "pilotRequirement": "required",
+      "productionRequirement": "required",
+      "conditionKey": null,
+      "evidenceFileRequired": false,
+      "screenReaderRequired": false,
+      "procedure": "On a workstation with Jost and Open Sans installed, inspect titles, body, tables, footers, and any labels; compare with render evidence and check Replace Fonts.",
+      "expectedResult": "Headings use Jost, body content uses Open Sans, and no unexpected font or layout fallback appears."
+    },
+    {
+      "id": "MANUAL-016",
+      "title": "Font substitution on a clean workstation",
+      "risk": "high",
+      "pilotRequirement": "conditional",
+      "productionRequirement": "required",
+      "conditionKey": "unmanagedFontEnvironmentInScope",
+      "evidenceFileRequired": false,
+      "screenReaderRequired": false,
+      "procedure": "Open representative decks on a controlled workstation without Jost and Open Sans. Record substitutions and inspect every slide for reflow, clipping, overlap, and hierarchy changes; document the distribution policy.",
+      "expectedResult": "The font policy is explicit and material fallback breakage is resolved or excluded from the supported distribution scope."
+    },
+    {
+      "id": "MANUAL-017",
+      "title": "Round-trip edit, save, reopen, and recheck",
+      "risk": "critical",
+      "pilotRequirement": "required",
+      "productionRequirement": "required",
+      "conditionKey": null,
+      "evidenceFileRequired": false,
+      "screenReaderRequired": false,
+      "procedure": "Edit title, body, list, table, notes, and image position; save as a new PPTX; close and reopen; rerun targeted accessibility and reading-order checks.",
+      "expectedResult": "PowerPoint does not repair the file, edits remain stable, and required accessibility properties survive the save cycle."
+    },
+    {
+      "id": "MANUAL-018",
+      "title": "Supported PowerPoint variants",
+      "risk": "high",
+      "pilotRequirement": "required",
+      "productionRequirement": "required",
+      "conditionKey": null,
+      "evidenceFileRequired": false,
+      "screenReaderRequired": false,
+      "procedure": "Test desktop Windows and every additional PowerPoint variant the County intends to support. Record rendering, notes, checker, reading order, alt text, table, and font differences.",
+      "expectedResult": "The support statement names exact supported environments and documents excluded or limited variants."
+    },
+    {
+      "id": "MANUAL-019",
+      "title": "Official template, logo, and identity approval",
+      "risk": "high",
+      "pilotRequirement": "conditional",
+      "productionRequirement": "required",
+      "conditionKey": "officialIdentityApprovalRequiredForPilot",
+      "evidenceFileRequired": true,
+      "screenReaderRequired": false,
+      "procedure": "Compare production candidates with the authoritative County or department PowerPoint template and approved identity assets. Do not recreate or alter the logo.",
+      "expectedResult": "The brand owner approves the identity treatment or the exporter is updated to use supplied official assets."
+    },
+    {
+      "id": "MANUAL-020",
+      "title": "Contrast, legibility, grayscale, and projection",
+      "risk": "high",
+      "pilotRequirement": "required",
+      "productionRequirement": "required",
+      "conditionKey": null,
+      "evidenceFileRequired": false,
+      "screenReaderRequired": false,
+      "procedure": "Review on a typical monitor, in Slide Show, on a projector or conference display where practical, in grayscale, and under high-contrast settings.",
+      "expectedResult": "Text and meaningful graphics remain legible and no meaning depends on color alone."
+    },
+    {
+      "id": "MANUAL-021",
+      "title": "Printed handouts and PDF derivative",
+      "risk": "high",
+      "pilotRequirement": "conditional",
+      "productionRequirement": "conditional",
+      "conditionKey": "pdfOrHandoutsDistributed",
+      "evidenceFileRequired": false,
+      "screenReaderRequired": false,
+      "procedure": "When handouts or PDF derivatives will be distributed, generate them through the intended PowerPoint workflow and perform a separate document-accessibility review.",
+      "expectedResult": "The derivative passes its own review or is not distributed."
+    },
+    {
+      "id": "MANUAL-022",
+      "title": "Content quality, plain language, and risk review",
+      "risk": "critical",
+      "pilotRequirement": "required",
+      "productionRequirement": "required",
+      "conditionKey": null,
+      "evidenceFileRequired": false,
+      "screenReaderRequired": false,
+      "procedure": "Have program/content owners review actual production decks for accuracy, plain language, privacy, legal or policy implications, records requirements, and fidelity to source meaning.",
+      "expectedResult": "The responsible content owner approves the substantive content and any remaining limitation is documented."
+    }
+  ]
+}

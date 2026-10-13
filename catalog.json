@@ -1,0 +1,69 @@
+{
+  "format": "marin-learn-catalog/v1",
+  "items": [
+    {
+      "setId": "urn:uuid:ffcdfa4a-a5a1-51a2-a381-c20c2ab91c1b",
+      "identifier": "county-leaders-guide-to-data",
+      "name": "County Leader's Guide to Data",
+      "abstract": "Stop treating data as an IT project. Use it as a public asset, make evidence safe to surface, and start changing decisions one meeting at a time.",
+      "educationalLevel": "introductory",
+      "inLanguage": "en-US",
+      "keywords": [
+        "county government",
+        "data stewardship",
+        "data literacy",
+        "leadership",
+        "data quality",
+        "decision-making"
+      ],
+      "graphUrl": "learning/county-leaders-guide-to-data/learning.json",
+      "resourceCounts": {
+        "materials": 1,
+        "presentations": 1,
+        "assessments": 17
+      },
+      "revision": "0be2175b15c3"
+    },
+    {
+      "setId": "urn:uuid:87dd853c-724f-5fda-8808-002a06c92d5a",
+      "identifier": "county-leaders-guide-to-schemas",
+      "name": "County Leader\u2019s Guide to Schemas",
+      "abstract": "You do not need to design a schema. You need to ask whether the rules behind our information are stable, understandable, and compatible with the systems we already use.",
+      "educationalLevel": "introductory",
+      "inLanguage": "en-US",
+      "keywords": [
+        "county government",
+        "schemas",
+        "data literacy",
+        "data governance",
+        "interoperability",
+        "procurement",
+        "system integration",
+        "public-sector leadership"
+      ],
+      "graphUrl": "learning/county-leaders-guide-to-schemas/learning.json",
+      "resourceCounts": {
+        "materials": 1,
+        "presentations": 1,
+        "assessments": 21
+      },
+      "revision": "d99cefbb4cca"
+    },
+    {
+      "setId": "urn:uuid:10000000-0000-4000-8000-000000000001",
+      "identifier": "marinos-foundations",
+      "name": "MarinOS Foundations",
+      "abstract": "A concise introduction to MarinOS principles, shared components, accessibility, and maintainable delivery.",
+      "educationalLevel": "introductory",
+      "inLanguage": "en-US",
+      "keywords": [],
+      "graphUrl": "learning/marinos-foundations/learning.json",
+      "resourceCounts": {
+        "materials": 1,
+        "presentations": 1,
+        "assessments": 9
+      },
+      "revision": "077858651272"
+    }
+  ]
+}

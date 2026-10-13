@@ -1,0 +1,3659 @@
+{
+  "@context": [
+    "https://schema.org",
+    {
+      "marin": "https://marincountygov.github.io/marin-learn/ns#"
+    }
+  ],
+  "@graph": [
+    {
+      "@id": "urn:uuid:87dd853c-724f-5fda-8808-002a06c92d5a",
+      "@type": [
+        "LearningResource",
+        "marin:LearningSet"
+      ],
+      "identifier": "county-leaders-guide-to-schemas",
+      "name": "County Leader’s Guide to Schemas",
+      "abstract": "You do not need to design a schema. You need to ask whether the rules behind our information are stable, understandable, and compatible with the systems we already use.",
+      "description": "A plain-language leadership companion to the County Leader’s Guide to Data. Created for Marin Learn demonstration and discussion; illustrative workflows are not statements of County policy.",
+      "schemaVersion": "1.0.0",
+      "inLanguage": "en-US",
+      "version": "1.0.0",
+      "dateCreated": "2026-10-09",
+      "dateModified": "2026-10-09",
+      "creativeWorkStatus": "published",
+      "educationalLevel": "introductory",
+      "educationalUse": [
+        "orientation",
+        "self-study"
+      ],
+      "learningResourceType": "guide",
+      "timeRequired": "PT25M",
+      "audience": [
+        {
+          "@type": "EducationalAudience",
+          "audienceType": "County executives, department directors, and program leaders",
+          "educationalRole": "learner"
+        }
+      ],
+      "keywords": [
+        "county government",
+        "schemas",
+        "data literacy",
+        "data governance",
+        "interoperability",
+        "procurement",
+        "system integration",
+        "public-sector leadership"
+      ],
+      "marin:startResource": {
+        "@id": "urn:uuid:d7f56d5b-065f-592e-82aa-ac7a1ab93e11"
+      },
+      "hasPart": [
+        {
+          "@id": "urn:uuid:71dc6920-8d5f-5869-9b3e-b70c894aac48"
+        },
+        {
+          "@id": "urn:uuid:6982b7b3-01ce-528d-81b8-03dd2c862ddc"
+        },
+        {
+          "@id": "urn:uuid:3c48d6fe-1d61-57df-a2d8-be0ea96e020d"
+        },
+        {
+          "@id": "urn:uuid:b10d94b2-991f-565d-aee4-68a7cc5eab63"
+        },
+        {
+          "@id": "urn:uuid:82e455c3-7eab-5523-bc08-200944780469"
+        },
+        {
+          "@id": "urn:uuid:6326e07c-6f52-5c0b-b336-0fc60e250faf"
+        },
+        {
+          "@id": "urn:uuid:4cce3f76-29c6-538b-b463-353c9ed9d8ef"
+        },
+        {
+          "@id": "urn:uuid:28940e24-3324-5362-87b8-ce1e2b8f3d6f"
+        },
+        {
+          "@id": "urn:uuid:176e219f-f0cb-56cd-a4f4-de87154853ce"
+        },
+        {
+          "@id": "urn:uuid:3d6eccf2-0641-5192-8a86-02c427038e43"
+        },
+        {
+          "@id": "urn:uuid:9b6e5ed8-6b41-5cac-b5a8-df8c432cfe81"
+        },
+        {
+          "@id": "urn:uuid:fe7fe1ee-5d56-564b-ba48-ce1c5c188eef"
+        },
+        {
+          "@id": "urn:uuid:db6d0ab0-ef43-5556-ba95-10ad9ce53072"
+        },
+        {
+          "@id": "urn:uuid:066a16b8-f88f-5598-a986-8afc1fa51813"
+        },
+        {
+          "@id": "urn:uuid:2bae79b7-f766-5de8-b0fb-faaae410a66d"
+        },
+        {
+          "@id": "urn:uuid:03524d7e-9869-5c53-826c-b2397c88fc95"
+        },
+        {
+          "@id": "urn:uuid:25ed656d-28fe-5066-a157-594c2bbfa675"
+        },
+        {
+          "@id": "urn:uuid:6f4c94a2-7ab8-5bea-9a18-b906c04c6a58"
+        },
+        {
+          "@id": "urn:uuid:c59f9f4c-5949-5178-b0f5-ebe2f26f7595"
+        },
+        {
+          "@id": "urn:uuid:e0760d30-62ea-5a7e-9956-edb6f1b52a8a"
+        },
+        {
+          "@id": "urn:uuid:81d76bd8-296e-52e0-b6b2-9631c22b45d6"
+        },
+        {
+          "@id": "urn:uuid:d0cefc87-0fb8-50d1-afda-4625350d92b3"
+        },
+        {
+          "@id": "urn:uuid:51a25975-2a73-56fc-b13d-fae46221525b"
+        },
+        {
+          "@id": "urn:uuid:2ce6d3a9-551f-5ded-ad37-51b806911770"
+        },
+        {
+          "@id": "urn:uuid:27733348-9cd5-5a81-a088-c96834fdfb03"
+        },
+        {
+          "@id": "urn:uuid:d7f56d5b-065f-592e-82aa-ac7a1ab93e11"
+        },
+        {
+          "@id": "urn:uuid:1cc028e6-9cc4-51c9-b3b2-aac36d3e154e"
+        },
+        {
+          "@id": "urn:uuid:642fcf77-673b-5a68-86e9-eaf48fc5ca73"
+        },
+        {
+          "@id": "urn:uuid:052a6d60-8e98-5322-9131-0f8f5d928904"
+        },
+        {
+          "@id": "urn:uuid:c0ffcc68-b11e-5e45-a762-8f5dd82402e3"
+        },
+        {
+          "@id": "urn:uuid:91e0c4d0-5671-54da-9231-26b8697e567e"
+        },
+        {
+          "@id": "urn:uuid:6c9ae4d6-30c0-508e-82f2-de1c22ef7f81"
+        },
+        {
+          "@id": "urn:uuid:028365b6-5038-5520-b9b4-fdd251acebb0"
+        },
+        {
+          "@id": "urn:uuid:1962b9ef-5513-58d9-b587-7c59c4627522"
+        },
+        {
+          "@id": "urn:uuid:96c31811-0c2b-5cae-a4ff-248724bed918"
+        },
+        {
+          "@id": "urn:uuid:96412d19-f229-5855-b8b1-4d8caa9200af"
+        },
+        {
+          "@id": "urn:uuid:1646a83c-073e-585c-b665-5dd0ccf162e2"
+        },
+        {
+          "@id": "urn:uuid:71c98f33-29f9-5196-8ee1-1880bd830329"
+        },
+        {
+          "@id": "urn:uuid:dbaa4882-fd42-5121-b9c2-d33f19bda711"
+        },
+        {
+          "@id": "urn:uuid:d0b66919-3a06-51a9-8cdf-0818453c9757"
+        },
+        {
+          "@id": "urn:uuid:209db18d-01a8-5a6a-9a19-cf339aefc6cd"
+        },
+        {
+          "@id": "urn:uuid:170e4bcf-86b2-5f63-bc97-67425fdf01cf"
+        },
+        {
+          "@id": "urn:uuid:dc6844d2-7ae9-5bb4-bc9b-0af16eb821e5"
+        },
+        {
+          "@id": "urn:uuid:dc889591-f864-5c20-b80c-58a81b448fe1"
+        },
+        {
+          "@id": "urn:uuid:428d3d8b-f2c4-56b1-99d7-66923f0eb3e7"
+        },
+        {
+          "@id": "urn:uuid:f7d5f657-a250-5eee-915e-d95397874316"
+        },
+        {
+          "@id": "urn:uuid:863b7431-de40-5ac1-8bee-48bbc4b88f9b"
+        },
+        {
+          "@id": "urn:uuid:02171cb3-a8e6-5a05-8693-9dc5d60ba175"
+        },
+        {
+          "@id": "urn:uuid:09eb0334-ddc9-5092-8bbf-c1289e3ec20e"
+        },
+        {
+          "@id": "urn:uuid:cee104fd-b747-5873-810a-04ecc92e0ac9"
+        },
+        {
+          "@id": "urn:uuid:f229a44f-d640-580f-bb0d-073dc853714a"
+        },
+        {
+          "@id": "urn:uuid:9cf0a49c-8a39-5b93-b007-325d3a3460b7"
+        },
+        {
+          "@id": "urn:uuid:37961e09-6d13-5b57-a4bc-ab296f12c7dc"
+        },
+        {
+          "@id": "urn:uuid:a8080061-0a35-59b8-9477-3050314dd4c1"
+        },
+        {
+          "@id": "urn:uuid:01ad0bad-72cc-5fe9-b99f-25b73b8e3f60"
+        },
+        {
+          "@id": "urn:uuid:b5219319-db96-5762-9d95-f7b6c4eca2d6"
+        },
+        {
+          "@id": "urn:uuid:77aa7b1d-b3dd-5786-a521-d8bc3ca81871"
+        },
+        {
+          "@id": "urn:uuid:6b0f5090-4221-5750-8c6a-481c72e3d625"
+        },
+        {
+          "@id": "urn:uuid:20af090e-bf46-506a-96cb-aff54ea6e960"
+        },
+        {
+          "@id": "urn:uuid:0c028c5e-6d96-56b3-ac41-0b56898a894e"
+        },
+        {
+          "@id": "urn:uuid:6dcfb65d-bee3-5173-bddf-753d26f50056"
+        },
+        {
+          "@id": "urn:uuid:ead4a985-9b45-5807-97e2-05e3f73c37b7"
+        },
+        {
+          "@id": "urn:uuid:fc90c294-fcf7-5c96-b6db-a476398cf091"
+        },
+        {
+          "@id": "urn:uuid:a73c4ba5-6163-566b-b98c-49a67f011f19"
+        },
+        {
+          "@id": "urn:uuid:f3a807cb-fb59-5250-8608-9095cdbae85b"
+        },
+        {
+          "@id": "urn:uuid:9ab4633b-2a3c-5687-9521-2d8f03a62d28"
+        },
+        {
+          "@id": "urn:uuid:8eafba82-8931-547d-af8d-e1ea31fa9c08"
+        },
+        {
+          "@id": "urn:uuid:886ccbf9-4f67-5407-b803-90055ac6de9c"
+        },
+        {
+          "@id": "urn:uuid:3839748f-b675-51b5-9cb1-eef20c8dc59a"
+        },
+        {
+          "@id": "urn:uuid:6b659c20-2937-5a2e-9c79-93a66e09ecf6"
+        },
+        {
+          "@id": "urn:uuid:1487c57f-08c8-5a8e-b624-38d571280a94"
+        },
+        {
+          "@id": "urn:uuid:108407b3-dab5-5d6a-848f-cd275721a4b0"
+        },
+        {
+          "@id": "urn:uuid:dc5ceda3-085e-5893-9e59-9fc8bcf695ae"
+        },
+        {
+          "@id": "urn:uuid:cd426e2f-a2f1-5b90-8c35-868dbfb3edc5"
+        },
+        {
+          "@id": "urn:uuid:0b590937-28d5-5b67-ab1e-5b6a023845db"
+        },
+        {
+          "@id": "urn:uuid:5ab3823d-9c89-5a03-a84b-d136bcde9076"
+        },
+        {
+          "@id": "urn:uuid:7f3b69c9-3e0e-5c35-bdb5-aac5d860db70"
+        },
+        {
+          "@id": "urn:uuid:aec81baf-735f-5b91-aeb0-8e8c77116498"
+        },
+        {
+          "@id": "urn:uuid:57e1b574-892c-5642-ba08-8b63c0ffe8a4"
+        },
+        {
+          "@id": "urn:uuid:1ceb206f-a1bc-5fc0-a04f-cd609dd584d9"
+        },
+        {
+          "@id": "urn:uuid:3b660fa0-8323-5f01-8f8c-a875536ade06"
+        },
+        {
+          "@id": "urn:uuid:0e8a5b0d-83b4-5109-8648-1f22d88db18f"
+        },
+        {
+          "@id": "urn:uuid:d6ec28e1-b298-5d7b-b7bd-63048e9c5426"
+        },
+        {
+          "@id": "urn:uuid:3dda8699-d138-5d8b-99ca-0436a9b16062"
+        },
+        {
+          "@id": "urn:uuid:2f936999-d36a-5ef5-b974-c3ea4a94ea15"
+        },
+        {
+          "@id": "urn:uuid:6866ccdd-a4d4-5f96-a9a4-8d72d661fc82"
+        },
+        {
+          "@id": "urn:uuid:90907d3a-6b6c-54f6-9f6d-24341a53220a"
+        },
+        {
+          "@id": "urn:uuid:9b3b70e7-89ee-5373-889c-c9a6bf7e1535"
+        },
+        {
+          "@id": "urn:uuid:31986f15-8586-5141-9d81-85b89ddf385b"
+        },
+        {
+          "@id": "urn:uuid:24a4dea5-242e-5260-bd87-5a4c34eeb222"
+        },
+        {
+          "@id": "urn:uuid:f6eb4cd3-38f5-5294-8e0d-5b7e33bbf8e9"
+        },
+        {
+          "@id": "urn:uuid:9568ebff-5c16-54d9-baec-e7101aaa76f6"
+        },
+        {
+          "@id": "urn:uuid:07cdad3a-01f1-5d11-9715-684ce21c8933"
+        },
+        {
+          "@id": "urn:uuid:07b2d1b2-4f26-5a79-b6f0-1d21b48132d6"
+        },
+        {
+          "@id": "urn:uuid:ee0e1d71-d63d-5dfe-a6b5-7db4f97c9a0a"
+        },
+        {
+          "@id": "urn:uuid:16e51eef-2625-5bbe-ae22-b48cddf5ac29"
+        },
+        {
+          "@id": "urn:uuid:a3031202-8fa1-5f52-bf52-7c4688a54301"
+        },
+        {
+          "@id": "urn:uuid:0f73b9df-bd9e-56b0-b785-8cfe2d65b142"
+        },
+        {
+          "@id": "urn:uuid:92c08594-0170-5c6e-9fed-9f969ae08d10"
+        },
+        {
+          "@id": "urn:uuid:00b611d2-c012-5e38-b773-fd767a3c0cd5"
+        },
+        {
+          "@id": "urn:uuid:bcc9f49b-03ad-5a7b-b5b5-cdc923599b66"
+        },
+        {
+          "@id": "urn:uuid:b7123940-de50-53b9-abd2-82b5a81544f7"
+        },
+        {
+          "@id": "urn:uuid:308f8c03-5752-5c4d-bd64-f3196d4207c6"
+        },
+        {
+          "@id": "urn:uuid:6eb9c155-19a0-51df-8127-3aa95f4b1922"
+        },
+        {
+          "@id": "urn:uuid:377d5def-05b5-51a4-901b-0b542e9ab76d"
+        },
+        {
+          "@id": "urn:uuid:f0b514f3-2228-5000-a71c-6e69d7f0af78"
+        },
+        {
+          "@id": "urn:uuid:ba70f96e-a3a5-50a4-8987-dd91b70658bd"
+        },
+        {
+          "@id": "urn:uuid:edc2e12b-7f78-5d91-926d-3f86ec63ca0f"
+        },
+        {
+          "@id": "urn:uuid:13f6245d-0f69-5109-9829-5773ae9d48d4"
+        },
+        {
+          "@id": "urn:uuid:c9d2d675-2a44-5591-9e0b-f0b5a1cacfd3"
+        },
+        {
+          "@id": "urn:uuid:e442bed9-36eb-56a9-a72b-a6b1467cf28a"
+        },
+        {
+          "@id": "urn:uuid:6190a45a-64b0-5d65-b91d-b8ff4a1b3769"
+        },
+        {
+          "@id": "urn:uuid:d543c35c-7e2e-50b6-88dc-a453b2418b78"
+        },
+        {
+          "@id": "urn:uuid:d8a75a06-037c-5d1a-9007-d7cd1dc17ed3"
+        },
+        {
+          "@id": "urn:uuid:a0a0cbfa-78df-5ac2-b242-35022a6d171b"
+        },
+        {
+          "@id": "urn:uuid:fbe5baf6-3441-50cd-a97c-5f312aa6b956"
+        },
+        {
+          "@id": "urn:uuid:e81025ea-33e3-505b-9581-7cb6db34105a"
+        },
+        {
+          "@id": "urn:uuid:bbee3511-c7e3-5b6c-85e7-10319980dd40"
+        },
+        {
+          "@id": "urn:uuid:9cfe9f1e-f303-5737-a0b6-eebadc812f38"
+        },
+        {
+          "@id": "urn:uuid:d78547ce-f16a-5a18-8d30-c0bf1e87b05c"
+        },
+        {
+          "@id": "urn:uuid:faf3bfb6-f624-52a9-b329-0b74488e6328"
+        },
+        {
+          "@id": "urn:uuid:7b977a81-5391-56fc-9352-82f7e52febb0"
+        },
+        {
+          "@id": "urn:uuid:ddd078dc-c4ac-5959-8fae-cd600083ee9e"
+        },
+        {
+          "@id": "urn:uuid:af8c2785-817f-5ebb-a048-d4d138f5b759"
+        },
+        {
+          "@id": "urn:uuid:7b1c8908-3d3c-5d5a-9a80-ba04cdb48c08"
+        },
+        {
+          "@id": "urn:uuid:ac730a63-4680-5791-b8c3-b94d953a63c5"
+        },
+        {
+          "@id": "urn:uuid:412aa093-e3d5-5c74-9be9-73519935d551"
+        },
+        {
+          "@id": "urn:uuid:24115fe1-5711-5de1-af03-46608cda31f0"
+        },
+        {
+          "@id": "urn:uuid:ab8f8674-478e-5e10-b90d-1b684cf8c742"
+        },
+        {
+          "@id": "urn:uuid:f1fe3c06-3700-58eb-ae5f-0f19f26f86bc"
+        },
+        {
+          "@id": "urn:uuid:1dc9b79a-8cc5-5ae7-9a32-f03107dfefaf"
+        },
+        {
+          "@id": "urn:uuid:63e93426-b549-5a75-a929-7c2e2167b994"
+        },
+        {
+          "@id": "urn:uuid:c0a5bc1d-c8f6-54ee-a732-a2a8e1eaea28"
+        },
+        {
+          "@id": "urn:uuid:b3d8c40c-8138-56ae-8a49-a0dce9598a5b"
+        },
+        {
+          "@id": "urn:uuid:6f372da9-00f9-52a2-9551-755309b9b79a"
+        },
+        {
+          "@id": "urn:uuid:18814ceb-3f64-57e6-9cc2-09c3ef02ef2f"
+        }
+      ]
+    },
+    {
+      "@id": "urn:uuid:71dc6920-8d5f-5869-9b3e-b70c894aac48",
+      "@type": [
+        "DefinedTermSet"
+      ],
+      "identifier": "learning-objectives",
+      "name": "Learning objectives",
+      "description": "Practical leadership skills for recognizing schemas and asking for safe, dependable connections between County systems.",
+      "hasDefinedTerm": [
+        {
+          "@id": "urn:uuid:6982b7b3-01ce-528d-81b8-03dd2c862ddc"
+        },
+        {
+          "@id": "urn:uuid:3c48d6fe-1d61-57df-a2d8-be0ea96e020d"
+        },
+        {
+          "@id": "urn:uuid:b10d94b2-991f-565d-aee4-68a7cc5eab63"
+        },
+        {
+          "@id": "urn:uuid:82e455c3-7eab-5523-bc08-200944780469"
+        },
+        {
+          "@id": "urn:uuid:6326e07c-6f52-5c0b-b336-0fc60e250faf"
+        },
+        {
+          "@id": "urn:uuid:4cce3f76-29c6-538b-b463-353c9ed9d8ef"
+        },
+        {
+          "@id": "urn:uuid:28940e24-3324-5362-87b8-ce1e2b8f3d6f"
+        },
+        {
+          "@id": "urn:uuid:176e219f-f0cb-56cd-a4f4-de87154853ce"
+        },
+        {
+          "@id": "urn:uuid:3d6eccf2-0641-5192-8a86-02c427038e43"
+        }
+      ]
+    },
+    {
+      "@id": "urn:uuid:6982b7b3-01ce-528d-81b8-03dd2c862ddc",
+      "@type": [
+        "DefinedTerm"
+      ],
+      "identifier": "understand-schema",
+      "name": "Explain a schema as an agreement about information, not a technical product",
+      "inDefinedTermSet": {
+        "@id": "urn:uuid:71dc6920-8d5f-5869-9b3e-b70c894aac48"
+      }
+    },
+    {
+      "@id": "urn:uuid:3c48d6fe-1d61-57df-a2d8-be0ea96e020d",
+      "@type": [
+        "DefinedTerm"
+      ],
+      "identifier": "recognize-mismatch",
+      "name": "Recognize when similar fields do not describe the same fact",
+      "inDefinedTermSet": {
+        "@id": "urn:uuid:71dc6920-8d5f-5869-9b3e-b70c894aac48"
+      },
+      "marin:parentObjective": {
+        "@id": "urn:uuid:6982b7b3-01ce-528d-81b8-03dd2c862ddc"
+      }
+    },
+    {
+      "@id": "urn:uuid:b10d94b2-991f-565d-aee4-68a7cc5eab63",
+      "@type": [
+        "DefinedTerm"
+      ],
+      "identifier": "evaluate-stability",
+      "name": "Ask whether a schema is stable, documented, and managed through changes",
+      "inDefinedTermSet": {
+        "@id": "urn:uuid:71dc6920-8d5f-5869-9b3e-b70c894aac48"
+      },
+      "marin:parentObjective": {
+        "@id": "urn:uuid:6982b7b3-01ce-528d-81b8-03dd2c862ddc"
+      }
+    },
+    {
+      "@id": "urn:uuid:82e455c3-7eab-5523-bc08-200944780469",
+      "@type": [
+        "DefinedTerm"
+      ],
+      "identifier": "evaluate-integration",
+      "name": "Recognize what systems need to exchange information reliably",
+      "inDefinedTermSet": {
+        "@id": "urn:uuid:71dc6920-8d5f-5869-9b3e-b70c894aac48"
+      }
+    },
+    {
+      "@id": "urn:uuid:6326e07c-6f52-5c0b-b336-0fc60e250faf",
+      "@type": [
+        "DefinedTerm"
+      ],
+      "identifier": "protect-sharing",
+      "name": "Separate schema compatibility from permission to share sensitive data",
+      "inDefinedTermSet": {
+        "@id": "urn:uuid:71dc6920-8d5f-5869-9b3e-b70c894aac48"
+      },
+      "marin:parentObjective": {
+        "@id": "urn:uuid:82e455c3-7eab-5523-bc08-200944780469"
+      }
+    },
+    {
+      "@id": "urn:uuid:4cce3f76-29c6-538b-b463-353c9ed9d8ef",
+      "@type": [
+        "DefinedTerm"
+      ],
+      "identifier": "steward-definitions",
+      "name": "Identify who is responsible for business definitions and their changes",
+      "inDefinedTermSet": {
+        "@id": "urn:uuid:71dc6920-8d5f-5869-9b3e-b70c894aac48"
+      },
+      "marin:parentObjective": {
+        "@id": "urn:uuid:82e455c3-7eab-5523-bc08-200944780469"
+      }
+    },
+    {
+      "@id": "urn:uuid:28940e24-3324-5362-87b8-ce1e2b8f3d6f",
+      "@type": [
+        "DefinedTerm"
+      ],
+      "identifier": "ask-vendor",
+      "name": "Ask vendors to demonstrate an integration with a named existing application",
+      "inDefinedTermSet": {
+        "@id": "urn:uuid:71dc6920-8d5f-5869-9b3e-b70c894aac48"
+      },
+      "marin:parentObjective": {
+        "@id": "urn:uuid:82e455c3-7eab-5523-bc08-200944780469"
+      }
+    },
+    {
+      "@id": "urn:uuid:176e219f-f0cb-56cd-a4f4-de87154853ce",
+      "@type": [
+        "DefinedTerm"
+      ],
+      "identifier": "use-checklist",
+      "name": "Use plain-language schema questions in leadership decisions",
+      "inDefinedTermSet": {
+        "@id": "urn:uuid:71dc6920-8d5f-5869-9b3e-b70c894aac48"
+      }
+    },
+    {
+      "@id": "urn:uuid:3d6eccf2-0641-5192-8a86-02c427038e43",
+      "@type": [
+        "DefinedTerm"
+      ],
+      "identifier": "lead-pilot",
+      "name": "Choose a small, testable cross-system handoff before expanding",
+      "inDefinedTermSet": {
+        "@id": "urn:uuid:71dc6920-8d5f-5869-9b3e-b70c894aac48"
+      },
+      "marin:parentObjective": {
+        "@id": "urn:uuid:176e219f-f0cb-56cd-a4f4-de87154853ce"
+      }
+    },
+    {
+      "@id": "urn:uuid:9b6e5ed8-6b41-5cac-b5a8-df8c432cfe81",
+      "@type": [
+        "LearningResource",
+        "marin:ContentUnit"
+      ],
+      "identifier": "schema-is-agreement",
+      "name": "A Schema Is an Agreement, Not a Technology",
+      "abstract": "A schema is an agreed description of information: its names, meanings, allowed values, and connections. Leaders do not need to write one; they need to ask whether it exists.",
+      "learningResourceType": "overview",
+      "teaches": [
+        {
+          "@id": "urn:uuid:6982b7b3-01ce-528d-81b8-03dd2c862ddc"
+        }
+      ],
+      "encoding": {
+        "@type": "MediaObject",
+        "contentUrl": "content/schema-is-agreement.md",
+        "encodingFormat": "text/markdown"
+      }
+    },
+    {
+      "@id": "urn:uuid:fe7fe1ee-5d56-564b-ba48-ce1c5c188eef",
+      "@type": [
+        "LearningResource",
+        "marin:ContentUnit"
+      ],
+      "identifier": "same-label-different-meaning",
+      "name": "The Same Label Can Mean Two Different Things",
+      "abstract": "Matching column names do not guarantee matching meanings. Two departments can report the same label while counting or describing different things.",
+      "learningResourceType": "concept",
+      "teaches": [
+        {
+          "@id": "urn:uuid:3c48d6fe-1d61-57df-a2d8-be0ea96e020d"
+        }
+      ],
+      "encoding": {
+        "@type": "MediaObject",
+        "contentUrl": "content/same-label-different-meaning.md",
+        "encodingFormat": "text/markdown"
+      }
+    },
+    {
+      "@id": "urn:uuid:db6d0ab0-ef43-5556-ba95-10ad9ce53072",
+      "@type": [
+        "LearningResource",
+        "marin:ContentUnit"
+      ],
+      "identifier": "work-order-handoff",
+      "name": "One Work Order, Two Systems",
+      "abstract": "A facilities work-order system and a finance system may describe the same job in different ways. Integration succeeds when the meaning and record identity are reconciled.",
+      "learningResourceType": "example",
+      "teaches": [
+        {
+          "@id": "urn:uuid:3c48d6fe-1d61-57df-a2d8-be0ea96e020d"
+        },
+        {
+          "@id": "urn:uuid:82e455c3-7eab-5523-bc08-200944780469"
+        }
+      ],
+      "encoding": {
+        "@type": "MediaObject",
+        "contentUrl": "content/work-order-handoff.md",
+        "encodingFormat": "text/markdown"
+      }
+    },
+    {
+      "@id": "urn:uuid:066a16b8-f88f-5598-a986-8afc1fa51813",
+      "@type": [
+        "LearningResource",
+        "marin:ContentUnit"
+      ],
+      "identifier": "stable-not-frozen",
+      "name": "Stable Does Not Mean Frozen",
+      "abstract": "A stable schema can evolve. The key is that definitions are documented, changes are communicated, and existing connections do not break without a plan.",
+      "learningResourceType": "concept",
+      "teaches": [
+        {
+          "@id": "urn:uuid:b10d94b2-991f-565d-aee4-68a7cc5eab63"
+        }
+      ],
+      "encoding": {
+        "@type": "MediaObject",
+        "contentUrl": "content/stable-not-frozen.md",
+        "encodingFormat": "text/markdown"
+      }
+    },
+    {
+      "@id": "urn:uuid:2bae79b7-f766-5de8-b0fb-faaae410a66d",
+      "@type": [
+        "LearningResource",
+        "marin:ContentUnit"
+      ],
+      "identifier": "identifiers-are-glue",
+      "name": "A Record Needs a Reliable Identity",
+      "abstract": "A stable record identifier helps applications recognize the same work order, case, or transaction across handoffs; matching labels or names is not enough.",
+      "learningResourceType": "concept",
+      "teaches": [
+        {
+          "@id": "urn:uuid:82e455c3-7eab-5523-bc08-200944780469"
+        }
+      ],
+      "encoding": {
+        "@type": "MediaObject",
+        "contentUrl": "content/identifiers-are-glue.md",
+        "encodingFormat": "text/markdown"
+      }
+    },
+    {
+      "@id": "urn:uuid:03524d7e-9869-5c53-826c-b2397c88fc95",
+      "@type": [
+        "LearningResource",
+        "marin:ContentUnit"
+      ],
+      "identifier": "business-owns-definitions",
+      "name": "The Business Must Own the Meaning",
+      "abstract": "Program leaders and data stewards need to agree on business definitions, while technology teams implement and maintain those definitions in connected systems.",
+      "learningResourceType": "concept",
+      "teaches": [
+        {
+          "@id": "urn:uuid:4cce3f76-29c6-538b-b463-353c9ed9d8ef"
+        }
+      ],
+      "encoding": {
+        "@type": "MediaObject",
+        "contentUrl": "content/business-owns-definitions.md",
+        "encodingFormat": "text/markdown"
+      }
+    },
+    {
+      "@id": "urn:uuid:25ed656d-28fe-5066-a157-594c2bbfa675",
+      "@type": [
+        "LearningResource",
+        "marin:ContentUnit"
+      ],
+      "identifier": "permission-separate",
+      "name": "A Shared Schema Is Not Permission to Share Everything",
+      "abstract": "Compatible schemas make appropriate exchange easier, but privacy, security, purpose, and authorization still govern which data may actually be shared.",
+      "learningResourceType": "warning",
+      "teaches": [
+        {
+          "@id": "urn:uuid:6326e07c-6f52-5c0b-b336-0fc60e250faf"
+        }
+      ],
+      "encoding": {
+        "@type": "MediaObject",
+        "contentUrl": "content/permission-separate.md",
+        "encodingFormat": "text/markdown"
+      }
+    },
+    {
+      "@id": "urn:uuid:6f4c94a2-7ab8-5bea-9a18-b906c04c6a58",
+      "@type": [
+        "LearningResource",
+        "marin:ContentUnit"
+      ],
+      "identifier": "vendor-demonstration",
+      "name": "Do Not Buy a Promise of Integration",
+      "abstract": "Ask vendors to show actual field definitions, change management, and a sample exchange with a named County application before treating integration as proven.",
+      "learningResourceType": "procedure",
+      "teaches": [
+        {
+          "@id": "urn:uuid:28940e24-3324-5362-87b8-ce1e2b8f3d6f"
+        },
+        {
+          "@id": "urn:uuid:82e455c3-7eab-5523-bc08-200944780469"
+        }
+      ],
+      "encoding": {
+        "@type": "MediaObject",
+        "contentUrl": "content/vendor-demonstration.md",
+        "encodingFormat": "text/markdown"
+      }
+    },
+    {
+      "@id": "urn:uuid:c59f9f4c-5949-5178-b0f5-ebe2f26f7595",
+      "@type": [
+        "LearningResource",
+        "marin:ContentUnit"
+      ],
+      "identifier": "sixty-second-schema-check",
+      "name": "The 60-Second Schema Check",
+      "abstract": "Seven plain-language questions let leaders identify schema and integration risks before a purchase, report, dashboard, or cross-department handoff.",
+      "learningResourceType": "key-points",
+      "teaches": [
+        {
+          "@id": "urn:uuid:176e219f-f0cb-56cd-a4f4-de87154853ce"
+        }
+      ],
+      "encoding": {
+        "@type": "MediaObject",
+        "contentUrl": "content/sixty-second-schema-check.md",
+        "encodingFormat": "text/markdown"
+      }
+    },
+    {
+      "@id": "urn:uuid:e0760d30-62ea-5a7e-9956-edb6f1b52a8a",
+      "@type": [
+        "LearningResource",
+        "marin:ContentUnit"
+      ],
+      "identifier": "one-handoff-pilot",
+      "name": "Start With One Handoff, Not a Countywide Rewrite",
+      "abstract": "Pick two systems and a handful of important fields, test sample records, record the differences, and agree on owners before scaling the connection.",
+      "learningResourceType": "procedure",
+      "teaches": [
+        {
+          "@id": "urn:uuid:3d6eccf2-0641-5192-8a86-02c427038e43"
+        },
+        {
+          "@id": "urn:uuid:176e219f-f0cb-56cd-a4f4-de87154853ce"
+        }
+      ],
+      "encoding": {
+        "@type": "MediaObject",
+        "contentUrl": "content/one-handoff-pilot.md",
+        "encodingFormat": "text/markdown"
+      }
+    },
+    {
+      "@id": "urn:uuid:81d76bd8-296e-52e0-b6b2-9631c22b45d6",
+      "@type": [
+        "LearningResource",
+        "marin:ContentUnit"
+      ],
+      "identifier": "say-it-in-the-meeting",
+      "name": "What to Say at the Next Meeting",
+      "abstract": "The leadership skill is not schema engineering. It is asking for documented meaning, a stable connection, clear ownership, and a concrete demonstration.",
+      "learningResourceType": "summary",
+      "teaches": [
+        {
+          "@id": "urn:uuid:176e219f-f0cb-56cd-a4f4-de87154853ce"
+        },
+        {
+          "@id": "urn:uuid:3d6eccf2-0641-5192-8a86-02c427038e43"
+        }
+      ],
+      "encoding": {
+        "@type": "MediaObject",
+        "contentUrl": "content/say-it-in-the-meeting.md",
+        "encodingFormat": "text/markdown"
+      }
+    },
+    {
+      "@id": "urn:uuid:d0cefc87-0fb8-50d1-afda-4625350d92b3",
+      "@type": [
+        "CreativeWork",
+        "marin:Section"
+      ],
+      "identifier": "what-schema-means",
+      "name": "What a Schema Means",
+      "marin:contentSequence": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:9b6e5ed8-6b41-5cac-b5a8-df8c432cfe81"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@id": "urn:uuid:fe7fe1ee-5d56-564b-ba48-ce1c5c188eef"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@id": "urn:uuid:db6d0ab0-ef43-5556-ba95-10ad9ce53072"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@id": "urn:uuid:51a25975-2a73-56fc-b13d-fae46221525b",
+      "@type": [
+        "CreativeWork",
+        "marin:Section"
+      ],
+      "identifier": "keep-the-agreement",
+      "name": "Keep the Agreement Trustworthy",
+      "marin:contentSequence": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:066a16b8-f88f-5598-a986-8afc1fa51813"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@id": "urn:uuid:2bae79b7-f766-5de8-b0fb-faaae410a66d"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@id": "urn:uuid:03524d7e-9869-5c53-826c-b2397c88fc95"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "item": {
+              "@id": "urn:uuid:25ed656d-28fe-5066-a157-594c2bbfa675"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@id": "urn:uuid:2ce6d3a9-551f-5ded-ad37-51b806911770",
+      "@type": [
+        "CreativeWork",
+        "marin:Section"
+      ],
+      "identifier": "ask-for-evidence",
+      "name": "Ask for Evidence, Not Assurances",
+      "marin:contentSequence": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:6f4c94a2-7ab8-5bea-9a18-b906c04c6a58"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@id": "urn:uuid:c59f9f4c-5949-5178-b0f5-ebe2f26f7595"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@id": "urn:uuid:27733348-9cd5-5a81-a088-c96834fdfb03",
+      "@type": [
+        "CreativeWork",
+        "marin:Section"
+      ],
+      "identifier": "put-it-to-work",
+      "name": "Put It to Work",
+      "marin:contentSequence": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:e0760d30-62ea-5a7e-9956-edb6f1b52a8a"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@id": "urn:uuid:81d76bd8-296e-52e0-b6b2-9631c22b45d6"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@id": "urn:uuid:d7f56d5b-065f-592e-82aa-ac7a1ab93e11",
+      "@type": [
+        "LearningResource",
+        "marin:LearningMaterial"
+      ],
+      "identifier": "county-leaders-schema-guide",
+      "name": "County Leader’s Guide to Schemas — Reading Material",
+      "abstract": "A practical County leadership guide to shared data definitions, stable change, safe integration, vendor questions, and one small first project.",
+      "learningResourceType": "guide",
+      "educationalUse": [
+        "instruction",
+        "self-study"
+      ],
+      "educationalLevel": "introductory",
+      "timeRequired": "PT17M",
+      "marin:contentSequence": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:d0cefc87-0fb8-50d1-afda-4625350d92b3"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@id": "urn:uuid:51a25975-2a73-56fc-b13d-fae46221525b"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@id": "urn:uuid:2ce6d3a9-551f-5ded-ad37-51b806911770"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "item": {
+              "@id": "urn:uuid:27733348-9cd5-5a81-a088-c96834fdfb03"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@id": "urn:uuid:1cc028e6-9cc4-51c9-b3b2-aac36d3e154e",
+      "@type": [
+        "CreativeWork",
+        "marin:AssessmentItem"
+      ],
+      "identifier": "what-schema-is",
+      "name": "A department head asks what a schema is. Which answer is most useful?",
+      "text": "A department head asks what a schema is. Which answer is most useful?",
+      "assesses": [
+        {
+          "@id": "urn:uuid:6982b7b3-01ce-528d-81b8-03dd2c862ddc"
+        }
+      ],
+      "isBasedOn": [
+        {
+          "@id": "urn:uuid:9b6e5ed8-6b41-5cac-b5a8-df8c432cfe81"
+        }
+      ],
+      "marin:interactionType": "single-select",
+      "marin:options": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:642fcf77-673b-5a68-86e9-eaf48fc5ca73"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@id": "urn:uuid:052a6d60-8e98-5322-9131-0f8f5d928904"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@id": "urn:uuid:c0ffcc68-b11e-5e45-a762-8f5dd82402e3"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "item": {
+              "@id": "urn:uuid:91e0c4d0-5671-54da-9231-26b8697e567e"
+            }
+          }
+        ]
+      },
+      "marin:correctResponse": [
+        {
+          "@id": "urn:uuid:052a6d60-8e98-5322-9131-0f8f5d928904"
+        }
+      ],
+      "marin:hint": "Think about the agreement behind the fields, rather than a product that displays them.",
+      "marin:explanation": "A schema makes the meaning, structure, and rules of information explicit.",
+      "marin:shuffleOptions": true
+    },
+    {
+      "@id": "urn:uuid:642fcf77-673b-5a68-86e9-eaf48fc5ca73",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "what-schema-is-a",
+      "text": "A list of computers that store the department’s records.",
+      "marin:feedback": "This describes infrastructure, not the agreed meanings and rules of the records."
+    },
+    {
+      "@id": "urn:uuid:052a6d60-8e98-5322-9131-0f8f5d928904",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "what-schema-is-b",
+      "text": "An agreed description of what information means and how it is organized.",
+      "marin:feedback": "This is the core idea: a schema describes fields, allowed values, and relationships."
+    },
+    {
+      "@id": "urn:uuid:c0ffcc68-b11e-5e45-a762-8f5dd82402e3",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "what-schema-is-c",
+      "text": "A dashboard displaying the latest performance results.",
+      "marin:feedback": "A dashboard displays information; a schema defines how information is represented."
+    },
+    {
+      "@id": "urn:uuid:91e0c4d0-5671-54da-9231-26b8697e567e",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "what-schema-is-d",
+      "text": "The software contract governing vendor support.",
+      "marin:feedback": "A vendor contract may address schemas, but it is not itself the definition of the data."
+    },
+    {
+      "@id": "urn:uuid:6c9ae4d6-30c0-508e-82f2-de1c22ef7f81",
+      "@type": [
+        "CreativeWork",
+        "marin:AssessmentItem"
+      ],
+      "identifier": "same-field-different-meaning",
+      "name": "Two County applications can use the same field name while giving it different meanings.",
+      "text": "Two County applications can use the same field name while giving it different meanings.",
+      "assesses": [
+        {
+          "@id": "urn:uuid:3c48d6fe-1d61-57df-a2d8-be0ea96e020d"
+        }
+      ],
+      "isBasedOn": [
+        {
+          "@id": "urn:uuid:fe7fe1ee-5d56-564b-ba48-ce1c5c188eef"
+        }
+      ],
+      "marin:interactionType": "true-false",
+      "marin:options": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:028365b6-5038-5520-b9b4-fdd251acebb0"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@id": "urn:uuid:1962b9ef-5513-58d9-b587-7c59c4627522"
+            }
+          }
+        ]
+      },
+      "marin:correctResponse": [
+        {
+          "@id": "urn:uuid:028365b6-5038-5520-b9b4-fdd251acebb0"
+        }
+      ],
+      "marin:hint": "Consider how two teams might count repeat visits.",
+      "marin:explanation": "Shared labels are not proof of shared definitions.",
+      "marin:shuffleOptions": false
+    },
+    {
+      "@id": "urn:uuid:028365b6-5038-5520-b9b4-fdd251acebb0",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "true",
+      "text": "True",
+      "marin:feedback": "Correct. One “People Served” field can count unique people while another counts visits."
+    },
+    {
+      "@id": "urn:uuid:1962b9ef-5513-58d9-b587-7c59c4627522",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "false",
+      "text": "False",
+      "marin:feedback": "The same label does not guarantee the same definition. The values may count different things."
+    },
+    {
+      "@id": "urn:uuid:96c31811-0c2b-5cae-a4ff-248724bed918",
+      "@type": [
+        "CreativeWork",
+        "marin:AssessmentItem"
+      ],
+      "identifier": "people-served-scenario",
+      "name": "One program reports 400 people served, counting each person once. Another reports 600, counting visits. What should leadership establish before comparing the numbers?",
+      "text": "One program reports 400 people served, counting each person once. Another reports 600, counting visits. What should leadership establish before comparing the numbers?",
+      "assesses": [
+        {
+          "@id": "urn:uuid:3c48d6fe-1d61-57df-a2d8-be0ea96e020d"
+        }
+      ],
+      "isBasedOn": [
+        {
+          "@id": "urn:uuid:fe7fe1ee-5d56-564b-ba48-ce1c5c188eef"
+        }
+      ],
+      "marin:interactionType": "single-select",
+      "marin:options": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:96412d19-f229-5855-b8b1-4d8caa9200af"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@id": "urn:uuid:1646a83c-073e-585c-b665-5dd0ccf162e2"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@id": "urn:uuid:71c98f33-29f9-5196-8ee1-1880bd830329"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "item": {
+              "@id": "urn:uuid:dbaa4882-fd42-5121-b9c2-d33f19bda711"
+            }
+          }
+        ]
+      },
+      "marin:correctResponse": [
+        {
+          "@id": "urn:uuid:71c98f33-29f9-5196-8ee1-1880bd830329"
+        }
+      ],
+      "marin:hint": "Separate a measure’s label from its counting rule.",
+      "marin:explanation": "A comparison is trustworthy only when the underlying definitions are clear.",
+      "marin:shuffleOptions": true
+    },
+    {
+      "@id": "urn:uuid:96412d19-f229-5855-b8b1-4d8caa9200af",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "people-served-scenario-a",
+      "text": "Whether both reports have the same logo.",
+      "marin:feedback": "Visual consistency has no bearing on how the figures were counted."
+    },
+    {
+      "@id": "urn:uuid:1646a83c-073e-585c-b665-5dd0ccf162e2",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "people-served-scenario-b",
+      "text": "Whether both reports were exported on the same day.",
+      "marin:feedback": "Timing matters for reporting but does not resolve the underlying different counting rules."
+    },
+    {
+      "@id": "urn:uuid:71c98f33-29f9-5196-8ee1-1880bd830329",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "people-served-scenario-c",
+      "text": "Whether both programs mean the same thing by “served.”",
+      "marin:feedback": "The counting definitions must be reconciled before comparisons or totals are meaningful."
+    },
+    {
+      "@id": "urn:uuid:dbaa4882-fd42-5121-b9c2-d33f19bda711",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "people-served-scenario-d",
+      "text": "Whether both departments use spreadsheets.",
+      "marin:feedback": "The file format does not determine the meaning of the measures."
+    },
+    {
+      "@id": "urn:uuid:d0b66919-3a06-51a9-8cdf-0818453c9757",
+      "@type": [
+        "CreativeWork",
+        "marin:AssessmentItem"
+      ],
+      "identifier": "schema-description-evidence",
+      "name": "Which items would help another department understand a system’s schema? Select all that apply.",
+      "text": "Which items would help another department understand a system’s schema? Select all that apply.",
+      "assesses": [
+        {
+          "@id": "urn:uuid:6982b7b3-01ce-528d-81b8-03dd2c862ddc"
+        }
+      ],
+      "isBasedOn": [
+        {
+          "@id": "urn:uuid:9b6e5ed8-6b41-5cac-b5a8-df8c432cfe81"
+        }
+      ],
+      "marin:interactionType": "multiple-select",
+      "marin:options": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:209db18d-01a8-5a6a-9a19-cf339aefc6cd"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@id": "urn:uuid:170e4bcf-86b2-5f63-bc97-67425fdf01cf"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@id": "urn:uuid:dc6844d2-7ae9-5bb4-bc9b-0af16eb821e5"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "item": {
+              "@id": "urn:uuid:dc889591-f864-5c20-b80c-58a81b448fe1"
+            }
+          }
+        ]
+      },
+      "marin:correctResponse": [
+        {
+          "@id": "urn:uuid:209db18d-01a8-5a6a-9a19-cf339aefc6cd"
+        },
+        {
+          "@id": "urn:uuid:170e4bcf-86b2-5f63-bc97-67425fdf01cf"
+        },
+        {
+          "@id": "urn:uuid:dc6844d2-7ae9-5bb4-bc9b-0af16eb821e5"
+        }
+      ],
+      "marin:hint": "Think about what helps someone interpret records after they leave the source application.",
+      "marin:explanation": "Meaning, allowed values, and stewardship are more useful for integration than visual design details.",
+      "marin:shuffleOptions": true
+    },
+    {
+      "@id": "urn:uuid:209db18d-01a8-5a6a-9a19-cf339aefc6cd",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "schema-description-evidence-a",
+      "text": "A plain-language description of what each important field means.",
+      "marin:feedback": "Definitions help teams interpret the same facts consistently."
+    },
+    {
+      "@id": "urn:uuid:170e4bcf-86b2-5f63-bc97-67425fdf01cf",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "schema-description-evidence-b",
+      "text": "A list of allowed status values and what they signify.",
+      "marin:feedback": "Allowed values prevent ambiguous translations across systems."
+    },
+    {
+      "@id": "urn:uuid:dc6844d2-7ae9-5bb4-bc9b-0af16eb821e5",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "schema-description-evidence-c",
+      "text": "The person or group responsible for changes to those definitions.",
+      "marin:feedback": "An owner makes the agreement maintainable over time."
+    },
+    {
+      "@id": "urn:uuid:dc889591-f864-5c20-b80c-58a81b448fe1",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "schema-description-evidence-d",
+      "text": "The color palette used for the application’s homepage.",
+      "marin:feedback": "Visual branding does not define what a data field means."
+    },
+    {
+      "@id": "urn:uuid:428d3d8b-f2c4-56b1-99d7-66923f0eb3e7",
+      "@type": [
+        "CreativeWork",
+        "marin:AssessmentItem"
+      ],
+      "identifier": "spreadsheet-does-not-guarantee",
+      "name": "A system that can export a CSV file is automatically compatible with another system’s data definitions.",
+      "text": "A system that can export a CSV file is automatically compatible with another system’s data definitions.",
+      "assesses": [
+        {
+          "@id": "urn:uuid:82e455c3-7eab-5523-bc08-200944780469"
+        }
+      ],
+      "isBasedOn": [
+        {
+          "@id": "urn:uuid:fe7fe1ee-5d56-564b-ba48-ce1c5c188eef"
+        }
+      ],
+      "marin:interactionType": "true-false",
+      "marin:options": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:f7d5f657-a250-5eee-915e-d95397874316"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@id": "urn:uuid:863b7431-de40-5ac1-8bee-48bbc4b88f9b"
+            }
+          }
+        ]
+      },
+      "marin:correctResponse": [
+        {
+          "@id": "urn:uuid:863b7431-de40-5ac1-8bee-48bbc4b88f9b"
+        }
+      ],
+      "marin:hint": "Consider the difference between moving values and interpreting them.",
+      "marin:explanation": "A file export is useful but does not by itself establish semantic interoperability.",
+      "marin:shuffleOptions": false
+    },
+    {
+      "@id": "urn:uuid:f7d5f657-a250-5eee-915e-d95397874316",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "true",
+      "text": "True",
+      "marin:feedback": "Exporting a CSV moves values, but does not guarantee that IDs, statuses, or definitions match."
+    },
+    {
+      "@id": "urn:uuid:863b7431-de40-5ac1-8bee-48bbc4b88f9b",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "false",
+      "text": "False",
+      "marin:feedback": "Correct. Files can transfer records while the meaning and identity of their fields still differ."
+    },
+    {
+      "@id": "urn:uuid:02171cb3-a8e6-5a05-8693-9dc5d60ba175",
+      "@type": [
+        "CreativeWork",
+        "marin:AssessmentItem"
+      ],
+      "identifier": "work-order-status",
+      "name": "Facilities reports that a repair is “Closed.” Finance reports that its invoice is “Paid.” What is the soundest conclusion?",
+      "text": "Facilities reports that a repair is “Closed.” Finance reports that its invoice is “Paid.” What is the soundest conclusion?",
+      "assesses": [
+        {
+          "@id": "urn:uuid:82e455c3-7eab-5523-bc08-200944780469"
+        }
+      ],
+      "isBasedOn": [
+        {
+          "@id": "urn:uuid:db6d0ab0-ef43-5556-ba95-10ad9ce53072"
+        }
+      ],
+      "marin:interactionType": "single-select",
+      "marin:options": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:09eb0334-ddc9-5092-8bbf-c1289e3ec20e"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@id": "urn:uuid:cee104fd-b747-5873-810a-04ecc92e0ac9"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@id": "urn:uuid:f229a44f-d640-580f-bb0d-073dc853714a"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "item": {
+              "@id": "urn:uuid:9cf0a49c-8a39-5b93-b007-325d3a3460b7"
+            }
+          }
+        ]
+      },
+      "marin:correctResponse": [
+        {
+          "@id": "urn:uuid:f229a44f-d640-580f-bb0d-073dc853714a"
+        }
+      ],
+      "marin:hint": "Identify what event each status actually describes.",
+      "marin:explanation": "A shared report needs a documented interpretation of both the work state and the payment state.",
+      "marin:shuffleOptions": true
+    },
+    {
+      "@id": "urn:uuid:09eb0334-ddc9-5092-8bbf-c1289e3ec20e",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "work-order-status-a",
+      "text": "They mean the same thing because both indicate completion.",
+      "marin:feedback": "The completion of work and payment of an invoice are distinct events."
+    },
+    {
+      "@id": "urn:uuid:cee104fd-b747-5873-810a-04ecc92e0ac9",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "work-order-status-b",
+      "text": "The County should stop using either status.",
+      "marin:feedback": "Both statuses may be useful in their respective systems."
+    },
+    {
+      "@id": "urn:uuid:f229a44f-d640-580f-bb0d-073dc853714a",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "work-order-status-c",
+      "text": "The two meanings should be mapped before a combined report is trusted.",
+      "marin:feedback": "A documented translation preserves what each system actually records."
+    },
+    {
+      "@id": "urn:uuid:9cf0a49c-8a39-5b93-b007-325d3a3460b7",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "work-order-status-d",
+      "text": "The finance system should always replace the facilities system’s status.",
+      "marin:feedback": "No one system’s status should silently overwrite a different business meaning."
+    },
+    {
+      "@id": "urn:uuid:37961e09-6d13-5b57-a4bc-ab296f12c7dc",
+      "@type": [
+        "CreativeWork",
+        "marin:AssessmentItem"
+      ],
+      "identifier": "stable-schema",
+      "name": "Which best demonstrates that an application has a stable schema?",
+      "text": "Which best demonstrates that an application has a stable schema?",
+      "assesses": [
+        {
+          "@id": "urn:uuid:b10d94b2-991f-565d-aee4-68a7cc5eab63"
+        }
+      ],
+      "isBasedOn": [
+        {
+          "@id": "urn:uuid:066a16b8-f88f-5598-a986-8afc1fa51813"
+        }
+      ],
+      "marin:interactionType": "single-select",
+      "marin:options": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:a8080061-0a35-59b8-9477-3050314dd4c1"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@id": "urn:uuid:01ad0bad-72cc-5fe9-b99f-25b73b8e3f60"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@id": "urn:uuid:b5219319-db96-5762-9d95-f7b6c4eca2d6"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "item": {
+              "@id": "urn:uuid:77aa7b1d-b3dd-5786-a521-d8bc3ca81871"
+            }
+          }
+        ]
+      },
+      "marin:correctResponse": [
+        {
+          "@id": "urn:uuid:77aa7b1d-b3dd-5786-a521-d8bc3ca81871"
+        }
+      ],
+      "marin:hint": "Think about how systems stay dependable while programs change.",
+      "marin:explanation": "Controlled, communicated change is the practical meaning of a stable schema.",
+      "marin:shuffleOptions": true
+    },
+    {
+      "@id": "urn:uuid:a8080061-0a35-59b8-9477-3050314dd4c1",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "stable-schema-a",
+      "text": "Fields and statuses are never changed, even when a program evolves.",
+      "marin:feedback": "Refusing every change can make a schema obsolete."
+    },
+    {
+      "@id": "urn:uuid:01ad0bad-72cc-5fe9-b99f-25b73b8e3f60",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "stable-schema-b",
+      "text": "Any developer can add fields without notifying other teams.",
+      "marin:feedback": "Unannounced changes create integration and reporting risk."
+    },
+    {
+      "@id": "urn:uuid:b5219319-db96-5762-9d95-f7b6c4eca2d6",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "stable-schema-c",
+      "text": "The vendor promises that all integrations will work indefinitely.",
+      "marin:feedback": "Promises without documented change and testing practices are not enough."
+    },
+    {
+      "@id": "urn:uuid:77aa7b1d-b3dd-5786-a521-d8bc3ca81871",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "stable-schema-d",
+      "text": "Definitions are documented, changes are versioned, and affected connections are tested.",
+      "marin:feedback": "Stability means predictable, managed changes—not permanent immobility."
+    },
+    {
+      "@id": "urn:uuid:6b0f5090-4221-5750-8c6a-481c72e3d625",
+      "@type": [
+        "CreativeWork",
+        "marin:AssessmentItem"
+      ],
+      "identifier": "frozen-forever",
+      "name": "A truly stable schema should never add a new field or change a permitted value.",
+      "text": "A truly stable schema should never add a new field or change a permitted value.",
+      "assesses": [
+        {
+          "@id": "urn:uuid:b10d94b2-991f-565d-aee4-68a7cc5eab63"
+        }
+      ],
+      "isBasedOn": [
+        {
+          "@id": "urn:uuid:066a16b8-f88f-5598-a986-8afc1fa51813"
+        }
+      ],
+      "marin:interactionType": "true-false",
+      "marin:options": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:20af090e-bf46-506a-96cb-aff54ea6e960"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@id": "urn:uuid:0c028c5e-6d96-56b3-ac41-0b56898a894e"
+            }
+          }
+        ]
+      },
+      "marin:correctResponse": [
+        {
+          "@id": "urn:uuid:0c028c5e-6d96-56b3-ac41-0b56898a894e"
+        }
+      ],
+      "marin:hint": "Consider what happens when a program introduces a legitimate new status.",
+      "marin:explanation": "Versioning, communication, and testing allow schemas to evolve responsibly.",
+      "marin:shuffleOptions": false
+    },
+    {
+      "@id": "urn:uuid:20af090e-bf46-506a-96cb-aff54ea6e960",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "true",
+      "text": "True",
+      "marin:feedback": "A schema can remain stable while evolving through documented, coordinated changes."
+    },
+    {
+      "@id": "urn:uuid:0c028c5e-6d96-56b3-ac41-0b56898a894e",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "false",
+      "text": "False",
+      "marin:feedback": "Correct. Stability is about predictable change and compatibility, not forbidding change."
+    },
+    {
+      "@id": "urn:uuid:6dcfb65d-bee3-5173-bddf-753d26f50056",
+      "@type": [
+        "CreativeWork",
+        "marin:AssessmentItem"
+      ],
+      "identifier": "new-status-checklist",
+      "name": "A vendor will add “Waiting for Customer” as a new request status. Which actions should precede rollout? Select all that apply.",
+      "text": "A vendor will add “Waiting for Customer” as a new request status. Which actions should precede rollout? Select all that apply.",
+      "assesses": [
+        {
+          "@id": "urn:uuid:b10d94b2-991f-565d-aee4-68a7cc5eab63"
+        }
+      ],
+      "isBasedOn": [
+        {
+          "@id": "urn:uuid:066a16b8-f88f-5598-a986-8afc1fa51813"
+        }
+      ],
+      "marin:interactionType": "multiple-select",
+      "marin:options": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:ead4a985-9b45-5807-97e2-05e3f73c37b7"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@id": "urn:uuid:fc90c294-fcf7-5c96-b6db-a476398cf091"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@id": "urn:uuid:a73c4ba5-6163-566b-b98c-49a67f011f19"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "item": {
+              "@id": "urn:uuid:f3a807cb-fb59-5250-8608-9095cdbae85b"
+            }
+          }
+        ]
+      },
+      "marin:correctResponse": [
+        {
+          "@id": "urn:uuid:ead4a985-9b45-5807-97e2-05e3f73c37b7"
+        },
+        {
+          "@id": "urn:uuid:fc90c294-fcf7-5c96-b6db-a476398cf091"
+        },
+        {
+          "@id": "urn:uuid:a73c4ba5-6163-566b-b98c-49a67f011f19"
+        }
+      ],
+      "marin:hint": "Focus on meaning, dependencies, and communication.",
+      "marin:explanation": "A schema change needs a definition, impact assessment, and a coordinated rollout.",
+      "marin:shuffleOptions": true
+    },
+    {
+      "@id": "urn:uuid:ead4a985-9b45-5807-97e2-05e3f73c37b7",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "new-status-checklist-a",
+      "text": "Define when staff should use the new status.",
+      "marin:feedback": "Without a definition, staff and reports may interpret the value differently."
+    },
+    {
+      "@id": "urn:uuid:fc90c294-fcf7-5c96-b6db-a476398cf091",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "new-status-checklist-b",
+      "text": "Identify dashboards and connected systems expecting only the old statuses.",
+      "marin:feedback": "Dependencies must be checked before a new value breaks their assumptions."
+    },
+    {
+      "@id": "urn:uuid:a73c4ba5-6163-566b-b98c-49a67f011f19",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "new-status-checklist-c",
+      "text": "Test the change and tell affected teams what to expect.",
+      "marin:feedback": "Testing and communication make the change manageable."
+    },
+    {
+      "@id": "urn:uuid:f3a807cb-fb59-5250-8608-9095cdbae85b",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "new-status-checklist-d",
+      "text": "Keep the change undocumented so staff are not overwhelmed.",
+      "marin:feedback": "Hiding the change is precisely how silent breakage begins."
+    },
+    {
+      "@id": "urn:uuid:9ab4633b-2a3c-5687-9521-2d8f03a62d28",
+      "@type": [
+        "CreativeWork",
+        "marin:AssessmentItem"
+      ],
+      "identifier": "stable-record-id",
+      "name": "What is the primary value of a stable work-order identifier when connecting Facilities and Finance?",
+      "text": "What is the primary value of a stable work-order identifier when connecting Facilities and Finance?",
+      "assesses": [
+        {
+          "@id": "urn:uuid:82e455c3-7eab-5523-bc08-200944780469"
+        }
+      ],
+      "isBasedOn": [
+        {
+          "@id": "urn:uuid:2bae79b7-f766-5de8-b0fb-faaae410a66d"
+        }
+      ],
+      "marin:interactionType": "single-select",
+      "marin:options": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:8eafba82-8931-547d-af8d-e1ea31fa9c08"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@id": "urn:uuid:886ccbf9-4f67-5407-b803-90055ac6de9c"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@id": "urn:uuid:3839748f-b675-51b5-9cb1-eef20c8dc59a"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "item": {
+              "@id": "urn:uuid:6b659c20-2937-5a2e-9c79-93a66e09ecf6"
+            }
+          }
+        ]
+      },
+      "marin:correctResponse": [
+        {
+          "@id": "urn:uuid:886ccbf9-4f67-5407-b803-90055ac6de9c"
+        }
+      ],
+      "marin:hint": "Think about identifying a specific record when different systems use different labels.",
+      "marin:explanation": "Stable identifiers support correct matching but do not replace quality controls.",
+      "marin:shuffleOptions": true
+    },
+    {
+      "@id": "urn:uuid:8eafba82-8931-547d-af8d-e1ea31fa9c08",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "stable-record-id-a",
+      "text": "It automatically grants Finance access to every facilities record.",
+      "marin:feedback": "Identifiers do not grant authorization."
+    },
+    {
+      "@id": "urn:uuid:886ccbf9-4f67-5407-b803-90055ac6de9c",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "stable-record-id-b",
+      "text": "It helps both systems link activity to the correct work order.",
+      "marin:feedback": "Reliable identity supports matching the same work across separate records."
+    },
+    {
+      "@id": "urn:uuid:3839748f-b675-51b5-9cb1-eef20c8dc59a",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "stable-record-id-c",
+      "text": "It guarantees every invoice amount is correct.",
+      "marin:feedback": "An ID helps matching, not the accuracy of amounts."
+    },
+    {
+      "@id": "urn:uuid:6b659c20-2937-5a2e-9c79-93a66e09ecf6",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "stable-record-id-d",
+      "text": "It eliminates the need to explain status values.",
+      "marin:feedback": "Status definitions still need to be reconciled."
+    },
+    {
+      "@id": "urn:uuid:1487c57f-08c8-5a8e-b624-38d571280a94",
+      "@type": [
+        "CreativeWork",
+        "marin:AssessmentItem"
+      ],
+      "identifier": "id-mismatch-example",
+      "name": "Facilities uses WO-2047 and Finance uses PAY-990 for related work. What would be most useful?",
+      "text": "Facilities uses WO-2047 and Finance uses PAY-990 for related work. What would be most useful?",
+      "assesses": [
+        {
+          "@id": "urn:uuid:82e455c3-7eab-5523-bc08-200944780469"
+        }
+      ],
+      "isBasedOn": [
+        {
+          "@id": "urn:uuid:2bae79b7-f766-5de8-b0fb-faaae410a66d"
+        }
+      ],
+      "marin:interactionType": "single-select",
+      "marin:options": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:108407b3-dab5-5d6a-848f-cd275721a4b0"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@id": "urn:uuid:dc5ceda3-085e-5893-9e59-9fc8bcf695ae"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@id": "urn:uuid:cd426e2f-a2f1-5b90-8c35-868dbfb3edc5"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "item": {
+              "@id": "urn:uuid:0b590937-28d5-5b67-ab1e-5b6a023845db"
+            }
+          }
+        ]
+      },
+      "marin:correctResponse": [
+        {
+          "@id": "urn:uuid:108407b3-dab5-5d6a-848f-cd275721a4b0"
+        }
+      ],
+      "marin:hint": "Two systems may assign different identifiers without either being wrong.",
+      "marin:explanation": "A documented and tested crosswalk or shared key is the practical solution.",
+      "marin:shuffleOptions": true
+    },
+    {
+      "@id": "urn:uuid:108407b3-dab5-5d6a-848f-cd275721a4b0",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "id-mismatch-example-a",
+      "text": "An approved, tested method to link the corresponding records.",
+      "marin:feedback": "A reliable mapping reconciles different identifiers without guessing."
+    },
+    {
+      "@id": "urn:uuid:dc5ceda3-085e-5893-9e59-9fc8bcf695ae",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "id-mismatch-example-b",
+      "text": "A rule that identical street names always mean identical jobs.",
+      "marin:feedback": "Names and addresses can recur and are not unique proof of identity."
+    },
+    {
+      "@id": "urn:uuid:cd426e2f-a2f1-5b90-8c35-868dbfb3edc5",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "id-mismatch-example-c",
+      "text": "Removing the IDs so users see only descriptions.",
+      "marin:feedback": "Removing stable identifiers makes reliable matching harder."
+    },
+    {
+      "@id": "urn:uuid:0b590937-28d5-5b67-ab1e-5b6a023845db",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "id-mismatch-example-d",
+      "text": "Reporting only records whose identifiers look similar.",
+      "marin:feedback": "Similar-looking codes are not proof that records match."
+    },
+    {
+      "@id": "urn:uuid:5ab3823d-9c89-5a03-a84b-d136bcde9076",
+      "@type": [
+        "CreativeWork",
+        "marin:AssessmentItem"
+      ],
+      "identifier": "definition-steward",
+      "name": "Who should determine what “Successfully Referred” means for a County program?",
+      "text": "Who should determine what “Successfully Referred” means for a County program?",
+      "assesses": [
+        {
+          "@id": "urn:uuid:4cce3f76-29c6-538b-b463-353c9ed9d8ef"
+        }
+      ],
+      "isBasedOn": [
+        {
+          "@id": "urn:uuid:03524d7e-9869-5c53-826c-b2397c88fc95"
+        }
+      ],
+      "marin:interactionType": "single-select",
+      "marin:options": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:7f3b69c9-3e0e-5c35-bdb5-aac5d860db70"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@id": "urn:uuid:aec81baf-735f-5b91-aeb0-8e8c77116498"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@id": "urn:uuid:57e1b574-892c-5642-ba08-8b63c0ffe8a4"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "item": {
+              "@id": "urn:uuid:1ceb206f-a1bc-5fc0-a04f-cd609dd584d9"
+            }
+          }
+        ]
+      },
+      "marin:correctResponse": [
+        {
+          "@id": "urn:uuid:57e1b574-892c-5642-ba08-8b63c0ffe8a4"
+        }
+      ],
+      "marin:hint": "Consider who understands the program’s work and who implements it in software.",
+      "marin:explanation": "The business owns the definition; technology and other partners help keep it usable and safe.",
+      "marin:shuffleOptions": true
+    },
+    {
+      "@id": "urn:uuid:7f3b69c9-3e0e-5c35-bdb5-aac5d860db70",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "definition-steward-a",
+      "text": "Only the application vendor, because it owns the software.",
+      "marin:feedback": "Vendor knowledge is useful, but County business meaning needs program governance."
+    },
+    {
+      "@id": "urn:uuid:aec81baf-735f-5b91-aeb0-8e8c77116498",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "definition-steward-b",
+      "text": "Only the server administrator, because the field is stored on a server.",
+      "marin:feedback": "Technical stewardship is not the same as business definition."
+    },
+    {
+      "@id": "urn:uuid:57e1b574-892c-5642-ba08-8b63c0ffe8a4",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "definition-steward-c",
+      "text": "Program leadership with appropriate data, technology, and policy partners.",
+      "marin:feedback": "Business and technical teams should jointly maintain the agreed meaning."
+    },
+    {
+      "@id": "urn:uuid:1ceb206f-a1bc-5fc0-a04f-cd609dd584d9",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "definition-steward-d",
+      "text": "Whichever employee entered the most recent record.",
+      "marin:feedback": "One data entry should not redefine the meaning for everyone."
+    },
+    {
+      "@id": "urn:uuid:3b660fa0-8323-5f01-8f8c-a875536ade06",
+      "@type": [
+        "CreativeWork",
+        "marin:AssessmentItem"
+      ],
+      "identifier": "stewardship-partners",
+      "name": "A cross-department data handoff has inconsistent meanings. Who should participate in resolving it? Select all that apply.",
+      "text": "A cross-department data handoff has inconsistent meanings. Who should participate in resolving it? Select all that apply.",
+      "assesses": [
+        {
+          "@id": "urn:uuid:4cce3f76-29c6-538b-b463-353c9ed9d8ef"
+        }
+      ],
+      "isBasedOn": [
+        {
+          "@id": "urn:uuid:03524d7e-9869-5c53-826c-b2397c88fc95"
+        }
+      ],
+      "marin:interactionType": "multiple-select",
+      "marin:options": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:0e8a5b0d-83b4-5109-8648-1f22d88db18f"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@id": "urn:uuid:d6ec28e1-b298-5d7b-b7bd-63048e9c5426"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@id": "urn:uuid:3dda8699-d138-5d8b-99ca-0436a9b16062"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "item": {
+              "@id": "urn:uuid:2f936999-d36a-5ef5-b974-c3ea4a94ea15"
+            }
+          }
+        ]
+      },
+      "marin:correctResponse": [
+        {
+          "@id": "urn:uuid:0e8a5b0d-83b4-5109-8648-1f22d88db18f"
+        },
+        {
+          "@id": "urn:uuid:d6ec28e1-b298-5d7b-b7bd-63048e9c5426"
+        },
+        {
+          "@id": "urn:uuid:3dda8699-d138-5d8b-99ca-0436a9b16062"
+        }
+      ],
+      "marin:hint": "Consider who knows the meaning, the connection, and the sharing constraints.",
+      "marin:explanation": "A dependable agreement needs business, technical, and relevant oversight perspectives.",
+      "marin:shuffleOptions": true
+    },
+    {
+      "@id": "urn:uuid:0e8a5b0d-83b4-5109-8648-1f22d88db18f",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "stewardship-partners-a",
+      "text": "The program teams that use and interpret the data.",
+      "marin:feedback": "They understand the business decisions behind the fields."
+    },
+    {
+      "@id": "urn:uuid:d6ec28e1-b298-5d7b-b7bd-63048e9c5426",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "stewardship-partners-b",
+      "text": "Technology and integration staff who maintain the systems.",
+      "marin:feedback": "They can implement and test an agreed translation."
+    },
+    {
+      "@id": "urn:uuid:3dda8699-d138-5d8b-99ca-0436a9b16062",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "stewardship-partners-c",
+      "text": "Appropriate privacy or security reviewers for the proposed exchange.",
+      "marin:feedback": "They can review whether the planned movement of information is permitted and protected."
+    },
+    {
+      "@id": "urn:uuid:2f936999-d36a-5ef5-b974-c3ea4a94ea15",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "stewardship-partners-d",
+      "text": "Only the department with the larger software budget.",
+      "marin:feedback": "Budget size does not establish the authoritative meaning of shared fields."
+    },
+    {
+      "@id": "urn:uuid:6866ccdd-a4d4-5f96-a9a4-8d72d661fc82",
+      "@type": [
+        "CreativeWork",
+        "marin:AssessmentItem"
+      ],
+      "identifier": "compatible-not-authorized",
+      "name": "Two systems can have compatible schemas even when sharing every available field between them would be inappropriate.",
+      "text": "Two systems can have compatible schemas even when sharing every available field between them would be inappropriate.",
+      "assesses": [
+        {
+          "@id": "urn:uuid:6326e07c-6f52-5c0b-b336-0fc60e250faf"
+        }
+      ],
+      "isBasedOn": [
+        {
+          "@id": "urn:uuid:25ed656d-28fe-5066-a157-594c2bbfa675"
+        }
+      ],
+      "marin:interactionType": "true-false",
+      "marin:options": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:90907d3a-6b6c-54f6-9f6d-24341a53220a"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@id": "urn:uuid:9b3b70e7-89ee-5373-889c-c9a6bf7e1535"
+            }
+          }
+        ]
+      },
+      "marin:correctResponse": [
+        {
+          "@id": "urn:uuid:90907d3a-6b6c-54f6-9f6d-24341a53220a"
+        }
+      ],
+      "marin:hint": "Separate technical ability from policy and permitted use.",
+      "marin:explanation": "Schema compatibility is not authorization to transfer sensitive or unnecessary data.",
+      "marin:shuffleOptions": false
+    },
+    {
+      "@id": "urn:uuid:90907d3a-6b6c-54f6-9f6d-24341a53220a",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "true",
+      "text": "True",
+      "marin:feedback": "Correct. Compatibility explains how information could be exchanged; authorization controls what should be exchanged."
+    },
+    {
+      "@id": "urn:uuid:9b3b70e7-89ee-5373-889c-c9a6bf7e1535",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "false",
+      "text": "False",
+      "marin:feedback": "A compatible format does not override privacy, purpose, or access restrictions."
+    },
+    {
+      "@id": "urn:uuid:31986f15-8586-5141-9d81-85b89ddf385b",
+      "@type": [
+        "CreativeWork",
+        "marin:AssessmentItem"
+      ],
+      "identifier": "minimum-referral",
+      "name": "A receiving program needs referral status but not full case details. Which design choices are appropriate? Select all that apply.",
+      "text": "A receiving program needs referral status but not full case details. Which design choices are appropriate? Select all that apply.",
+      "assesses": [
+        {
+          "@id": "urn:uuid:6326e07c-6f52-5c0b-b336-0fc60e250faf"
+        }
+      ],
+      "isBasedOn": [
+        {
+          "@id": "urn:uuid:25ed656d-28fe-5066-a157-594c2bbfa675"
+        }
+      ],
+      "marin:interactionType": "multiple-select",
+      "marin:options": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:24a4dea5-242e-5260-bd87-5a4c34eeb222"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@id": "urn:uuid:f6eb4cd3-38f5-5294-8e0d-5b7e33bbf8e9"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@id": "urn:uuid:9568ebff-5c16-54d9-baec-e7101aaa76f6"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "item": {
+              "@id": "urn:uuid:07cdad3a-01f1-5d11-9715-684ce21c8933"
+            }
+          }
+        ]
+      },
+      "marin:correctResponse": [
+        {
+          "@id": "urn:uuid:24a4dea5-242e-5260-bd87-5a4c34eeb222"
+        },
+        {
+          "@id": "urn:uuid:f6eb4cd3-38f5-5294-8e0d-5b7e33bbf8e9"
+        },
+        {
+          "@id": "urn:uuid:9568ebff-5c16-54d9-baec-e7101aaa76f6"
+        }
+      ],
+      "marin:hint": "Evaluate both meaning and minimum necessary information.",
+      "marin:explanation": "The safest reliable integration moves clearly defined, authorized fields rather than entire records by default.",
+      "marin:shuffleOptions": true
+    },
+    {
+      "@id": "urn:uuid:24a4dea5-242e-5260-bd87-5a4c34eeb222",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "minimum-referral-a",
+      "text": "Share only the status fields needed for the approved purpose.",
+      "marin:feedback": "This keeps the exchange focused on the receiving team’s actual need."
+    },
+    {
+      "@id": "urn:uuid:f6eb4cd3-38f5-5294-8e0d-5b7e33bbf8e9",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "minimum-referral-b",
+      "text": "Confirm the purpose, authorization, and applicable protections.",
+      "marin:feedback": "Even a small transfer requires the right governance and safeguards."
+    },
+    {
+      "@id": "urn:uuid:9568ebff-5c16-54d9-baec-e7101aaa76f6",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "minimum-referral-c",
+      "text": "Document how the shared status values will be interpreted.",
+      "marin:feedback": "The recipient needs to understand what Accepted, Declined, or Pending means."
+    },
+    {
+      "@id": "urn:uuid:07cdad3a-01f1-5d11-9715-684ce21c8933",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "minimum-referral-d",
+      "text": "Copy the whole case history because it is easier to implement.",
+      "marin:feedback": "Technical convenience does not justify moving unrelated sensitive fields."
+    },
+    {
+      "@id": "urn:uuid:07b2d1b2-4f26-5a79-b6f0-1d21b48132d6",
+      "@type": [
+        "CreativeWork",
+        "marin:AssessmentItem"
+      ],
+      "identifier": "vendor-real-demo",
+      "name": "A vendor says, “Our system integrates with anything.” What should a County leader ask next?",
+      "text": "A vendor says, “Our system integrates with anything.” What should a County leader ask next?",
+      "assesses": [
+        {
+          "@id": "urn:uuid:28940e24-3324-5362-87b8-ce1e2b8f3d6f"
+        }
+      ],
+      "isBasedOn": [
+        {
+          "@id": "urn:uuid:6f4c94a2-7ab8-5bea-9a18-b906c04c6a58"
+        }
+      ],
+      "marin:interactionType": "single-select",
+      "marin:options": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:ee0e1d71-d63d-5dfe-a6b5-7db4f97c9a0a"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@id": "urn:uuid:16e51eef-2625-5bbe-ae22-b48cddf5ac29"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@id": "urn:uuid:a3031202-8fa1-5f52-bf52-7c4688a54301"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "item": {
+              "@id": "urn:uuid:0f73b9df-bd9e-56b0-b785-8cfe2d65b142"
+            }
+          }
+        ]
+      },
+      "marin:correctResponse": [
+        {
+          "@id": "urn:uuid:ee0e1d71-d63d-5dfe-a6b5-7db4f97c9a0a"
+        }
+      ],
+      "marin:hint": "A good next question turns a broad claim into observable evidence.",
+      "marin:explanation": "Integration should be demonstrated using actual fields, meanings, and updates for the intended handoff.",
+      "marin:shuffleOptions": true
+    },
+    {
+      "@id": "urn:uuid:ee0e1d71-d63d-5dfe-a6b5-7db4f97c9a0a",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "vendor-real-demo-a",
+      "text": "“Can you demonstrate how key fields and statuses map to our named application?”",
+      "marin:feedback": "A concrete, application-specific mapping is stronger evidence than a generic claim."
+    },
+    {
+      "@id": "urn:uuid:16e51eef-2625-5bbe-ae22-b48cddf5ac29",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "vendor-real-demo-b",
+      "text": "“Is your product logo customizable?”",
+      "marin:feedback": "Branding does not demonstrate data compatibility."
+    },
+    {
+      "@id": "urn:uuid:a3031202-8fa1-5f52-bf52-7c4688a54301",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "vendor-real-demo-c",
+      "text": "“Can you promise never to change the system?”",
+      "marin:feedback": "The objective is managed change, not a frozen product."
+    },
+    {
+      "@id": "urn:uuid:0f73b9df-bd9e-56b0-b785-8cfe2d65b142",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "vendor-real-demo-d",
+      "text": "“Can you install it before the integration is tested?”",
+      "marin:feedback": "Deployment ahead of testing increases avoidable risk."
+    },
+    {
+      "@id": "urn:uuid:92c08594-0170-5c6e-9fed-9f969ae08d10",
+      "@type": [
+        "CreativeWork",
+        "marin:AssessmentItem"
+      ],
+      "identifier": "vendor-red-flag",
+      "name": "Which vendor answer signals the greatest integration concern?",
+      "text": "Which vendor answer signals the greatest integration concern?",
+      "assesses": [
+        {
+          "@id": "urn:uuid:28940e24-3324-5362-87b8-ce1e2b8f3d6f"
+        }
+      ],
+      "isBasedOn": [
+        {
+          "@id": "urn:uuid:6f4c94a2-7ab8-5bea-9a18-b906c04c6a58"
+        }
+      ],
+      "marin:interactionType": "single-select",
+      "marin:options": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:00b611d2-c012-5e38-b773-fd767a3c0cd5"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@id": "urn:uuid:bcc9f49b-03ad-5a7b-b5b5-cdc923599b66"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@id": "urn:uuid:b7123940-de50-53b9-abd2-82b5a81544f7"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "item": {
+              "@id": "urn:uuid:308f8c03-5752-5c4d-bd64-f3196d4207c6"
+            }
+          }
+        ]
+      },
+      "marin:correctResponse": [
+        {
+          "@id": "urn:uuid:308f8c03-5752-5c4d-bd64-f3196d4207c6"
+        }
+      ],
+      "marin:hint": "Compare what is proven about the data with what is merely promised about export.",
+      "marin:explanation": "The concerning response assumes compatibility without any evidence of definitions or matching.",
+      "marin:shuffleOptions": true
+    },
+    {
+      "@id": "urn:uuid:00b611d2-c012-5e38-b773-fd767a3c0cd5",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "vendor-red-flag-a",
+      "text": "“We can provide field definitions before the test.”",
+      "marin:feedback": "Documented field meanings are a positive starting point."
+    },
+    {
+      "@id": "urn:uuid:bcc9f49b-03ad-5a7b-b5b5-cdc923599b66",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "vendor-red-flag-b",
+      "text": "“We need to review your existing system’s identifiers first.”",
+      "marin:feedback": "Reviewing the target system is an appropriate step."
+    },
+    {
+      "@id": "urn:uuid:b7123940-de50-53b9-abd2-82b5a81544f7",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "vendor-red-flag-c",
+      "text": "“We will test how changes affect your connected reports.”",
+      "marin:feedback": "Dependency testing helps protect continuity."
+    },
+    {
+      "@id": "urn:uuid:308f8c03-5752-5c4d-bd64-f3196d4207c6",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "vendor-red-flag-d",
+      "text": "“We export files, so matching fields and record IDs will take care of themselves.”",
+      "marin:feedback": "Export alone does not resolve meaning, identity, or update behavior."
+    },
+    {
+      "@id": "urn:uuid:6eb9c155-19a0-51df-8127-3aa95f4b1922",
+      "@type": [
+        "CreativeWork",
+        "marin:AssessmentItem"
+      ],
+      "identifier": "leadership-checklist",
+      "name": "Which questions belong in a quick leadership schema review? Select all that apply.",
+      "text": "Which questions belong in a quick leadership schema review? Select all that apply.",
+      "assesses": [
+        {
+          "@id": "urn:uuid:176e219f-f0cb-56cd-a4f4-de87154853ce"
+        }
+      ],
+      "isBasedOn": [
+        {
+          "@id": "urn:uuid:c59f9f4c-5949-5178-b0f5-ebe2f26f7595"
+        }
+      ],
+      "marin:interactionType": "multiple-select",
+      "marin:options": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:377d5def-05b5-51a4-901b-0b542e9ab76d"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@id": "urn:uuid:f0b514f3-2228-5000-a71c-6e69d7f0af78"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@id": "urn:uuid:ba70f96e-a3a5-50a4-8987-dd91b70658bd"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "item": {
+              "@id": "urn:uuid:edc2e12b-7f78-5d91-926d-3f86ec63ca0f"
+            }
+          }
+        ]
+      },
+      "marin:correctResponse": [
+        {
+          "@id": "urn:uuid:377d5def-05b5-51a4-901b-0b542e9ab76d"
+        },
+        {
+          "@id": "urn:uuid:f0b514f3-2228-5000-a71c-6e69d7f0af78"
+        },
+        {
+          "@id": "urn:uuid:ba70f96e-a3a5-50a4-8987-dd91b70658bd"
+        }
+      ],
+      "marin:hint": "Focus on reliability, shared meaning, and demonstrated fit.",
+      "marin:explanation": "Leadership can ask strong schema questions without becoming a technical reviewer.",
+      "marin:shuffleOptions": true
+    },
+    {
+      "@id": "urn:uuid:377d5def-05b5-51a4-901b-0b542e9ab76d",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "leadership-checklist-a",
+      "text": "“Does it have a documented, stable schema?”",
+      "marin:feedback": "This checks whether a reliable agreement exists."
+    },
+    {
+      "@id": "urn:uuid:f0b514f3-2228-5000-a71c-6e69d7f0af78",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "leadership-checklist-b",
+      "text": "“Who tests and communicates field changes?”",
+      "marin:feedback": "This checks whether the agreement remains dependable."
+    },
+    {
+      "@id": "urn:uuid:ba70f96e-a3a5-50a4-8987-dd91b70658bd",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "leadership-checklist-c",
+      "text": "“Can someone show how it fits the other application’s schema?”",
+      "marin:feedback": "This asks for evidence of real compatibility."
+    },
+    {
+      "@id": "urn:uuid:edc2e12b-7f78-5d91-926d-3f86ec63ca0f",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "leadership-checklist-d",
+      "text": "“Can we avoid documenting the data until after launch?”",
+      "marin:feedback": "Skipping documentation postpones the problem instead of addressing it."
+    },
+    {
+      "@id": "urn:uuid:13f6245d-0f69-5109-9829-5773ae9d48d4",
+      "@type": [
+        "CreativeWork",
+        "marin:AssessmentItem"
+      ],
+      "identifier": "smallest-pilot",
+      "name": "A countywide integration proposal seems complicated. What is the strongest first demonstration?",
+      "text": "A countywide integration proposal seems complicated. What is the strongest first demonstration?",
+      "assesses": [
+        {
+          "@id": "urn:uuid:3d6eccf2-0641-5192-8a86-02c427038e43"
+        }
+      ],
+      "isBasedOn": [
+        {
+          "@id": "urn:uuid:e0760d30-62ea-5a7e-9956-edb6f1b52a8a"
+        }
+      ],
+      "marin:interactionType": "single-select",
+      "marin:options": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:c9d2d675-2a44-5591-9e0b-f0b5a1cacfd3"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@id": "urn:uuid:e442bed9-36eb-56a9-a72b-a6b1467cf28a"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@id": "urn:uuid:6190a45a-64b0-5d65-b91d-b8ff4a1b3769"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "item": {
+              "@id": "urn:uuid:d543c35c-7e2e-50b6-88dc-a453b2418b78"
+            }
+          }
+        ]
+      },
+      "marin:correctResponse": [
+        {
+          "@id": "urn:uuid:e442bed9-36eb-56a9-a72b-a6b1467cf28a"
+        }
+      ],
+      "marin:hint": "Which approach produces useful evidence with the smallest bounded effort?",
+      "marin:explanation": "An early, constrained test reveals the real schema and governance work before scope expands.",
+      "marin:shuffleOptions": true
+    },
+    {
+      "@id": "urn:uuid:c9d2d675-2a44-5591-9e0b-f0b5a1cacfd3",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "smallest-pilot-a",
+      "text": "Buy a replacement for every participating system immediately.",
+      "marin:feedback": "A large purchase is not required to establish whether definitions can connect."
+    },
+    {
+      "@id": "urn:uuid:e442bed9-36eb-56a9-a72b-a6b1467cf28a",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "smallest-pilot-b",
+      "text": "Choose two systems, a few key fields, and realistic approved test records.",
+      "marin:feedback": "A focused handoff exposes mismatches early and establishes ownership."
+    },
+    {
+      "@id": "urn:uuid:6190a45a-64b0-5d65-b91d-b8ff4a1b3769",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "smallest-pilot-c",
+      "text": "Wait until all departments agree on every term they use.",
+      "marin:feedback": "Countywide perfection is unnecessary before testing one relevant connection."
+    },
+    {
+      "@id": "urn:uuid:d543c35c-7e2e-50b6-88dc-a453b2418b78",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "smallest-pilot-d",
+      "text": "Publish a dashboard before confirming how fields match.",
+      "marin:feedback": "Presentation should not get ahead of reliable definitions."
+    },
+    {
+      "@id": "urn:uuid:d8a75a06-037c-5d1a-9007-d7cd1dc17ed3",
+      "@type": [
+        "CreativeWork",
+        "marin:AssessmentItem"
+      ],
+      "identifier": "mismatch-as-progress",
+      "name": "An integration team reports that the two systems use “Closed” differently. What leadership response best supports a sound project?",
+      "text": "An integration team reports that the two systems use “Closed” differently. What leadership response best supports a sound project?",
+      "assesses": [
+        {
+          "@id": "urn:uuid:176e219f-f0cb-56cd-a4f4-de87154853ce"
+        }
+      ],
+      "isBasedOn": [
+        {
+          "@id": "urn:uuid:81d76bd8-296e-52e0-b6b2-9631c22b45d6"
+        }
+      ],
+      "marin:interactionType": "single-select",
+      "marin:options": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:a0a0cbfa-78df-5ac2-b242-35022a6d171b"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@id": "urn:uuid:fbe5baf6-3441-50cd-a97c-5f312aa6b956"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@id": "urn:uuid:e81025ea-33e3-505b-9581-7cb6db34105a"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "item": {
+              "@id": "urn:uuid:bbee3511-c7e3-5b6c-85e7-10319980dd40"
+            }
+          }
+        ]
+      },
+      "marin:correctResponse": [
+        {
+          "@id": "urn:uuid:e81025ea-33e3-505b-9581-7cb6db34105a"
+        }
+      ],
+      "marin:hint": "Consider how leaders can reward transparency and turn a problem into a decision.",
+      "marin:explanation": "Surfacing a mismatch before launch is useful evidence, provided the team owns its resolution.",
+      "marin:shuffleOptions": true
+    },
+    {
+      "@id": "urn:uuid:a0a0cbfa-78df-5ac2-b242-35022a6d171b",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "mismatch-as-progress-a",
+      "text": "“Hide the difference so the launch date does not slip.”",
+      "marin:feedback": "Concealing a known mismatch puts reporting and decisions at risk."
+    },
+    {
+      "@id": "urn:uuid:fbe5baf6-3441-50cd-a97c-5f312aa6b956",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "mismatch-as-progress-b",
+      "text": "“Use the definition from whichever vendor costs more.”",
+      "marin:feedback": "Price does not settle business meaning."
+    },
+    {
+      "@id": "urn:uuid:e81025ea-33e3-505b-9581-7cb6db34105a",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "mismatch-as-progress-c",
+      "text": "“Document the difference, assign an owner, and show how it will be handled.”",
+      "marin:feedback": "Making the mismatch visible creates a manageable decision and follow-up."
+    },
+    {
+      "@id": "urn:uuid:bbee3511-c7e3-5b6c-85e7-10319980dd40",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "mismatch-as-progress-d",
+      "text": "“Cancel every data-sharing effort across the County.”",
+      "marin:feedback": "One identified mismatch is a solvable design issue, not proof all sharing is impossible."
+    },
+    {
+      "@id": "urn:uuid:9cfe9f1e-f303-5737-a0b6-eebadc812f38",
+      "@type": [
+        "marin:GradeScale"
+      ],
+      "identifier": "schema-leadership-grades",
+      "name": "Schema leadership knowledge check",
+      "marin:gradeBands": [
+        {
+          "name": "A",
+          "minPercent": 90,
+          "marin:message": "Excellent. You can ask the questions that prevent another expensive “the systems integrate” surprise."
+        },
+        {
+          "name": "B",
+          "minPercent": 80,
+          "marin:message": "Strong work. Make stable schemas and demonstrated mappings a normal part of your next project discussion."
+        },
+        {
+          "name": "C",
+          "minPercent": 70,
+          "marin:message": "Good foundation. Revisit record matching and planned schema changes, then try another set of questions."
+        },
+        {
+          "name": "D",
+          "minPercent": 60,
+          "marin:message": "There is progress to make. Start with the seven-question checklist; no programming required."
+        },
+        {
+          "name": "F",
+          "minPercent": 0,
+          "marin:message": "No need to panic at the word schema. Read the guide again and begin with one simple question: “Are we talking about the same thing?”"
+        }
+      ]
+    },
+    {
+      "@id": "urn:uuid:d78547ce-f16a-5a18-8d30-c0bf1e87b05c",
+      "@type": [
+        "LearningResource",
+        "marin:Assessment"
+      ],
+      "identifier": "schema-leadership-quiz",
+      "name": "Schemas: The Leadership Knowledge Check",
+      "abstract": "Ten randomized questions about shared meaning, stable schemas, cross-system matching, responsible sharing, procurement, and executive habits.",
+      "learningResourceType": "quiz",
+      "educationalUse": [
+        "assessment"
+      ],
+      "interactivityType": "active",
+      "isBasedOn": [
+        {
+          "@id": "urn:uuid:d7f56d5b-065f-592e-82aa-ac7a1ab93e11"
+        }
+      ],
+      "marin:itemSequence": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:1cc028e6-9cc4-51c9-b3b2-aac36d3e154e"
+            },
+            "marin:weight": 1
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@id": "urn:uuid:6c9ae4d6-30c0-508e-82f2-de1c22ef7f81"
+            },
+            "marin:weight": 1
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@id": "urn:uuid:96c31811-0c2b-5cae-a4ff-248724bed918"
+            },
+            "marin:weight": 2
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "item": {
+              "@id": "urn:uuid:d0b66919-3a06-51a9-8cdf-0818453c9757"
+            },
+            "marin:weight": 2
+          },
+          {
+            "@type": "ListItem",
+            "position": 5,
+            "item": {
+              "@id": "urn:uuid:428d3d8b-f2c4-56b1-99d7-66923f0eb3e7"
+            },
+            "marin:weight": 1
+          },
+          {
+            "@type": "ListItem",
+            "position": 6,
+            "item": {
+              "@id": "urn:uuid:02171cb3-a8e6-5a05-8693-9dc5d60ba175"
+            },
+            "marin:weight": 2
+          },
+          {
+            "@type": "ListItem",
+            "position": 7,
+            "item": {
+              "@id": "urn:uuid:37961e09-6d13-5b57-a4bc-ab296f12c7dc"
+            },
+            "marin:weight": 2
+          },
+          {
+            "@type": "ListItem",
+            "position": 8,
+            "item": {
+              "@id": "urn:uuid:6b0f5090-4221-5750-8c6a-481c72e3d625"
+            },
+            "marin:weight": 1
+          },
+          {
+            "@type": "ListItem",
+            "position": 9,
+            "item": {
+              "@id": "urn:uuid:6dcfb65d-bee3-5173-bddf-753d26f50056"
+            },
+            "marin:weight": 2
+          },
+          {
+            "@type": "ListItem",
+            "position": 10,
+            "item": {
+              "@id": "urn:uuid:9ab4633b-2a3c-5687-9521-2d8f03a62d28"
+            },
+            "marin:weight": 2
+          },
+          {
+            "@type": "ListItem",
+            "position": 11,
+            "item": {
+              "@id": "urn:uuid:1487c57f-08c8-5a8e-b624-38d571280a94"
+            },
+            "marin:weight": 2
+          },
+          {
+            "@type": "ListItem",
+            "position": 12,
+            "item": {
+              "@id": "urn:uuid:5ab3823d-9c89-5a03-a84b-d136bcde9076"
+            },
+            "marin:weight": 1
+          },
+          {
+            "@type": "ListItem",
+            "position": 13,
+            "item": {
+              "@id": "urn:uuid:3b660fa0-8323-5f01-8f8c-a875536ade06"
+            },
+            "marin:weight": 2
+          },
+          {
+            "@type": "ListItem",
+            "position": 14,
+            "item": {
+              "@id": "urn:uuid:6866ccdd-a4d4-5f96-a9a4-8d72d661fc82"
+            },
+            "marin:weight": 1
+          },
+          {
+            "@type": "ListItem",
+            "position": 15,
+            "item": {
+              "@id": "urn:uuid:31986f15-8586-5141-9d81-85b89ddf385b"
+            },
+            "marin:weight": 2
+          },
+          {
+            "@type": "ListItem",
+            "position": 16,
+            "item": {
+              "@id": "urn:uuid:07b2d1b2-4f26-5a79-b6f0-1d21b48132d6"
+            },
+            "marin:weight": 2
+          },
+          {
+            "@type": "ListItem",
+            "position": 17,
+            "item": {
+              "@id": "urn:uuid:92c08594-0170-5c6e-9fed-9f969ae08d10"
+            },
+            "marin:weight": 2
+          },
+          {
+            "@type": "ListItem",
+            "position": 18,
+            "item": {
+              "@id": "urn:uuid:6eb9c155-19a0-51df-8127-3aa95f4b1922"
+            },
+            "marin:weight": 2
+          },
+          {
+            "@type": "ListItem",
+            "position": 19,
+            "item": {
+              "@id": "urn:uuid:13f6245d-0f69-5109-9829-5773ae9d48d4"
+            },
+            "marin:weight": 2
+          },
+          {
+            "@type": "ListItem",
+            "position": 20,
+            "item": {
+              "@id": "urn:uuid:d8a75a06-037c-5d1a-9007-d7cd1dc17ed3"
+            },
+            "marin:weight": 2
+          }
+        ]
+      },
+      "marin:selectionPolicy": {
+        "mode": "random",
+        "count": 10,
+        "shuffle": true
+      },
+      "marin:scoringPolicy": {
+        "method": "weighted-sum",
+        "passingPercent": 70,
+        "gradeScale": {
+          "@id": "urn:uuid:9cfe9f1e-f303-5737-a0b6-eebadc812f38"
+        }
+      },
+      "marin:feedbackPolicy": {
+        "timing": "after-assessment",
+        "showCorrectResponses": true,
+        "showOptionFeedback": true,
+        "showExplanation": true
+      }
+    },
+    {
+      "@id": "urn:uuid:faf3bfb6-f624-52a9-b329-0b74488e6328",
+      "@type": [
+        "CreativeWork",
+        "marin:Slide"
+      ],
+      "identifier": "slide-opening",
+      "name": "County Leader’s Guide to Schemas",
+      "marin:layout": "title",
+      "marin:speakerNotes": "Open with a normal leadership question: “How many times have we heard that two systems integrate, only to find out later they count different things?” Explain that a schema is not a programming test."
+    },
+    {
+      "@id": "urn:uuid:7b977a81-5391-56fc-9352-82f7e52febb0",
+      "@type": [
+        "CreativeWork",
+        "marin:Slide"
+      ],
+      "identifier": "slide-agreement",
+      "name": "A Schema Is an Agreement",
+      "marin:layout": "quote",
+      "marin:speakerNotes": "Ask someone to describe an ordinary County form. Notice how field names and allowed values already express a shared agreement.",
+      "marin:contentSequence": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:9b6e5ed8-6b41-5cac-b5a8-df8c432cfe81"
+            },
+            "marin:displayMode": "abstract"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "urn:uuid:ddd078dc-c4ac-5959-8fae-cd600083ee9e",
+      "@type": [
+        "CreativeWork",
+        "marin:Slide"
+      ],
+      "identifier": "slide-meaning",
+      "name": "Same Field Name. Different Fact.",
+      "marin:layout": "split",
+      "marin:speakerNotes": "Use People Served and work order statuses as two examples. Do not suggest that different departmental definitions are automatically wrong; what matters is recognizing the difference.",
+      "marin:contentSequence": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:fe7fe1ee-5d56-564b-ba48-ce1c5c188eef"
+            },
+            "marin:displayMode": "abstract"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@id": "urn:uuid:db6d0ab0-ef43-5556-ba95-10ad9ce53072"
+            },
+            "marin:displayMode": "abstract"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "urn:uuid:af8c2785-817f-5ebb-a048-d4d138f5b759",
+      "@type": [
+        "CreativeWork",
+        "marin:Slide"
+      ],
+      "identifier": "slide-handoffs",
+      "name": "When Systems Exchange Information",
+      "marin:layout": "section",
+      "marin:speakerNotes": "Transition to a practical question: how can different applications report one trustworthy story?"
+    },
+    {
+      "@id": "urn:uuid:7b1c8908-3d3c-5d5a-9a80-ba04cdb48c08",
+      "@type": [
+        "CreativeWork",
+        "marin:Slide"
+      ],
+      "identifier": "slide-handoff-example",
+      "name": "One Work Order, Two Systems",
+      "marin:layout": "content",
+      "marin:speakerNotes": "Walk through a repair marked complete before its invoice is paid. Ask what “closed” should mean in a combined report.",
+      "marin:contentSequence": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:db6d0ab0-ef43-5556-ba95-10ad9ce53072"
+            },
+            "marin:displayMode": "abstract"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "urn:uuid:ac730a63-4680-5791-b8c3-b94d953a63c5",
+      "@type": [
+        "CreativeWork",
+        "marin:Slide"
+      ],
+      "identifier": "slide-stable",
+      "name": "Stable Does Not Mean Frozen",
+      "marin:layout": "content",
+      "marin:speakerNotes": "The phrase stable schema is not a request for outdated systems. It means planned changes and clear notice.",
+      "marin:contentSequence": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:066a16b8-f88f-5598-a986-8afc1fa51813"
+            },
+            "marin:displayMode": "abstract"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "urn:uuid:412aa093-e3d5-5c74-9be9-73519935d551",
+      "@type": [
+        "CreativeWork",
+        "marin:Slide"
+      ],
+      "identifier": "slide-ids",
+      "name": "Which Record Is This?",
+      "marin:layout": "content",
+      "marin:speakerNotes": "Emphasize that a matching name or address is not necessarily a reliable record match. Ask about work order IDs or other appropriate stable identifiers.",
+      "marin:contentSequence": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:2bae79b7-f766-5de8-b0fb-faaae410a66d"
+            },
+            "marin:displayMode": "abstract"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "urn:uuid:24115fe1-5711-5de1-af03-46608cda31f0",
+      "@type": [
+        "CreativeWork",
+        "marin:Slide"
+      ],
+      "identifier": "slide-stewards",
+      "name": "Someone Must Own the Meaning",
+      "marin:layout": "content",
+      "marin:speakerNotes": "Ask who defines Case Closed in your current environment. Do not answer on behalf of a particular department.",
+      "marin:contentSequence": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:03524d7e-9869-5c53-826c-b2397c88fc95"
+            },
+            "marin:displayMode": "abstract"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "urn:uuid:ab8f8674-478e-5e10-b90d-1b684cf8c742",
+      "@type": [
+        "CreativeWork",
+        "marin:Slide"
+      ],
+      "identifier": "slide-boundaries",
+      "name": "Shared Meaning Is Not Blanket Access",
+      "marin:layout": "quote",
+      "marin:speakerNotes": "Technical interoperability and permission to share are separate approvals. Use a limited referral status as the example.",
+      "marin:contentSequence": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:25ed656d-28fe-5066-a157-594c2bbfa675"
+            },
+            "marin:displayMode": "abstract"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "urn:uuid:f1fe3c06-3700-58eb-ae5f-0f19f26f86bc",
+      "@type": [
+        "CreativeWork",
+        "marin:Slide"
+      ],
+      "identifier": "slide-questions",
+      "name": "What Leadership Can Ask",
+      "marin:layout": "section",
+      "marin:speakerNotes": "Tell participants that they do not need to read technical schemas. They do need to insist on understandable evidence."
+    },
+    {
+      "@id": "urn:uuid:1dc9b79a-8cc5-5ae7-9a32-f03107dfefaf",
+      "@type": [
+        "CreativeWork",
+        "marin:Slide"
+      ],
+      "identifier": "slide-vendor",
+      "name": "Ask Vendors to Demonstrate",
+      "marin:layout": "content",
+      "marin:speakerNotes": "Replace “It has an API” with “Show how it matches this particular County application and who supports changes.”",
+      "marin:contentSequence": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:6f4c94a2-7ab8-5bea-9a18-b906c04c6a58"
+            },
+            "marin:displayMode": "abstract"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "urn:uuid:63e93426-b549-5a75-a929-7c2e2167b994",
+      "@type": [
+        "CreativeWork",
+        "marin:Slide"
+      ],
+      "identifier": "slide-seven",
+      "name": "The 60-Second Schema Check",
+      "marin:layout": "content",
+      "marin:speakerNotes": "Lead with the two memorable questions: “Does this have a stable schema?” and “Does this integrate well with the schema of our other application?” Encourage participants to use the full checklist in a meeting.",
+      "marin:contentSequence": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:c59f9f4c-5949-5178-b0f5-ebe2f26f7595"
+            },
+            "marin:displayMode": "abstract"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "urn:uuid:c0a5bc1d-c8f6-54ee-a732-a2a8e1eaea28",
+      "@type": [
+        "CreativeWork",
+        "marin:Slide"
+      ],
+      "identifier": "slide-pilot",
+      "name": "One Handoff Before a Big Promise",
+      "marin:layout": "content",
+      "marin:speakerNotes": "Propose a small two-system exercise. The goal is a demonstration of field meaning, record matching, change handling, and approvals—not a countywide replacement project.",
+      "marin:contentSequence": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:e0760d30-62ea-5a7e-9956-edb6f1b52a8a"
+            },
+            "marin:displayMode": "abstract"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "urn:uuid:b3d8c40c-8138-56ae-8a49-a0dce9598a5b",
+      "@type": [
+        "CreativeWork",
+        "marin:Slide"
+      ],
+      "identifier": "slide-meeting",
+      "name": "Make the Question Ordinary",
+      "marin:layout": "quote",
+      "marin:speakerNotes": "Reassure participants: a leader can ask for schema evidence and accept “we need to investigate” as a responsible answer.",
+      "marin:contentSequence": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:81d76bd8-296e-52e0-b6b2-9631c22b45d6"
+            },
+            "marin:displayMode": "abstract"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "urn:uuid:6f372da9-00f9-52a2-9551-755309b9b79a",
+      "@type": [
+        "CreativeWork",
+        "marin:Slide"
+      ],
+      "identifier": "slide-close",
+      "name": "Next Meeting: Ask for the Agreement",
+      "marin:layout": "section",
+      "marin:speakerNotes": "Close with one commitment: ask which fields mean the same thing, how the systems match, and who owns changes. Invite leaders to make schema a normal management word."
+    },
+    {
+      "@id": "urn:uuid:18814ceb-3f64-57e6-9cc2-09c3ef02ef2f",
+      "@type": [
+        "PresentationDigitalDocument",
+        "marin:Presentation"
+      ],
+      "identifier": "county-schema-leadership-slides",
+      "name": "County Leader’s Guide to Schemas — Slide Deck",
+      "abstract": "Fifteen discussion-oriented slides about shared meaning, stable definitions, evidence of integration, and better executive questions.",
+      "learningResourceType": "presentation",
+      "isBasedOn": [
+        {
+          "@id": "urn:uuid:d7f56d5b-065f-592e-82aa-ac7a1ab93e11"
+        }
+      ],
+      "marin:slideSequence": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:faf3bfb6-f624-52a9-b329-0b74488e6328"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@id": "urn:uuid:7b977a81-5391-56fc-9352-82f7e52febb0"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@id": "urn:uuid:ddd078dc-c4ac-5959-8fae-cd600083ee9e"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "item": {
+              "@id": "urn:uuid:af8c2785-817f-5ebb-a048-d4d138f5b759"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 5,
+            "item": {
+              "@id": "urn:uuid:7b1c8908-3d3c-5d5a-9a80-ba04cdb48c08"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 6,
+            "item": {
+              "@id": "urn:uuid:ac730a63-4680-5791-b8c3-b94d953a63c5"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 7,
+            "item": {
+              "@id": "urn:uuid:412aa093-e3d5-5c74-9be9-73519935d551"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 8,
+            "item": {
+              "@id": "urn:uuid:24115fe1-5711-5de1-af03-46608cda31f0"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 9,
+            "item": {
+              "@id": "urn:uuid:ab8f8674-478e-5e10-b90d-1b684cf8c742"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 10,
+            "item": {
+              "@id": "urn:uuid:f1fe3c06-3700-58eb-ae5f-0f19f26f86bc"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 11,
+            "item": {
+              "@id": "urn:uuid:1dc9b79a-8cc5-5ae7-9a32-f03107dfefaf"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 12,
+            "item": {
+              "@id": "urn:uuid:63e93426-b549-5a75-a929-7c2e2167b994"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 13,
+            "item": {
+              "@id": "urn:uuid:c0a5bc1d-c8f6-54ee-a732-a2a8e1eaea28"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 14,
+            "item": {
+              "@id": "urn:uuid:b3d8c40c-8138-56ae-8a49-a0dce9598a5b"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 15,
+            "item": {
+              "@id": "urn:uuid:6f372da9-00f9-52a2-9551-755309b9b79a"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

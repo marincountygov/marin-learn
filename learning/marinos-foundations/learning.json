@@ -1,0 +1,1739 @@
+{
+  "@context": [
+    "https://schema.org",
+    {
+      "marin": "https://marincountygov.github.io/marin-learn/ns#"
+    }
+  ],
+  "@graph": [
+    {
+      "@id": "urn:uuid:10000000-0000-4000-8000-000000000001",
+      "@type": [
+        "LearningResource",
+        "marin:LearningSet"
+      ],
+      "identifier": "marinos-foundations",
+      "name": "MarinOS Foundations",
+      "abstract": "A concise introduction to MarinOS principles, shared components, accessibility, and maintainable delivery.",
+      "description": "Reference learning set demonstrating the complete Marin Learn v1 package model.",
+      "schemaVersion": "1.0.0",
+      "inLanguage": "en-US",
+      "version": "1.0.0",
+      "dateCreated": "2026-10-08",
+      "dateModified": "2026-10-08",
+      "creativeWorkStatus": "published",
+      "educationalLevel": "introductory",
+      "educationalUse": [
+        "orientation",
+        "self-study"
+      ],
+      "publisher": {
+        "@type": "Organization",
+        "name": "County of Marin"
+      },
+      "license": "CC BY 4.0",
+      "marin:startResource": {
+        "@id": "urn:uuid:10000000-0000-4000-8000-000000000022"
+      },
+      "hasPart": [
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000002"
+        },
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000003"
+        },
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000004"
+        },
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000005"
+        },
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000006"
+        },
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000010"
+        },
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000011"
+        },
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000012"
+        },
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000013"
+        },
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000014"
+        },
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000015"
+        },
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000020"
+        },
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000021"
+        },
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000022"
+        },
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000030"
+        },
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000100"
+        },
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000101"
+        },
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000102"
+        },
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000103"
+        },
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000040"
+        },
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000104"
+        },
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000105"
+        },
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000106"
+        },
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000107"
+        },
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000041"
+        },
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000108"
+        },
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000109"
+        },
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000110"
+        },
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000111"
+        },
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000042"
+        },
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000112"
+        },
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000113"
+        },
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000114"
+        },
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000115"
+        },
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000043"
+        },
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000116"
+        },
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000117"
+        },
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000118"
+        },
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000119"
+        },
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000044"
+        },
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000120"
+        },
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000121"
+        },
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000122"
+        },
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000123"
+        },
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000045"
+        },
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000124"
+        },
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000125"
+        },
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000126"
+        },
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000127"
+        },
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000046"
+        },
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000150"
+        },
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000151"
+        },
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000047"
+        },
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000031"
+        },
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000060"
+        },
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000061"
+        },
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000062"
+        },
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000063"
+        },
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000064"
+        },
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000065"
+        },
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000066"
+        },
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000067"
+        },
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000090"
+        }
+      ]
+    },
+    {
+      "@id": "urn:uuid:10000000-0000-4000-8000-000000000002",
+      "@type": [
+        "DefinedTermSet"
+      ],
+      "identifier": "learning-objectives",
+      "name": "Learning objectives",
+      "description": "Objectives for the MarinOS Foundations learning set.",
+      "hasDefinedTerm": [
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000003"
+        },
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000004"
+        },
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000005"
+        },
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000006"
+        }
+      ]
+    },
+    {
+      "@id": "urn:uuid:10000000-0000-4000-8000-000000000003",
+      "@type": [
+        "DefinedTerm"
+      ],
+      "identifier": "explain-marinos",
+      "name": "Explain what MarinOS is and why it exists.",
+      "inDefinedTermSet": {
+        "@id": "urn:uuid:10000000-0000-4000-8000-000000000002"
+      }
+    },
+    {
+      "@id": "urn:uuid:10000000-0000-4000-8000-000000000004",
+      "@type": [
+        "DefinedTerm"
+      ],
+      "identifier": "explain-app-shell",
+      "name": "Explain the role of the Marin App Shell.",
+      "inDefinedTermSet": {
+        "@id": "urn:uuid:10000000-0000-4000-8000-000000000002"
+      },
+      "marin:parentObjective": {
+        "@id": "urn:uuid:10000000-0000-4000-8000-000000000003"
+      }
+    },
+    {
+      "@id": "urn:uuid:10000000-0000-4000-8000-000000000005",
+      "@type": [
+        "DefinedTerm"
+      ],
+      "identifier": "apply-single-source",
+      "name": "Apply the single-source principle to documents, quizzes, and slides.",
+      "inDefinedTermSet": {
+        "@id": "urn:uuid:10000000-0000-4000-8000-000000000002"
+      },
+      "marin:parentObjective": {
+        "@id": "urn:uuid:10000000-0000-4000-8000-000000000003"
+      }
+    },
+    {
+      "@id": "urn:uuid:10000000-0000-4000-8000-000000000006",
+      "@type": [
+        "DefinedTerm"
+      ],
+      "identifier": "recognize-quality-standards",
+      "name": "Recognize accessibility, security, and maintainability as default quality requirements.",
+      "inDefinedTermSet": {
+        "@id": "urn:uuid:10000000-0000-4000-8000-000000000002"
+      },
+      "marin:parentObjective": {
+        "@id": "urn:uuid:10000000-0000-4000-8000-000000000003"
+      }
+    },
+    {
+      "@id": "urn:uuid:10000000-0000-4000-8000-000000000010",
+      "@type": [
+        "LearningResource",
+        "marin:ContentUnit"
+      ],
+      "identifier": "what-is-marinos",
+      "name": "What is MarinOS?",
+      "abstract": "MarinOS is a shared approach for building small, consistent, maintainable County web applications.",
+      "learningResourceType": "overview",
+      "teaches": [
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000003"
+        }
+      ],
+      "encoding": {
+        "@type": "MediaObject",
+        "contentUrl": "content/what-is-marinos.md",
+        "encodingFormat": "text/markdown"
+      }
+    },
+    {
+      "@id": "urn:uuid:10000000-0000-4000-8000-000000000011",
+      "@type": [
+        "LearningResource",
+        "marin:ContentUnit"
+      ],
+      "identifier": "core-principles",
+      "name": "Core principles",
+      "abstract": "MarinOS favors focused applications, shared standards, open technologies, and content that can be maintained.",
+      "learningResourceType": "key-points",
+      "teaches": [
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000003"
+        },
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000005"
+        },
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000006"
+        }
+      ],
+      "encoding": {
+        "@type": "MediaObject",
+        "contentUrl": "content/core-principles.md",
+        "encodingFormat": "text/markdown"
+      }
+    },
+    {
+      "@id": "urn:uuid:10000000-0000-4000-8000-000000000012",
+      "@type": [
+        "LearningResource",
+        "marin:ContentUnit"
+      ],
+      "identifier": "app-shell",
+      "name": "The Marin App Shell",
+      "abstract": "The App Shell provides shared application structure, identity, navigation, status, and policy links.",
+      "learningResourceType": "concept",
+      "teaches": [
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000004"
+        }
+      ],
+      "encoding": {
+        "@type": "MediaObject",
+        "contentUrl": "content/app-shell.md",
+        "encodingFormat": "text/markdown"
+      }
+    },
+    {
+      "@id": "urn:uuid:10000000-0000-4000-8000-000000000013",
+      "@type": [
+        "LearningResource",
+        "marin:ContentUnit"
+      ],
+      "identifier": "single-source-content",
+      "name": "Single-source learning content",
+      "abstract": "Canonical content is written once and assembled into reading, quiz, and presentation experiences.",
+      "learningResourceType": "concept",
+      "teaches": [
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000005"
+        }
+      ],
+      "encoding": {
+        "@type": "MediaObject",
+        "contentUrl": "content/single-source-content.md",
+        "encodingFormat": "text/markdown"
+      }
+    },
+    {
+      "@id": "urn:uuid:10000000-0000-4000-8000-000000000014",
+      "@type": [
+        "LearningResource",
+        "marin:ContentUnit"
+      ],
+      "identifier": "accessibility-security",
+      "name": "Accessibility and security by default",
+      "abstract": "Accessibility and security are built into authoring, validation, rendering, and package handling.",
+      "learningResourceType": "concept",
+      "teaches": [
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000006"
+        }
+      ],
+      "encoding": {
+        "@type": "MediaObject",
+        "contentUrl": "content/accessibility-security.md",
+        "encodingFormat": "text/markdown"
+      }
+    },
+    {
+      "@id": "urn:uuid:10000000-0000-4000-8000-000000000015",
+      "@type": [
+        "LearningResource",
+        "marin:ContentUnit"
+      ],
+      "identifier": "authoring-workflow",
+      "name": "A practical authoring workflow",
+      "abstract": "Authors create objectives, reusable content, materials, questions, and slides, then validate and export one package.",
+      "learningResourceType": "procedure",
+      "teaches": [
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000003"
+        },
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000004"
+        },
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000005"
+        },
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000006"
+        }
+      ],
+      "encoding": {
+        "@type": "MediaObject",
+        "contentUrl": "content/authoring-workflow.md",
+        "encodingFormat": "text/markdown"
+      }
+    },
+    {
+      "@id": "urn:uuid:10000000-0000-4000-8000-000000000020",
+      "@type": [
+        "CreativeWork",
+        "marin:Section"
+      ],
+      "identifier": "foundations",
+      "name": "Foundations",
+      "marin:contentSequence": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:10000000-0000-4000-8000-000000000010"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@id": "urn:uuid:10000000-0000-4000-8000-000000000011"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@id": "urn:uuid:10000000-0000-4000-8000-000000000012"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@id": "urn:uuid:10000000-0000-4000-8000-000000000021",
+      "@type": [
+        "CreativeWork",
+        "marin:Section"
+      ],
+      "identifier": "putting-it-into-practice",
+      "name": "Putting it into practice",
+      "marin:contentSequence": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:10000000-0000-4000-8000-000000000013"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@id": "urn:uuid:10000000-0000-4000-8000-000000000014"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@id": "urn:uuid:10000000-0000-4000-8000-000000000015"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@id": "urn:uuid:10000000-0000-4000-8000-000000000022",
+      "@type": [
+        "LearningResource",
+        "marin:LearningMaterial"
+      ],
+      "identifier": "marinos-foundations-guide",
+      "name": "MarinOS Foundations Guide",
+      "abstract": "A short guide to the architecture and working methods used by MarinOS.",
+      "learningResourceType": "guide",
+      "educationalUse": [
+        "instruction",
+        "self-study"
+      ],
+      "educationalLevel": "introductory",
+      "timeRequired": "PT15M",
+      "teaches": [
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000003"
+        },
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000004"
+        },
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000005"
+        },
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000006"
+        }
+      ],
+      "marin:contentSequence": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:10000000-0000-4000-8000-000000000020"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@id": "urn:uuid:10000000-0000-4000-8000-000000000021"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@id": "urn:uuid:10000000-0000-4000-8000-000000000030",
+      "@type": [
+        "marin:GradeScale"
+      ],
+      "identifier": "standard-letter-grade",
+      "name": "Standard letter grade",
+      "marin:gradeBands": [
+        {
+          "name": "A",
+          "minPercent": 90,
+          "marin:message": "Excellent. You can now explain MarinOS without using the phrase “it is basically a website template.”"
+        },
+        {
+          "name": "B",
+          "minPercent": 80,
+          "marin:message": "Strong work. A brief review will close the remaining gaps."
+        },
+        {
+          "name": "C",
+          "minPercent": 70,
+          "marin:message": "You passed. Review the explanations before presenting this material to others."
+        },
+        {
+          "name": "D",
+          "minPercent": 60,
+          "marin:message": "Close, but the shared architecture deserves another look."
+        },
+        {
+          "name": "F",
+          "minPercent": 0,
+          "marin:message": "Review the guide and try again. The App Shell has not taken this personally."
+        }
+      ]
+    },
+    {
+      "@id": "urn:uuid:10000000-0000-4000-8000-000000000100",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "marinos-definition-a",
+      "text": "A shared approach for building consistent County web applications",
+      "marin:feedback": "Correct."
+    },
+    {
+      "@id": "urn:uuid:10000000-0000-4000-8000-000000000101",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "marinos-definition-b",
+      "text": "A commercial learning-management platform",
+      "marin:feedback": "Not quite. Review the linked source content."
+    },
+    {
+      "@id": "urn:uuid:10000000-0000-4000-8000-000000000102",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "marinos-definition-c",
+      "text": "A replacement for the County network operating system",
+      "marin:feedback": "Not quite. Review the linked source content."
+    },
+    {
+      "@id": "urn:uuid:10000000-0000-4000-8000-000000000103",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "marinos-definition-d",
+      "text": "A collection of unrelated design mockups",
+      "marin:feedback": "Not quite. Review the linked source content."
+    },
+    {
+      "@id": "urn:uuid:10000000-0000-4000-8000-000000000040",
+      "@type": [
+        "CreativeWork",
+        "marin:AssessmentItem"
+      ],
+      "identifier": "marinos-definition",
+      "name": "Which statement best describes MarinOS?",
+      "text": "Which statement best describes MarinOS?",
+      "assesses": [
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000003"
+        }
+      ],
+      "isBasedOn": [
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000010"
+        }
+      ],
+      "marin:interactionType": "single-select",
+      "marin:options": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:10000000-0000-4000-8000-000000000100"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@id": "urn:uuid:10000000-0000-4000-8000-000000000101"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@id": "urn:uuid:10000000-0000-4000-8000-000000000102"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "item": {
+              "@id": "urn:uuid:10000000-0000-4000-8000-000000000103"
+            }
+          }
+        ]
+      },
+      "marin:correctResponse": [
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000100"
+        }
+      ],
+      "marin:explanation": "The source material explains the principle and how it is applied in MarinOS.",
+      "marin:shuffleOptions": true
+    },
+    {
+      "@id": "urn:uuid:10000000-0000-4000-8000-000000000104",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "app-shell-purpose-a",
+      "text": "Store every application’s data in one central database",
+      "marin:feedback": "Not quite. Review the linked source content."
+    },
+    {
+      "@id": "urn:uuid:10000000-0000-4000-8000-000000000105",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "app-shell-purpose-b",
+      "text": "Provide shared application structure and interface behavior",
+      "marin:feedback": "Correct."
+    },
+    {
+      "@id": "urn:uuid:10000000-0000-4000-8000-000000000106",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "app-shell-purpose-c",
+      "text": "Replace accessibility testing",
+      "marin:feedback": "Not quite. Review the linked source content."
+    },
+    {
+      "@id": "urn:uuid:10000000-0000-4000-8000-000000000107",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "app-shell-purpose-d",
+      "text": "Generate County policies automatically",
+      "marin:feedback": "Not quite. Review the linked source content."
+    },
+    {
+      "@id": "urn:uuid:10000000-0000-4000-8000-000000000041",
+      "@type": [
+        "CreativeWork",
+        "marin:AssessmentItem"
+      ],
+      "identifier": "app-shell-purpose",
+      "name": "What is the primary purpose of the Marin App Shell?",
+      "text": "What is the primary purpose of the Marin App Shell?",
+      "assesses": [
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000004"
+        }
+      ],
+      "isBasedOn": [
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000012"
+        }
+      ],
+      "marin:interactionType": "single-select",
+      "marin:options": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:10000000-0000-4000-8000-000000000104"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@id": "urn:uuid:10000000-0000-4000-8000-000000000105"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@id": "urn:uuid:10000000-0000-4000-8000-000000000106"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "item": {
+              "@id": "urn:uuid:10000000-0000-4000-8000-000000000107"
+            }
+          }
+        ]
+      },
+      "marin:correctResponse": [
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000105"
+        }
+      ],
+      "marin:explanation": "The source material explains the principle and how it is applied in MarinOS.",
+      "marin:shuffleOptions": true
+    },
+    {
+      "@id": "urn:uuid:10000000-0000-4000-8000-000000000108",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "single-source-result-a",
+      "text": "Every output can use a different visual identity",
+      "marin:feedback": "Not quite. Review the linked source content."
+    },
+    {
+      "@id": "urn:uuid:10000000-0000-4000-8000-000000000109",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "single-source-result-b",
+      "text": "Authors can bypass validation",
+      "marin:feedback": "Not quite. Review the linked source content."
+    },
+    {
+      "@id": "urn:uuid:10000000-0000-4000-8000-000000000110",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "single-source-result-c",
+      "text": "Documents, quizzes, and slides reuse the same canonical material",
+      "marin:feedback": "Correct."
+    },
+    {
+      "@id": "urn:uuid:10000000-0000-4000-8000-000000000111",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "single-source-result-d",
+      "text": "The package no longer needs stable identifiers",
+      "marin:feedback": "Not quite. Review the linked source content."
+    },
+    {
+      "@id": "urn:uuid:10000000-0000-4000-8000-000000000042",
+      "@type": [
+        "CreativeWork",
+        "marin:AssessmentItem"
+      ],
+      "identifier": "single-source-result",
+      "name": "What is the main benefit of single-source learning content?",
+      "text": "What is the main benefit of single-source learning content?",
+      "assesses": [
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000005"
+        }
+      ],
+      "isBasedOn": [
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000013"
+        }
+      ],
+      "marin:interactionType": "single-select",
+      "marin:options": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:10000000-0000-4000-8000-000000000108"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@id": "urn:uuid:10000000-0000-4000-8000-000000000109"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@id": "urn:uuid:10000000-0000-4000-8000-000000000110"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "item": {
+              "@id": "urn:uuid:10000000-0000-4000-8000-000000000111"
+            }
+          }
+        ]
+      },
+      "marin:correctResponse": [
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000110"
+        }
+      ],
+      "marin:explanation": "The source material explains the principle and how it is applied in MarinOS.",
+      "marin:shuffleOptions": true
+    },
+    {
+      "@id": "urn:uuid:10000000-0000-4000-8000-000000000112",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "formatting-control-a",
+      "text": "Presentation belongs to stable renderers rather than individual content copies",
+      "marin:feedback": "Correct."
+    },
+    {
+      "@id": "urn:uuid:10000000-0000-4000-8000-000000000113",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "formatting-control-b",
+      "text": "Browsers cannot display custom colors",
+      "marin:feedback": "Not quite. Review the linked source content."
+    },
+    {
+      "@id": "urn:uuid:10000000-0000-4000-8000-000000000114",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "formatting-control-c",
+      "text": "Markdown does not support words",
+      "marin:feedback": "Not quite. Review the linked source content."
+    },
+    {
+      "@id": "urn:uuid:10000000-0000-4000-8000-000000000115",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "formatting-control-d",
+      "text": "Quiz questions require plain text only",
+      "marin:feedback": "Not quite. Review the linked source content."
+    },
+    {
+      "@id": "urn:uuid:10000000-0000-4000-8000-000000000043",
+      "@type": [
+        "CreativeWork",
+        "marin:AssessmentItem"
+      ],
+      "identifier": "formatting-control",
+      "name": "Why does Marin Learn restrict fonts, colors, and arbitrary layout controls?",
+      "text": "Why does Marin Learn restrict fonts, colors, and arbitrary layout controls?",
+      "assesses": [
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000005"
+        }
+      ],
+      "isBasedOn": [
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000013"
+        }
+      ],
+      "marin:interactionType": "single-select",
+      "marin:options": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:10000000-0000-4000-8000-000000000112"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@id": "urn:uuid:10000000-0000-4000-8000-000000000113"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@id": "urn:uuid:10000000-0000-4000-8000-000000000114"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "item": {
+              "@id": "urn:uuid:10000000-0000-4000-8000-000000000115"
+            }
+          }
+        ]
+      },
+      "marin:correctResponse": [
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000112"
+        }
+      ],
+      "marin:explanation": "The source material explains the principle and how it is applied in MarinOS.",
+      "marin:shuffleOptions": true
+    },
+    {
+      "@id": "urn:uuid:10000000-0000-4000-8000-000000000116",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "accessibility-default-a",
+      "text": "Add alt text only after publication",
+      "marin:feedback": "Not quite. Review the linked source content."
+    },
+    {
+      "@id": "urn:uuid:10000000-0000-4000-8000-000000000117",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "accessibility-default-b",
+      "text": "Use drag-and-drop with no keyboard alternative",
+      "marin:feedback": "Not quite. Review the linked source content."
+    },
+    {
+      "@id": "urn:uuid:10000000-0000-4000-8000-000000000118",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "accessibility-default-c",
+      "text": "Permit arbitrary heading levels",
+      "marin:feedback": "Not quite. Review the linked source content."
+    },
+    {
+      "@id": "urn:uuid:10000000-0000-4000-8000-000000000119",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "accessibility-default-d",
+      "text": "Require accessible image decisions and validate heading structure during authoring",
+      "marin:feedback": "Correct."
+    },
+    {
+      "@id": "urn:uuid:10000000-0000-4000-8000-000000000044",
+      "@type": [
+        "CreativeWork",
+        "marin:AssessmentItem"
+      ],
+      "identifier": "accessibility-default",
+      "name": "Which practice best reflects accessibility by default?",
+      "text": "Which practice best reflects accessibility by default?",
+      "assesses": [
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000006"
+        }
+      ],
+      "isBasedOn": [
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000014"
+        }
+      ],
+      "marin:interactionType": "single-select",
+      "marin:options": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:10000000-0000-4000-8000-000000000116"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@id": "urn:uuid:10000000-0000-4000-8000-000000000117"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@id": "urn:uuid:10000000-0000-4000-8000-000000000118"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "item": {
+              "@id": "urn:uuid:10000000-0000-4000-8000-000000000119"
+            }
+          }
+        ]
+      },
+      "marin:correctResponse": [
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000119"
+        }
+      ],
+      "marin:explanation": "The source material explains the principle and how it is applied in MarinOS.",
+      "marin:shuffleOptions": true
+    },
+    {
+      "@id": "urn:uuid:10000000-0000-4000-8000-000000000120",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "package-processing-a",
+      "text": "On an external content-processing service",
+      "marin:feedback": "Not quite. Review the linked source content."
+    },
+    {
+      "@id": "urn:uuid:10000000-0000-4000-8000-000000000121",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "package-processing-b",
+      "text": "Locally in the user’s browser",
+      "marin:feedback": "Correct."
+    },
+    {
+      "@id": "urn:uuid:10000000-0000-4000-8000-000000000122",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "package-processing-c",
+      "text": "Only in a learning-management system",
+      "marin:feedback": "Not quite. Review the linked source content."
+    },
+    {
+      "@id": "urn:uuid:10000000-0000-4000-8000-000000000123",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "package-processing-d",
+      "text": "Inside a proprietary desktop program",
+      "marin:feedback": "Not quite. Review the linked source content."
+    },
+    {
+      "@id": "urn:uuid:10000000-0000-4000-8000-000000000045",
+      "@type": [
+        "CreativeWork",
+        "marin:AssessmentItem"
+      ],
+      "identifier": "package-processing",
+      "name": "Where does Marin Learn package processing occur in the initial implementation?",
+      "text": "Where does Marin Learn package processing occur in the initial implementation?",
+      "assesses": [
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000006"
+        }
+      ],
+      "isBasedOn": [
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000014"
+        }
+      ],
+      "marin:interactionType": "single-select",
+      "marin:options": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:10000000-0000-4000-8000-000000000120"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@id": "urn:uuid:10000000-0000-4000-8000-000000000121"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@id": "urn:uuid:10000000-0000-4000-8000-000000000122"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "item": {
+              "@id": "urn:uuid:10000000-0000-4000-8000-000000000123"
+            }
+          }
+        ]
+      },
+      "marin:correctResponse": [
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000121"
+        }
+      ],
+      "marin:explanation": "The source material explains the principle and how it is applied in MarinOS.",
+      "marin:shuffleOptions": true
+    },
+    {
+      "@id": "urn:uuid:10000000-0000-4000-8000-000000000124",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "workflow-order-a",
+      "text": "Export, create content, add objectives, validate",
+      "marin:feedback": "Not quite. Review the linked source content."
+    },
+    {
+      "@id": "urn:uuid:10000000-0000-4000-8000-000000000125",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "workflow-order-b",
+      "text": "Create slides first, then copy their text into documents",
+      "marin:feedback": "Not quite. Review the linked source content."
+    },
+    {
+      "@id": "urn:uuid:10000000-0000-4000-8000-000000000126",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "workflow-order-c",
+      "text": "Create objectives and content, assemble outputs, validate, and export",
+      "marin:feedback": "Correct."
+    },
+    {
+      "@id": "urn:uuid:10000000-0000-4000-8000-000000000127",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "workflow-order-d",
+      "text": "Publish first and resolve broken references later",
+      "marin:feedback": "Not quite. Review the linked source content."
+    },
+    {
+      "@id": "urn:uuid:10000000-0000-4000-8000-000000000046",
+      "@type": [
+        "CreativeWork",
+        "marin:AssessmentItem"
+      ],
+      "identifier": "workflow-order",
+      "name": "Which sequence best matches the recommended authoring workflow?",
+      "text": "Which sequence best matches the recommended authoring workflow?",
+      "assesses": [
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000003"
+        }
+      ],
+      "isBasedOn": [
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000015"
+        }
+      ],
+      "marin:interactionType": "single-select",
+      "marin:options": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:10000000-0000-4000-8000-000000000124"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@id": "urn:uuid:10000000-0000-4000-8000-000000000125"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@id": "urn:uuid:10000000-0000-4000-8000-000000000126"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "item": {
+              "@id": "urn:uuid:10000000-0000-4000-8000-000000000127"
+            }
+          }
+        ]
+      },
+      "marin:correctResponse": [
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000126"
+        }
+      ],
+      "marin:explanation": "The source material explains the principle and how it is applied in MarinOS.",
+      "marin:shuffleOptions": true
+    },
+    {
+      "@id": "urn:uuid:10000000-0000-4000-8000-000000000150",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "true",
+      "text": "True",
+      "marin:feedback": "Correct. Canonical content is reused through references."
+    },
+    {
+      "@id": "urn:uuid:10000000-0000-4000-8000-000000000151",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "false",
+      "text": "False",
+      "marin:feedback": "Incorrect. Reuse is a primary Marin Learn design goal."
+    },
+    {
+      "@id": "urn:uuid:10000000-0000-4000-8000-000000000047",
+      "@type": [
+        "CreativeWork",
+        "marin:AssessmentItem"
+      ],
+      "identifier": "reuse-true-false",
+      "name": "Reuse principle",
+      "text": "True or false: A slide deck should normally reference canonical ContentUnits instead of maintaining a separate copy of the instructional text.",
+      "assesses": [
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000005"
+        }
+      ],
+      "isBasedOn": [
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000013"
+        }
+      ],
+      "marin:interactionType": "true-false",
+      "marin:options": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:10000000-0000-4000-8000-000000000150"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@id": "urn:uuid:10000000-0000-4000-8000-000000000151"
+            }
+          }
+        ]
+      },
+      "marin:correctResponse": [
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000150"
+        }
+      ],
+      "marin:explanation": "True. Presentation-specific notes and layout metadata are separate, but the instructional content remains canonical.",
+      "marin:shuffleOptions": false
+    },
+    {
+      "@id": "urn:uuid:10000000-0000-4000-8000-000000000031",
+      "@type": [
+        "LearningResource",
+        "marin:Assessment"
+      ],
+      "identifier": "marinos-foundations-quiz",
+      "name": "MarinOS Foundations Quiz",
+      "abstract": "A scored knowledge check covering the core MarinOS principles.",
+      "learningResourceType": "quiz",
+      "educationalUse": [
+        "assessment"
+      ],
+      "interactivityType": "active",
+      "isBasedOn": [
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000022"
+        }
+      ],
+      "assesses": [
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000003"
+        },
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000004"
+        },
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000005"
+        },
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000006"
+        }
+      ],
+      "marin:itemSequence": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:10000000-0000-4000-8000-000000000040"
+            },
+            "marin:weight": 2
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@id": "urn:uuid:10000000-0000-4000-8000-000000000041"
+            },
+            "marin:weight": 1
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@id": "urn:uuid:10000000-0000-4000-8000-000000000042"
+            },
+            "marin:weight": 1
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "item": {
+              "@id": "urn:uuid:10000000-0000-4000-8000-000000000043"
+            },
+            "marin:weight": 2
+          },
+          {
+            "@type": "ListItem",
+            "position": 5,
+            "item": {
+              "@id": "urn:uuid:10000000-0000-4000-8000-000000000044"
+            },
+            "marin:weight": 1
+          },
+          {
+            "@type": "ListItem",
+            "position": 6,
+            "item": {
+              "@id": "urn:uuid:10000000-0000-4000-8000-000000000045"
+            },
+            "marin:weight": 1
+          },
+          {
+            "@type": "ListItem",
+            "position": 7,
+            "item": {
+              "@id": "urn:uuid:10000000-0000-4000-8000-000000000046"
+            },
+            "marin:weight": 2
+          },
+          {
+            "@type": "ListItem",
+            "position": 8,
+            "item": {
+              "@id": "urn:uuid:10000000-0000-4000-8000-000000000047"
+            },
+            "marin:weight": 1
+          }
+        ]
+      },
+      "marin:selectionPolicy": {
+        "mode": "random",
+        "count": 5,
+        "shuffle": true
+      },
+      "marin:scoringPolicy": {
+        "method": "weighted-sum",
+        "passingPercent": 70,
+        "gradeScale": {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000030"
+        }
+      },
+      "marin:feedbackPolicy": {
+        "timing": "after-assessment",
+        "showCorrectResponses": true,
+        "showOptionFeedback": true,
+        "showExplanation": true
+      }
+    },
+    {
+      "@id": "urn:uuid:10000000-0000-4000-8000-000000000060",
+      "@type": [
+        "CreativeWork",
+        "marin:Slide"
+      ],
+      "identifier": "title-slide",
+      "name": "MarinOS Foundations",
+      "marin:layout": "title",
+      "marin:speakerNotes": "Open by asking participants where inconsistent application behavior creates avoidable work."
+    },
+    {
+      "@id": "urn:uuid:10000000-0000-4000-8000-000000000061",
+      "@type": [
+        "CreativeWork",
+        "marin:Slide"
+      ],
+      "identifier": "what-is-marinos-slide",
+      "name": "What is MarinOS?",
+      "marin:layout": "content",
+      "marin:contentSequence": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:10000000-0000-4000-8000-000000000010"
+            },
+            "marin:displayMode": "abstract"
+          }
+        ]
+      },
+      "marin:speakerNotes": "Emphasize that MarinOS is an operating model and shared platform, not a commercial product."
+    },
+    {
+      "@id": "urn:uuid:10000000-0000-4000-8000-000000000062",
+      "@type": [
+        "CreativeWork",
+        "marin:Slide"
+      ],
+      "identifier": "core-principles-slide",
+      "name": "Core principles",
+      "marin:layout": "content",
+      "marin:contentSequence": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:10000000-0000-4000-8000-000000000011"
+            },
+            "marin:displayMode": "full"
+          }
+        ]
+      },
+      "marin:speakerNotes": "Connect each principle to reduced maintenance and clearer governance."
+    },
+    {
+      "@id": "urn:uuid:10000000-0000-4000-8000-000000000063",
+      "@type": [
+        "CreativeWork",
+        "marin:Slide"
+      ],
+      "identifier": "app-shell-slide",
+      "name": "The Marin App Shell",
+      "marin:layout": "media",
+      "marin:contentSequence": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:10000000-0000-4000-8000-000000000012"
+            },
+            "marin:displayMode": "abstract"
+          }
+        ]
+      },
+      "marin:speakerNotes": "Use the diagram to distinguish shared shell behavior from app-specific content and logic."
+    },
+    {
+      "@id": "urn:uuid:10000000-0000-4000-8000-000000000064",
+      "@type": [
+        "CreativeWork",
+        "marin:Slide"
+      ],
+      "identifier": "single-source-slide",
+      "name": "Write once, assemble many ways",
+      "marin:layout": "content",
+      "marin:contentSequence": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:10000000-0000-4000-8000-000000000013"
+            },
+            "marin:displayMode": "abstract"
+          }
+        ]
+      },
+      "marin:speakerNotes": "Point out that quizzes reference the source rather than repeating the answer text."
+    },
+    {
+      "@id": "urn:uuid:10000000-0000-4000-8000-000000000065",
+      "@type": [
+        "CreativeWork",
+        "marin:Slide"
+      ],
+      "identifier": "quality-slide",
+      "name": "Quality is part of the workflow",
+      "marin:layout": "split",
+      "marin:contentSequence": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:10000000-0000-4000-8000-000000000014"
+            },
+            "marin:displayMode": "abstract"
+          }
+        ]
+      },
+      "marin:speakerNotes": "Accessibility and security checks belong before export, not after publication."
+    },
+    {
+      "@id": "urn:uuid:10000000-0000-4000-8000-000000000066",
+      "@type": [
+        "CreativeWork",
+        "marin:Slide"
+      ],
+      "identifier": "workflow-slide",
+      "name": "Author, validate, export",
+      "marin:layout": "content",
+      "marin:contentSequence": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:10000000-0000-4000-8000-000000000015"
+            },
+            "marin:displayMode": "full"
+          }
+        ]
+      },
+      "marin:speakerNotes": "Close with the practical workflow and show the package as the portable source of truth."
+    },
+    {
+      "@id": "urn:uuid:10000000-0000-4000-8000-000000000067",
+      "@type": [
+        "PresentationDigitalDocument",
+        "marin:Presentation"
+      ],
+      "identifier": "marinos-foundations-slides",
+      "name": "MarinOS Foundations Slides",
+      "abstract": "Presentation version of the MarinOS Foundations Guide.",
+      "learningResourceType": "presentation",
+      "isBasedOn": [
+        {
+          "@id": "urn:uuid:10000000-0000-4000-8000-000000000022"
+        }
+      ],
+      "marin:slideSequence": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:10000000-0000-4000-8000-000000000060"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@id": "urn:uuid:10000000-0000-4000-8000-000000000061"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@id": "urn:uuid:10000000-0000-4000-8000-000000000062"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "item": {
+              "@id": "urn:uuid:10000000-0000-4000-8000-000000000063"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 5,
+            "item": {
+              "@id": "urn:uuid:10000000-0000-4000-8000-000000000064"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 6,
+            "item": {
+              "@id": "urn:uuid:10000000-0000-4000-8000-000000000065"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 7,
+            "item": {
+              "@id": "urn:uuid:10000000-0000-4000-8000-000000000066"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@id": "urn:uuid:10000000-0000-4000-8000-000000000090",
+      "@type": [
+        "MediaObject",
+        "ImageObject"
+      ],
+      "identifier": "marin-learn-flow",
+      "name": "Marin Learn single-source flow",
+      "description": "Diagram showing canonical content flowing to reading, quiz, and slide renderers.",
+      "contentUrl": "assets/marin-learn-flow.svg",
+      "encodingFormat": "image/svg+xml",
+      "width": 960,
+      "height": 480,
+      "license": "CC BY 4.0",
+      "contentSize": "1884"
+    }
+  ]
+}

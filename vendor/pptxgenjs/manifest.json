@@ -1,0 +1,21 @@
+{
+  "schema": 1,
+  "name": "PptxGenJS browser runtime",
+  "pptxGenJsVersion": "4.0.0",
+  "jsZipVersion": "3.10.1",
+  "source": "PptxGenJS 4.0.0 browser bundle used by the Marin Learn PPTX conformance review",
+  "files": {
+    "pptxgen.bundle.js": {
+      "bytes": 460216,
+      "sha256": "ab17e9c619b099cee283f0b5010c846585976a1e3d81b841153dc86bbc52cf51"
+    },
+    "PPTXGENJS-LICENSE.txt": {
+      "bytes": 1081,
+      "sha256": "7a2bfe96150786ed1908b8e63f98ebab88875c1e79e28faff6649e0f11f77e52"
+    },
+    "JSZIP-LICENSE.md": {
+      "bytes": 33753,
+      "sha256": "566c953c6090b1218ca6217dd7359d45dde46581968586dc607d59a78af6a9c4"
+    }
+  }
+}

@@ -4,6 +4,13 @@ Tracks changes to `marin-app-template` itself — repository structure, starter 
 
 Existing applications do not automatically inherit these changes. Template changes only affect projects created after the change; see `TEMPLATE_VERSION` and the README's "Project manifest and versions" section.
 
+## Unreleased
+
+- Fix project-status false positives for valid URL-valued licenses on learning resources and assets, and show a clear “No issues found” success state when validation is clean.
+- Replace all browser-native JavaScript prompt, confirmation, and alert interactions in Marin Learn Authoring with one shared native HTML `<dialog>` and normal form component.
+- Add inline required-field validation, safe destructive confirmations, deterministic keyboard/focus behavior, responsive light/dark styling, a native-dialog regression guard, browser coverage, and editor dialog documentation.
+- Preserve existing model, persistence, package, Markdown, asset, quiz, slide, and export operations while converting affected UI control flow to asynchronous form results.
+
 ## 2.0.2
 
 - Update `marin.yml`'s starter `project.status` from `prototype` to `alpha`, matching MarinOS's new app status enum (`alpha`/`beta`/`live`) — see `marin-os`'s `#status` page. `prototype` is no longer a recognized value.

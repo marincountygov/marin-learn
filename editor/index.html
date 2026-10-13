@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <!-- BEGIN generated security meta: python3 scripts/sync-security-meta.py --write -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://marincountygov.github.io/marin-os/catalog.json https://api.github.com; object-src 'none'; base-uri 'self'; form-action 'self'">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <!-- END generated security meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Marin Learn Authoring | County of Marin</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2048%2048%27%3E%3Crect%20width%3D%2748%27%20height%3D%2748%27%20rx%3D%2710%27%20fill%3D%27%23000%27%2F%3E%3Cg%20fill%3D%27none%27%20stroke%3D%27%23e5b53b%27%20stroke-width%3D%272.4%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%20transform%3D%27translate%289%209%29%20scale%281.25%29%27%3E%3Cpath%20d%3D%27M13.4%202H6a2%202%200%200%200-2%202v16a2%202%200%200%200%202%202h12a2%202%200%200%200%202-2v-7.4%27%2F%3E%3Cpath%20d%3D%27M2%206h4%27%2F%3E%3Cpath%20d%3D%27M2%2010h4%27%2F%3E%3Cpath%20d%3D%27M2%2014h4%27%2F%3E%3Cpath%20d%3D%27M2%2018h4%27%2F%3E%3Cpath%20d%3D%27M21.378%205.626a1%201%200%201%200-3.004-3.004l-5.01%205.012a2%202%200%200%200-.506.854l-.837%202.87a.5.5%200%200%200%20.62.62l2.87-.837a2%202%200%200%200%20.854-.506z%27%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E">
+    <meta name="description" content="Authoring interface for Marin Learn learning packages.">
+    <link rel="stylesheet" href="../vendor/marinos/marinos.css">
+    <link rel="stylesheet" href="assets/app.css">
+    <script src="../vendor/marinos/marinos.js" defer></script>
+    <script src="assets/app.js" type="module" defer></script>
+  </head>
+  <body>
+    <noscript>
+      <div class="container app-alert app-alert--warning">
+        JavaScript is required to display the MarinOS authoring interface and use this application.
+      </div>
+    </noscript>
+
+    <marin-os-banner></marin-os-banner>
+
+    <marin-app-header app-name="Marin Learn Authoring" app-description="Create and update learning materials from one shared set of content.">
+      <template data-icon>
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M13.4 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7.4"/>
+          <path d="M2 6h4"/>
+          <path d="M2 10h4"/>
+          <path d="M2 14h4"/>
+          <path d="M2 18h4"/>
+          <path d="M21.378 5.626a1 1 0 1 0-3.004-3.004l-5.01 5.012a2 2 0 0 0-.506.854l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z"/>
+        </svg>
+      </template>
+    </marin-app-header>
+
+    <main id="main" class="container app-main">
+      <section id="start" class="app-page-heading" data-tab-section="start" aria-labelledby="start-heading">
+        <div id="editor-app-root">
+          <!-- First-run / Welcome view -->
+          <div class="editor-welcome-card" id="welcome-view">
+            <h2>Create and update learning materials</h2>
+            <p>Create reading materials, slide decks, and quizzes from one shared set of content. Your work stays in this browser until you download a learning package.</p>
+            
+            <div class="editor-welcome-actions">
+              <button id="btn-new-project" class="primary">Create learning project</button>
+              <label class="secondary outline editor-file-label" role="button" tabindex="0">
+                Open learning package
+                <input type="file" id="file-import-zip" accept=".zip" class="editor-hidden">
+              </label>
+            </div>
+
+            <div id="recovery-notice" class="editor-recovery-notice editor-hidden">
+              <h3>Continue where you left off?</h3>
+              <p>A copy of project "<strong><span id="recovery-title"></span></strong>" was saved in this browser.</p>
+              <button id="btn-recover" class="secondary">Continue working</button>
+            </div>
+
+            <div id="create-form-container" class="editor-create-form editor-hidden">
+              <h3>Create learning project</h3>
+              <label class="editor-label">
+                Project title *
+                <input type="text" id="new-proj-title" placeholder="e.g., MarinOS Foundations" required>
+              </label>
+              <label class="editor-label">
+                What is this project about? (optional)
+                <textarea id="new-proj-desc" rows="3" placeholder="Briefly describe what someone will learn."></textarea>
+              </label>
+              <div class="editor-form-actions">
+                <button id="btn-submit-create" class="primary">Create project</button>
+                <button id="btn-cancel-create" class="secondary outline">Cancel</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Main workspace view -->
+          <div id="workspace-view" class="editor-hidden">
+            <div id="editor-status-message" class="editor-hidden" role="status" aria-live="polite" tabindex="-1"></div>
+            <div class="editor-project-title-bar">
+              <h2 id="workspace-project-title">Learning Project</h2>
+              <span class="app-badge badge--status" id="workspace-status-badge">Saved in this browser</span>
+            </div>
+
+            <div class="editor-nav-tabs" role="tablist">
+              <button class="editor-tab-btn active" id="tab-button-overview" role="tab" aria-selected="true" aria-controls="tab-overview" data-tab="overview">Overview</button>
+              <button class="editor-tab-btn" id="tab-button-materials" role="tab" aria-selected="false" aria-controls="tab-materials" tabindex="-1" data-tab="materials">Reading Materials</button>
+              <button class="editor-tab-btn" id="tab-button-quizzes" role="tab" aria-selected="false" aria-controls="tab-quizzes" tabindex="-1" data-tab="quizzes">Quizzes</button>
+              <button class="editor-tab-btn" id="tab-button-slides" role="tab" aria-selected="false" aria-controls="tab-slides" tabindex="-1" data-tab="slides">Slide Decks</button>
+              <button class="editor-tab-btn" id="tab-button-assets" role="tab" aria-selected="false" aria-controls="tab-assets" tabindex="-1" data-tab="assets">Images and Files</button>
+              <button class="editor-tab-btn" id="tab-button-export" role="tab" aria-selected="false" aria-controls="tab-export" tabindex="-1" data-tab="export">Review and Download</button>
+            </div>
+
+            <!-- Overview Tab -->
+            <div class="editor-tab-content" id="tab-overview" role="tabpanel" aria-labelledby="tab-button-overview" tabindex="-1">
+              <div class="editor-task-cards-grid">
+                <button type="button" class="editor-task-card" data-gototab="materials">
+                  <h4>Write reading materials</h4>
+                  <p>Create the information people will read.</p>
+                  <span class="editor-task-link">Open reading materials &rarr;</span>
+                </button>
+                <button type="button" class="editor-task-card" data-gototab="quizzes">
+                  <h4>Create a quiz</h4>
+                  <p>Help learners check what they understood.</p>
+                  <span class="editor-task-link">Open quizzes &rarr;</span>
+                </button>
+                <button type="button" class="editor-task-card" data-gototab="slides">
+                  <h4>Build a slide deck</h4>
+                  <p>Present the same information as slides.</p>
+                  <span class="editor-task-link">Open slide decks &rarr;</span>
+                </button>
+                <button type="button" class="editor-task-card" data-gototab="export">
+                  <h4>Review and download</h4>
+                  <p>Check your work and download a learning package or PowerPoint.</p>
+                  <span class="editor-task-link">Review project &rarr;</span>
+                </button>
+              </div>
+
+              <div class="editor-overview-goals-section">
+                <div class="editor-overview-goals-header">
+                  <div>
+                    <h4>Learning Objectives</h4>
+                    <p class="text-muted" id="overview-goals-summary">Learning goals are optional when starting out, but helpful for organizing content and quizzes.</p>
+                  </div>
+                  <button type="button" id="btn-manage-objectives-overview" class="secondary outline">Manage learning objectives</button>
+                </div>
+              </div>
+
+              <hr class="editor-margin-separator">
+
+              <h4>Project details (advanced settings)</h4>
+              <div class="grid">
+                <label>
+                  Project title
+                  <input type="text" id="proj-name">
+                </label>
+                <label>
+                  Identifier (URL slug)
+                  <input type="text" id="proj-identifier">
+                </label>
+              </div>
+              <label>
+                Short summary (optional)
+                <textarea id="proj-abstract" rows="2"></textarea>
+              </label>
+              <div class="grid">
+                <label>
+                  Educational level
+                  <select id="proj-level">
+                    <option value="introductory">Introductory</option>
+                    <option value="intermediate">Intermediate</option>
+                    <option value="advanced">Advanced</option>
+                  </select>
+                </label>
+                <label>
+                  Publication status
+                  <select id="proj-status">
+                    <option value="published">Published</option>
+                    <option value="draft">Draft (Excluded from public catalog)</option>
+                    <option value="review">In review</option>
+                    <option value="retired">Retired</option>
+                  </select>
+                </label>
+              </div>
+              <button id="btn-save-overview" class="secondary">Save details</button>
+            </div>
+
+            <!-- Reading Materials Tab -->
+            <div class="editor-tab-content editor-hidden" id="tab-materials" role="tabpanel" aria-labelledby="tab-button-materials" tabindex="-1" hidden>
+              <div id="materials-list-container"></div>
+            </div>
+
+            <!-- Quizzes Tab -->
+            <div class="editor-tab-content editor-hidden" id="tab-quizzes" role="tabpanel" aria-labelledby="tab-button-quizzes" tabindex="-1" hidden>
+              <div id="quizzes-list-container"></div>
+            </div>
+
+            <!-- Slide Decks Tab -->
+            <div class="editor-tab-content editor-hidden" id="tab-slides" role="tabpanel" aria-labelledby="tab-button-slides" tabindex="-1" hidden>
+              <div id="slides-list-container"></div>
+            </div>
+
+            <!-- Images and Files Tab -->
+            <div class="editor-tab-content editor-hidden" id="tab-assets" role="tabpanel" aria-labelledby="tab-button-assets" tabindex="-1" hidden>
+              <div id="assets-list-container"></div>
+              <label class="editor-file-btn-label" role="button" tabindex="0">
+                + Add image or file
+                <input type="file" id="file-add-asset" accept="image/png,image/jpeg,image/gif,image/webp,image/svg+xml" class="editor-hidden">
+              </label>
+            </div>
+
+            <!-- Review and Download Tab -->
+            <div class="editor-tab-content editor-hidden" id="tab-export" role="tabpanel" aria-labelledby="tab-button-export" tabindex="-1" hidden>
+              <p>Check for missing information, then download a portable learning package or an editable PowerPoint slide deck.</p>
+              <button id="btn-run-validation" class="secondary">Check project status</button>
+              <div id="validation-results" class="editor-mt-1"></div>
+
+              <section class="editor-download-section" aria-labelledby="package-download-heading">
+                <h4 id="package-download-heading">Download learning package</h4>
+                <p>Download a conforming portable ZIP package containing your structured graph, Markdown files, and assets.</p>
+                <button id="btn-export-zip" class="primary">Download Learning Package</button>
+              </section>
+
+              <section class="editor-download-section" id="pptx-export-section" aria-labelledby="pptx-export-heading" aria-busy="false">
+                <h4 id="pptx-export-heading">Download PowerPoint</h4>
+                <p>Create an editable PowerPoint presentation from one slide deck. The file is generated in this browser and is not added to the learning package.</p>
+
+                <div id="pptx-export-empty" class="app-alert app-alert--warning editor-hidden">
+                  <h5>No slide deck available</h5>
+                  <p>Create a slide deck before downloading PowerPoint.</p>
+                  <button type="button" id="btn-pptx-open-slides" class="secondary outline">Open Slide Decks</button>
+                </div>
+
+                <div id="pptx-export-controls" class="editor-pptx-controls editor-hidden">
+                  <label for="pptx-presentation-select">Slide deck</label>
+                  <select id="pptx-presentation-select" aria-describedby="pptx-export-help"></select>
+                  <p id="pptx-export-help" class="text-muted editor-help-text">Marin Learn checks the selected deck before enabling the download. Your project stays in this browser while the file is created.</p>
+                  <button type="button" id="btn-export-pptx" class="primary" disabled aria-disabled="true">Download PowerPoint</button>
+                </div>
+
+                <div id="pptx-export-results" class="editor-pptx-results" aria-live="polite" aria-atomic="false" tabindex="-1"></div>
+              </section>
+            </div>
+          </div>
+          <div id="editor-modal-root"></div>
+        </div>
+      </section>
+
+      <marin-app-info app-name="Marin Learn Authoring" repo="marincountygov/marin-learn" security-src="../security.json">
+        <template data-about>
+          <p>Marin Learn Authoring provides tools for creating, validating, and exporting conforming Marin Learn v1 learning packages.</p>
+        </template>
+        <template data-accessibility>
+          <p>The authoring interface conforms to WCAG 2.2 AA standards, supporting full keyboard navigation and accessible authoring controls.</p>
+        </template>
+      </marin-app-info>
+    </main>
+
+    <marin-app-footer app-name="Marin Learn Authoring"></marin-app-footer>
+    <marin-app-feedback></marin-app-feedback>
+  </body>
+</html>

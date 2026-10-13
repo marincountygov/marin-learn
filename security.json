@@ -1,6 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/marincountygov/marin-os/main/schemas/security.schema.json",
-  "$comment": "Starter security.json from marin-app-template, built from marin-os/schemas/profiles/internal.json — the right default for a staff-only MarinOS app (most apps in the catalog today). If this app is public-facing, authenticated, or otherwise doesn't fit 'internal', see marin-digital-standards/security/profiles.md and swap in the matching profile file instead. No app-identity fields belong here (id/name/repo/owner) — those live in marin.yml. Update review.lastReviewed/owner and securityTxt.expires when this app is actually reviewed; the meta-delivered controls are emitted into index.html by scripts/sync-security-meta.py. This starter adds connect-src for the shell catalog and Updates requests and permits data: images for the existing favicon/Pico icons. Review these additions for the actual app and regenerate the meta block after any policy change.",
+  "$comment": "Starter security.json from marin-app-template, built from marin-os/schemas/profiles/internal.json — the right default for a staff-only MarinOS app (most apps in the catalog today). If this app is public-facing, authenticated, or otherwise doesn't fit 'internal', see marin-digital-standards/security/profiles.md and swap in the matching profile file instead. No app-identity fields belong here (id/name/repo/owner) — those live in marin.yml. Update review.lastReviewed/owner and securityTxt.expires when this app is actually reviewed; the meta-delivered controls are emitted into index.html by scripts/sync-security-meta.py. This starter adds connect-src for the shell catalog, Lighthouse, Tech, and Updates requests and permits data: images for the existing favicon/Pico icons. Review these additions for the actual app and regenerate the meta block after any policy change.",
   "schema": 1,
   "profile": "internal",
   "securityTxt": {
@@ -28,7 +28,7 @@
       "style-src": ["'self'"],
       "img-src": ["'self'", "data:"],
       "font-src": ["'self'"],
-      "connect-src": ["'self'", "https://marincountygov.github.io/marin-os/catalog.json", "https://api.github.com"],
+      "connect-src": ["'self'", "https://marincountygov.github.io/marin-os/catalog.json", "https://marincountygov.github.io/marin-os/data/lighthouse.json", "https://marincountygov.github.io/marin-os/data/tech.json", "https://api.github.com"],
       "object-src": ["'none'"],
       "base-uri": ["'self'"],
       "form-action": ["'self'"]
@@ -43,6 +43,8 @@
     "acceptsUserSubmittedContent": false,
     "externalDataSources": [
       "https://marincountygov.github.io/marin-os/catalog.json",
+      "https://marincountygov.github.io/marin-os/data/lighthouse.json",
+      "https://marincountygov.github.io/marin-os/data/tech.json",
       "https://api.github.com"
     ]
   },
@@ -67,14 +69,7 @@
       "control": "Clickjacking protection (frame-ancestors / X-Frame-Options)",
       "reason": "GitHub Pages cannot serve custom HTTP headers, and meta-delivered CSP ignores frame-ancestors.",
       "riskDescription": "Update this once the app's actual risk is known — a low-stakes internal tool and one handling sensitive workflows don't carry the same risk here.",
-      "owner": "APP_OWNER",
-      "expires": "2027-09-25"
-    },
-    {
-      "control": "MIME-sniffing protection (X-Content-Type-Options) and Permissions-Policy",
-      "reason": "Both require a real HTTP response header, which GitHub Pages does not serve.",
-      "riskDescription": "Standing gap shared by every MarinOS app on this hosting stack. See marin-digital-standards/security/standard.md.",
-      "owner": "APP_OWNER",
+      "owner": "County of Marin",
       "expires": "2027-09-25"
     }
   ],
@@ -85,6 +80,6 @@
   },
   "review": {
     "lastReviewed": "2026-09-25",
-    "owner": "APP_OWNER"
+    "owner": "County of Marin"
   }
 }
