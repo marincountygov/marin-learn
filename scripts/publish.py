@@ -17,6 +17,11 @@ import zipfile
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 
+def load_themes() -> list:
+    """Read the fixed theme list that learning sets may be filed under."""
+    data = json.loads((ROOT / "themes.json").read_text(encoding="utf-8"))
+    return data["themes"]
+
 def error(msg: str) -> None:
     print(f"ERROR: {msg}", file=sys.stderr)
     sys.exit(1)
@@ -81,6 +86,15 @@ def validate_markdown(text: str, unit_id: str) -> None:
             if level > last_level + 1:
                 error(f"ContentUnit {unit_id}: Skipped heading level (jumped from h{last_level} to h{level})")
             last_level = level
+
+def themes_for(lset: dict) -> list:
+    """Theme names from the set's `about` list; each must be a known theme."""
+    known = {t["name"] for t in load_themes()}
+    names = [a.get("name") for a in lset.get("about", []) if isinstance(a, dict) and a.get("@type") == "DefinedTerm"]
+    for name in names:
+        if name not in known:
+            error(f"Unknown theme '{name}' in {lset.get('identifier')}. Add it to themes.json or fix the name.")
+    return names
 
 def publish_package(zip_path: pathlib.Path, output_dir: pathlib.Path) -> dict:
     """Validate a Marin Learn ZIP package and publish to output_dir."""
@@ -217,6 +231,7 @@ def publish_package(zip_path: pathlib.Path, output_dir: pathlib.Path) -> dict:
         "educationalLevel": lset.get("educationalLevel"),
         "inLanguage": lset.get("inLanguage", "en-US"),
         "keywords": lset.get("keywords", []),
+        "themes": themes_for(lset),
         "graphUrl": f"learning/{identifier}/learning.json",
         "resourceCounts": {
             "materials": len(materials),
@@ -261,6 +276,7 @@ def main() -> None:
 
     catalog = {
         "format": "marin-learn-catalog/v1",
+        "themes": load_themes(),
         "items": items
     }
 

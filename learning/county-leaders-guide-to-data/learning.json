@@ -13,8 +13,8 @@
         "marin:LearningSet"
       ],
       "identifier": "county-leaders-guide-to-data",
-      "name": "County Leader's Guide to Data",
-      "abstract": "Stop treating data as an IT project. Use it as a public asset, make evidence safe to surface, and start changing decisions one meeting at a time.",
+      "name": "Data 101",
+      "abstract": "Learn how County leaders can use data to make better decisions.",
       "description": "A practical, executive-facing learning set adapted from the provided 'County Leader's Guide to Data'. The six source chapters are preserved as reusable narrative units; the leadership exercises, slides, and knowledge check were developed for this demo.",
       "schemaVersion": "1.0.0",
       "inLanguage": "en-US",
@@ -397,6 +397,12 @@
         {
           "@id": "urn:uuid:4014045a-9dac-5bf0-afad-de47d5b7a64c"
         }
+      ],
+      "about": [
+        {
+          "@type": "DefinedTerm",
+          "name": "Data"
+        }
       ]
     },
     {
@@ -547,7 +553,7 @@
         "marin:ContentUnit"
       ],
       "identifier": "files-to-facts",
-      "name": "From Files to Facts",
+      "name": "From files to facts",
       "abstract": "Most County information still sits in files. Structured, trackable facts can be sorted, combined, and used to anticipate service and budget needs.",
       "learningResourceType": "overview",
       "teaches": [
@@ -568,7 +574,7 @@
         "marin:ContentUnit"
       ],
       "identifier": "public-trust",
-      "name": "Data Is a Public Trust",
+      "name": "Data is a public trust",
       "abstract": "Treat County data as a public asset: use it to improve services and protect the people represented in it.",
       "learningResourceType": "concept",
       "teaches": [
@@ -589,7 +595,7 @@
         "marin:ContentUnit"
       ],
       "identifier": "data-mechanics",
-      "name": "How County Data Works",
+      "name": "How County data works",
       "abstract": "Structured entries power operational records and leadership dashboards. Good data hygiene is essential to both.",
       "learningResourceType": "concept",
       "teaches": [
@@ -610,7 +616,7 @@
         "marin:ContentUnit"
       ],
       "identifier": "leadership-culture",
-      "name": "Make Evidence Safe to Share",
+      "name": "Make evidence safe to share",
       "abstract": "Reward transparency, ask for evidence, and do not turn a weak performance metric into a reason to hide information.",
       "learningResourceType": "concept",
       "teaches": [
@@ -631,7 +637,7 @@
         "marin:ContentUnit"
       ],
       "identifier": "talents-required",
-      "name": "Builders, Interpreters, and Stewards",
+      "name": "Builders, interpreters, and stewards",
       "abstract": "Engineers build the pipes, analysts turn facts into answers, and existing staff uphold data quality at its source.",
       "learningResourceType": "reference",
       "teaches": [
@@ -652,7 +658,7 @@
         "marin:ContentUnit"
       ],
       "identifier": "start-even-smaller",
-      "name": "Start Even Smaller",
+      "name": "Start even smaller",
       "abstract": "For the next major decision, require one usable operational fact. Ask for an evidence-based narrative before approving expansion.",
       "learningResourceType": "summary",
       "teaches": [
@@ -673,7 +679,7 @@
         "marin:ContentUnit"
       ],
       "identifier": "decision-ready-meeting",
-      "name": "Bring Better Evidence to the Next Meeting",
+      "name": "Bring better evidence to the next meeting",
       "abstract": "Ask for a decision, measurable need, data limitations, alternatives, and a follow-up measure before approving a major request.",
       "learningResourceType": "procedure",
       "teaches": [
@@ -697,7 +703,7 @@
         "marin:ContentUnit"
       ],
       "identifier": "first-month-plan",
-      "name": "A First-Month Leadership Challenge",
+      "name": "A first-month leadership challenge",
       "abstract": "Make evidence routine: bring one fact, discuss its limits safely, name data owners and analysts, then revisit a decision.",
       "learningResourceType": "procedure",
       "teaches": [
@@ -721,7 +727,7 @@
         "marin:Section"
       ],
       "identifier": "understand-the-asset",
-      "name": "Understand the Asset",
+      "name": "Understand the asset",
       "marin:contentSequence": {
         "@type": "ItemList",
         "itemListElement": [
@@ -749,7 +755,7 @@
         "marin:Section"
       ],
       "identifier": "make-data-useful",
-      "name": "Make Data Useful",
+      "name": "Make data useful",
       "marin:contentSequence": {
         "@type": "ItemList",
         "itemListElement": [
@@ -777,7 +783,7 @@
         "marin:Section"
       ],
       "identifier": "build-the-capability",
-      "name": "Build the Capability",
+      "name": "Build the capability",
       "marin:contentSequence": {
         "@type": "ItemList",
         "itemListElement": [
@@ -798,7 +804,7 @@
         "marin:Section"
       ],
       "identifier": "change-the-next-decision",
-      "name": "Change the Next Decision",
+      "name": "Change the next decision",
       "marin:contentSequence": {
         "@type": "ItemList",
         "itemListElement": [
@@ -833,8 +839,8 @@
         "marin:LearningMaterial"
       ],
       "identifier": "county-leaders-data-guide",
-      "name": "County Leader's Guide to Data — Reading Material",
-      "abstract": "Six direct leadership lessons, followed by two practical exercises for the next County decision.",
+      "name": "Data 101 notes",
+      "abstract": "Read the key ideas and exercises about leading with data.",
       "learningResourceType": "guide",
       "educationalUse": [
         "instruction",
@@ -2506,8 +2512,8 @@
         "marin:Assessment"
       ],
       "identifier": "county-data-leadership-quiz",
-      "name": "Data Leadership Knowledge Check",
-      "abstract": "Ten randomized questions test evidence-based leadership, public stewardship, data hygiene, and realistic next steps.",
+      "name": "Data leadership knowledge check",
+      "abstract": "Ten questions to check what you learned about data.",
       "learningResourceType": "quiz",
       "educationalUse": [
         "assessment"
@@ -2677,7 +2683,7 @@
         "marin:Slide"
       ],
       "identifier": "slide-title",
-      "name": "County Leader's Guide to Data",
+      "name": "Data 101",
       "marin:layout": "title",
       "marin:speakerNotes": "Open by asking: When was the last time a County decision changed because a leader asked to see the underlying facts?"
     },
@@ -2688,7 +2694,7 @@
         "marin:Slide"
       ],
       "identifier": "slide-decisions",
-      "name": "Data Is a Leadership Issue",
+      "name": "Data is a leadership issue",
       "marin:layout": "content",
       "marin:speakerNotes": "Keep this about public administration, not software procurement. Files and data are different ways of making information usable.",
       "marin:contentSequence": {
@@ -2712,7 +2718,7 @@
         "marin:Slide"
       ],
       "identifier": "slide-files-facts",
-      "name": "Files Preserve Records. Data Reveals Patterns.",
+      "name": "Files preserve records. Data reveals patterns.",
       "marin:layout": "split",
       "marin:speakerNotes": "Contrast static documents with individual measurable facts. Use a pothole location or dispatch timestamp as an example.",
       "marin:contentSequence": {
@@ -2744,7 +2750,7 @@
         "marin:Slide"
       ],
       "identifier": "slide-trust",
-      "name": "Use the Asset. Protect the People.",
+      "name": "Use the asset. Protect the people.",
       "marin:layout": "content",
       "marin:speakerNotes": "The guide frames data stewardship as a two-sided public obligation. Secure collaboration and privacy safeguards are not competing priorities.",
       "marin:contentSequence": {
@@ -2768,7 +2774,7 @@
         "marin:Slide"
       ],
       "identifier": "slide-systems",
-      "name": "From Entry to Insight",
+      "name": "From entry to insight",
       "marin:layout": "split",
       "marin:speakerNotes": "Transactional systems capture events; analytical views help interpret many events. Do not imply a dashboard improves bad inputs on its own.",
       "marin:contentSequence": {
@@ -2800,7 +2806,7 @@
         "marin:Slide"
       ],
       "identifier": "slide-quality",
-      "name": "Garbage In, Garbage Out",
+      "name": "Garbage in, garbage out",
       "marin:layout": "content",
       "marin:speakerNotes": "Ask participants whether two programs use the same definitions for the measures on their dashboards.",
       "marin:contentSequence": {
@@ -2824,7 +2830,7 @@
         "marin:Slide"
       ],
       "identifier": "slide-culture",
-      "name": "Reward the Uncomfortable Truth",
+      "name": "Reward the uncomfortable truth",
       "marin:layout": "content",
       "marin:speakerNotes": "When a metric is missed, the initial response determines whether staff will report the next problem. Transparency is a precondition for improvement.",
       "marin:contentSequence": {
@@ -2848,7 +2854,7 @@
         "marin:Slide"
       ],
       "identifier": "slide-show-me",
-      "name": "Show Me the Data",
+      "name": "Show me the data",
       "marin:layout": "section",
       "marin:speakerNotes": "Use the guide's central management question: “Show me the data that leads you to that conclusion.” Ask for interpretation, not only a chart."
     },
@@ -2859,7 +2865,7 @@
         "marin:Slide"
       ],
       "identifier": "slide-roles",
-      "name": "Builders, Interpreters, Stewards",
+      "name": "Builders, interpreters, stewards",
       "marin:layout": "content",
       "marin:speakerNotes": "Separate specialist engineering work from ongoing interpretation and daily data quality. The source suggests contractors or specialists for an initial build, internal analysts, and existing staff as stewards.",
       "marin:contentSequence": {
@@ -2883,7 +2889,7 @@
         "marin:Slide"
       ],
       "identifier": "slide-small",
-      "name": "Start Even Smaller",
+      "name": "Start even smaller",
       "marin:layout": "content",
       "marin:speakerNotes": "The guide recommends changing a meeting agenda and the evidence expected with major requests before seeking an expansive platform build.",
       "marin:contentSequence": {
@@ -2907,7 +2913,7 @@
         "marin:Slide"
       ],
       "identifier": "slide-decision",
-      "name": "Put the Next Decision to the Test",
+      "name": "Put the next decision to the test",
       "marin:layout": "content",
       "marin:speakerNotes": "Invite learners to name one pending decision and the facts needed to defend it. Discuss definitions, privacy, and alternative courses.",
       "marin:contentSequence": {
@@ -2931,7 +2937,7 @@
         "marin:Slide"
       ],
       "identifier": "slide-month",
-      "name": "Make It a Habit",
+      "name": "Make it a habit",
       "marin:layout": "content",
       "marin:speakerNotes": "This is an illustrative practice plan added for the learning package, not a County-adopted policy or schedule.",
       "marin:contentSequence": {
@@ -2955,7 +2961,7 @@
         "marin:Slide"
       ],
       "identifier": "slide-close",
-      "name": "Embrace the Mess. Then Improve It.",
+      "name": "Embrace the mess. Then improve it.",
       "marin:layout": "section",
       "marin:speakerNotes": "Close by reminding leaders that incomplete first data extracts are not proof of failure. Start cleaning one fact at a time."
     },
@@ -2966,8 +2972,8 @@
         "marin:Presentation"
       ],
       "identifier": "county-data-leadership-slides",
-      "name": "County Leader's Guide to Data — Slide Deck",
-      "abstract": "A concise presentation for leadership discussions about data, trust, capability, and habits.",
+      "name": "Data 101 — slide deck",
+      "abstract": "Slides for leadership talks about data, trust, and skills.",
       "learningResourceType": "presentation",
       "isBasedOn": [
         {

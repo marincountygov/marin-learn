@@ -1,13 +1,14 @@
 // Marin Learn - Quiz Viewer and Assessment Engine (Phase 7)
 import { loadLearningSetGraph, hasType } from '../core/graph.js';
 import { parseMarkdownToHtml } from '../core/markdown.js';
+import { breadcrumbHtml, wireBreadcrumb } from './breadcrumb.js';
 
 export async function renderQuizViewer(container, setSlug, resourceSlug, catalogItems, onNavigate) {
-  container.innerHTML = '<div class="catalog-status" aria-live="polite">Loading assessment...</div>';
+  container.innerHTML = '<div class="catalog-status" aria-live="polite">Loading Marin Learn…</div>';
 
   const catalogEntry = catalogItems.find(item => item.identifier === setSlug);
   if (!catalogEntry) {
-    renderError(container, 'Learning set not found.', setSlug, onNavigate);
+    renderError(container, 'Course not found.', setSlug, onNavigate);
     return;
   }
 
@@ -23,7 +24,7 @@ export async function renderQuizViewer(container, setSlug, resourceSlug, catalog
     }
 
     if (!assessment) {
-      renderError(container, 'No assessment found in this learning set.', setSlug, onNavigate);
+      renderError(container, 'No assessment found in this course.', setSlug, onNavigate);
       return;
     }
 
@@ -157,9 +158,9 @@ export async function renderQuizViewer(container, setSlug, resourceSlug, catalog
       const hasAnswer = selectedSet.size > 0;
 
       container.innerHTML = `
+        ${breadcrumbHtml([{ label: 'Catalog', route: {} }, { label: catalogEntry.name, route: { set: setSlug } }, { label: 'Quiz' }])}
         <div class="quiz-viewer-container" role="region" aria-label="Assessment Quiz">
           <header class="quiz-top-bar">
-            <button id="back-to-landing" class="link-button">&larr; Learning Set Landing</button>
             <div class="quiz-title-info">
               <span class="quiz-name">${escapeHtml(assessment.name)}</span>
               <span class="quiz-counter">Question ${currentIndex + 1} of ${attemptItems.length}</span>
@@ -205,9 +206,7 @@ export async function renderQuizViewer(container, setSlug, resourceSlug, catalog
       `;
 
       // Bind events
-      document.getElementById('back-to-landing').addEventListener('click', () => {
-        onNavigate({ set: setSlug, view: null, resource: null });
-      });
+      wireBreadcrumb(container, onNavigate);
 
       container.querySelectorAll(`input[name="question-${item.id}"]`).forEach(input => {
         input.addEventListener('change', (e) => {
@@ -355,43 +354,58 @@ export async function renderQuizViewer(container, setSlug, resourceSlug, catalog
       });
 
       container.innerHTML = `
-        <div class="quiz-viewer-container" role="region" aria-label="Assessment Results">
-          <header class="quiz-top-bar">
-            <button id="back-to-landing" class="link-button">&larr; Learning Set Landing</button>
-            <div class="quiz-title-info">
-              <span class="quiz-name">${escapeHtml(assessment.name)}</span>
-              <span class="quiz-counter">Assessment Results</span>
-            </div>
-          </header>
-
+        ${breadcrumbHtml([{ label: 'Catalog', route: {} }, { label: catalogEntry.name, route: { set: setSlug } }, { label: 'Quiz' }])}
+        <div class="quiz-viewer-container" role="region" aria-label="Quiz results">
           <main class="quiz-main-card">
             <div class="quiz-results-hero ${passed ? 'passed' : 'failed'}">
-              <h2>${passed ? 'Assessment Passed' : 'Assessment Not Passed'}</h2>
-              <div class="quiz-score-display">
-                <span class="quiz-grade-badge">Grade: ${escapeHtml(gradeName)}</span>
-                <span class="quiz-percentage-score">${percentage}%</span>
-              </div>
-              <p class="quiz-score-meta">You earned ${earnedPoints} out of ${totalPoints} possible points (Passing threshold: ${passingPercent}%)</p>
+              ${passed ? `<span class="quiz-results-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5.8 11.3 2 22l10.7-3.79"/><path d="M4 3h.01"/><path d="M22 8h.01"/><path d="M15 2h.01"/><path d="M22 20h.01"/><path d="m22 2-2.24.75a2.9 2.9 0 0 0-1.96 3.12c.1.86-.57 1.63-1.45 1.63h-.38c-.86 0-1.6.6-1.76 1.44L14 10"/><path d="m22 13-.82-.33c-.86-.34-1.82.2-1.98 1.11c-.11.7-.72 1.22-1.43 1.22H17"/><path d="m11 2 .33.82c.34.86-.2 1.82-1.11 1.98C9.52 4.9 9 5.52 9 6.23V7"/><path d="M11 13c1.93 1.93 2.83 4.17 2 5-.83.83-3.07-.07-5-2-1.93-1.93-2.83-4.17-2-5 .83-.83 3.07.07 5 2Z"/></svg></span>` : ''}
+              <h2>${passed ? `You passed the ${escapeHtml(assessment.name)}!` : `You did not pass the ${escapeHtml(assessment.name)}.`}</h2>
+              <p class="quiz-score-display"><span class="quiz-percentage-score">${escapeHtml(gradeName)} / ${percentage}%</span></p>
               <p class="quiz-grade-message">${escapeHtml(gradeMessage)}</p>
             </div>
 
+            <div class="quiz-share">
+              <button id="share-results" class="secondary outline">Share</button>
+              <p id="share-status" class="quiz-share-status" role="status" aria-live="polite"></p>
+            </div>
+
             <section class="quiz-review-section">
-              <h3>Question Review</h3>
+              <h3>Quiz review</h3>
               <div class="quiz-review-list">
                 ${reviewDetailsHtml}
               </div>
             </section>
 
             <div class="quiz-results-actions">
-              <button id="restart-attempt" class="primary">Retake Assessment (New Attempt)</button>
-              <button id="return-landing" class="secondary outline">Return to Learning Set</button>
+              <button id="restart-attempt" class="primary">Retake quiz</button>
+              <button id="return-landing" class="secondary outline">Return to course</button>
             </div>
+
           </main>
         </div>
       `;
 
-      document.getElementById('back-to-landing').addEventListener('click', () => {
-        onNavigate({ set: setSlug, view: null, resource: null });
+      wireBreadcrumb(container, onNavigate);
+      document.getElementById('share-results').addEventListener('click', async () => {
+        const courseUrl = new URL(window.location.href);
+        courseUrl.search = new URLSearchParams({ set: setSlug }).toString();
+        courseUrl.hash = '';
+        // Plain text for chat and email. The party popper is the real emoji character (U+1F389),
+        // because chat tools such as Teams do not turn pasted :shortcodes: into emoji.
+        const text = [
+          passed ? `I passed the ${assessment.name}! \u{1F389}` : `I took the ${assessment.name}.`,
+          `${gradeName} / ${percentage}%`,
+          '',
+          `Take the ${catalogEntry.name} course:`,
+          courseUrl.toString()
+        ].join('\n');
+        const status = document.getElementById('share-status');
+        try {
+          await navigator.clipboard.writeText(text);
+          status.textContent = 'Results copied.';
+        } catch {
+          status.textContent = 'Could not copy. Select and copy the results by hand.';
+        }
       });
       document.getElementById('return-landing').addEventListener('click', () => {
         onNavigate({ set: setSlug, view: null, resource: null });
@@ -419,14 +433,12 @@ function setEquals(setA, setB) {
 function renderError(container, message, setSlug, onNavigate) {
   container.innerHTML = `
     <div class="catalog-error-box">
-      <h3>Quiz Viewer Error</h3>
+      ${breadcrumbHtml([{ label: 'Catalog', route: {} }, { label: 'Error' }])}
+      <h3>Quiz error</h3>
       <p>${escapeHtml(message)}</p>
-      <button id="back-to-set" class="primary">Back to Learning Set</button>
     </div>
   `;
-  document.getElementById('back-to-set').addEventListener('click', () => {
-    onNavigate({ set: setSlug, view: null, resource: null });
-  });
+  wireBreadcrumb(container, onNavigate);
 }
 
 function escapeHtml(str) {

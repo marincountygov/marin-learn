@@ -18,7 +18,8 @@
   --learn-accent-hover: var(--pico-primary-hover);
   --learn-accent-on-tint: var(--app-accent-on-tint);
   --learn-focus: var(--pico-primary-focus);
-  --learn-success: var(--app-success);
+  /* Leans on the shell's success token but reads as a clear green in light mode. */
+  --learn-success: color-mix(in srgb, var(--app-success) 30%, green);
   --learn-danger: var(--app-danger-text);
   --learn-warning: var(--app-warning);
   --learn-warning-text: color-mix(in srgb, var(--learn-warning) 45%, var(--learn-text));
@@ -104,7 +105,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.75rem;
   align-items: flex-end;
 }
 
@@ -144,75 +145,81 @@
 
 .catalog-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 18rem), 1fr));
   gap: 1.5rem;
   margin-top: 1rem;
 }
 
-.catalog-card {
+/* Course cards use the MarinOS .app-card look; the title is the link and badges follow the description. */
+.course-card {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   min-width: 0;
   margin: 0;
-  cursor: pointer;
-  transition:
-    transform var(--pico-transition),
-    box-shadow var(--pico-transition),
-    outline-color var(--pico-transition);
-  outline: 2px solid transparent;
-  outline-offset: 0.125rem;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
-.catalog-card:hover {
-  transform: translateY(-0.125rem);
-  box-shadow: var(--learn-shadow-raised);
-  outline-color: color-mix(in srgb, var(--learn-accent) 55%, transparent);
+.course-card .catalog-card-meta {
+  margin-top: auto;
 }
 
-.catalog-card:focus-visible {
-  transform: translateY(-0.125rem);
-  box-shadow: var(--learn-shadow-raised);
-  outline-color: var(--learn-accent);
-}
-
-.catalog-card-title {
-  margin: 0 0 0.5rem;
-  font-size: 1.15rem;
-}
-
-.catalog-card-meta,
-.catalog-resource-badges {
+.catalog-card-meta {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
   align-items: center;
 }
 
-.catalog-card-body {
-  flex-grow: 1;
+#themes {
+  margin-bottom: 2rem;
 }
 
-.catalog-card-abstract {
-  display: -webkit-box;
-  margin: 0;
-  overflow: hidden;
-  color: var(--learn-text);
-  font-size: 0.925rem;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
+/* Theme badges match Marin Mentions: the shell's plain .app-badge at regular weight. */
+a.app-badge {
+  color: var(--app-text);
+  font-weight: 400;
+  text-decoration: none;
 }
 
-.catalog-card-footer {
+a.app-badge:hover {
+  text-decoration: underline;
+}
+
+.support-section {
+  margin-top: 2.5rem;
+}
+
+/* Breadcrumb trail: links, then the current page as plain text. */
+.viewer-breadcrumb {
+  margin-bottom: 1.5rem;
+}
+
+.viewer-breadcrumb ul:first-of-type {
   display: flex;
-  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 0.25rem 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.95rem;
 }
 
-.catalog-card-action {
-  color: var(--learn-accent);
-  font-size: 0.875rem;
-  font-weight: 600;
+.viewer-breadcrumb li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
+
+.viewer-breadcrumb li + li::before {
+  margin-right: 0.5rem;
+  color: var(--learn-muted);
+  content: '/';
+}
+
+.viewer-breadcrumb [aria-current='page'] {
+  color: var(--learn-muted);
+}
+
 
 .catalog-empty-notice {
   grid-column: 1 / -1;
@@ -308,10 +315,6 @@
   gap: 2rem;
 }
 
-.landing-breadcrumb {
-  margin-bottom: -1rem;
-}
-
 .landing-header h2 {
   margin-bottom: 0.5rem;
   font-size: 2rem;
@@ -326,7 +329,6 @@
 
 /* Resource cards inherit Pico's article presentation and the catalog's
  * header/body/footer pattern. Avoid another bordered container around them. */
-.landing-resources h3,
 .landing-objectives h3 {
   margin-bottom: 1rem;
   font-size: 1.25rem;
@@ -334,36 +336,6 @@
 
 .landing-resource-grid {
   margin-top: 0;
-}
-
-.landing-resource-card {
-  position: relative;
-}
-
-/* The footer link's hit area covers the entire card, but remains a native
- * anchor for keyboard navigation, open-in-new-tab, and copying its URL. */
-.landing-resource-card .resource-action {
-  text-decoration: none;
-}
-
-.landing-resource-card .resource-action::after {
-  position: absolute;
-  inset: 0;
-  content: '';
-}
-
-.landing-resource-card:hover .resource-action {
-  color: var(--learn-accent-hover);
-  text-decoration: underline;
-}
-
-.landing-resource-card:focus-within {
-  outline-color: var(--learn-accent);
-  box-shadow: var(--learn-shadow-raised);
-}
-
-.landing-resource-card .resource-action:focus-visible {
-  outline: 0;
 }
 
 .landing-objectives {
@@ -382,18 +354,35 @@
 /* Continuous reader */
 .reader-layout {
   display: grid;
-  grid-template-columns: minmax(14rem, 17.5rem) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 46.875rem) minmax(14rem, 17.5rem);
+  justify-content: space-between;
   gap: 2rem;
   align-items: start;
 }
 
 .reader-sidebar {
+  grid-column: 2;
+  grid-row: 1;
   position: sticky;
   top: 1rem;
   padding: 1.25rem;
   border: 1px solid var(--learn-border-subtle);
   border-radius: var(--pico-border-radius);
   background: var(--learn-surface);
+}
+
+.reader-next {
+  margin-top: 2.5rem;
+}
+
+.reader-sources {
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--learn-border-subtle);
+}
+
+.reader-sources h2 {
+  font-size: 1.25rem;
 }
 
 .reader-sidebar-back {
@@ -1015,8 +1004,8 @@
 }
 
 .quiz-results-hero.passed {
-  border-color: color-mix(in srgb, var(--learn-success) 45%, var(--learn-border-subtle));
-  background: var(--learn-success-tint);
+  border-color: color-mix(in srgb, var(--learn-success) 55%, var(--learn-border-subtle));
+  background: color-mix(in srgb, var(--learn-success) 12%, var(--learn-surface));
 }
 
 .quiz-results-hero.failed {
@@ -1024,33 +1013,73 @@
   background: var(--learn-danger-tint);
 }
 
+.quiz-results-icon {
+  display: inline-flex;
+  width: 2.25rem;
+  height: 2.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.quiz-results-icon svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.quiz-results-hero.passed .quiz-results-icon,
+.quiz-results-hero.passed h2,
+.quiz-results-hero.passed .quiz-percentage-score {
+  color: var(--learn-success);
+}
+
+.quiz-results-hero.failed .quiz-results-icon,
+.quiz-results-hero.failed h2,
+.quiz-results-hero.failed .quiz-percentage-score {
+  color: var(--learn-danger);
+}
+
+
 .quiz-results-hero h2 {
+  margin-top: 0;
   margin-bottom: 1rem;
   font-size: 2rem;
 }
 
 .quiz-score-display {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1.5rem;
   margin-bottom: 1rem;
 }
 
-.quiz-grade-badge {
-  padding: 0.5rem 1rem;
-  border: 1px solid var(--learn-border-subtle);
-  border-radius: var(--pico-border-radius);
-  background: var(--learn-surface);
-  color: var(--learn-text);
-  font-size: 1.5rem;
-  font-weight: 700;
-}
-
 .quiz-percentage-score {
-  color: var(--learn-accent-on-tint);
   font-size: 2.5rem;
   font-weight: 800;
+}
+
+.quiz-results-hero:has(+ .quiz-share) {
+  margin-bottom: 0.75rem;
+}
+
+.quiz-share {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.quiz-share button {
+  width: auto;
+  margin: 0;
+}
+
+.quiz-share-status {
+  min-height: 1.5rem;
+  margin: 0.5rem 0 0;
+  color: var(--learn-muted);
+  text-align: center;
 }
 
 .quiz-score-meta {
@@ -1063,7 +1092,6 @@
   max-width: 37.5rem;
   margin: 0 auto;
   font-size: 1.05rem;
-  font-style: italic;
 }
 
 .quiz-review-section,
@@ -1180,6 +1208,8 @@
   }
 
   .reader-sidebar {
+    grid-column: auto;
+    grid-row: auto;
     position: static;
   }
 
@@ -1343,7 +1373,8 @@
   marin-app-footer,
   marin-app-feedback,
   .reader-sidebar,
-  .landing-breadcrumb,
+  .viewer-breadcrumb,
+  .support-section,
   .reader-toolbar,
   .slides-top-bar,
   .slides-control-bar,

@@ -44,6 +44,8 @@ if [[ "$RUN_BROWSER" == 1 ]]; then
   python3 "$ROOT_DIR/tests/browser_editor_dialog_component.py"
   python3 "$ROOT_DIR/tests/browser_smoke.py"
   python3 "$ROOT_DIR/tests/browser_viewer_landing_cards.py"
+  python3 "$ROOT_DIR/tests/browser_themes.py"
+  python3 "$ROOT_DIR/tests/browser_quiz_results.py"
   python3 "$ROOT_DIR/tests/browser_security.py"
   python3 "$ROOT_DIR/tests/browser_editor_smoke.py"
   python3 "$ROOT_DIR/tests/browser_editor_dialogs.py"

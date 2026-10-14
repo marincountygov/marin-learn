@@ -4,10 +4,14 @@ import { renderLandingPage } from '../js/viewer/landing.js';
 import { renderContinuousReader } from '../js/viewer/reader.js';
 import { renderSlideViewer } from '../js/viewer/slides.js';
 import { renderQuizViewer } from '../js/viewer/quiz.js';
+import { breadcrumbHtml, wireBreadcrumb } from '../js/viewer/breadcrumb.js';
+import { renderThemePage } from '../js/viewer/themes.js';
+import { courseCardHtml, themeBadgesHtml } from '../js/viewer/course-card.js';
 
 document.addEventListener('DOMContentLoaded', async () => {
   const startSection = document.getElementById('start');
   let catalogItems = [];
+  let catalogThemes = [];
 
   // Load catalog index on startup
   async function fetchCatalog() {
@@ -17,6 +21,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       const data = await response.json();
       if (data.format === 'marin-learn-catalog/v1' && Array.isArray(data.items)) {
         catalogItems = data.items;
+        catalogThemes = Array.isArray(data.themes) ? data.themes : [];
       }
     } catch (err) {
       console.error('Failed to load catalog:', err);
@@ -25,9 +30,16 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   await fetchCatalog();
 
+  // Support links are placeholders until the request forms exist.
+  document.querySelectorAll('[data-placeholder-link]').forEach(link => {
+    link.addEventListener('click', event => event.preventDefault());
+  });
+
   function handleRoute() {
     const route = parseRoute();
-    if (route.set) {
+    if (route.theme && !route.set) {
+      renderThemePage(startSection, route.theme, catalogThemes, catalogItems, (newRoute) => navigateToRoute(newRoute));
+    } else if (route.set) {
       // Render Landing Page or View Placeholder
       if (route.view) {
         if (route.view === 'read') {
@@ -44,19 +56,13 @@ document.addEventListener('DOMContentLoaded', async () => {
           });
         } else {
           startSection.innerHTML = `
-            <div class="landing-page">
-              <nav class="landing-breadcrumb">
-                <button id="back-to-landing" class="link-button">&larr; Back to Learning Set</button>
-              </nav>
-              <div class="catalog-status catalog-status--spaced">
-                <h3>${route.view.toUpperCase()} View (${route.resource || 'default'})</h3>
-                <p>This resource viewer view (Phase ${route.view === 'slides' ? '6' : '7'}) is scheduled for implementation in a subsequent phase.</p>
-              </div>
+            <div class="catalog-error-box">
+              ${breadcrumbHtml([{ label: 'Catalog', route: {} }, { label: 'Page not found' }])}
+              <h3>Page not found</h3>
+              <p>This page does not exist.</p>
             </div>
           `;
-          document.getElementById('back-to-landing').addEventListener('click', () => {
-            navigateToRoute({ set: route.set });
-          });
+          wireBreadcrumb(startSection, (newRoute) => navigateToRoute(newRoute));
         }
       } else {
         renderLandingPage(startSection, route.set, catalogItems, (newRoute) => {
@@ -70,119 +76,69 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 
   function renderCatalogHome() {
-    startSection.innerHTML = `
-      <h2 id="start-heading">Marin Learn Catalog</h2>
-      <p>Discover published learning sets, training materials, slide presentations, and quizzes.</p>
-
-      <div class="catalog-controls" role="region" aria-label="Catalog search and filters">
-        <div class="catalog-search-group">
-          <label for="catalog-search" class="catalog-label">Search learning sets</label>
-          <input type="search" id="catalog-search" placeholder="Search title, abstract, or keywords..." aria-label="Search learning sets">
-        </div>
-        <div class="catalog-filter-group">
-          <label for="level-filter" class="catalog-label">Educational Level</label>
-          <select id="level-filter" aria-label="Filter by educational level">
-            <option value="">All levels</option>
-            <option value="introductory">Introductory</option>
-            <option value="intermediate">Intermediate</option>
-            <option value="advanced">Advanced</option>
-          </select>
-        </div>
-      </div>
-
-      <div id="catalog-status" class="catalog-status" aria-live="polite">Loading catalog...</div>
-      <div id="catalog-grid" class="catalog-grid" role="feed" aria-label="Learning sets list"></div>
-    `;
-
+    const template = document.getElementById('catalog-home-template');
+    startSection.replaceChildren(template.content.cloneNode(true));
     initCatalogUI();
   }
 
   function initCatalogUI() {
     const searchInput = document.getElementById('catalog-search');
-    const levelFilter = document.getElementById('level-filter');
+    const themeFilter = document.getElementById('theme-filter');
     const catalogStatus = document.getElementById('catalog-status');
     const catalogGrid = document.getElementById('catalog-grid');
 
     if (!catalogGrid) return;
 
+    // Themes section: a badge for every theme, each linking to its theme page.
+    const themesSection = document.getElementById('themes');
+    if (catalogThemes.length) {
+      document.getElementById('theme-badges').innerHTML = themeBadgesHtml(catalogThemes.map(theme => theme.name));
+      wireBreadcrumb(themesSection, newRoute => navigateToRoute(newRoute));
+      themesSection.hidden = false;
+    }
+
+    catalogThemes.forEach(theme => {
+      const option = document.createElement('option');
+      option.value = theme.name;
+      option.textContent = theme.name;
+      themeFilter.appendChild(option);
+    });
+
     if (catalogItems.length === 0) {
-      catalogStatus.textContent = 'The learning catalog is currently empty or failed to load.';
+      catalogStatus.textContent = 'The catalog is empty or did not load.';
       return;
     }
 
     function renderGrid() {
       const query = (searchInput.value || '').toLowerCase().trim();
-      const selectedLevel = levelFilter.value;
+      const selectedTheme = themeFilter.value;
 
       const filtered = catalogItems.filter(item => {
         const name = (item.name || '').toLowerCase();
         const abstract = (item.abstract || '').toLowerCase();
         const keywords = (item.keywords || []).join(' ').toLowerCase();
-        
-        const matchesQuery = !query || name.includes(query) || abstract.includes(query) || keywords.includes(query);
-        const matchesLevel = !selectedLevel || item.educationalLevel === selectedLevel;
+        const themes = (item.themes || []).join(' ').toLowerCase();
 
-        return matchesQuery && matchesLevel;
+        const matchesQuery = !query || name.includes(query) || abstract.includes(query) || keywords.includes(query) || themes.includes(query);
+        const matchesTheme = !selectedTheme || (item.themes || []).includes(selectedTheme);
+
+        return matchesQuery && matchesTheme;
       });
 
+      catalogStatus.textContent = '';
+      catalogGrid.innerHTML = '';
+
       if (filtered.length === 0) {
-        catalogStatus.textContent = 'No learning sets match your search or filter.';
-        catalogGrid.innerHTML = '<p class="catalog-empty-notice">Try adjusting your search terms or clearing filters.</p>';
+        catalogStatus.textContent = 'Nothing in the catalog matches your search or filter.';
         return;
       }
 
-      catalogStatus.textContent = `Showing ${filtered.length} of ${catalogItems.length} published learning set${catalogItems.length === 1 ? '' : 's'}.`;
-      catalogGrid.innerHTML = '';
-
-      filtered.forEach(item => {
-        const card = document.createElement('article');
-        card.className = 'catalog-card';
-        card.setAttribute('tabindex', '0');
-        card.setAttribute('role', 'article');
-        card.setAttribute('aria-labelledby', `set-title-${item.identifier}`);
-
-        const levelBadge = item.educationalLevel ? `<span class="app-badge badge--level">${escapeHtml(item.educationalLevel)}</span>` : '';
-        const counts = item.resourceCounts || { materials: 0, presentations: 0, assessments: 0 };
-        
-        const badges = [];
-        if (counts.materials > 0) badges.push('<span class="app-badge badge--resource">Read</span>');
-        if (counts.presentations > 0) badges.push('<span class="app-badge badge--resource">Slides</span>');
-        if (counts.assessments > 0) badges.push('<span class="app-badge badge--resource">Quiz</span>');
-
-        card.innerHTML = `
-          <header class="catalog-card-header">
-            <h3 id="set-title-${item.identifier}" class="catalog-card-title">${escapeHtml(item.name)}</h3>
-            <div class="catalog-card-meta">
-              ${levelBadge}
-              <div class="catalog-resource-badges">${badges.join('')}</div>
-            </div>
-          </header>
-          <div class="catalog-card-body">
-            <p class="catalog-card-abstract">${escapeHtml(item.abstract || 'No abstract provided for this learning set.')}</p>
-          </div>
-          <footer class="catalog-card-footer">
-            <span class="catalog-card-action">View Learning Set &rarr;</span>
-          </footer>
-        `;
-
-        const openSet = () => {
-          navigateToRoute({ set: item.identifier });
-        };
-
-        card.addEventListener('click', openSet);
-        card.addEventListener('keydown', (e) => {
-          if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            openSet();
-          }
-        });
-
-        catalogGrid.appendChild(card);
-      });
+      catalogGrid.innerHTML = filtered.map(courseCardHtml).join('');
+      wireBreadcrumb(catalogGrid, newRoute => navigateToRoute(newRoute));
     }
 
-    if (searchInput) searchInput.addEventListener('input', renderGrid);
-    if (levelFilter) levelFilter.addEventListener('change', renderGrid);
+    searchInput.addEventListener('input', renderGrid);
+    themeFilter.addEventListener('change', renderGrid);
 
     renderGrid();
   }

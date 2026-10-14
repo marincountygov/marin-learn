@@ -13,8 +13,8 @@
         "marin:LearningSet"
       ],
       "identifier": "marinos-foundations",
-      "name": "MarinOS Foundations",
-      "abstract": "A concise introduction to MarinOS principles, shared components, accessibility, and maintainable delivery.",
+      "name": "MarinOS 101",
+      "abstract": "Learn how MarinOS helps staff build simple, consistent County tools.",
       "description": "Reference learning set demonstrating the complete Marin Learn v1 package model.",
       "schemaVersion": "1.0.0",
       "inLanguage": "en-US",
@@ -225,6 +225,12 @@
         {
           "@id": "urn:uuid:10000000-0000-4000-8000-000000000090"
         }
+      ],
+      "about": [
+        {
+          "@type": "DefinedTerm",
+          "name": "Digital services"
+        }
       ]
     },
     {
@@ -234,7 +240,7 @@
       ],
       "identifier": "learning-objectives",
       "name": "Learning objectives",
-      "description": "Objectives for the MarinOS Foundations learning set.",
+      "description": "Objectives for the MarinOS 101 learning set.",
       "hasDefinedTerm": [
         {
           "@id": "urn:uuid:10000000-0000-4000-8000-000000000003"
@@ -521,8 +527,8 @@
         "marin:LearningMaterial"
       ],
       "identifier": "marinos-foundations-guide",
-      "name": "MarinOS Foundations Guide",
-      "abstract": "A short guide to the architecture and working methods used by MarinOS.",
+      "name": "MarinOS 101 notes",
+      "abstract": "Read how MarinOS apps are built and run.",
       "learningResourceType": "guide",
       "educationalUse": [
         "instruction",
@@ -1380,8 +1386,8 @@
         "marin:Assessment"
       ],
       "identifier": "marinos-foundations-quiz",
-      "name": "MarinOS Foundations Quiz",
-      "abstract": "A scored knowledge check covering the core MarinOS principles.",
+      "name": "MarinOS 101 quiz",
+      "abstract": "Check what you learned about the core ideas of MarinOS.",
       "learningResourceType": "quiz",
       "educationalUse": [
         "assessment"
@@ -1501,7 +1507,7 @@
         "marin:Slide"
       ],
       "identifier": "title-slide",
-      "name": "MarinOS Foundations",
+      "name": "MarinOS 101",
       "marin:layout": "title",
       "marin:speakerNotes": "Open by asking participants where inconsistent application behavior creates avoidable work."
     },
@@ -1656,8 +1662,8 @@
         "marin:Presentation"
       ],
       "identifier": "marinos-foundations-slides",
-      "name": "MarinOS Foundations Slides",
-      "abstract": "Presentation version of the MarinOS Foundations Guide.",
+      "name": "MarinOS 101 slides",
+      "abstract": "Slides that walk through the MarinOS guide.",
       "learningResourceType": "presentation",
       "isBasedOn": [
         {

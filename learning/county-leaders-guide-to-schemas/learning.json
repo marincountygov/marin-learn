@@ -13,9 +13,9 @@
         "marin:LearningSet"
       ],
       "identifier": "county-leaders-guide-to-schemas",
-      "name": "County Leader’s Guide to Schemas",
-      "abstract": "You do not need to design a schema. You need to ask whether the rules behind our information are stable, understandable, and compatible with the systems we already use.",
-      "description": "A plain-language leadership companion to the County Leader’s Guide to Data. Created for Marin Learn demonstration and discussion; illustrative workflows are not statements of County policy.",
+      "name": "Schemas 101",
+      "abstract": "Learn how shared data rules help County systems work together.",
+      "description": "A plain-language leadership companion to the Data 101. Created for Marin Learn demonstration and discussion; illustrative workflows are not statements of County policy.",
       "schemaVersion": "1.0.0",
       "inLanguage": "en-US",
       "version": "1.0.0",
@@ -458,6 +458,16 @@
         {
           "@id": "urn:uuid:18814ceb-3f64-57e6-9cc2-09c3ef02ef2f"
         }
+      ],
+      "about": [
+        {
+          "@type": "DefinedTerm",
+          "name": "Data"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Buying and vendors"
+        }
       ]
     },
     {
@@ -622,7 +632,7 @@
         "marin:ContentUnit"
       ],
       "identifier": "schema-is-agreement",
-      "name": "A Schema Is an Agreement, Not a Technology",
+      "name": "A schema is an agreement, not a technology",
       "abstract": "A schema is an agreed description of information: its names, meanings, allowed values, and connections. Leaders do not need to write one; they need to ask whether it exists.",
       "learningResourceType": "overview",
       "teaches": [
@@ -643,7 +653,7 @@
         "marin:ContentUnit"
       ],
       "identifier": "same-label-different-meaning",
-      "name": "The Same Label Can Mean Two Different Things",
+      "name": "The same label can mean two different things",
       "abstract": "Matching column names do not guarantee matching meanings. Two departments can report the same label while counting or describing different things.",
       "learningResourceType": "concept",
       "teaches": [
@@ -664,7 +674,7 @@
         "marin:ContentUnit"
       ],
       "identifier": "work-order-handoff",
-      "name": "One Work Order, Two Systems",
+      "name": "One work order, two systems",
       "abstract": "A facilities work-order system and a finance system may describe the same job in different ways. Integration succeeds when the meaning and record identity are reconciled.",
       "learningResourceType": "example",
       "teaches": [
@@ -688,7 +698,7 @@
         "marin:ContentUnit"
       ],
       "identifier": "stable-not-frozen",
-      "name": "Stable Does Not Mean Frozen",
+      "name": "Stable does not mean frozen",
       "abstract": "A stable schema can evolve. The key is that definitions are documented, changes are communicated, and existing connections do not break without a plan.",
       "learningResourceType": "concept",
       "teaches": [
@@ -709,7 +719,7 @@
         "marin:ContentUnit"
       ],
       "identifier": "identifiers-are-glue",
-      "name": "A Record Needs a Reliable Identity",
+      "name": "A record needs a reliable identity",
       "abstract": "A stable record identifier helps applications recognize the same work order, case, or transaction across handoffs; matching labels or names is not enough.",
       "learningResourceType": "concept",
       "teaches": [
@@ -730,7 +740,7 @@
         "marin:ContentUnit"
       ],
       "identifier": "business-owns-definitions",
-      "name": "The Business Must Own the Meaning",
+      "name": "The business must own the meaning",
       "abstract": "Program leaders and data stewards need to agree on business definitions, while technology teams implement and maintain those definitions in connected systems.",
       "learningResourceType": "concept",
       "teaches": [
@@ -751,7 +761,7 @@
         "marin:ContentUnit"
       ],
       "identifier": "permission-separate",
-      "name": "A Shared Schema Is Not Permission to Share Everything",
+      "name": "A shared schema is not permission to share everything",
       "abstract": "Compatible schemas make appropriate exchange easier, but privacy, security, purpose, and authorization still govern which data may actually be shared.",
       "learningResourceType": "warning",
       "teaches": [
@@ -772,7 +782,7 @@
         "marin:ContentUnit"
       ],
       "identifier": "vendor-demonstration",
-      "name": "Do Not Buy a Promise of Integration",
+      "name": "Do not buy a promise of integration",
       "abstract": "Ask vendors to show actual field definitions, change management, and a sample exchange with a named County application before treating integration as proven.",
       "learningResourceType": "procedure",
       "teaches": [
@@ -796,7 +806,7 @@
         "marin:ContentUnit"
       ],
       "identifier": "sixty-second-schema-check",
-      "name": "The 60-Second Schema Check",
+      "name": "The 60-second schema check",
       "abstract": "Seven plain-language questions let leaders identify schema and integration risks before a purchase, report, dashboard, or cross-department handoff.",
       "learningResourceType": "key-points",
       "teaches": [
@@ -817,7 +827,7 @@
         "marin:ContentUnit"
       ],
       "identifier": "one-handoff-pilot",
-      "name": "Start With One Handoff, Not a Countywide Rewrite",
+      "name": "Start with one handoff, not a Countywide rewrite",
       "abstract": "Pick two systems and a handful of important fields, test sample records, record the differences, and agree on owners before scaling the connection.",
       "learningResourceType": "procedure",
       "teaches": [
@@ -841,7 +851,7 @@
         "marin:ContentUnit"
       ],
       "identifier": "say-it-in-the-meeting",
-      "name": "What to Say at the Next Meeting",
+      "name": "What to say at the next meeting",
       "abstract": "The leadership skill is not schema engineering. It is asking for documented meaning, a stable connection, clear ownership, and a concrete demonstration.",
       "learningResourceType": "summary",
       "teaches": [
@@ -865,7 +875,7 @@
         "marin:Section"
       ],
       "identifier": "what-schema-means",
-      "name": "What a Schema Means",
+      "name": "What a schema means",
       "marin:contentSequence": {
         "@type": "ItemList",
         "itemListElement": [
@@ -900,7 +910,7 @@
         "marin:Section"
       ],
       "identifier": "keep-the-agreement",
-      "name": "Keep the Agreement Trustworthy",
+      "name": "Keep the agreement trustworthy",
       "marin:contentSequence": {
         "@type": "ItemList",
         "itemListElement": [
@@ -942,7 +952,7 @@
         "marin:Section"
       ],
       "identifier": "ask-for-evidence",
-      "name": "Ask for Evidence, Not Assurances",
+      "name": "Ask for evidence, not assurances",
       "marin:contentSequence": {
         "@type": "ItemList",
         "itemListElement": [
@@ -970,7 +980,7 @@
         "marin:Section"
       ],
       "identifier": "put-it-to-work",
-      "name": "Put It to Work",
+      "name": "Put it to work",
       "marin:contentSequence": {
         "@type": "ItemList",
         "itemListElement": [
@@ -998,8 +1008,8 @@
         "marin:LearningMaterial"
       ],
       "identifier": "county-leaders-schema-guide",
-      "name": "County Leader’s Guide to Schemas — Reading Material",
-      "abstract": "A practical County leadership guide to shared data definitions, stable change, safe integration, vendor questions, and one small first project.",
+      "name": "Schemas 101 notes",
+      "abstract": "Read the key ideas about schemas and the questions to ask.",
       "learningResourceType": "guide",
       "educationalUse": [
         "instruction",
@@ -3017,8 +3027,8 @@
         "marin:Assessment"
       ],
       "identifier": "schema-leadership-quiz",
-      "name": "Schemas: The Leadership Knowledge Check",
-      "abstract": "Ten randomized questions about shared meaning, stable schemas, cross-system matching, responsible sharing, procurement, and executive habits.",
+      "name": "Schemas: the leadership knowledge check",
+      "abstract": "Ten questions to check what you learned about schemas.",
       "learningResourceType": "quiz",
       "educationalUse": [
         "assessment"
@@ -3220,7 +3230,7 @@
         "marin:Slide"
       ],
       "identifier": "slide-opening",
-      "name": "County Leader’s Guide to Schemas",
+      "name": "Schemas 101",
       "marin:layout": "title",
       "marin:speakerNotes": "Open with a normal leadership question: “How many times have we heard that two systems integrate, only to find out later they count different things?” Explain that a schema is not a programming test."
     },
@@ -3231,7 +3241,7 @@
         "marin:Slide"
       ],
       "identifier": "slide-agreement",
-      "name": "A Schema Is an Agreement",
+      "name": "A schema is an agreement",
       "marin:layout": "quote",
       "marin:speakerNotes": "Ask someone to describe an ordinary County form. Notice how field names and allowed values already express a shared agreement.",
       "marin:contentSequence": {
@@ -3255,7 +3265,7 @@
         "marin:Slide"
       ],
       "identifier": "slide-meaning",
-      "name": "Same Field Name. Different Fact.",
+      "name": "Same field name. Different fact.",
       "marin:layout": "split",
       "marin:speakerNotes": "Use People Served and work order statuses as two examples. Do not suggest that different departmental definitions are automatically wrong; what matters is recognizing the difference.",
       "marin:contentSequence": {
@@ -3287,7 +3297,7 @@
         "marin:Slide"
       ],
       "identifier": "slide-handoffs",
-      "name": "When Systems Exchange Information",
+      "name": "When systems exchange information",
       "marin:layout": "section",
       "marin:speakerNotes": "Transition to a practical question: how can different applications report one trustworthy story?"
     },
@@ -3298,7 +3308,7 @@
         "marin:Slide"
       ],
       "identifier": "slide-handoff-example",
-      "name": "One Work Order, Two Systems",
+      "name": "One work order, two systems",
       "marin:layout": "content",
       "marin:speakerNotes": "Walk through a repair marked complete before its invoice is paid. Ask what “closed” should mean in a combined report.",
       "marin:contentSequence": {
@@ -3322,7 +3332,7 @@
         "marin:Slide"
       ],
       "identifier": "slide-stable",
-      "name": "Stable Does Not Mean Frozen",
+      "name": "Stable does not mean frozen",
       "marin:layout": "content",
       "marin:speakerNotes": "The phrase stable schema is not a request for outdated systems. It means planned changes and clear notice.",
       "marin:contentSequence": {
@@ -3346,7 +3356,7 @@
         "marin:Slide"
       ],
       "identifier": "slide-ids",
-      "name": "Which Record Is This?",
+      "name": "Which record is this?",
       "marin:layout": "content",
       "marin:speakerNotes": "Emphasize that a matching name or address is not necessarily a reliable record match. Ask about work order IDs or other appropriate stable identifiers.",
       "marin:contentSequence": {
@@ -3370,7 +3380,7 @@
         "marin:Slide"
       ],
       "identifier": "slide-stewards",
-      "name": "Someone Must Own the Meaning",
+      "name": "Someone must own the meaning",
       "marin:layout": "content",
       "marin:speakerNotes": "Ask who defines Case Closed in your current environment. Do not answer on behalf of a particular department.",
       "marin:contentSequence": {
@@ -3394,7 +3404,7 @@
         "marin:Slide"
       ],
       "identifier": "slide-boundaries",
-      "name": "Shared Meaning Is Not Blanket Access",
+      "name": "Shared meaning is not blanket access",
       "marin:layout": "quote",
       "marin:speakerNotes": "Technical interoperability and permission to share are separate approvals. Use a limited referral status as the example.",
       "marin:contentSequence": {
@@ -3418,7 +3428,7 @@
         "marin:Slide"
       ],
       "identifier": "slide-questions",
-      "name": "What Leadership Can Ask",
+      "name": "What leadership can ask",
       "marin:layout": "section",
       "marin:speakerNotes": "Tell participants that they do not need to read technical schemas. They do need to insist on understandable evidence."
     },
@@ -3429,7 +3439,7 @@
         "marin:Slide"
       ],
       "identifier": "slide-vendor",
-      "name": "Ask Vendors to Demonstrate",
+      "name": "Ask vendors to demonstrate",
       "marin:layout": "content",
       "marin:speakerNotes": "Replace “It has an API” with “Show how it matches this particular County application and who supports changes.”",
       "marin:contentSequence": {
@@ -3453,7 +3463,7 @@
         "marin:Slide"
       ],
       "identifier": "slide-seven",
-      "name": "The 60-Second Schema Check",
+      "name": "The 60-second schema check",
       "marin:layout": "content",
       "marin:speakerNotes": "Lead with the two memorable questions: “Does this have a stable schema?” and “Does this integrate well with the schema of our other application?” Encourage participants to use the full checklist in a meeting.",
       "marin:contentSequence": {
@@ -3477,7 +3487,7 @@
         "marin:Slide"
       ],
       "identifier": "slide-pilot",
-      "name": "One Handoff Before a Big Promise",
+      "name": "One handoff before a big promise",
       "marin:layout": "content",
       "marin:speakerNotes": "Propose a small two-system exercise. The goal is a demonstration of field meaning, record matching, change handling, and approvals—not a countywide replacement project.",
       "marin:contentSequence": {
@@ -3501,7 +3511,7 @@
         "marin:Slide"
       ],
       "identifier": "slide-meeting",
-      "name": "Make the Question Ordinary",
+      "name": "Make the question ordinary",
       "marin:layout": "quote",
       "marin:speakerNotes": "Reassure participants: a leader can ask for schema evidence and accept “we need to investigate” as a responsible answer.",
       "marin:contentSequence": {
@@ -3525,7 +3535,7 @@
         "marin:Slide"
       ],
       "identifier": "slide-close",
-      "name": "Next Meeting: Ask for the Agreement",
+      "name": "Next meeting: ask for the agreement",
       "marin:layout": "section",
       "marin:speakerNotes": "Close with one commitment: ask which fields mean the same thing, how the systems match, and who owns changes. Invite leaders to make schema a normal management word."
     },
@@ -3536,8 +3546,8 @@
         "marin:Presentation"
       ],
       "identifier": "county-schema-leadership-slides",
-      "name": "County Leader’s Guide to Schemas — Slide Deck",
-      "abstract": "Fifteen discussion-oriented slides about shared meaning, stable definitions, evidence of integration, and better executive questions.",
+      "name": "Schemas 101 — slide deck",
+      "abstract": "Slides on shared meaning, stable data rules, and asking vendors for proof.",
       "learningResourceType": "presentation",
       "isBasedOn": [
         {
