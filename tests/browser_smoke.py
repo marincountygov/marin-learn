@@ -144,7 +144,8 @@ def ready(page) -> None:
 def route_is(page, key: str) -> None:
     page.wait_for_function("key => !document.getElementById(key).hidden", arg=key)
     require(page.locator(f"#{key}").is_visible(), f"#{key} is not visible")
-    require(page.locator("[data-tab-section]:visible").count() == 1, "Multiple routes are visible")
+    # #support deliberately shares the start tab so Get support shows on every course page.
+    require(page.locator("[data-tab-section]:visible:not(#support)").count() == 1, "Multiple routes are visible")
 
 
 def no_overflow(page) -> None:
@@ -232,7 +233,7 @@ def fixture_page(context, current_page, url: str, *, javascript: bool = True):
           await import(entry);
           document.dispatchEvent(new Event('DOMContentLoaded'));
         }""", inline_module(ROOT / "assets/app.js"))
-        page.wait_for_function("document.querySelector('#catalog-status')?.textContent?.startsWith('Showing ')")
+        page.wait_for_function("document.querySelectorAll('#catalog-grid .course-card').length > 0")
     return page
 
 
@@ -277,7 +278,8 @@ def run(screenshots: Path | None, in_memory: bool = False) -> None:
                     == ["About", "Security", "Accessibility", "Tech", "Updates"], "Footer links differ")
             require(page.locator(".app-footer__app-name").evaluate("el => el.tagName") == "SPAN",
                     "Footer app name should remain plain text")
-            require(page.locator(".app-icon svg path").count() == 3, "Marin Learn graduation-cap icon did not render")
+            require(page.locator(".app-icon svg path").count() == 1 and page.locator(".app-icon svg rect, .app-icon svg circle").count() == 2,
+                    "Marin Learn shapes icon did not render")
             home = page.locator(".app-title a.app-title__link[href='./']")
             require(home.count() == 1, "Application title should link to home")
             require(page.locator(".app-identity > .app-title-row").count() == 1, "Header title row is missing")

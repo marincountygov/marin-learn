@@ -1,11 +1,41 @@
 {
   "format": "marin-learn-catalog/v1",
+  "themes": [
+    {
+      "name": "Digital services",
+      "description": "Make services easier for people to find, use, and complete."
+    },
+    {
+      "name": "Data",
+      "description": "Use data to understand needs and make better decisions."
+    },
+    {
+      "name": "AI",
+      "description": "Learn where AI can help and how to use it safely."
+    },
+    {
+      "name": "Buying and vendors",
+      "description": "Buy technology based on needs and hold vendors to results."
+    },
+    {
+      "name": "Teams and ownership",
+      "description": "Give services clear owners and build teams around them."
+    },
+    {
+      "name": "Product thinking",
+      "description": "Manage services as ongoing work that improves over time."
+    },
+    {
+      "name": "Ways of working",
+      "description": "Work in short cycles, show progress, and learn as you go."
+    }
+  ],
   "items": [
     {
       "setId": "urn:uuid:ffcdfa4a-a5a1-51a2-a381-c20c2ab91c1b",
       "identifier": "county-leaders-guide-to-data",
-      "name": "County Leader's Guide to Data",
-      "abstract": "Stop treating data as an IT project. Use it as a public asset, make evidence safe to surface, and start changing decisions one meeting at a time.",
+      "name": "Data 101",
+      "abstract": "Learn how County leaders can use data to make better decisions.",
       "educationalLevel": "introductory",
       "inLanguage": "en-US",
       "keywords": [
@@ -16,19 +46,41 @@
         "data quality",
         "decision-making"
       ],
+      "themes": [
+        "Data"
+      ],
       "graphUrl": "learning/county-leaders-guide-to-data/learning.json",
       "resourceCounts": {
         "materials": 1,
         "presentations": 1,
         "assessments": 17
       },
-      "revision": "0be2175b15c3"
+      "revision": "e7aea0efc3ee"
+    },
+    {
+      "setId": "urn:uuid:10000000-0000-4000-8000-000000000001",
+      "identifier": "marinos-foundations",
+      "name": "MarinOS 101",
+      "abstract": "Learn how MarinOS helps staff build simple, consistent County tools.",
+      "educationalLevel": "introductory",
+      "inLanguage": "en-US",
+      "keywords": [],
+      "themes": [
+        "Digital services"
+      ],
+      "graphUrl": "learning/marinos-foundations/learning.json",
+      "resourceCounts": {
+        "materials": 1,
+        "presentations": 1,
+        "assessments": 9
+      },
+      "revision": "89a3601e3f2e"
     },
     {
       "setId": "urn:uuid:87dd853c-724f-5fda-8808-002a06c92d5a",
       "identifier": "county-leaders-guide-to-schemas",
-      "name": "County Leader\u2019s Guide to Schemas",
-      "abstract": "You do not need to design a schema. You need to ask whether the rules behind our information are stable, understandable, and compatible with the systems we already use.",
+      "name": "Schemas 101",
+      "abstract": "Learn how shared data rules help County systems work together.",
       "educationalLevel": "introductory",
       "inLanguage": "en-US",
       "keywords": [
@@ -41,29 +93,17 @@
         "system integration",
         "public-sector leadership"
       ],
+      "themes": [
+        "Data",
+        "Buying and vendors"
+      ],
       "graphUrl": "learning/county-leaders-guide-to-schemas/learning.json",
       "resourceCounts": {
         "materials": 1,
         "presentations": 1,
         "assessments": 21
       },
-      "revision": "d99cefbb4cca"
-    },
-    {
-      "setId": "urn:uuid:10000000-0000-4000-8000-000000000001",
-      "identifier": "marinos-foundations",
-      "name": "MarinOS Foundations",
-      "abstract": "A concise introduction to MarinOS principles, shared components, accessibility, and maintainable delivery.",
-      "educationalLevel": "introductory",
-      "inLanguage": "en-US",
-      "keywords": [],
-      "graphUrl": "learning/marinos-foundations/learning.json",
-      "resourceCounts": {
-        "materials": 1,
-        "presentations": 1,
-        "assessments": 9
-      },
-      "revision": "077858651272"
+      "revision": "7e6ea1852189"
     }
   ]
 }

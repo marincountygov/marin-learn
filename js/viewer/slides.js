@@ -3,13 +3,14 @@ import { loadLearningSetGraph } from '../core/graph.js';
 import { buildPresentationModel } from '../core/presentation.js';
 import { escapeHtml } from '../core/utils.js';
 import { renderSlideCanvasInnerHtml, renderSpeakerNotesHtml } from '../renderers/slides-html.js';
+import { breadcrumbHtml, wireBreadcrumb } from './breadcrumb.js';
 
 export async function renderSlideViewer(container, setSlug, resourceSlug, catalogItems, onNavigate) {
-  container.innerHTML = '<div class="catalog-status" aria-live="polite">Loading presentation...</div>';
+  container.innerHTML = '<div class="catalog-status" aria-live="polite">Loading Marin Learn…</div>';
 
   const catalogEntry = catalogItems.find((item) => item.identifier === setSlug);
   if (!catalogEntry) {
-    renderError(container, 'Learning set not found.', setSlug, onNavigate);
+    renderError(container, 'Course not found.', setSlug, onNavigate);
     return;
   }
 
@@ -18,7 +19,7 @@ export async function renderSlideViewer(container, setSlug, resourceSlug, catalo
     const presentation = selectPresentation(graphData.presentations, resourceSlug);
 
     if (!presentation) {
-      renderError(container, 'No presentation found in this learning set.', setSlug, onNavigate);
+      renderError(container, 'No presentation found in this course.', setSlug, onNavigate);
       return;
     }
 
@@ -52,9 +53,9 @@ export async function renderSlideViewer(container, setSlug, resourceSlug, catalo
 
     // Build the persistent shell once so fullscreen state survives slide changes.
     container.innerHTML = `
-      <div class="slides-viewer-container" role="region" aria-label="Slide deck viewer">
+      ${breadcrumbHtml([{ label: 'Catalog', route: {} }, { label: catalogEntry.name, route: { set: setSlug } }, { label: 'Deck' }])}
+      <div class="slides-viewer-container" role="region" aria-label="Deck">
         <header class="slides-top-bar">
-          <button id="back-to-landing" class="link-button">&larr; Learning Set Landing</button>
           <div class="slides-title-info">
             <span class="slides-pres-name">${escapeHtml(model.presentation.name)}</span>
             <span id="slides-counter" class="slides-counter">Slide 1 of ${slides.length}</span>
@@ -125,9 +126,7 @@ export async function renderSlideViewer(container, setSlug, resourceSlug, catalo
       }
     }
 
-    container.querySelector('#back-to-landing')?.addEventListener('click', () => {
-      onNavigate({ set: setSlug, view: null, resource: null });
-    });
+    wireBreadcrumb(container, onNavigate);
 
     prevBtn.addEventListener('click', () => {
       if (currentIndex > 0) {
@@ -239,11 +238,9 @@ function createMarkdownOptions(graphData, setSlug) {
 function renderError(container, message, setSlug, onNavigate) {
   container.innerHTML = `
     <div class="catalog-error-box">
-      <h3>Slide Viewer Error</h3>
+      ${breadcrumbHtml([{ label: 'Catalog', route: {} }, { label: 'Error' }])}
+      <h3>Deck error</h3>
       <p>${escapeHtml(message)}</p>
-      <button id="back-to-set" class="primary">Back to Learning Set</button>
     </div>`;
-  container.querySelector('#back-to-set')?.addEventListener('click', () => {
-    onNavigate({ set: setSlug, view: null, resource: null });
-  });
+  wireBreadcrumb(container, onNavigate);
 }

@@ -4,7 +4,8 @@ export function parseRoute() {
   return {
     set: params.get('set'),
     view: params.get('view'),
-    resource: params.get('resource')
+    resource: params.get('resource'),
+    theme: params.get('theme')
   };
 }
 
@@ -14,6 +15,7 @@ export function navigateToRoute(routeParams, replace = false) {
   if (routeParams.set) url.searchParams.set('set', routeParams.set);
   if (routeParams.view) url.searchParams.set('view', routeParams.view);
   if (routeParams.resource) url.searchParams.set('resource', routeParams.resource);
+  if (routeParams.theme) url.searchParams.set('theme', routeParams.theme);
 
   if (replace) {
     window.history.replaceState(routeParams, '', url.toString());

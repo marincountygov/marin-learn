@@ -22,7 +22,7 @@ test('viewer styling inherits Pico and MarinOS theme tokens without hard-coded t
   assert.match(css, /--learn-border-subtle:\s*var\(--pico-card-border-color\)/);
   assert.match(css, /--learn-text:\s*var\(--pico-color\)/);
   assert.match(css, /--learn-muted:\s*var\(--pico-muted-color\)/);
-  assert.match(css, /--learn-success:\s*var\(--app-success\)/);
+  assert.match(css, /--learn-success:\s*color-mix\(in srgb, var\(--app-success\)/);
   assert.match(css, /--learn-danger:\s*var\(--app-danger-text\)/);
   assert.match(css, /\.quiz-options-group\s*>\s*\.quiz-option-label\s*\{[\s\S]*?width:\s*100%;[\s\S]*?flex:\s*0 0 auto;/);
 
@@ -38,18 +38,19 @@ test('viewer markup uses the App Shell badge and Pico role-button contracts', as
     read('../assets/app.js'),
     read('../js/viewer/landing.js'),
     read('../js/viewer/reader.js'),
-    read('../js/viewer/quiz.js')
+    read('../js/viewer/quiz.js'),
+    read('../js/viewer/course-card.js')
   ]);
   const combined = sources.join('\n');
   const reader = sources[2];
 
-  assert.match(combined, /class="app-badge badge--level"/);
-  assert.match(combined, /class="app-badge badge--resource"/);
+  // Level badges are hidden for now, so only the theme (resource) badge is expected in markup.
+  assert.match(combined, /class="app-badge" href/); // theme badges, in course-card.js
   assert.match(combined, /class="app-badge quiz-weight-badge"/);
   assert.match(combined, /class="app-badge \$\{isCorrect \? 'badge--success' : 'badge--error'\}"/);
   assert.doesNotMatch(combined, /class="badge(?:\s|\")/);
 
-  assert.match(reader, /class="primary" role="button"/);
+  // The reader has no role-button right now (Download PDF is hidden), so only the old class is ruled out.
   assert.doesNotMatch(reader, /class="button\b/);
 });
 

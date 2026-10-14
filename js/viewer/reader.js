@@ -1,13 +1,15 @@
 // Marin Learn - Continuous Documentation Reader (Phase 5)
 import { loadLearningSetGraph, hasType } from '../core/graph.js';
 import { parseMarkdownToHtml } from '../core/markdown.js';
+import { breadcrumbHtml, wireBreadcrumb } from './breadcrumb.js';
+import { resourceCard, RESOURCE_KINDS } from './landing.js';
 
 export async function renderContinuousReader(container, setSlug, resourceSlug, catalogItems, onNavigate) {
-  container.innerHTML = '<div class="catalog-status" aria-live="polite">Loading reading material...</div>';
+  container.innerHTML = '<div class="catalog-status" aria-live="polite">Loading Marin Learn…</div>';
 
   const catalogEntry = catalogItems.find(item => item.identifier === setSlug);
   if (!catalogEntry) {
-    renderError(container, 'Learning set not found.', setSlug, onNavigate);
+    renderError(container, 'Course not found.', setSlug, onNavigate);
     return;
   }
 
@@ -24,7 +26,7 @@ export async function renderContinuousReader(container, setSlug, resourceSlug, c
     }
 
     if (!material) {
-      renderError(container, 'No reading material found in this learning set.', setSlug, onNavigate);
+      renderError(container, 'No reading material found in this course.', setSlug, onNavigate);
       return;
     }
 
@@ -114,42 +116,78 @@ export async function renderContinuousReader(container, setSlug, resourceSlug, c
       `;
     });
 
+    // The course's other resources (deck, quiz) so a reader can keep going.
+    const nextCards = RESOURCE_KINDS.filter(kind => kind.key !== 'materials')
+      .flatMap(kind => graphData[kind.key].map(item => resourceCard(item, kind, setSlug)));
+    const nextCardsHtml = nextCards.length ? `
+          <section class="reader-next" aria-label="Deck and quiz">
+            <div class="catalog-grid landing-resource-grid">${nextCards.join('')}</div>
+          </section>` : '';
+
+    // Sources: external works named in the material's or course's citation / isBasedOn lists.
+    const sources = collectSources([material, graphData.learningSet]);
+    const sourcesHtml = sources.length ? `
+          <section class="reader-sources" aria-labelledby="reader-sources-heading">
+            <h2 id="reader-sources-heading">Sources</h2>
+            <ul>
+              ${sources.map(src => `<li>${src.url ? `<a href="${escapeHtml(src.url)}">${escapeHtml(src.name)}</a>` : escapeHtml(src.name)}</li>`).join('')}
+            </ul>
+          </section>` : '';
+
     // Render reader layout
     container.innerHTML = `
-      <div class="reader-layout" role="region" aria-label="Continuous reading view">
-        <aside class="reader-sidebar" aria-label="Table of Contents">
-          <div class="reader-sidebar-back">
-            <button id="back-to-landing" class="link-button">&larr; Back to overview</button>
-          </div>
+      ${breadcrumbHtml([{ label: 'Catalog', route: {} }, { label: catalogEntry.name, route: { set: setSlug } }, { label: 'Notes' }])}
+      <div class="reader-layout" role="region" aria-label="Notes">
+        <aside class="reader-sidebar" aria-label="On this page">
           <nav class="reader-toc">
-            <h4>Table of Contents</h4>
+            <h4>On this page</h4>
             <ul>
               ${tocItems.map(item => `<li><a href="#${item.anchor}">${escapeHtml(item.name)}</a></li>`).join('')}
             </ul>
           </nav>
         </aside>
-        
-        <main class="reader-main">
+
+        <div class="reader-main">
           <header class="reader-header">
             <h1>${escapeHtml(material.name)}</h1>
             ${material.abstract ? `<p class="reader-abstract">${escapeHtml(material.abstract)}</p>` : ''}
-            <div class="reader-toolbar">
-              <a id="download-pdf" class="primary" role="button" href="learning/${setSlug}/${material.identifier || 'material'}.pdf" download="${material.identifier || 'material'}.pdf">Download PDF</a>
+            <!-- Download PDF is hidden for now; the PDFs are still built by scripts/publish.py. -->
+            <div class="doc-actions">
+              <button type="button" class="doc-action" id="share-notes">Share</button>
+              <span class="doc-action-status" role="status" aria-live="polite"></span>
             </div>
           </header>
 
           <div class="reader-content-sequence">
             ${assembledHtml}
           </div>
-        </main>
+          ${nextCardsHtml}
+          ${sourcesHtml}
+        </div>
       </div>
     `;
 
-    document.getElementById('back-to-landing').addEventListener('click', () => {
-      onNavigate({ set: setSlug, view: null, resource: null });
+    wireBreadcrumb(container, onNavigate);
+
+    const shareButton = container.querySelector('#share-notes');
+    const shareStatus = container.querySelector('.doc-action-status');
+    shareButton.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(window.location.href);
+        shareStatus.textContent = 'Link copied';
+      } catch {
+        shareStatus.textContent = 'Could not copy. Copy the link from the address bar.';
+      }
     });
 
-
+    // Deck and quiz cards use real links; ordinary clicks stay in the app.
+    container.querySelectorAll('.resource-action').forEach(link => {
+      link.addEventListener('click', event => {
+        if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+        event.preventDefault();
+        onNavigate({ set: setSlug, view: link.dataset.view, resource: link.dataset.resource });
+      });
+    });
 
     container.querySelectorAll('.reader-toc a').forEach(link => {
       link.addEventListener('click', (e) => {
@@ -168,17 +206,35 @@ export async function renderContinuousReader(container, setSlug, resourceSlug, c
   }
 }
 
+// External works only: skip internal {"@id": "urn:uuid:..."} references.
+function collectSources(objects) {
+  const found = new Map();
+  objects.forEach(obj => {
+    ['citation', 'isBasedOn'].forEach(key => {
+      (obj && Array.isArray(obj[key]) ? obj[key] : []).forEach(entry => {
+        if (typeof entry === 'string') entry = { url: entry, name: entry };
+        if (!entry || typeof entry !== 'object') return;
+        const id = typeof entry['@id'] === 'string' ? entry['@id'] : '';
+        if (id.startsWith('urn:uuid:')) return;
+        const url = [entry.url, id].find(value => /^https?:\/\//.test(value || '')) || '';
+        const name = entry.name || url;
+        if (!name) return;
+        found.set(`${name}|${url}`, { name, url });
+      });
+    });
+  });
+  return [...found.values()];
+}
+
 function renderError(container, message, setSlug, onNavigate) {
   container.innerHTML = `
     <div class="catalog-error-box">
-      <h3>Reading Material Error</h3>
+      ${breadcrumbHtml([{ label: 'Catalog', route: {} }, { label: 'Error' }])}
+      <h3>Notes error</h3>
       <p>${escapeHtml(message)}</p>
-      <button id="back-to-set" class="primary">Back to Learning Set</button>
     </div>
   `;
-  document.getElementById('back-to-set').addEventListener('click', () => {
-    onNavigate({ set: setSlug, view: null, resource: null });
-  });
+  wireBreadcrumb(container, onNavigate);
 }
 
 function escapeHtml(str) {

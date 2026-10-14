@@ -26,7 +26,7 @@ class PublishTests(unittest.TestCase):
         self.assertTrue(fixture.is_file(), "Reference fixture must exist")
         item = publish.publish_package(fixture, self.out_dir)
         self.assertEqual(item["identifier"], "marinos-foundations")
-        self.assertEqual(item["name"], "MarinOS Foundations")
+        self.assertEqual(item["name"], "MarinOS 101")
         self.assertEqual(item["resourceCounts"]["materials"], 1)
         self.assertTrue((self.out_dir / "learning" / "marinos-foundations" / "learning.json").is_file())
         self.assertTrue((self.out_dir / "learning" / "marinos-foundations" / "content" / "what-is-marinos.md").is_file())

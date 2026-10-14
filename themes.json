@@ -1,0 +1,12 @@
+{
+  "format": "marin-learn-themes/v1",
+  "themes": [
+    { "name": "Digital services", "description": "Make services easier for people to find, use, and complete." },
+    { "name": "Data", "description": "Use data to understand needs and make better decisions." },
+    { "name": "AI", "description": "Learn where AI can help and how to use it safely." },
+    { "name": "Buying and vendors", "description": "Buy technology based on needs and hold vendors to results." },
+    { "name": "Teams and ownership", "description": "Give services clear owners and build teams around them." },
+    { "name": "Product thinking", "description": "Manage services as ongoing work that improves over time." },
+    { "name": "Ways of working", "description": "Work in short cycles, show progress, and learn as you go." }
+  ]
+}

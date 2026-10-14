@@ -14,7 +14,7 @@ PACKAGE = ROOT / "packages" / "county-leaders-guide-to-data.zip"
 SLIDE_ID = "urn:uuid:a6295366-688e-5f6a-a7fd-f492748fe01d"
 UNIT_FILES = "urn:uuid:527b26a7-f4d0-55fd-bfbb-0b06552267c3"
 UNIT_MECHANICS = "urn:uuid:6cfb870f-a230-51e9-be5e-4752de1d7f40"
-SLIDE_TITLE = "Files Preserve Records. Data Reveals Patterns."
+SLIDE_TITLE = "Files preserve records. Data reveals patterns."
 
 
 def require(condition: bool, message: str) -> None:
@@ -141,7 +141,7 @@ def test_editor(page, base_url: str) -> None:
     page.get_by_role("heading", name=SLIDE_TITLE, exact=True).wait_for()
     preview_items = page.locator(".editor-preview-modal .slide-content-item")
     require(preview_items.count() == 2, "Editor preview did not render both content blocks")
-    require("How County Data Works" in preview_items.nth(0).inner_text(),
+    require("How County data works" in preview_items.nth(0).inner_text(),
             "Editor preview did not use the saved content order")
     page.locator(".btn-close-modal").click()
 
@@ -164,7 +164,7 @@ def test_public_viewer(page, base_url: str) -> None:
         f"{base_url}?set=county-leaders-guide-to-data&view=slides&resource=county-data-leadership-slides",
         wait_until="networkidle",
     )
-    page.get_by_role("heading", name="County Leader's Guide to Data", exact=True).wait_for()
+    page.get_by_role("heading", name="Data 101", exact=True).wait_for()
     page.locator("#next-slide").click()
     page.locator("#next-slide").click()
     page.get_by_role("heading", name=SLIDE_TITLE, exact=True).wait_for()
@@ -174,7 +174,7 @@ def test_public_viewer(page, base_url: str) -> None:
             "The public viewer did not apply the split layout")
     items = canvas.locator(".slide-content-item")
     require(items.count() == 2, "The public viewer did not render both canonical content entries")
-    require("From Files to Facts" in items.nth(0).inner_text(),
+    require("From files to facts" in items.nth(0).inner_text(),
             "The public viewer did not preserve canonical content order")
     columns = canvas.locator(".slide-body").evaluate(
         "element => getComputedStyle(element).gridTemplateColumns.split(' ').filter(Boolean).length"

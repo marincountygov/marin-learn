@@ -286,7 +286,7 @@ def run() -> None:
             page.locator("#file-import-zip").set_input_files(str(ROOT / "packages" / "marinos-foundations.zip"))
             page.locator("#workspace-view").wait_for(state="visible")
             page.locator('[data-tab="materials"]').click()
-            page.get_by_text("MarinOS Foundations", exact=True).wait_for()
+            page.get_by_text("MarinOS 101", exact=True).wait_for()
             materials_sidebar = sidebar_appearance(page, "tab-materials")
             require(materials_sidebar["position"] == "sticky",
                     f"Reading Materials sidebar should be sticky: {materials_sidebar}")

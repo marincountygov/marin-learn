@@ -6,6 +6,13 @@ Existing applications do not automatically inherit these changes. Template chang
 
 ## Unreleased
 
+- Clean up the Marin Learn catalog and course pages: `shapes` app icon, a Search heading and a Courses heading, MarinOS-style cards whose title is the link, no resource badges, and breadcrumbs (`Catalog / Course`) in place of back buttons.
+- Course pages show **Notes**, **Deck**, and **Quiz** cards with icons. Every viewer page ends with a Help section (Coaching, Training, Workshops; placeholder links for now).
+- Hide course levels for now (filter and badges). Rename the home list to Catalog, move the breadcrumb above the content on Notes, Deck, and Quiz pages, show "On this page" in a right-hand column on Notes, and add a Sources section from a material's `citation` or `isBasedOn` lists. Help cards have icons. Notes pages hide Download PDF for now, add a Share button that copies the link, and show Deck and Quiz cards below the notes. Notes are titled `<Course> notes` and their descriptions are general.
+- Add theme pages (`?theme=data`) that list a theme's courses. Theme badges on course cards and course pages link to them, and the homepage has a Themes section with a badge for every theme.
+- Refresh the quiz results card: `square-sparkles` icon and quiz name above the result, grade and percent as `A / 100%`, "You passed!" in a clear green (also used for Correct badges and correct choices) and "You did not pass" in red, no points line, no separate title box, and a Share button that copies the result with a link to the course page.
+- Add seven themes in `themes.json`. A course names its themes in its `about` list; `scripts/publish.py` checks them and writes them to `catalog.json`. The catalog has a Theme filter and shows themes on each card.
+- Retitle courses in sentence case, drop "County Leader's", rename MarinOS Foundations to MarinOS 101, and shorten card descriptions to 15 words or fewer.
 - Fix project-status false positives for valid URL-valued licenses on learning resources and assets, and show a clear “No issues found” success state when validation is clean.
 - Replace all browser-native JavaScript prompt, confirmation, and alert interactions in Marin Learn Authoring with one shared native HTML `<dialog>` and normal form component.
 - Add inline required-field validation, safe destructive confirmations, deterministic keyboard/focus behavior, responsive light/dark styling, a native-dialog regression guard, browser coverage, and editor dialog documentation.

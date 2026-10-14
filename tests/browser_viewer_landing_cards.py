@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Exercise the learning-set overview's catalog-style cards in light/dark modes.
+"""Exercise the course page's Notes, Deck, and Quiz cards in light/dark modes.
 
 Uses the actual published learning-set graph, viewer module, and bundled theme.
 The offline fixture does not replace the normal end-to-end HTTP browser tests.
@@ -69,33 +69,29 @@ def run(screenshots: Path | None = None) -> None:
 
                 cards = page.locator('.landing-resource-card')
                 assert cards.count() == count, f'Expected {count} resource cards, found {cards.count()}'
-                assert page.locator('.landing-resource-grid.catalog-grid > article.catalog-card').count() == count
+                assert page.locator('.landing-resource-grid.catalog-grid > article.app-card').count() == count
                 assert page.locator('.landing-section, .resource-list').count() == 0
-                assert page.locator('.landing-resources h3').inner_text().startswith('Learning resources')
-                assert page.locator('header.landing-header > h2').inner_text() == 'MarinOS Foundations'
+                assert page.locator('#landing-resources-heading').count() == 0, 'Resource heading should be gone'
+                assert page.locator('header.landing-header > h2').inner_text() == 'MarinOS 101'
+                assert page.locator('.viewer-breadcrumb a').all_text_contents() == ['Catalog']
+                assert page.locator('.viewer-breadcrumb [aria-current="page"]').inner_text() == 'MarinOS 101'
                 assert page.evaluate('document.documentElement.scrollWidth <= innerWidth + 1'), f'overflow at {width}px'
 
-                links = page.locator('.landing-resource-card a.resource-action')
+                links = page.locator('.landing-resource-card h3 > a.resource-action')
                 assert links.count() == count
                 assert all(link.get_attribute('href').startswith('?set=marinos-foundations&view=')
                            for link in links.all())
                 assert all(link.get_attribute('aria-label') for link in links.all())
-                assert page.locator('.landing-resource-card .badge--resource').all_text_contents() == [
-                    'Reading material', 'Slide presentation', 'Quiz'
-                ]
+                assert page.locator('.landing-resource-card .app-badge').count() == 0, 'Cards must not show type badges'
+                assert page.locator('.landing-resource-card h3').all_text_contents() == ['Notes', 'Deck', 'Quiz']
+                assert page.locator('.landing-resource-card .app-card__icon svg').count() == count
+                assert links.all_text_contents() == ['Notes', 'Deck', 'Quiz']
                 if screenshots:
                     page.screenshot(path=str(screenshots / f'landing-{theme}-{width}.png'), full_page=True)
-                # The card's header is also a hit target, because the footer
-                # link is stretched to cover the entire article.
-                header_rect = cards.first.locator('header').bounding_box()
-                assert header_rect, 'Card header is not visible'
-                page.mouse.click(header_rect['x'] + header_rect['width'] / 2,
-                                 header_rect['y'] + header_rect['height'] / 2)
-                assert page.evaluate('window.__navigation.at(-1).view') == 'read', 'Card body was not clickable'
+                links.first.click()
+                assert page.evaluate('window.__navigation.at(-1).view') == 'read', 'Notes link did not open the notes'
                 links.first.focus()
                 assert links.first.evaluate('(el) => el === document.activeElement'), 'Card link cannot be focused'
-                assert page.locator('.landing-resource-card').first.evaluate(
-                    "el => getComputedStyle(el).outlineColor !== 'rgba(0, 0, 0, 0)'"), 'No card focus outline'
                 assert not errors, f'{theme}/{width}: {errors}'
                 context.close()
         finally:
@@ -107,4 +103,4 @@ if __name__ == '__main__':
     parser.add_argument('--screenshots', type=Path)
     args = parser.parse_args()
     run(args.screenshots)
-    print('Learning-set overview cards (light/dark, desktop/mobile): PASS')
+    print('Course page cards (light/dark, desktop/mobile): PASS')
