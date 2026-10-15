@@ -28,6 +28,7 @@ python3 "$ROOT_DIR/tests/test_brand_icons.py"
 python3 "$ROOT_DIR/tests/test_security_meta.py"
 python3 "$ROOT_DIR/tests/test_publish.py"
 python3 "$ROOT_DIR/tests/test_notes_publish.py"
+python3 "$ROOT_DIR/scripts/check_published.py"
 python3 "$ROOT_DIR/tests/test_pptx_ci.py"
 
 if command -v node >/dev/null 2>&1; then
