@@ -6,8 +6,8 @@
     return;
   }
 
-  const SHELL_VERSION = "1.10.0";
-  const MARIN_UI_VERSION = "1.19.0";
+  const SHELL_VERSION = "1.12.2";
+  const MARIN_UI_VERSION = "1.25.0";
   const MARINOS_URL = "https://marincountygov.github.io/marin-os/";
   const MARINOS_STATUS_URL = `${MARINOS_URL}#status`;
   const CATALOG_URL = `${MARINOS_URL}catalog.json`;
@@ -53,6 +53,15 @@
   function normalizedAttribute(element, name, fallback = "") {
     const value = element.getAttribute(name)?.trim();
     return value || fallback;
+  }
+
+  // The one wording for any "still loading" message: "Loading {app name}…". Apps and the
+  // shell's own sections use the same text, so a visitor sees the same message everywhere.
+  function loadingMessage() {
+    const info = document.querySelector("marin-app-info");
+    const name = (info && normalizedAttribute(info, "app-name")) ||
+      (document.querySelector(".app-title__link")?.textContent || "").trim() || "this application";
+    return `Loading ${name}\u2026`;
   }
 
   function parseTokenList(value, fallback) {
@@ -555,16 +564,16 @@
           status.setAttribute("role", "status");
           status.setAttribute("aria-live", "polite");
           status.setAttribute("aria-atomic", "true");
-          status.innerHTML = "Loading security information&hellip;";
+          status.textContent = loadingMessage();
           const content = document.createElement("div");
           content.dataset.securityContent = "";
 
           const technicalHeading = document.createElement("h3");
           technicalHeading.textContent = "Technical information";
           const technicalList = document.createElement("ul");
+          // security.txt is already linked under "Report an issue" above, so it is not repeated here.
           [
             [securityJson, "security.json"],
-            [securityContactUrl, "security.txt"],
           ].forEach(([href, label]) => {
             const item = document.createElement("li");
             const link = document.createElement("a");
@@ -588,11 +597,9 @@
 
         if (key === "accessibility") {
           const standardParagraph = document.createElement("p");
-          standardParagraph.append(document.createTextNode(`${appName} targets `));
-          const wcagLink = document.createElement("a");
-          wcagLink.href = WCAG_URL;
-          wcagLink.textContent = "WCAG 2.2 Level AA";
-          standardParagraph.append(wcagLink, document.createTextNode("."));
+          // The link to WCAG is given once, under "Accessibility standard" below; repeating the same
+          // link in nearby text only adds noise for people using a screen reader.
+          standardParagraph.textContent = `${appName} targets WCAG 2.2 Level AA.`;
           section.append(standardParagraph);
 
           if (templates.accessibility) section.append(templates.accessibility);
@@ -605,7 +612,7 @@
           status.setAttribute("role", "status");
           status.setAttribute("aria-live", "polite");
           status.setAttribute("aria-atomic", "true");
-          status.innerHTML = "Loading accessibility score&hellip;";
+          status.textContent = loadingMessage();
           const content = document.createElement("div");
           content.dataset.accessibilityContent = "";
           // The score is read live from marin-os's data/lighthouse.json,
@@ -670,7 +677,7 @@
           status.setAttribute("role", "status");
           status.setAttribute("aria-live", "polite");
           status.setAttribute("aria-atomic", "true");
-          status.innerHTML = "Loading technology information&hellip;";
+          status.textContent = loadingMessage();
           const content = document.createElement("div");
           content.dataset.techContent = "";
           // Read live from marin-os's data/tech.json by catalog id (app-id
@@ -688,7 +695,8 @@
           status.setAttribute("role", "status");
           status.setAttribute("aria-live", "polite");
           status.setAttribute("aria-atomic", "true");
-          status.innerHTML = repo ? "Loading recent commits&hellip;" : "Updates are not configured for this application.";
+          if (repo) status.textContent = loadingMessage();
+          else status.textContent = "Updates are not configured for this application.";
           const list = document.createElement("div");
           list.dataset.updatesList = "";
           if (repo) section.dataset.updatesRepo = repo;
@@ -819,6 +827,31 @@
       }
       this.replaceChildren(link);
       this.dataset.rendered = "true";
+      this.watchFooter(link);
+    }
+
+    // The button is fixed to the bottom corner, so when the page is scrolled until the
+    // footer appears it would sit on top of footer links. Hide it then (only on pages
+    // that scroll, so a short page keeps its button). It stays in the tab order and
+    // shows itself on keyboard focus, so it is never unreachable.
+    watchFooter(link) {
+      let queued = false;
+      const update = () => {
+        queued = false;
+        const footer = document.querySelector("marin-app-footer .app-footer");
+        const scrolls = document.documentElement.scrollHeight > window.innerHeight + 1;
+        const over = Boolean(footer) && scrolls && footer.getBoundingClientRect().top < window.innerHeight;
+        link.toggleAttribute("data-over-footer", over);
+      };
+      const schedule = () => {
+        if (queued) return;
+        queued = true;
+        window.requestAnimationFrame(update);
+      };
+      window.addEventListener("scroll", schedule, { passive: true });
+      window.addEventListener("resize", schedule);
+      if (typeof ResizeObserver === "function") new ResizeObserver(schedule).observe(document.body);
+      update();
     }
   }
 
@@ -1395,7 +1428,7 @@
 
     async function loadUpdates() {
       if (loaded) return;
-      if (status) status.textContent = "Loading latest commits...";
+      if (status) status.textContent = loadingMessage();
       list.innerHTML = "";
       try {
         // Fetch more than we display: merge-PR commits are filtered out
@@ -1585,7 +1618,7 @@
 
     async function loadSecurity() {
       if (loaded) return;
-      status.textContent = "Loading security information...";
+      status.textContent = loadingMessage();
       try {
         const response = await fetch(jsonPath, { cache: "no-store" });
         if (response.status === 404) {
@@ -1761,7 +1794,7 @@
 
     async function loadScore() {
       if (loaded) return;
-      status.textContent = "Loading accessibility score...";
+      status.textContent = loadingMessage();
       try {
         const [appId, response] = await Promise.all([resolveAppId(), fetch(scoresUrl, { cache: "no-store" })]);
         loaded = true;
@@ -2054,7 +2087,7 @@
 
     async function loadTech() {
       if (loaded) return;
-      status.textContent = "Loading technology information...";
+      status.textContent = loadingMessage();
       try {
         const [appId, response] = await Promise.all([resolveAppId(), fetch(isLocal ? `${base}data/tech.json` : TECH_URL, { cache: "no-store" })]);
         loaded = true;
@@ -2102,6 +2135,7 @@
     version: SHELL_VERSION,
     marinUiVersion: MARIN_UI_VERSION,
     components: Object.freeze(componentDefinitions.map(([name]) => name)),
+    loadingMessage,
   });
   document.dispatchEvent(
     new CustomEvent("marinos:shell-ready", {

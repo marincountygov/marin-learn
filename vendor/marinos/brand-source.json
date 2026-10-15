@@ -1,10 +1,10 @@
 {
   "schema": 1,
-  "marinUiVersion": "1.19.0",
+  "marinUiVersion": "1.25.0",
   "upstream": "https://github.com/marincountygov/marin-ui",
   "provenance": {
     "source": "Explicitly imported local marin-ui checkout",
-    "gitCommit": null
+    "gitCommit": "71a1d02b625f3d514bb07f8ebd21ddc6211ec2e9"
   },
   "files": {
     "vendor/icons/lucide/LICENSE": {
@@ -34,8 +34,8 @@
     },
     "vendor/marin-ui/app-brand.css": {
       "source": "shared/app-brand.css",
-      "bytes": 31092,
-      "sha256": "c9767b228380e008c28e693420165debf26f36fd6c0ca9cc116754832572d7ee"
+      "bytes": 35449,
+      "sha256": "d292a01f28ae4c14513cb316a898a753bd3f5f614662febad5ba7c80c317f6a3"
     },
     "vendor/pico.min.css": {
       "source": "vendor/pico.min.css",
