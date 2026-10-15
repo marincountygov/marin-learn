@@ -6,6 +6,7 @@ Existing applications do not automatically inherit these changes. Template chang
 
 ## Unreleased
 
+- Add `scripts/validate_package.mjs`: checks a package against every rule, including the Note, deck, and quiz rules, and prints each error and warning.
 - Add the Schema 101 Note (twelve sections, from Schema.org, the Wikipedia Database schema page, and one JSON Schema example) and rename the Schemas course to Schema 101. A copy of the earlier package is in `archive/`. Examples now need at least 1 entry instead of 3.
 - Decks for Data 101 (16 slides) and Schema 101 (19 slides; the checklist, user stories, and questions are one slide each, and key terms use three) are now built from their Notes by `scripts/build_note_deck.mjs`, at 45 words per slide, with section-name titles and no speaker notes. Slides can show one code sample with `marin:codeRange`. The sample JSON Schema in Schema 101 is trimmed to 13 lines to fit a slide. Old slides are gone from both packages; the earlier packages are in `archive/`. Course pages show theme badges below the Notes, Deck, and Quiz cards instead of in the header, and Notes pages show them at the bottom of the page, below the closing Share, Copy note, and Print buttons.
 - Deck viewer: slide text scales with the slide (larger), a Note section alone on a slide no longer repeats its title as a blue heading (in the viewer and in the PowerPoint export), and the title slide has no gradient, is centered, shows the course icon above the title, and shows the Note's description below it.

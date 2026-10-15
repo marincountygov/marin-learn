@@ -165,3 +165,13 @@ test('the quiz and deck builders together are repeatable, and the published pack
     assert.deepEqual(await readFile(path.join(ROOT, 'packages', `${slug}.zip`)), once, `${slug}: the published package is what the builders produce`);
   }
 });
+
+test('the package check script reports no problems for the published courses and refuses a broken one', async () => {
+  const { checkPackage } = await import('../scripts/validate_package.mjs');
+  for (const [slug] of COURSES) {
+    const result = await checkPackage(path.join(ROOT, 'packages', `${slug}.zip`));
+    assert.deepEqual([result.errors.length, result.warnings.length], [0, 0], slug);
+  }
+  const legacy = await checkPackage(path.join(ROOT, 'archive', 'county-leaders-guide-to-data-with-old-quiz-2026-10-15.zip'));
+  assert.ok(legacy.errors.some((entry) => entry.code === 'quiz-too-many-questions'), 'the old 16-question quiz is refused');
+});
