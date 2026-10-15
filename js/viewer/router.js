@@ -16,6 +16,7 @@ export function navigateToRoute(routeParams, replace = false) {
   if (routeParams.view) url.searchParams.set('view', routeParams.view);
   if (routeParams.resource) url.searchParams.set('resource', routeParams.resource);
   if (routeParams.theme) url.searchParams.set('theme', routeParams.theme);
+  url.hash = routeParams.hash ? `#${routeParams.hash}` : '';
 
   if (replace) {
     window.history.replaceState(routeParams, '', url.toString());

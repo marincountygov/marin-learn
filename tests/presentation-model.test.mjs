@@ -187,9 +187,12 @@ test('all published presentation fixtures resolve through the shared model witho
     }
   }
 
-  assert.ok(presentationCount >= 3);
-  assert.deepEqual([...layouts].sort(), ['content', 'media', 'quote', 'section', 'split', 'title']);
-  assert.deepEqual([...modes].sort(), ['abstract', 'full', 'title']);
+  assert.ok(presentationCount >= 2);
+  // The Note decks use only the title, content, and split layouts. The others are covered by
+  // the PowerPoint release fixture (tests/fixtures/pptx-release).
+  assert.deepEqual([...layouts].sort(), ['content', 'split', 'title']);
+  // Short-summary and title-only entries are covered by the PowerPoint release fixture.
+  assert.deepEqual([...modes].sort(), ['full']);
 });
 
 test('a real multi-entry split slide survives editing and package export/reimport', async () => {

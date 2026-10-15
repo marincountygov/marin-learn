@@ -698,6 +698,10 @@ The package MUST NOT depend on ZIP directory location to determine semantic memb
 
 ---
 
+## 32A. Notes
+
+A package MAY contain `marin:Note` and `marin:NoteSection` objects. A Note is a short, structured brief: a title, a short description, and ten ordered sections held as `marin:NoteSection` objects, listed in `marin:sectionSequence`. A deck or quiz points at a Note, or at one of its sections, with `isBasedOn` or `marin:contentSequence`. Character limits, item counts, section order, and the other rules are in `docs/notes/SPEC.md` and `schema/marin-learn-v1.schema.json`. Packages without Notes are unchanged.
+
 ## 33. Start resource
 
 `marin:startResource` is optional.

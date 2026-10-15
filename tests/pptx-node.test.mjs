@@ -34,7 +34,7 @@ test('Node runtime verifies and reuses the reviewed vendored PowerPoint bundle',
 test('Node generator writes a validated PPTX and complete review sidecars without npm installation', async () => {
   const temp = await mkdtemp(path.join(os.tmpdir(), 'marin-learn-pptx-node-'));
   const outputDir = path.join(temp, 'review');
-  const packageFile = path.join(ROOT, 'packages', 'marinos-foundations.zip');
+  const packageFile = path.join(ROOT, 'tests', 'fixtures', 'reference-package', 'marinos-foundations.zip');
   const { summary, summaryPath } = await generatePptxArtifacts({
     inputs: [packageFile],
     outputDir
@@ -45,7 +45,7 @@ test('Node generator writes a validated PPTX and complete review sidecars withou
   assert.equal(summary.counts.presentations, 1);
   assert.equal(summary.runtime.source, 'vendored-node-bundle');
   assert.equal(summary.runtime.svgFallback, 'embedded-svg-with-transparent-png-compatibility');
-  assert.equal(summary.packages[0].source, 'packages/marinos-foundations.zip');
+  assert.equal(summary.packages[0].source, 'tests/fixtures/reference-package/marinos-foundations.zip');
   assert.equal(summary.artifacts[0].slideCount, 7);
   assert.equal(summary.artifacts[0].warningCount, 2);
 
@@ -65,7 +65,7 @@ test('Node generator writes a validated PPTX and complete review sidecars withou
 test('Node generator reports unmatched presentation selectors as a failing review result', async () => {
   const temp = await mkdtemp(path.join(os.tmpdir(), 'marin-learn-pptx-selector-'));
   const { summary } = await generatePptxArtifacts({
-    inputs: [path.join(ROOT, 'packages', 'marinos-foundations.zip')],
+    inputs: [path.join(ROOT, 'tests', 'fixtures', 'reference-package', 'marinos-foundations.zip')],
     outputDir: path.join(temp, 'review'),
     presentationSelectors: ['does-not-exist']
   });
@@ -89,19 +89,19 @@ test('Node CLI argument and package discovery contracts remain deterministic', a
   const files = await discoverPackageFiles([path.join(ROOT, 'packages')]);
   assert.deepEqual(files.map((value) => path.basename(value)), [
     'county-leaders-guide-to-data.zip',
-    'county-leaders-guide-to-schemas.zip',
-    'marinos-foundations.zip'
+    'county-leaders-guide-to-schemas.zip'
   ]);
 });
 
 test('Node generator refuses destructive output cleanup targets', () => {
-  const source = path.join(ROOT, 'packages', 'marinos-foundations.zip');
+  const source = path.join(ROOT, 'tests', 'fixtures', 'reference-package', 'marinos-foundations.zip');
   assert.throws(
     () => assertSafeCleanDirectory(ROOT, [source]),
     (error) => error?.code === 'pptx-output-unsafe'
   );
+  const published = path.join(ROOT, 'packages', 'county-leaders-guide-to-data.zip');
   assert.throws(
-    () => assertSafeCleanDirectory(path.join(ROOT, 'packages'), [source]),
+    () => assertSafeCleanDirectory(path.join(ROOT, 'packages'), [published]),
     (error) => error?.code === 'pptx-output-contains-input'
   );
 });

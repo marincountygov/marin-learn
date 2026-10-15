@@ -1,0 +1,252 @@
+{
+  "name": "Data 101 — quiz",
+  "identifier": "data-101-quiz",
+  "abstract": "Ten questions to check what you learned about data.",
+  "passingPercent": 70,
+  "courseDescription": "Notes, a deck, and a quiz about using data to understand needs and make better decisions.",
+  "grades": [
+    {
+      "name": "A",
+      "minPercent": 90,
+      "message": "Excellent. You can ask good questions about data and explain why quality and sharing rules matter."
+    },
+    {
+      "name": "B",
+      "minPercent": 80,
+      "message": "Strong work. Keep asking who owns the data and how good it is."
+    },
+    {
+      "name": "C",
+      "minPercent": 70,
+      "message": "A sound start. Read the explanations, then check the notes for the ones you missed."
+    },
+    {
+      "name": "D",
+      "minPercent": 60,
+      "message": "Go back to the key terms and the do’s and don’ts in the notes, then try again."
+    },
+    {
+      "name": "F",
+      "minPercent": 0,
+      "message": "Start with the notes. Then take the quiz again."
+    }
+  ],
+  "questions": [
+    {
+      "section": "whyItMatters",
+      "type": "single-select",
+      "text": "What happens when government explains how it uses data?",
+      "options": [
+        {
+          "text": "Data quality improves by itself.",
+          "correct": false
+        },
+        {
+          "text": "The public trusts it more.",
+          "correct": true
+        },
+        {
+          "text": "Staff need less training.",
+          "correct": false
+        },
+        {
+          "text": "Fewer people use County services.",
+          "correct": false
+        }
+      ],
+      "hint": "Think about the public.",
+      "explanation": "Why it matters says the public trusts government more when it explains how it uses data."
+    },
+    {
+      "section": "problem",
+      "type": "single-select",
+      "text": "Which problem often keeps teams from using data well?",
+      "options": [
+        {
+          "text": "They cannot find, trust, or share the data they need.",
+          "correct": true
+        },
+        {
+          "text": "The County has more storage than it can use.",
+          "correct": false
+        },
+        {
+          "text": "Residents do not want any data collected.",
+          "correct": false
+        },
+        {
+          "text": "Staff share too much data with the public.",
+          "correct": false
+        }
+      ],
+      "hint": "Think about what happens when records are incomplete and owners are unclear.",
+      "explanation": "The Problem section says many teams cannot find, trust, or share the data they need, so leaders decide with weak evidence."
+    },
+    {
+      "section": "solution",
+      "type": "single-select",
+      "text": "Which action helps teams use data well?",
+      "options": [
+        {
+          "text": "Collect as much data as possible.",
+          "correct": false
+        },
+        {
+          "text": "Let each team choose its own format.",
+          "correct": false
+        },
+        {
+          "text": "Name an owner for each data set.",
+          "correct": true
+        },
+        {
+          "text": "Check data quality only after a problem appears.",
+          "correct": false
+        }
+      ],
+      "hint": "The first step treats data as a shared asset.",
+      "explanation": "The Solution section says to name an owner for each data set, check its quality, and share it under clear rules."
+    },
+    {
+      "section": "keyTerms",
+      "type": "single-select",
+      "text": "What does data quality describe?",
+      "options": [
+        {
+          "text": "How much data a system can store.",
+          "correct": false
+        },
+        {
+          "text": "How fast data is collected.",
+          "correct": false
+        },
+        {
+          "text": "How many people can see the data.",
+          "correct": false
+        },
+        {
+          "text": "How well data fits its use.",
+          "correct": true
+        }
+      ],
+      "hint": "Quality is about fit for a purpose.",
+      "explanation": "Key terms defines data quality as how well data fits its use. It can be complete, unique, consistent, timely, valid, and accurate."
+    },
+    {
+      "section": "keyTerms",
+      "type": "true-false",
+      "text": "Timeliness means the data is up to date when you need it.",
+      "answer": true,
+      "hint": "Think about the word “timely.”",
+      "explanation": "Key terms defines timeliness as data that is up to date when you need it."
+    },
+    {
+      "section": "keyTerms",
+      "type": "single-select",
+      "text": "Which term means a written deal about sharing data?",
+      "options": [
+        {
+          "text": "Data sharing agreement",
+          "correct": true
+        },
+        {
+          "text": "Data standard",
+          "correct": false
+        },
+        {
+          "text": "Metadata",
+          "correct": false
+        },
+        {
+          "text": "Data governance",
+          "correct": false
+        }
+      ],
+      "hint": "The answer is a written deal.",
+      "explanation": "Key terms defines a data sharing agreement as a written deal on what data is shared, why, and how it is protected."
+    },
+    {
+      "section": "dosAndDonts",
+      "type": "single-select",
+      "text": "A teammate wants to share personal data first and check the rules later. What should you do?",
+      "options": [
+        {
+          "text": "Agree, because speed matters most.",
+          "correct": false
+        },
+        {
+          "text": "Bring in privacy and legal staff early.",
+          "correct": true
+        },
+        {
+          "text": "Share only half of the data.",
+          "correct": false
+        },
+        {
+          "text": "Ask the vendor to decide.",
+          "correct": false
+        }
+      ],
+      "hint": "Think about who should be involved early.",
+      "explanation": "Do’s and don’ts says to bring in privacy and legal staff early when sharing data, and not to share personal data first and check the rules later."
+    },
+    {
+      "section": "dosAndDonts",
+      "type": "true-false",
+      "text": "It is a good idea to keep data just in case it might be useful.",
+      "answer": false,
+      "hint": "Think about collecting only what you need.",
+      "explanation": "Do’s and don’ts says to collect only the data you need for a clear purpose, and not to keep data just in case."
+    },
+    {
+      "section": "questions",
+      "type": "single-select",
+      "text": "Which is a good question to ask about data before a decision?",
+      "options": [
+        {
+          "text": "Which chart color looks best?",
+          "correct": false
+        },
+        {
+          "text": "Can we skip checking the data this time?",
+          "correct": false
+        },
+        {
+          "text": "How complete, accurate, and up to date is it?",
+          "correct": true
+        },
+        {
+          "text": "How long is the report?",
+          "correct": false
+        }
+      ],
+      "hint": "Think about ownership, quality, and gaps.",
+      "explanation": "Questions to ask includes how complete, accurate, and up to date the data is."
+    },
+    {
+      "section": "checklist",
+      "type": "single-select",
+      "text": "What should you know before you rely on a data set?",
+      "options": [
+        {
+          "text": "How many copies exist.",
+          "correct": false
+        },
+        {
+          "text": "Which report is the longest.",
+          "correct": false
+        },
+        {
+          "text": "Who shared it last.",
+          "correct": false
+        },
+        {
+          "text": "Who owns it.",
+          "correct": true
+        }
+      ],
+      "hint": "Think about who is responsible for it.",
+      "explanation": "The Checklist includes “I know who owns the data.”"
+    }
+  ]
+}

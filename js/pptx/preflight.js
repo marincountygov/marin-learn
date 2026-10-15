@@ -351,7 +351,9 @@ function planQuoteSlide(slide, entries, errors, context) {
 
 function planStandardEntry(entry, area, errors, slide, enforceHeight = true) {
   const headingText = entry.entry.unit?.name || '';
-  const heading = entry.entry.displayMode === 'title' || sameText(headingText, slide.name)
+  // A Note section alone on a slide is already named by the slide title.
+  const aloneNoteSection = entry.entry.unit?.kind === 'note-section' && slide.content?.length === 1;
+  const heading = entry.entry.displayMode === 'title' || aloneNoteSection || sameText(headingText, slide.name)
     ? null
     : {
         text: headingText,

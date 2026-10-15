@@ -277,9 +277,14 @@ export async function renderQuizViewer(container, setSlug, resourceSlug, catalog
 
         // Resolve source link material if available
         let sourceMaterialName = null;
+        let sourceSection = null;
         if (item.isBasedOn && item.isBasedOn.length > 0) {
           const srcObj = graphData.byId.get(item.isBasedOn[0]['@id']);
           if (srcObj) sourceMaterialName = srcObj.name;
+          // A question based on a Note section links back to that section of the notes.
+          if (srcObj && hasType(srcObj, 'NoteSection') && graphData.notes[0]) {
+            sourceSection = { name: srcObj.name, type: srcObj['marin:sectionType'], note: graphData.notes[0].identifier };
+          }
         }
 
         reviewDetails.push({
@@ -287,7 +292,8 @@ export async function renderQuizViewer(container, setSlug, resourceSlug, catalog
           item,
           userSet,
           isCorrect,
-          sourceMaterialName
+          sourceMaterialName,
+          sourceSection
         });
       });
 
@@ -296,12 +302,15 @@ export async function renderQuizViewer(container, setSlug, resourceSlug, catalog
       const passingPercent = scoringPolicy.passingPercent !== undefined ? scoringPolicy.passingPercent : 70;
       const passed = percentage >= passingPercent;
 
+      // "Data 101 — quiz" reads as "Data 101 quiz" in a sentence.
+      const quizTitle = assessment.name.replace(/\s+\u2014\s+/, ' ');
+
       // Grade scale band resolution
       let gradeName = passed ? 'Pass' : 'Needs Review';
       let gradeMessage = passed ? 'You successfully passed this assessment.' : 'Review the learning materials and try again.';
       
       const gradeScaleRef = scoringPolicy.gradeScale && scoringPolicy.gradeScale['@id'];
-      const gradeScaleObj = gradeScaleRef ? graphData.byId.get(gradeScaleRef) : graphData.gradeScales[0];
+      const gradeScaleObj = gradeScaleRef ? graphData.byId.get(gradeScaleRef) : graphData.gradeScales?.[0];
       if (gradeScaleObj && gradeScaleObj['marin:gradeBands']) {
         const bands = [...gradeScaleObj['marin:gradeBands']].sort((a, b) => b.minPercent - a.minPercent);
         for (const band of bands) {
@@ -314,7 +323,7 @@ export async function renderQuizViewer(container, setSlug, resourceSlug, catalog
       }
 
       let reviewDetailsHtml = '';
-      reviewDetails.forEach(({ index, item, userSet, isCorrect, sourceMaterialName }) => {
+      reviewDetails.forEach(({ index, item, userSet, isCorrect, sourceMaterialName, sourceSection }) => {
         let optsHtml = '';
         item.options.forEach(opt => {
           const optId = opt['@id'];
@@ -348,10 +357,19 @@ export async function renderQuizViewer(container, setSlug, resourceSlug, catalog
             </div>
             <div class="review-options-grid">${optsHtml}</div>
             ${item.explanation ? `<div class="quiz-explanation"><strong>Explanation:</strong> ${parseMarkdownToHtml(item.explanation, graphData)}</div>` : ''}
-            ${sourceMaterialName ? `<div class="quiz-source-link"><strong>Source:</strong> ${escapeHtml(sourceMaterialName)}</div>` : ''}
+            ${sourceSection ? `<div class="quiz-source-link"><strong>Source:</strong> ${sectionLink(sourceSection, setSlug)}</div>` : sourceMaterialName ? `<div class="quiz-source-link"><strong>Source:</strong> ${escapeHtml(sourceMaterialName)}</div>` : ''}
           </div>
         `;
       });
+
+      // Sections to review: the Note sections behind the questions that were missed.
+      const missed = new Map();
+      reviewDetails.filter(detail => !detail.isCorrect && detail.sourceSection).forEach(detail => missed.set(detail.sourceSection.type, detail.sourceSection));
+      const reviewSectionsHtml = missed.size ? `
+            <section class="quiz-sections-to-review" aria-labelledby="sections-to-review-heading">
+              <h3 id="sections-to-review-heading">Sections to review</h3>
+              <ul>${[...missed.values()].map(section => `<li>${sectionLink(section, setSlug)}</li>`).join('')}</ul>
+            </section>` : '';
 
       container.innerHTML = `
         ${breadcrumbHtml([{ label: 'Catalog', route: {} }, { label: catalogEntry.name, route: { set: setSlug } }, { label: 'Quiz' }])}
@@ -359,7 +377,7 @@ export async function renderQuizViewer(container, setSlug, resourceSlug, catalog
           <main class="quiz-main-card">
             <div class="quiz-results-hero ${passed ? 'passed' : 'failed'}">
               ${passed ? `<span class="quiz-results-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5.8 11.3 2 22l10.7-3.79"/><path d="M4 3h.01"/><path d="M22 8h.01"/><path d="M15 2h.01"/><path d="M22 20h.01"/><path d="m22 2-2.24.75a2.9 2.9 0 0 0-1.96 3.12c.1.86-.57 1.63-1.45 1.63h-.38c-.86 0-1.6.6-1.76 1.44L14 10"/><path d="m22 13-.82-.33c-.86-.34-1.82.2-1.98 1.11c-.11.7-.72 1.22-1.43 1.22H17"/><path d="m11 2 .33.82c.34.86-.2 1.82-1.11 1.98C9.52 4.9 9 5.52 9 6.23V7"/><path d="M11 13c1.93 1.93 2.83 4.17 2 5-.83.83-3.07-.07-5-2-1.93-1.93-2.83-4.17-2-5 .83-.83 3.07.07 5 2Z"/></svg></span>` : ''}
-              <h2>${passed ? `You passed the ${escapeHtml(assessment.name)}!` : `You did not pass the ${escapeHtml(assessment.name)}.`}</h2>
+              <h2>${passed ? `You passed the ${escapeHtml(quizTitle)}!` : `You did not pass the ${escapeHtml(quizTitle)}.`}</h2>
               <p class="quiz-score-display"><span class="quiz-percentage-score">${escapeHtml(gradeName)} / ${percentage}%</span></p>
               <p class="quiz-grade-message">${escapeHtml(gradeMessage)}</p>
             </div>
@@ -368,6 +386,8 @@ export async function renderQuizViewer(container, setSlug, resourceSlug, catalog
               <button id="share-results" class="secondary outline">Share</button>
               <p id="share-status" class="quiz-share-status" role="status" aria-live="polite"></p>
             </div>
+
+            ${reviewSectionsHtml}
 
             <section class="quiz-review-section">
               <h3>Quiz review</h3>
@@ -386,6 +406,7 @@ export async function renderQuizViewer(container, setSlug, resourceSlug, catalog
       `;
 
       wireBreadcrumb(container, onNavigate);
+      wireSectionLinks(container, setSlug, onNavigate);
       document.getElementById('share-results').addEventListener('click', async () => {
         const courseUrl = new URL(window.location.href);
         courseUrl.search = new URLSearchParams({ set: setSlug }).toString();
@@ -393,7 +414,7 @@ export async function renderQuizViewer(container, setSlug, resourceSlug, catalog
         // Plain text for chat and email. The party popper is the real emoji character (U+1F389),
         // because chat tools such as Teams do not turn pasted :shortcodes: into emoji.
         const text = [
-          passed ? `I passed the ${assessment.name}! \u{1F389}` : `I took the ${assessment.name}.`,
+          passed ? `I passed the ${quizTitle}! \u{1F389}` : `I did not pass the ${quizTitle}.`,
           `${gradeName} / ${percentage}%`,
           '',
           `Take the ${catalogEntry.name} course:`,
@@ -420,6 +441,23 @@ export async function renderQuizViewer(container, setSlug, resourceSlug, catalog
   } catch (err) {
     renderError(container, err.message || 'Failed to load assessment.', setSlug, onNavigate);
   }
+}
+
+// A real link to a section of the notes, so it works with open-in-new-tab. Ordinary
+// clicks stay in the app (see wireSectionLinks).
+function sectionLink(section, setSlug) {
+  const query = new URLSearchParams({ set: setSlug, view: 'read', resource: section.note }).toString();
+  return `<a href="?${escapeHtml(query)}#note-${escapeHtml(section.type)}" class="quiz-section-link" data-section-link data-section-type="${escapeHtml(section.type)}" data-note="${escapeHtml(section.note)}">${escapeHtml(section.name)}</a>`;
+}
+
+function wireSectionLinks(container, setSlug, onNavigate) {
+  container.querySelectorAll('[data-section-link]').forEach(link => {
+    link.addEventListener('click', event => {
+      if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+      event.preventDefault();
+      onNavigate({ set: setSlug, view: 'read', resource: link.dataset.note, hash: `note-${link.dataset.sectionType}` });
+    });
+  });
 }
 
 function setEquals(setA, setB) {

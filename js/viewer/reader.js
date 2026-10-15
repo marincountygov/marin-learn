@@ -3,6 +3,8 @@ import { loadLearningSetGraph, hasType } from '../core/graph.js';
 import { parseMarkdownToHtml } from '../core/markdown.js';
 import { breadcrumbHtml, wireBreadcrumb } from './breadcrumb.js';
 import { resourceCard, RESOURCE_KINDS } from './landing.js';
+import { renderNotePage } from './note.js';
+import { wireScrollSpy } from './scrollspy.js';
 
 export async function renderContinuousReader(container, setSlug, resourceSlug, catalogItems, onNavigate) {
   container.innerHTML = '<div class="catalog-status" aria-live="polite">Loading Marin Learn…</div>';
@@ -16,6 +18,16 @@ export async function renderContinuousReader(container, setSlug, resourceSlug, c
   try {
     const graphData = await loadLearningSetGraph(catalogEntry.graphUrl);
     
+    // A Note replaces the free-form reading material. Old links that name the old
+    // reading material (?resource=county-leaders-data-guide) open the Note instead.
+    const note = (resourceSlug
+      ? graphData.notes.find(n => n.identifier === resourceSlug || n['@id'] === resourceSlug || n['@id'] === `urn:uuid:${resourceSlug}`)
+      : null) || graphData.notes[0];
+    if (note) {
+      renderNotePage(container, setSlug, note, graphData, catalogEntry, onNavigate);
+      return;
+    }
+
     // Find material: if resourceSlug is specified, match identifier or @id; otherwise pick sole material or first material
     let material = null;
     if (resourceSlug) {
@@ -168,6 +180,7 @@ export async function renderContinuousReader(container, setSlug, resourceSlug, c
     `;
 
     wireBreadcrumb(container, onNavigate);
+    wireScrollSpy(container);
 
     const shareButton = container.querySelector('#share-notes');
     const shareStatus = container.querySelector('.doc-action-status');

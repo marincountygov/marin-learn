@@ -29,7 +29,7 @@ class PptxCiTests(unittest.TestCase):
             [
                 "node",
                 str(ROOT / "scripts" / "generate_pptx.mjs"),
-                str(ROOT / "packages" / "marinos-foundations.zip"),
+                str(ROOT / "tests" / "fixtures" / "reference-package" / "marinos-foundations.zip"),
                 "--out",
                 str(cls.output),
                 "--summary",

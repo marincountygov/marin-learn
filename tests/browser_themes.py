@@ -54,13 +54,16 @@ def run() -> None:
 
             # Course page badge -> theme page.
             page.goto(f"{base_url}?set=county-leaders-guide-to-schemas", wait_until="networkidle")
-            badges = page.locator(".landing-header a.app-badge")
+            badges = page.locator(".landing-themes a.app-badge")
             require(badges.all_text_contents() == ["Data", "Buying and vendors"], "Course page theme badges are wrong")
+            require(page.locator(".landing-header a.app-badge").count() == 0, "Theme badges belong below the cards, not in the header")
+            require(page.evaluate("document.querySelector('.landing-themes').getBoundingClientRect().top > document.querySelector('.landing-resources').getBoundingClientRect().bottom - 1"),
+                    "Theme badges should sit below the Notes, Deck, and Quiz cards")
             badges.nth(1).click()
             page.locator("h2", has_text="Buying and vendors").wait_for()
             require(page.url.endswith("?theme=buying-and-vendors"), "Badge did not open its theme page")
             require(page.locator(".viewer-breadcrumb a").all_text_contents() == ["Catalog"], "Theme breadcrumb is wrong")
-            require(page.locator(".landing-page .course-card h3").all_text_contents() == ["Schemas 101"],
+            require(page.locator(".landing-page .course-card h3").all_text_contents() == ["Schema 101"],
                     "Theme page lists the wrong courses")
 
             # Homepage Themes section: a badge for every theme.
@@ -78,8 +81,17 @@ def run() -> None:
             page.goto(base_url, wait_until="networkidle")
             page.locator("#catalog-grid a.app-badge", has_text="Data").first.click()
             page.locator("h2", has_text="Data").first.wait_for()
-            require(page.locator(".landing-page .course-card h3").all_text_contents() == ["Data 101", "Schemas 101"],
-                    "Data theme should list Data 101 and Schemas 101")
+            require(page.locator(".landing-page .course-card h3").all_text_contents() == ["Data 101", "Schema 101"],
+                    "Data theme should list Data 101 and Schema 101")
+
+            # The catalog lists Data 101 and Schema 101 only; MarinOS 101 is no longer in Marin Learn.
+            page.goto(base_url, wait_until="networkidle")
+            require(page.locator("#catalog-grid .course-card h3").all_text_contents() == ["Data 101", "Schema 101"],
+                    "The catalog should list Data 101 and Schema 101 only")
+            page.goto(f"{base_url}?theme=digital-services", wait_until="networkidle")
+            require("No courses in this theme yet." in page.locator(".landing-page").inner_text(), "Digital services has no courses now")
+            page.goto(f"{base_url}?set=marinos-foundations", wait_until="networkidle")
+            page.locator("h3", has_text="Course not found").wait_for()
 
             # Themes without courses and unknown themes.
             page.goto(f"{base_url}?theme=ai", wait_until="networkidle")

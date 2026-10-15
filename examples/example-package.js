@@ -163,7 +163,7 @@ export function createExamplePackage() {
     isBasedOn: [ref(material['@id'])],
     assesses: objectives.map((objective) => ref(objective['@id'])),
     'marin:itemSequence': weightedList(questionIds),
-    'marin:selectionPolicy': { mode: 'random', count: 5, shuffle: true },
+    'marin:selectionPolicy': { mode: 'all', shuffle: true },
     'marin:scoringPolicy': { method: 'weighted-sum', passingPercent: 70, gradeScale: ref(gradeScale['@id']) },
     'marin:feedbackPolicy': { timing: 'after-assessment', showCorrectResponses: true, showOptionFeedback: true, showExplanation: true }
   });

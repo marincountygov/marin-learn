@@ -3,6 +3,7 @@ import { loadLearningSetGraph } from '../core/graph.js';
 import { buildPresentationModel } from '../core/presentation.js';
 import { escapeHtml } from '../core/utils.js';
 import { renderSlideCanvasInnerHtml, renderSpeakerNotesHtml } from '../renderers/slides-html.js';
+import { courseIconSvg } from './course-card.js';
 import { breadcrumbHtml, wireBreadcrumb } from './breadcrumb.js';
 
 export async function renderSlideViewer(container, setSlug, resourceSlug, catalogItems, onNavigate) {
@@ -46,6 +47,16 @@ export async function renderSlideViewer(container, setSlug, resourceSlug, catalo
       renderError(container, 'Presentation contains no slides.', setSlug, onNavigate);
       return;
     }
+
+    // Title slide: the course icon above the title, and a description below it. The
+    // description is the abstract of the Note the deck is based on, else the course's.
+    const basedOn = (presentation.isBasedOn || []).map((ref) => graphData.byId.get(ref?.['@id'])).find(Boolean);
+    const titleExtras = {
+      iconHtml: courseIconSvg(setSlug),
+      description: basedOn?.abstract || catalogEntry.abstract || ''
+    };
+
+    const footer = { iconHtml: courseIconSvg(setSlug), title: basedOn?.name || catalogEntry.name };
 
     const markdownOptions = createMarkdownOptions(graphData, setSlug);
     let currentIndex = 0;
@@ -93,6 +104,8 @@ export async function renderSlideViewer(container, setSlug, resourceSlug, catalo
       canvasEl.className = `slide-canvas slide-layout--${slide.layout}`;
       canvasEl.innerHTML = renderSlideCanvasInnerHtml(slide, {
         titleId: 'slide-title-el',
+        titleExtras,
+        footer,
         markdownOptions,
         missingAbstractText: 'No short summary is available for this content block.'
       });

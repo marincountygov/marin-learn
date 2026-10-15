@@ -31,7 +31,7 @@ export function wireBreadcrumb(container, onNavigate) {
       if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
       event.preventDefault();
       const route = JSON.parse(link.dataset.route);
-      onNavigate({ set: route.set || null, view: route.view || null, resource: route.resource || null, theme: route.theme || null });
+      onNavigate({ set: route.set || null, view: route.view || null, resource: route.resource || null, theme: route.theme || null, hash: route.hash || null });
     });
   });
 }

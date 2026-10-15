@@ -1,0 +1,252 @@
+{
+  "name": "Schema 101 — quiz",
+  "identifier": "schema-101-quiz",
+  "abstract": "Ten questions to check what you learned about schemas.",
+  "passingPercent": 70,
+  "courseDescription": "Notes, a deck, and a quiz about schemas and shared data rules that help systems work together.",
+  "grades": [
+    {
+      "name": "A",
+      "minPercent": 90,
+      "message": "Excellent. You can explain what a schema is and ask the right questions about one."
+    },
+    {
+      "name": "B",
+      "minPercent": 80,
+      "message": "Strong work. Keep asking who owns the schema and how data is checked."
+    },
+    {
+      "name": "C",
+      "minPercent": 70,
+      "message": "A sound start. Read the explanations, then check the notes for the ones you missed."
+    },
+    {
+      "name": "D",
+      "minPercent": 60,
+      "message": "Go back to the key terms and the do’s and don’ts in the notes, then try again."
+    },
+    {
+      "name": "F",
+      "minPercent": 0,
+      "message": "Start with the notes. Then take the quiz again."
+    }
+  ],
+  "questions": [
+    {
+      "section": "whyItMatters",
+      "type": "single-select",
+      "text": "Why is a written schema useful to new staff and vendors?",
+      "options": [
+        {
+          "text": "It stores a copy of the data.",
+          "correct": false
+        },
+        {
+          "text": "It replaces the need for training.",
+          "correct": false
+        },
+        {
+          "text": "It documents the data so they can learn it fast.",
+          "correct": true
+        },
+        {
+          "text": "It hides the data from them.",
+          "correct": false
+        }
+      ],
+      "hint": "Think about learning the data quickly.",
+      "explanation": "Why it matters says a written schema documents your data, so new staff and vendors can learn it fast."
+    },
+    {
+      "section": "problem",
+      "type": "single-select",
+      "text": "Which problem can a schema help solve?",
+      "options": [
+        {
+          "text": "Systems run out of storage space.",
+          "correct": false
+        },
+        {
+          "text": "Two systems use the same field name but mean different things.",
+          "correct": true
+        },
+        {
+          "text": "Residents cannot find the County website.",
+          "correct": false
+        },
+        {
+          "text": "Staff type data too slowly.",
+          "correct": false
+        }
+      ],
+      "hint": "Think about field names and meanings.",
+      "explanation": "The Problem section says two systems can use the same field name and mean different things, so staff guess at meanings."
+    },
+    {
+      "section": "solution",
+      "type": "single-select",
+      "text": "Which step helps teams agree on what data means?",
+      "options": [
+        {
+          "text": "Let each vendor define fields in its own way.",
+          "correct": false
+        },
+        {
+          "text": "Skip checking data to save time.",
+          "correct": false
+        },
+        {
+          "text": "Change what a field means without telling users.",
+          "correct": false
+        },
+        {
+          "text": "Define each field and its rules in a schema.",
+          "correct": true
+        }
+      ],
+      "hint": "The solution starts with writing the plan down.",
+      "explanation": "The Solution section says to define each field and its rules in a schema and to name an owner."
+    },
+    {
+      "section": "keyTerms",
+      "type": "single-select",
+      "text": "What is a schema?",
+      "options": [
+        {
+          "text": "A plan that describes the structure of data and the rules it follows.",
+          "correct": true
+        },
+        {
+          "text": "A program that stores data.",
+          "correct": false
+        },
+        {
+          "text": "A report about data quality.",
+          "correct": false
+        },
+        {
+          "text": "A list of staff who can open the data.",
+          "correct": false
+        }
+      ],
+      "hint": "A schema is a plan.",
+      "explanation": "Key terms defines a schema as a plan that describes the structure of data: what it holds and the rules it follows."
+    },
+    {
+      "section": "keyTerms",
+      "type": "true-false",
+      "text": "A constraint is a rule the data must follow, such as a required field.",
+      "answer": true,
+      "hint": "Think about rules, such as a required field.",
+      "explanation": "Key terms defines a constraint as a rule the data must follow, such as a required field or a list of allowed values."
+    },
+    {
+      "section": "keyTerms",
+      "type": "single-select",
+      "text": "What is Schema.org?",
+      "options": [
+        {
+          "text": "A County database for permits.",
+          "correct": false
+        },
+        {
+          "text": "A tool that deletes old data.",
+          "correct": false
+        },
+        {
+          "text": "A law about data privacy.",
+          "correct": false
+        },
+        {
+          "text": "A shared vocabulary for data on web pages, built by an open community.",
+          "correct": true
+        }
+      ],
+      "hint": "It is a vocabulary that many websites share.",
+      "explanation": "Key terms defines Schema.org as a shared vocabulary for data on web pages, built by an open community."
+    },
+    {
+      "section": "dosAndDonts",
+      "type": "single-select",
+      "text": "A vendor says, “It works with anything.” What should you do?",
+      "options": [
+        {
+          "text": "Accept it, because the vendor knows best.",
+          "correct": false
+        },
+        {
+          "text": "Ask the vendor to sign a longer contract.",
+          "correct": false
+        },
+        {
+          "text": "Ask to see the vendor’s schema before you buy.",
+          "correct": true
+        },
+        {
+          "text": "Wait until staff find a problem.",
+          "correct": false
+        }
+      ],
+      "hint": "Think about proof before buying.",
+      "explanation": "Do’s and don’ts says to ask to see a vendor’s schema before you buy, and not to accept “it works with anything” without proof."
+    },
+    {
+      "section": "dosAndDonts",
+      "type": "true-false",
+      "text": "It is fine to change what a field means without telling anyone.",
+      "answer": false,
+      "hint": "Think about the users of the data.",
+      "explanation": "Do’s and don’ts says to share every change to the schema with its users, and not to change what a field means without telling anyone."
+    },
+    {
+      "section": "questions",
+      "type": "single-select",
+      "text": "Which is a good question to ask about a schema?",
+      "options": [
+        {
+          "text": "Which font does the schema use?",
+          "correct": false
+        },
+        {
+          "text": "Who owns it and decides what each field means?",
+          "correct": true
+        },
+        {
+          "text": "Can we skip the schema this time?",
+          "correct": false
+        },
+        {
+          "text": "How many pages is it?",
+          "correct": false
+        }
+      ],
+      "hint": "Think about ownership and meaning.",
+      "explanation": "Questions to ask includes who owns the schema and decides what each field means."
+    },
+    {
+      "section": "checklist",
+      "type": "single-select",
+      "text": "What should be true of a well-run schema?",
+      "options": [
+        {
+          "text": "One person owns it.",
+          "correct": true
+        },
+        {
+          "text": "Each system uses a different name for the same fact.",
+          "correct": false
+        },
+        {
+          "text": "It is kept secret from vendors.",
+          "correct": false
+        },
+        {
+          "text": "Data is checked only after a problem.",
+          "correct": false
+        }
+      ],
+      "hint": "Think about ownership.",
+      "explanation": "The Checklist includes “One person owns the schema.”"
+    }
+  ]
+}

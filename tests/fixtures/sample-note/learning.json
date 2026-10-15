@@ -1,0 +1,573 @@
+{
+  "@context": [
+    "https://schema.org",
+    {
+      "marin": "https://marincountygov.github.io/marin-learn/ns#"
+    }
+  ],
+  "@graph": [
+    {
+      "@id": "urn:uuid:20000000-0000-4000-8000-000000000001",
+      "@type": [
+        "LearningResource",
+        "marin:LearningSet"
+      ],
+      "identifier": "sample-note-course",
+      "name": "Sample note course",
+      "abstract": "A sample course used to test Notes.",
+      "schemaVersion": "1.0.0",
+      "inLanguage": "en-US",
+      "version": "1.0.0",
+      "dateCreated": "2026-10-14",
+      "dateModified": "2026-10-14",
+      "creativeWorkStatus": "published",
+      "educationalLevel": "introductory",
+      "marin:startResource": {
+        "@id": "urn:uuid:20000000-0000-4000-8000-000000000002"
+      },
+      "hasPart": [
+        {
+          "@id": "urn:uuid:20000000-0000-4000-8000-000000000002"
+        },
+        {
+          "@id": "urn:uuid:20000000-0000-4000-8000-000000000010"
+        },
+        {
+          "@id": "urn:uuid:20000000-0000-4000-8000-000000000011"
+        },
+        {
+          "@id": "urn:uuid:20000000-0000-4000-8000-000000000020"
+        },
+        {
+          "@id": "urn:uuid:20000000-0000-4000-8000-000000000021"
+        },
+        {
+          "@id": "urn:uuid:20000000-0000-4000-8000-000000000012"
+        },
+        {
+          "@id": "urn:uuid:20000000-0000-4000-8000-000000000013"
+        },
+        {
+          "@id": "urn:uuid:20000000-0000-4000-8000-000000000014"
+        },
+        {
+          "@id": "urn:uuid:20000000-0000-4000-8000-000000000015"
+        },
+        {
+          "@id": "urn:uuid:20000000-0000-4000-8000-000000000016"
+        },
+        {
+          "@id": "urn:uuid:20000000-0000-4000-8000-000000000017"
+        },
+        {
+          "@id": "urn:uuid:20000000-0000-4000-8000-000000000018"
+        },
+        {
+          "@id": "urn:uuid:20000000-0000-4000-8000-000000000019"
+        },
+        {
+          "@id": "urn:uuid:20000000-0000-4000-8000-000000000041"
+        },
+        {
+          "@id": "urn:uuid:20000000-0000-4000-8000-000000000042"
+        },
+        {
+          "@id": "urn:uuid:20000000-0000-4000-8000-000000000043"
+        },
+        {
+          "@id": "urn:uuid:20000000-0000-4000-8000-000000000040"
+        },
+        {
+          "@id": "urn:uuid:20000000-0000-4000-8000-000000000051"
+        },
+        {
+          "@id": "urn:uuid:20000000-0000-4000-8000-000000000050"
+        }
+      ]
+    },
+    {
+      "@id": "urn:uuid:20000000-0000-4000-8000-000000000002",
+      "@type": [
+        "LearningResource",
+        "marin:Note"
+      ],
+      "identifier": "plain-language-101",
+      "name": "Plain language 101",
+      "abstract": "Write so your reader understands the first time.",
+      "inLanguage": "en-US",
+      "creativeWorkStatus": "published",
+      "audience": [
+        {
+          "@type": "EducationalAudience",
+          "audienceType": "County executives and staff",
+          "educationalRole": "learner"
+        }
+      ],
+      "marin:sectionSequence": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:20000000-0000-4000-8000-000000000010"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@id": "urn:uuid:20000000-0000-4000-8000-000000000011"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@id": "urn:uuid:20000000-0000-4000-8000-000000000020"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "item": {
+              "@id": "urn:uuid:20000000-0000-4000-8000-000000000021"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 5,
+            "item": {
+              "@id": "urn:uuid:20000000-0000-4000-8000-000000000012"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 6,
+            "item": {
+              "@id": "urn:uuid:20000000-0000-4000-8000-000000000013"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 7,
+            "item": {
+              "@id": "urn:uuid:20000000-0000-4000-8000-000000000014"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 8,
+            "item": {
+              "@id": "urn:uuid:20000000-0000-4000-8000-000000000015"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 9,
+            "item": {
+              "@id": "urn:uuid:20000000-0000-4000-8000-000000000016"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 10,
+            "item": {
+              "@id": "urn:uuid:20000000-0000-4000-8000-000000000017"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 11,
+            "item": {
+              "@id": "urn:uuid:20000000-0000-4000-8000-000000000018"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 12,
+            "item": {
+              "@id": "urn:uuid:20000000-0000-4000-8000-000000000019"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@id": "urn:uuid:20000000-0000-4000-8000-000000000010",
+      "@type": [
+        "CreativeWork",
+        "marin:NoteSection"
+      ],
+      "identifier": "sample-overview",
+      "name": "Overview",
+      "marin:sectionType": "overview",
+      "marin:text": "Plain language helps people find what they need and act on it. This sample note shows the Note format. Write short sentences. Use common words. Say what you want the reader to do."
+    },
+    {
+      "@id": "urn:uuid:20000000-0000-4000-8000-000000000011",
+      "@type": [
+        "CreativeWork",
+        "marin:NoteSection"
+      ],
+      "identifier": "sample-why-it-matters",
+      "name": "Why it matters",
+      "marin:sectionType": "whyItMatters",
+      "marin:items": [
+        "People can use a service only if they understand it.",
+        "Clear writing saves staff time on follow-up calls.",
+        "Plain words make public information fair for everyone."
+      ]
+    },
+    {
+      "@id": "urn:uuid:20000000-0000-4000-8000-000000000020",
+      "@type": [
+        "CreativeWork",
+        "marin:NoteSection"
+      ],
+      "identifier": "sample-problem",
+      "name": "Problem",
+      "marin:sectionType": "problem",
+      "marin:text": "Many notices and forms are hard to read. People miss what they need to do, and staff spend time answering the same questions."
+    },
+    {
+      "@id": "urn:uuid:20000000-0000-4000-8000-000000000021",
+      "@type": [
+        "CreativeWork",
+        "marin:NoteSection"
+      ],
+      "identifier": "sample-solution",
+      "name": "Solution",
+      "marin:sectionType": "solution",
+      "marin:text": "Write in plain language. Lead with the action, use short sentences and common words, and test the text with a real reader."
+    },
+    {
+      "@id": "urn:uuid:20000000-0000-4000-8000-000000000012",
+      "@type": [
+        "CreativeWork",
+        "marin:NoteSection"
+      ],
+      "identifier": "sample-user-stories",
+      "name": "User stories",
+      "marin:sectionType": "userStories",
+      "marin:items": [
+        "As a resident, I want a short form so I can finish it on my phone.",
+        "As a manager, I want clear emails so my team knows the next step.",
+        "As a clerk, I want simple notices so fewer people call with questions."
+      ]
+    },
+    {
+      "@id": "urn:uuid:20000000-0000-4000-8000-000000000013",
+      "@type": [
+        "CreativeWork",
+        "marin:NoteSection"
+      ],
+      "identifier": "sample-key-terms",
+      "name": "Key terms",
+      "marin:sectionType": "keyTerms",
+      "marin:items": [
+        {
+          "term": "Plain language",
+          "definition": "Writing your reader can understand the first time they read it."
+        },
+        {
+          "term": "Active voice",
+          "definition": "A sentence where the doer comes first: \"The clerk reviews the form.\""
+        },
+        {
+          "term": "Reading level",
+          "definition": "The school grade a person needs to read a text with ease."
+        },
+        {
+          "term": "Jargon",
+          "definition": "Words only insiders know."
+        },
+        {
+          "term": "Call to action",
+          "definition": "The one thing you want the reader to do next."
+        },
+        {
+          "term": "Sentence case",
+          "definition": "Capitalize the first word and proper names only."
+        }
+      ]
+    },
+    {
+      "@id": "urn:uuid:20000000-0000-4000-8000-000000000014",
+      "@type": [
+        "CreativeWork",
+        "marin:NoteSection"
+      ],
+      "identifier": "sample-dos-and-donts",
+      "name": "Do’s and don’ts",
+      "marin:sectionType": "dosAndDonts",
+      "marin:items": [
+        {
+          "do": "Lead with what the reader needs.",
+          "dont": "Bury the main point in the last paragraph."
+        },
+        {
+          "do": "Use short sentences.",
+          "dont": "Pack three ideas into one sentence."
+        },
+        {
+          "do": "Explain any term you must use.",
+          "dont": "Assume everyone knows your acronyms."
+        },
+        {
+          "do": "Test with a real reader.",
+          "dont": "Guess what will make sense."
+        }
+      ]
+    },
+    {
+      "@id": "urn:uuid:20000000-0000-4000-8000-000000000015",
+      "@type": [
+        "CreativeWork",
+        "marin:NoteSection"
+      ],
+      "identifier": "sample-questions",
+      "name": "Questions to ask",
+      "marin:sectionType": "questions",
+      "marin:items": [
+        "Who is the reader?",
+        "What do they need to do?",
+        "Which words might they not know?",
+        "What is the one main point?",
+        "How will we know it worked?"
+      ]
+    },
+    {
+      "@id": "urn:uuid:20000000-0000-4000-8000-000000000016",
+      "@type": [
+        "CreativeWork",
+        "marin:NoteSection"
+      ],
+      "identifier": "sample-examples",
+      "name": "Examples",
+      "marin:sectionType": "examples",
+      "marin:items": [
+        {
+          "title": "Sample example one",
+          "url": "https://example.gov/one"
+        },
+        {
+          "title": "Sample example two",
+          "url": "https://example.gov/two"
+        },
+        {
+          "title": "Sample example three",
+          "url": "https://example.gov/three"
+        }
+      ],
+      "marin:code": [
+        {
+          "title": "Sample record",
+          "language": "json",
+          "code": "{\n  \"requestId\": \"SR-1042\",\n  \"status\": \"new\"\n}"
+        }
+      ]
+    },
+    {
+      "@id": "urn:uuid:20000000-0000-4000-8000-000000000017",
+      "@type": [
+        "CreativeWork",
+        "marin:NoteSection"
+      ],
+      "identifier": "sample-checklist",
+      "name": "Checklist",
+      "marin:sectionType": "checklist",
+      "marin:items": [
+        "The first sentence says what the reader should do.",
+        "Sentences are short.",
+        "Every unusual term is explained.",
+        "Headings use sentence case.",
+        "A person outside the team has read it."
+      ]
+    },
+    {
+      "@id": "urn:uuid:20000000-0000-4000-8000-000000000018",
+      "@type": [
+        "CreativeWork",
+        "marin:NoteSection"
+      ],
+      "identifier": "sample-mantras",
+      "name": "Mantras",
+      "marin:sectionType": "mantras",
+      "marin:items": [
+        "Say it simply.",
+        "Lead with the action.",
+        "Write for the reader."
+      ]
+    },
+    {
+      "@id": "urn:uuid:20000000-0000-4000-8000-000000000019",
+      "@type": [
+        "CreativeWork",
+        "marin:NoteSection"
+      ],
+      "identifier": "sample-learn-more",
+      "name": "Sources",
+      "marin:sectionType": "learnMore",
+      "marin:items": [
+        {
+          "title": "Federal Data Strategy principles",
+          "url": "https://strategy.data.gov/principles/"
+        }
+      ]
+    },
+    {
+      "@id": "urn:uuid:20000000-0000-4000-8000-000000000041",
+      "@type": [
+        "CreativeWork",
+        "marin:AssessmentItem"
+      ],
+      "identifier": "sample-question",
+      "text": "Which sentence uses the active voice?",
+      "isBasedOn": [
+        {
+          "@id": "urn:uuid:20000000-0000-4000-8000-000000000013"
+        }
+      ],
+      "marin:interactionType": "single-select",
+      "marin:options": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:20000000-0000-4000-8000-000000000042"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@id": "urn:uuid:20000000-0000-4000-8000-000000000043"
+            }
+          }
+        ]
+      },
+      "marin:correctResponse": [
+        {
+          "@id": "urn:uuid:20000000-0000-4000-8000-000000000042"
+        }
+      ]
+    },
+    {
+      "@id": "urn:uuid:20000000-0000-4000-8000-000000000042",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "sample-option-a",
+      "text": "The clerk reviews the form."
+    },
+    {
+      "@id": "urn:uuid:20000000-0000-4000-8000-000000000043",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "sample-option-b",
+      "text": "The form is reviewed by the clerk."
+    },
+    {
+      "@id": "urn:uuid:20000000-0000-4000-8000-000000000040",
+      "@type": [
+        "LearningResource",
+        "marin:Assessment"
+      ],
+      "identifier": "sample-quiz",
+      "name": "Plain language 101 quiz",
+      "learningResourceType": "quiz",
+      "interactivityType": "active",
+      "isBasedOn": [
+        {
+          "@id": "urn:uuid:20000000-0000-4000-8000-000000000002"
+        }
+      ],
+      "marin:itemSequence": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:20000000-0000-4000-8000-000000000041"
+            }
+          }
+        ]
+      },
+      "marin:selectionPolicy": {
+        "mode": "all",
+        "shuffle": false
+      },
+      "marin:scoringPolicy": {
+        "method": "weighted-sum",
+        "passingPercent": 70
+      },
+      "marin:feedbackPolicy": {
+        "timing": "after-assessment",
+        "showCorrectResponses": true,
+        "showOptionFeedback": true,
+        "showExplanation": true
+      }
+    },
+    {
+      "@id": "urn:uuid:20000000-0000-4000-8000-000000000051",
+      "@type": [
+        "CreativeWork",
+        "marin:Slide"
+      ],
+      "identifier": "sample-slide",
+      "name": "Key terms",
+      "marin:layout": "content",
+      "marin:contentSequence": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:20000000-0000-4000-8000-000000000013"
+            },
+            "marin:displayMode": "full",
+            "marin:itemRange": {
+              "first": 1,
+              "last": 3
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@id": "urn:uuid:20000000-0000-4000-8000-000000000050",
+      "@type": [
+        "PresentationDigitalDocument",
+        "marin:Presentation"
+      ],
+      "identifier": "sample-deck",
+      "name": "Plain language 101 slides",
+      "learningResourceType": "presentation",
+      "isBasedOn": [
+        {
+          "@id": "urn:uuid:20000000-0000-4000-8000-000000000002"
+        }
+      ],
+      "marin:slideSequence": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:20000000-0000-4000-8000-000000000051"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

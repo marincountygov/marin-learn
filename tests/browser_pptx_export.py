@@ -227,7 +227,7 @@ def validate_download(path: Path) -> None:
 
 def test_generation_and_diagnostics(context, base_url: str | None, requests: list[str], in_memory: bool) -> None:
     page = open_editor(context, base_url, in_memory)
-    page.locator("#file-import-zip").set_input_files(str(ROOT / "packages" / "marinos-foundations.zip"))
+    page.locator("#file-import-zip").set_input_files(str(ROOT / "tests" / "fixtures" / "reference-package" / "marinos-foundations.zip"))
     page.locator("#workspace-view").wait_for(state="visible")
 
     require(page.evaluate("typeof window.PptxGenJS") == "undefined",
@@ -350,7 +350,7 @@ def test_internal_failure(context, base_url: str | None, in_memory: bool) -> Non
     page = open_editor(context, base_url, in_memory)
     downloads = []
     page.on("download", lambda download: downloads.append(download.suggested_filename))
-    page.locator("#file-import-zip").set_input_files(str(ROOT / "packages" / "marinos-foundations.zip"))
+    page.locator("#file-import-zip").set_input_files(str(ROOT / "tests" / "fixtures" / "reference-package" / "marinos-foundations.zip"))
     page.locator("#workspace-view").wait_for(state="visible")
     page.locator("#tab-button-export").click()
     page.locator("#pptx-export-results .app-alert--warning").wait_for(state="visible")

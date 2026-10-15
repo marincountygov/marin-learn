@@ -209,16 +209,16 @@ class TestMaterialsR2a(unittest.TestCase):
     def test_import_reference_packages(self):
         result = self.eval_js("""async () => {
             const { importLearningPackage } = await import('/js/core/package.js');
-            const packages = ['marinos-foundations.zip', 'county-leaders-guide-to-data.zip', 'county-leaders-guide-to-schemas.zip'];
+            const packages = [['tests/fixtures/reference-package/marinos-foundations.zip', 'marin:LearningMaterial'], ['packages/county-leaders-guide-to-data.zip', 'marin:Note'], ['packages/county-leaders-guide-to-schemas.zip', 'marin:Note']];
             const results = {};
-            for (const name of packages) {
-                const resp = await fetch(`/packages/${name}`);
+            for (const [name, type] of packages) {
+                const resp = await fetch(`/${name}`);
                 const buf = await resp.arrayBuffer();
                 const res = await importLearningPackage(buf);
                 results[name] = {
                     valid: res.validation.errors.length === 0,
                     errorCount: res.validation.errors.length,
-                    materialCount: res.pkg.graphDocument['@graph'].filter(o => o['@type'] && o['@type'].includes('marin:LearningMaterial')).length
+                    materialCount: res.pkg.graphDocument['@graph'].filter(o => o['@type'] && o['@type'].includes(type)).length
                 };
             }
             return results;

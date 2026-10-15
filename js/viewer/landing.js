@@ -10,6 +10,7 @@ const ICONS = {
 };
 
 export const RESOURCE_KINDS = [
+  { key: 'notes', title: 'Notes', icon: 'sticky-note', view: 'read' },
   { key: 'materials', title: 'Notes', icon: 'sticky-note', view: 'read' },
   { key: 'presentations', title: 'Deck', icon: 'presentation', view: 'slides' },
   { key: 'assessments', title: 'Quiz', icon: 'blocks', view: 'quiz' }
@@ -35,7 +36,8 @@ export async function renderLandingPage(container, setSlug, catalogItems, onNavi
     const graphData = await loadLearningSetGraph(catalogEntry.graphUrl);
     const lset = graphData.learningSet;
     const cards = RESOURCE_KINDS.flatMap(kind =>
-      graphData[kind.key].map(item => resourceCard(item, kind, setSlug))
+      // A course with a Note shows the Note as its Notes card, not the old reading material.
+      (kind.key === 'materials' && graphData.notes.length ? [] : graphData[kind.key]).map(item => resourceCard(item, kind, setSlug))
     );
 
     // Keep the learning resources first; objectives remain available below
@@ -56,7 +58,6 @@ export async function renderLandingPage(container, setSlug, catalogItems, onNavi
         <header class="landing-header">
           <h2>${escapeHtml(lset.name)}</h2>
           <p class="landing-abstract">${escapeHtml(lset.abstract || catalogEntry.abstract || '')}</p>
-          ${themeBadgesHtml(catalogEntry.themes)}
         </header>
 
         <section class="landing-resources" aria-label="Notes, deck, and quiz">
@@ -64,6 +65,8 @@ export async function renderLandingPage(container, setSlug, catalogItems, onNavi
             <div class="catalog-grid landing-resource-grid">${cards.join('')}</div>
           ` : '<p class="text-muted">This course has no notes, deck, or quiz yet.</p>'}
         </section>
+
+        ${catalogEntry.themes && catalogEntry.themes.length ? `<section class="landing-themes" aria-label="Themes">${themeBadgesHtml(catalogEntry.themes)}</section>` : ''}
 
         ${objectivesHtml}
       </div>
@@ -97,6 +100,17 @@ export async function renderLandingPage(container, setSlug, catalogItems, onNavi
   }
 }
 
+// When a resource has no description of its own, describe the action from its name.
+function cardDescription(item, kind) {
+  if (item.abstract) return item.abstract;
+  // "Data 101 — quiz" reads as "Data 101 quiz" in a sentence.
+  const name = (item.name || '').replace(/\s+\u2014\s+/, ' ');
+  if (!name) return '';
+  if (kind.key === 'assessments') return `Take the ${name}.`;
+  if (kind.key === 'presentations') return `Go through the ${name}.`;
+  return `Read the ${name}.`;
+}
+
 export function resourceCard(item, kind, setSlug) {
   const identifier = String(item.identifier || item['@id'] || '');
   const params = new URLSearchParams({ set: setSlug, view: kind.view, resource: identifier });
@@ -107,7 +121,7 @@ export function resourceCard(item, kind, setSlug) {
       <h3><a class="resource-action" href="?${escapeHtml(params.toString())}"
          data-view="${kind.view}" data-resource="${escapeHtml(identifier)}"
          aria-label="${escapeHtml(`${kind.title}: ${item.name || kind.title}`)}">${kind.title}</a></h3>
-      <p>${escapeHtml(item.abstract || '')}</p>
+      <p>${escapeHtml(cardDescription(item, kind))}</p>
     </article>
   `;
 }

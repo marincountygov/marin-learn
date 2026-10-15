@@ -51,35 +51,17 @@
       ],
       "graphUrl": "learning/county-leaders-guide-to-data/learning.json",
       "resourceCounts": {
-        "materials": 1,
+        "notes": 1,
+        "materials": 0,
         "presentations": 1,
-        "assessments": 17
+        "assessments": 1
       },
-      "revision": "e7aea0efc3ee"
-    },
-    {
-      "setId": "urn:uuid:10000000-0000-4000-8000-000000000001",
-      "identifier": "marinos-foundations",
-      "name": "MarinOS 101",
-      "abstract": "Learn how MarinOS helps staff build simple, consistent County tools.",
-      "educationalLevel": "introductory",
-      "inLanguage": "en-US",
-      "keywords": [],
-      "themes": [
-        "Digital services"
-      ],
-      "graphUrl": "learning/marinos-foundations/learning.json",
-      "resourceCounts": {
-        "materials": 1,
-        "presentations": 1,
-        "assessments": 9
-      },
-      "revision": "89a3601e3f2e"
+      "revision": "f00d53e4d509"
     },
     {
       "setId": "urn:uuid:87dd853c-724f-5fda-8808-002a06c92d5a",
       "identifier": "county-leaders-guide-to-schemas",
-      "name": "Schemas 101",
+      "name": "Schema 101",
       "abstract": "Learn how shared data rules help County systems work together.",
       "educationalLevel": "introductory",
       "inLanguage": "en-US",
@@ -99,11 +81,12 @@
       ],
       "graphUrl": "learning/county-leaders-guide-to-schemas/learning.json",
       "resourceCounts": {
-        "materials": 1,
+        "notes": 1,
+        "materials": 0,
         "presentations": 1,
-        "assessments": 21
+        "assessments": 1
       },
-      "revision": "7e6ea1852189"
+      "revision": "6a4a07f56311"
     }
   ]
 }

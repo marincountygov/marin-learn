@@ -1,6 +1,7 @@
 // Marin Learn - Shared presentation semantics
 import { SLIDE_DISPLAY_MODES, SLIDE_LAYOUTS, TYPES } from './constants.js';
 import { parseMarkdown } from './markdown.js';
+import { noteSectionMarkdown } from './note-markdown.js';
 import { asArray, deepClone } from './utils.js';
 
 export const DEFAULT_SLIDE_LAYOUT = 'content';
@@ -99,7 +100,8 @@ export async function buildPresentationModel({
         ));
       }
 
-      if (!unit || !hasType(unit, TYPES.CONTENT_UNIT)) {
+      const isNoteSection = Boolean(unit) && hasType(unit, TYPES.NOTE_SECTION);
+      if (!unit || !(isNoteSection || hasType(unit, TYPES.CONTENT_UNIT))) {
         diagnostics.push(diagnostic(
           'error',
           'slide-content-reference-unresolved',
@@ -131,7 +133,12 @@ export async function buildPresentationModel({
         ? displayMode
         : DEFAULT_SLIDE_DISPLAY_MODE;
 
-      if (effectiveDisplayMode === 'full') {
+      if (effectiveDisplayMode === 'full' && isNoteSection) {
+        // Note sections are plain data, so their Markdown is generated, not loaded.
+        markdown = noteSectionMarkdown(unit, entry?.['marin:itemRange'] || null, entry?.['marin:codeRange'] || null);
+        markdownAst = parseMarkdown(markdown);
+        markdownStatus = 'loaded';
+      } else if (effectiveDisplayMode === 'full') {
         const path = unit.encoding?.contentUrl || '';
         if (typeof getMarkdown !== 'function') {
           markdownStatus = 'unavailable';
@@ -192,7 +199,8 @@ export async function buildPresentationModel({
           identifier: unit.identifier || '',
           name: unit.name || '',
           abstract: unit.abstract || '',
-          learningResourceType: unit.learningResourceType || '',
+          kind: isNoteSection ? 'note-section' : 'content-unit',
+          learningResourceType: unit.learningResourceType || (isNoteSection ? unit['marin:sectionType'] : ''),
           contentUrl: unit.encoding?.contentUrl || ''
         },
         markdown,
