@@ -1,21 +1,19 @@
-name: Publish Marin Learn Catalog & Packages
+name: Check published files
 
+# The site is served straight from the repository (GitHub Pages, branch main, root).
+# This workflow does not deploy anything. An earlier version uploaded only the generated
+# catalog as the whole site, which replaced the app with a page that had no scripts.
 on:
   push:
     branches: ["main"]
+  pull_request:
   workflow_dispatch:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
 
 jobs:
-  build:
+  check:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -32,25 +30,5 @@ jobs:
           python tests/test_security_meta.py
           python tests/test_publish.py
 
-      - name: Build and publish learning packages
-        run: |
-          python scripts/publish.py packages --out dist
-
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: 'dist'
-
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Check that learning/ and catalog.json match packages/
+        run: python scripts/check_published.py
