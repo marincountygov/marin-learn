@@ -56,6 +56,12 @@
             "$ref": "#/$defs/learningMaterial"
           },
           {
+            "$ref": "#/$defs/note"
+          },
+          {
+            "$ref": "#/$defs/noteSection"
+          },
+          {
             "$ref": "#/$defs/section"
           },
           {
@@ -738,13 +744,15 @@
           "items": {
             "$ref": "#/$defs/weightedAssessmentListItem"
           },
-          "minItems": 1
+          "minItems": 1,
+          "maxItems": 10
         }
       },
       "additionalProperties": false,
       "x-marin-validation": [
         "Every item reference must resolve to marin:AssessmentItem.",
-        "ListItem.position values must begin at 1, be unique, and be contiguous."
+        "ListItem.position values must begin at 1, be unique, and be contiguous.",
+        "A quiz has at most 10 questions."
       ]
     },
     "responseOptionList": {
@@ -797,6 +805,44 @@
             "title"
           ],
           "default": "full"
+        },
+        "marin:itemRange": {
+          "type": "object",
+          "required": [
+            "first",
+            "last"
+          ],
+          "properties": {
+            "first": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "last": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "additionalProperties": false,
+          "description": "Only for a NoteSection reference: show items first through last (1-based) so a long section can span slides."
+        },
+        "marin:codeRange": {
+          "type": "object",
+          "required": [
+            "first",
+            "last"
+          ],
+          "properties": {
+            "first": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "last": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "additionalProperties": false,
+          "description": "Only for a NoteSection reference to an examples section: show code samples first through last (1-based). With marin:itemRange or marin:codeRange present, only the selected parts are shown."
         }
       },
       "additionalProperties": false
@@ -821,9 +867,11 @@
       },
       "additionalProperties": false,
       "x-marin-validation": [
-        "Every item reference must resolve to marin:ContentUnit.",
+        "Every item reference must resolve to marin:ContentUnit or marin:NoteSection.",
         "If marin:displayMode is abstract, the referenced ContentUnit must define abstract.",
-        "ListItem.position values must begin at 1, be unique, and be contiguous."
+        "ListItem.position values must begin at 1, be unique, and be contiguous.",
+        "marin:displayMode abstract is not allowed for a NoteSection; marin:itemRange is allowed only for a NoteSection and must stay inside that section's items.",
+        "marin:codeRange is allowed only for an examples NoteSection and must stay inside its code samples."
       ]
     },
     "selectionPolicy": {
@@ -1018,7 +1066,7 @@
         "notes": "Marin Learn uses a custom LearningSet subtype because a package is not necessarily a formal Course."
       },
       "x-marin-validation": [
-        "marin:startResource, when present, must resolve to marin:LearningMaterial, marin:Assessment, or marin:Presentation.",
+        "marin:startResource, when present, must resolve to marin:Note, marin:LearningMaterial, marin:Assessment, or marin:Presentation.",
         "inLanguage is inherited by contained resources when they omit it.",
         "audience, educationalLevel, license, and publisher may also act as Marin Learn package defaults when omitted by contained resources."
       ]
@@ -2037,6 +2085,668 @@
         "term": "MediaObject",
         "source": "https://schema.org/MediaObject"
       }
+    },
+    "noteSectionType": {
+      "type": "string",
+      "enum": [
+        "overview",
+        "whyItMatters",
+        "problem",
+        "solution",
+        "userStories",
+        "keyTerms",
+        "dosAndDonts",
+        "questions",
+        "examples",
+        "checklist",
+        "mantras",
+        "learnMore"
+      ],
+      "description": "The twelve sections of a Note, in their required reading order. The Note's title is the thirteenth part and lives on the Note itself."
+    },
+    "noteHttpsUrl": {
+      "type": "string",
+      "pattern": "^https://\\S+$",
+      "format": "uri",
+      "description": "A valid HTTPS URL. No length limit is imposed on URLs."
+    },
+    "noteLinkItem": {
+      "type": "object",
+      "required": [
+        "title",
+        "url"
+      ],
+      "properties": {
+        "title": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100
+        },
+        "url": {
+          "$ref": "#/$defs/noteHttpsUrl"
+        }
+      },
+      "additionalProperties": false
+    },
+    "noteSection": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/commonEntity"
+        },
+        {
+          "type": "object",
+          "required": [
+            "@id",
+            "@type",
+            "identifier",
+            "name",
+            "marin:sectionType"
+          ],
+          "properties": {
+            "@type": {
+              "allOf": [
+                {
+                  "$ref": "#/$defs/typeArray"
+                },
+                {
+                  "contains": {
+                    "const": "CreativeWork"
+                  }
+                },
+                {
+                  "contains": {
+                    "const": "marin:NoteSection"
+                  }
+                }
+              ]
+            },
+            "name": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 60
+            },
+            "marin:sectionType": {
+              "$ref": "#/$defs/noteSectionType"
+            },
+            "marin:text": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 600,
+              "description": "Text for the overview, problem, and solution sections. Plain text, no Markdown. The overview may run to 600 characters; problem and solution to 300."
+            },
+            "marin:items": {
+              "type": "array",
+              "description": "The section's items. Strings, or title/url, term/definition, or do/dont pairs, depending on marin:sectionType."
+            },
+            "marin:code": {
+              "type": "array",
+              "maxItems": 3,
+              "items": {
+                "$ref": "#/$defs/noteCodeExample"
+              },
+              "description": "Code examples. Allowed only in the examples section."
+            }
+          },
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "marin:sectionType": {
+                    "const": "overview"
+                  }
+                },
+                "required": [
+                  "marin:sectionType"
+                ]
+              },
+              "then": {
+                "required": [
+                  "marin:text"
+                ],
+                "not": {
+                  "required": [
+                    "marin:items"
+                  ]
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "marin:sectionType": {
+                    "const": "whyItMatters"
+                  }
+                },
+                "required": [
+                  "marin:sectionType"
+                ]
+              },
+              "then": {
+                "properties": {
+                  "marin:items": {
+                    "type": "array",
+                    "maxItems": 5,
+                    "items": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 150
+                    }
+                  }
+                },
+                "not": {
+                  "required": [
+                    "marin:text"
+                  ]
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "marin:sectionType": {
+                    "const": "problem"
+                  }
+                },
+                "required": [
+                  "marin:sectionType"
+                ]
+              },
+              "then": {
+                "required": [
+                  "marin:text"
+                ],
+                "properties": {
+                  "marin:text": {
+                    "maxLength": 300
+                  }
+                },
+                "not": {
+                  "required": [
+                    "marin:items"
+                  ]
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "marin:sectionType": {
+                    "const": "solution"
+                  }
+                },
+                "required": [
+                  "marin:sectionType"
+                ]
+              },
+              "then": {
+                "required": [
+                  "marin:text"
+                ],
+                "properties": {
+                  "marin:text": {
+                    "maxLength": 300
+                  }
+                },
+                "not": {
+                  "required": [
+                    "marin:items"
+                  ]
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "marin:sectionType": {
+                    "const": "userStories"
+                  }
+                },
+                "required": [
+                  "marin:sectionType"
+                ]
+              },
+              "then": {
+                "properties": {
+                  "marin:items": {
+                    "type": "array",
+                    "maxItems": 4,
+                    "items": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 200
+                    }
+                  }
+                },
+                "not": {
+                  "required": [
+                    "marin:text"
+                  ]
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "marin:sectionType": {
+                    "const": "keyTerms"
+                  }
+                },
+                "required": [
+                  "marin:sectionType"
+                ]
+              },
+              "then": {
+                "properties": {
+                  "marin:items": {
+                    "type": "array",
+                    "maxItems": 10,
+                    "items": {
+                      "type": "object",
+                      "required": [
+                        "term",
+                        "definition"
+                      ],
+                      "properties": {
+                        "term": {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 50
+                        },
+                        "definition": {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 120
+                        }
+                      },
+                      "additionalProperties": false
+                    }
+                  }
+                },
+                "not": {
+                  "required": [
+                    "marin:text"
+                  ]
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "marin:sectionType": {
+                    "const": "dosAndDonts"
+                  }
+                },
+                "required": [
+                  "marin:sectionType"
+                ]
+              },
+              "then": {
+                "properties": {
+                  "marin:items": {
+                    "type": "array",
+                    "maxItems": 6,
+                    "items": {
+                      "type": "object",
+                      "required": [
+                        "do",
+                        "dont"
+                      ],
+                      "properties": {
+                        "do": {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 100
+                        },
+                        "dont": {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 100
+                        }
+                      },
+                      "additionalProperties": false
+                    }
+                  }
+                },
+                "not": {
+                  "required": [
+                    "marin:text"
+                  ]
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "marin:sectionType": {
+                    "const": "questions"
+                  }
+                },
+                "required": [
+                  "marin:sectionType"
+                ]
+              },
+              "then": {
+                "properties": {
+                  "marin:items": {
+                    "type": "array",
+                    "maxItems": 8,
+                    "items": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 150
+                    }
+                  }
+                },
+                "not": {
+                  "required": [
+                    "marin:text"
+                  ]
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "marin:sectionType": {
+                    "const": "examples"
+                  }
+                },
+                "required": [
+                  "marin:sectionType"
+                ]
+              },
+              "then": {
+                "properties": {
+                  "marin:items": {
+                    "type": "array",
+                    "maxItems": 6,
+                    "items": {
+                      "$ref": "#/$defs/noteLinkItem"
+                    }
+                  }
+                },
+                "not": {
+                  "required": [
+                    "marin:text"
+                  ]
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "marin:sectionType": {
+                    "const": "checklist"
+                  }
+                },
+                "required": [
+                  "marin:sectionType"
+                ]
+              },
+              "then": {
+                "properties": {
+                  "marin:items": {
+                    "type": "array",
+                    "maxItems": 8,
+                    "items": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 125
+                    }
+                  }
+                },
+                "not": {
+                  "required": [
+                    "marin:text"
+                  ]
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "marin:sectionType": {
+                    "const": "mantras"
+                  }
+                },
+                "required": [
+                  "marin:sectionType"
+                ]
+              },
+              "then": {
+                "properties": {
+                  "marin:items": {
+                    "type": "array",
+                    "maxItems": 5,
+                    "items": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 60
+                    }
+                  }
+                },
+                "not": {
+                  "required": [
+                    "marin:text"
+                  ]
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "marin:sectionType": {
+                    "const": "learnMore"
+                  }
+                },
+                "required": [
+                  "marin:sectionType"
+                ]
+              },
+              "then": {
+                "properties": {
+                  "marin:items": {
+                    "type": "array",
+                    "maxItems": 5,
+                    "items": {
+                      "$ref": "#/$defs/noteLinkItem"
+                    }
+                  }
+                },
+                "not": {
+                  "required": [
+                    "marin:text"
+                  ]
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "marin:sectionType": {
+                    "not": {
+                      "const": "examples"
+                    }
+                  }
+                },
+                "required": [
+                  "marin:sectionType"
+                ]
+              },
+              "then": {
+                "not": {
+                  "required": [
+                    "marin:code"
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "unevaluatedProperties": false,
+      "x-marin-validation": [
+        "Character limits and maximum item counts are enforced here. Minimum counts and completeness are enforced by the validator, as errors on a published Note and warnings on a draft.",
+        "Only the overview, problem, and solution sections have marin:text; every other section has marin:items.",
+        "Section order, one section per type, and required sections are checked by the validator.",
+        "A Slide or AssessmentItem may reference a NoteSection by @id.",
+        "Only the examples section may have marin:code (up to 3 code samples). An Examples section needs at least one link or one code sample."
+      ]
+    },
+    "note": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/commonCreativeWork"
+        },
+        {
+          "type": "object",
+          "required": [
+            "@id",
+            "@type",
+            "identifier",
+            "name",
+            "abstract",
+            "marin:sectionSequence"
+          ],
+          "properties": {
+            "@type": {
+              "allOf": [
+                {
+                  "$ref": "#/$defs/typeArray"
+                },
+                {
+                  "contains": {
+                    "const": "LearningResource"
+                  }
+                },
+                {
+                  "contains": {
+                    "const": "marin:Note"
+                  }
+                }
+              ]
+            },
+            "name": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 60
+            },
+            "abstract": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 120
+            },
+            "marin:sectionSequence": {
+              "$ref": "#/$defs/orderedRefList"
+            }
+          }
+        }
+      ],
+      "unevaluatedProperties": false,
+      "x-marin-reference": {
+        "primary": {
+          "standard": "Schema.org",
+          "term": "LearningResource",
+          "source": "https://schema.org/LearningResource"
+        },
+        "notes": "A Note is a short, structured brief. name is the Note's title (60 characters). abstract is the card description (120 characters)."
+      },
+      "x-marin-validation": [
+        "Each marin:sectionSequence item must resolve to a marin:NoteSection.",
+        "Sections appear in the standard order, at most one per type.",
+        "Schema.org mentions (examples) and citation (learn more) are derived at publication from the examples and learnMore sections and are not authored."
+      ],
+      "x-marin-note-sections": [
+        {
+          "type": "overview",
+          "required": true,
+          "text": true
+        },
+        {
+          "type": "whyItMatters",
+          "required": true,
+          "min": 3
+        },
+        {
+          "type": "problem",
+          "required": true,
+          "text": true
+        },
+        {
+          "type": "solution",
+          "required": true,
+          "text": true
+        },
+        {
+          "type": "userStories",
+          "required": true,
+          "min": 3
+        },
+        {
+          "type": "keyTerms",
+          "required": true,
+          "min": 6
+        },
+        {
+          "type": "dosAndDonts",
+          "required": true,
+          "min": 4
+        },
+        {
+          "type": "questions",
+          "required": true,
+          "min": 5
+        },
+        {
+          "type": "examples",
+          "required": false,
+          "min": 1
+        },
+        {
+          "type": "checklist",
+          "required": true,
+          "min": 5
+        },
+        {
+          "type": "mantras",
+          "required": true,
+          "min": 3
+        },
+        {
+          "type": "learnMore",
+          "required": false,
+          "min": 1
+        }
+      ],
+      "x-marin-note-sections-note": "Annotation read by the validators, not a JSON Schema keyword. Sections appear in this order. A required section must exist; min is the minimum item count. On a published Note these are errors; on a draft they are warnings. Optional sections are hidden when absent."
+    },
+    "noteCodeExample": {
+      "type": "object",
+      "required": [
+        "title",
+        "code"
+      ],
+      "properties": {
+        "title": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100
+        },
+        "language": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 20,
+          "description": "A short label such as json, sql, or yaml. Shown with the code; it does not change how the code is displayed."
+        },
+        "code": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 1500,
+          "description": "Plain text, shown as preformatted code."
+        }
+      },
+      "additionalProperties": false,
+      "description": "A code sample inside the Examples section. Use sample data, not real records."
     }
   }
 }

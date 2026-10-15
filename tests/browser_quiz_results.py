@@ -38,7 +38,7 @@ def serve():
 
 
 def finish_quiz(page, base_url: str, correct: set[str], answer_correctly: bool) -> None:
-    page.goto(f"{base_url}?set=marinos-foundations&view=quiz&resource=marinos-foundations-quiz", wait_until="networkidle")
+    page.goto(f"{base_url}?set=county-leaders-guide-to-data&view=quiz&resource=data-101-quiz", wait_until="networkidle")
     for _ in range(30):
         inputs = page.locator(".quiz-options-group input")
         values = [inputs.nth(i).get_attribute("value") for i in range(inputs.count())]
@@ -61,7 +61,7 @@ def run() -> None:
     import json
     from playwright.sync_api import sync_playwright
 
-    graph = json.loads((ROOT / "learning/marinos-foundations/learning.json").read_text(encoding="utf-8"))
+    graph = json.loads((ROOT / "learning/county-leaders-guide-to-data/learning.json").read_text(encoding="utf-8"))
     correct = {ref["@id"] for node in graph["@graph"] for ref in node.get("marin:correctResponse", [])}
 
     with serve() as base_url, sync_playwright() as playwright:
@@ -83,18 +83,39 @@ def run() -> None:
             require(hero.count() == 1, "Passing run should show the passed card")
             require(page.locator(".quiz-top-bar").count() == 0, "Results should not repeat the quiz title box")
             require(hero.locator(".quiz-results-icon svg").count() == 1, "Results icon is missing")
-            require(hero.locator("h2").inner_text() == "You passed the MarinOS 101 quiz!", "Result should be one line with the quiz name")
+            require(hero.locator("h2").inner_text() == "You passed the Data 101 quiz!", "Result should be one line with the quiz name")
             require(hero.locator(".quiz-percentage-score").inner_text() == "A / 100%", "Grade and percent should read 'A / 100%'")
             page.click("#share-results")
             page.locator("#share-status", has_text="Results copied.").wait_for()
             require(page.locator("#share-status").inner_text() == "Results copied.", "Share did not report success")
             shared = page.evaluate("navigator.clipboard.readText()")
-            require(shared == f"I passed the MarinOS 101 quiz! \U0001F389\nA / 100%\n\nTake the MarinOS 101 course:\n{base_url}?set=marinos-foundations",
+            require(shared == f"I passed the Data 101 quiz! \U0001F389\nA / 100%\n\nTake the Data 101 course:\n{base_url}?set=county-leaders-guide-to-data",
                     f"Shared text is wrong: {shared!r}")
+
+            require(page.locator(".quiz-sections-to-review").count() == 0, "A perfect score has no sections to review")
+            first_source = page.locator(".quiz-source-link a[data-section-link]").first
+            require(first_source.count() == 1, "A question's Source should link to its section of the notes")
+            section_name = first_source.inner_text()
+            first_source.click()
+            page.locator("h1", has_text="Data 101 notes").wait_for()
+            require(page.url.endswith("view=read&resource=data-101-notes#note-" + page.url.split("#note-")[-1]) and "#note-" in page.url, f"Source link opened {page.url}")
+            page.locator(".reader-toc a[aria-current='location']", has_text=section_name).wait_for()  # the notes open at that section
 
             finish_quiz(page, base_url, correct, False)
             require(page.locator(".quiz-score-meta").count() == 0, "The points line should be gone")
-            require(page.locator(".quiz-results-hero.failed h2").inner_text() == "You did not pass the MarinOS 101 quiz.", "Failed heading is wrong")
+            review = page.locator(".quiz-sections-to-review")
+            require(review.count() == 1 and review.locator("h3").inner_text() == "Sections to review", "A failed attempt lists the sections to review")
+            names = review.locator("a").all_text_contents()
+            require(len(names) == len(set(names)) and len(names) >= 5, f"Sections to review should list each missed section once: {names}")
+            require(page.locator(".quiz-review-list .review-card--incorrect").count() == 10, "All 10 questions should be marked incorrect")
+            page.click("#share-results")
+            page.locator("#share-status", has_text="Results copied.").wait_for()
+            shared_fail = page.evaluate("navigator.clipboard.readText()")
+            heading = page.locator(".quiz-results-hero.failed h2").inner_text()
+            percent = page.locator(".quiz-percentage-score").inner_text()
+            require(shared_fail == f"{heading.replace('You did not pass', 'I did not pass', 1)}\n{percent}\n\nTake the Data 101 course:\n{base_url}?set=county-leaders-guide-to-data",
+                    f"Shared text should match the page with I for You: {shared_fail!r}")
+            require(page.locator(".quiz-results-hero.failed h2").inner_text() == "You did not pass the Data 101 quiz.", "Failed heading is wrong")
             require(errors == [], f"Page errors: {errors}")
         finally:
             browser.close()

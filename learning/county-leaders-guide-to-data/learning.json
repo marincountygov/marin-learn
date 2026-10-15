@@ -15,12 +15,12 @@
       "identifier": "county-leaders-guide-to-data",
       "name": "Data 101",
       "abstract": "Learn how County leaders can use data to make better decisions.",
-      "description": "A practical, executive-facing learning set adapted from the provided 'County Leader's Guide to Data'. The six source chapters are preserved as reusable narrative units; the leadership exercises, slides, and knowledge check were developed for this demo.",
+      "description": "Notes, a deck, and a quiz about using data to understand needs and make better decisions.",
       "schemaVersion": "1.0.0",
       "inLanguage": "en-US",
       "version": "1.0.0",
       "dateCreated": "2026-10-09",
-      "dateModified": "2026-10-09",
+      "dateModified": "2026-10-14",
       "creativeWorkStatus": "published",
       "educationalLevel": "introductory",
       "educationalUse": [
@@ -44,358 +44,240 @@
         "data quality",
         "decision-making"
       ],
-      "isBasedOn": [
-        {
-          "@type": "CreativeWork",
-          "name": "County Leader's Guide to Data",
-          "description": "User-provided Markdown source used to create the original six narrative units."
-        }
-      ],
       "marin:startResource": {
-        "@id": "urn:uuid:3713efe2-ff84-5bd6-a171-b1a751072b79"
+        "@id": "urn:uuid:99082841-f17f-52cb-b282-67d2971dc4f0"
       },
       "hasPart": [
         {
-          "@id": "urn:uuid:578bca45-2b3f-544a-af92-f6f01acd7e54"
+          "@id": "urn:uuid:99082841-f17f-52cb-b282-67d2971dc4f0"
         },
         {
-          "@id": "urn:uuid:eaf538f8-bc70-5458-b884-614b32f4d511"
+          "@id": "urn:uuid:6012b013-a6b7-565f-9667-7a686f66e80b"
         },
         {
-          "@id": "urn:uuid:ed9d9629-64b2-57aa-9405-5223420deee5"
+          "@id": "urn:uuid:0b9ea926-6d85-5be3-b845-cf76d0f5797e"
         },
         {
-          "@id": "urn:uuid:f22fd048-08f2-57d8-849d-05e9c86be0b6"
+          "@id": "urn:uuid:b8a8140a-5ba8-540f-aa8f-50bb746770cc"
         },
         {
-          "@id": "urn:uuid:c2341a61-93f9-592a-9fe9-8286c24be13a"
+          "@id": "urn:uuid:172154a4-014c-51cd-84a5-10c99de8ce71"
         },
         {
-          "@id": "urn:uuid:6814353e-523e-5c00-8ee2-b503f636843a"
+          "@id": "urn:uuid:ef3538d9-eee2-5dc6-a8cd-8522ecfee7ef"
         },
         {
-          "@id": "urn:uuid:c7ba39c4-4343-5040-98f1-4c1595cbfa04"
+          "@id": "urn:uuid:8a99b215-d589-5941-866d-49670e5a9a02"
         },
         {
-          "@id": "urn:uuid:e826533a-0543-5503-b847-7bce45e410fc"
+          "@id": "urn:uuid:972de44b-1c47-5ecb-a4eb-5069922d6392"
         },
         {
-          "@id": "urn:uuid:a16fc3d0-ddd2-5367-a850-3b74c8bf5bb9"
+          "@id": "urn:uuid:91b784ba-cfb6-59e5-8b74-fcf4723df03a"
         },
         {
-          "@id": "urn:uuid:527b26a7-f4d0-55fd-bfbb-0b06552267c3"
+          "@id": "urn:uuid:e8ef1e6b-d70a-5e5d-a3b0-0a6fe1d7804e"
         },
         {
-          "@id": "urn:uuid:7d278c68-d2b5-5164-895b-83c9cfd6fdcc"
+          "@id": "urn:uuid:6d6552cb-ec26-5ee2-9395-3a0ddff4026e"
         },
         {
-          "@id": "urn:uuid:6cfb870f-a230-51e9-be5e-4752de1d7f40"
-        },
-        {
-          "@id": "urn:uuid:765ab5a7-bb89-5c53-ae2b-d58939961aeb"
-        },
-        {
-          "@id": "urn:uuid:3fd98df5-6e4b-51d3-a231-369303d9882a"
-        },
-        {
-          "@id": "urn:uuid:f7b4bf70-363d-5867-8a97-70475de0c034"
-        },
-        {
-          "@id": "urn:uuid:ef4dd81a-fe3b-5b85-9648-bd4075f2a61c"
-        },
-        {
-          "@id": "urn:uuid:6d665171-bb55-5459-a819-478f2344c23e"
-        },
-        {
-          "@id": "urn:uuid:951736ff-7a93-59b8-94d4-56fd5806dcc6"
-        },
-        {
-          "@id": "urn:uuid:5443b89c-3c98-593c-b4e7-926dc16ea0f1"
-        },
-        {
-          "@id": "urn:uuid:ad98b11b-61da-52e3-9742-68b879448f5f"
-        },
-        {
-          "@id": "urn:uuid:0d0123df-ec66-52f2-8516-da4d239022d1"
-        },
-        {
-          "@id": "urn:uuid:3713efe2-ff84-5bd6-a171-b1a751072b79"
-        },
-        {
-          "@id": "urn:uuid:7babe3ed-01dd-531f-8f37-d84ad7477697"
-        },
-        {
-          "@id": "urn:uuid:fdabac8d-d288-5445-b39e-dd76b6699f18"
-        },
-        {
-          "@id": "urn:uuid:ef83548a-751a-51a0-9afe-f544cc3fbae5"
-        },
-        {
-          "@id": "urn:uuid:1d053cd2-b53e-577e-9821-28f77dee2e9e"
-        },
-        {
-          "@id": "urn:uuid:389dcc3c-a3e9-58a3-abbb-465ad31974fa"
-        },
-        {
-          "@id": "urn:uuid:36027945-fd70-5947-aaa4-e602ec133a5f"
-        },
-        {
-          "@id": "urn:uuid:ff57d0cb-3531-5a80-a037-02c9e3b8dc20"
-        },
-        {
-          "@id": "urn:uuid:bfeafa71-f45e-51fa-9049-8ebce115ed4b"
-        },
-        {
-          "@id": "urn:uuid:843c49fb-6069-592b-9ecf-b2429ec579e7"
-        },
-        {
-          "@id": "urn:uuid:d45267d4-f0e7-571c-9c64-989b0723fb1e"
-        },
-        {
-          "@id": "urn:uuid:8fe483cf-023a-5145-b399-a04b2085e982"
-        },
-        {
-          "@id": "urn:uuid:564c8327-26f4-5508-b04f-63211f06ac01"
-        },
-        {
-          "@id": "urn:uuid:331e4955-d5b1-5da3-91f1-d37eb9a28870"
-        },
-        {
-          "@id": "urn:uuid:f33889f3-a912-5f04-bb02-9c93b9759781"
-        },
-        {
-          "@id": "urn:uuid:3c489b83-97c4-52c9-a489-209214334bce"
-        },
-        {
-          "@id": "urn:uuid:93ff09a9-b77e-5049-8c3c-ad5c610a2163"
-        },
-        {
-          "@id": "urn:uuid:60503e3b-141f-55f5-a95d-3a3360a04777"
-        },
-        {
-          "@id": "urn:uuid:a0fe3e17-5075-53c0-92a8-bf8df8539b69"
-        },
-        {
-          "@id": "urn:uuid:1ff3789c-9916-54d3-aae2-a203fdfbd768"
-        },
-        {
-          "@id": "urn:uuid:52557ddb-8a7a-5f3c-81f0-5830d5b4c703"
-        },
-        {
-          "@id": "urn:uuid:ffc4f882-26b0-5919-85e1-7be6f66d83d7"
-        },
-        {
-          "@id": "urn:uuid:363625e6-433d-5805-ac25-01b447c9c681"
-        },
-        {
-          "@id": "urn:uuid:e2468e85-2057-5992-9cdc-ef2fde9fc35c"
-        },
-        {
-          "@id": "urn:uuid:e5767021-6a54-5a62-9296-2a7212e5425c"
-        },
-        {
-          "@id": "urn:uuid:c6d7dd99-83b8-5ca3-979c-569f156f7e8d"
-        },
-        {
-          "@id": "urn:uuid:ea9038ad-ca18-51ac-94a8-32626a9708c7"
-        },
-        {
-          "@id": "urn:uuid:f01a542b-4d79-50d1-822c-5ad5307f6e15"
-        },
-        {
-          "@id": "urn:uuid:2c7bdfff-cdb1-57ae-ae89-a9dabd8ffca6"
-        },
-        {
-          "@id": "urn:uuid:3e7c37e3-b88b-5a6a-914b-8da7017dd255"
-        },
-        {
-          "@id": "urn:uuid:69aec9d8-4785-5db4-a293-57c31e8b257f"
-        },
-        {
-          "@id": "urn:uuid:f0d890e4-318a-5ff4-b940-0e3b37feb094"
-        },
-        {
-          "@id": "urn:uuid:5f9cdd0d-1a1c-52a1-8b4a-92eb88b4ec53"
-        },
-        {
-          "@id": "urn:uuid:b6d821a7-9223-5175-8060-0a1312987f16"
-        },
-        {
-          "@id": "urn:uuid:90a11c59-095c-5409-a350-54b7ba74873c"
-        },
-        {
-          "@id": "urn:uuid:e9bd4a2d-a72c-5c89-830b-9cedc88ef247"
-        },
-        {
-          "@id": "urn:uuid:9bd1915b-a8aa-569a-8a1c-b24e273a35b0"
-        },
-        {
-          "@id": "urn:uuid:12dbc8bf-5661-53af-911d-a2f22663a85d"
-        },
-        {
-          "@id": "urn:uuid:9ba09916-12e9-5646-91c9-c54280bc32b9"
-        },
-        {
-          "@id": "urn:uuid:00cbd065-a6d4-5c71-a22e-a5c843e4bfd4"
-        },
-        {
-          "@id": "urn:uuid:75385869-c9c8-5891-b3c3-24bf37a545d0"
-        },
-        {
-          "@id": "urn:uuid:a94d8617-af41-541c-95fa-ec7d4510e948"
-        },
-        {
-          "@id": "urn:uuid:24cf318b-e5f8-52ef-92be-48b22dce859b"
-        },
-        {
-          "@id": "urn:uuid:69527dbf-9427-58e2-a7e9-141bfd7f66d0"
-        },
-        {
-          "@id": "urn:uuid:38314a57-1ac8-54d5-b57f-053369aba466"
-        },
-        {
-          "@id": "urn:uuid:4db87aaf-9ad4-5659-b7a0-93d14e22d992"
-        },
-        {
-          "@id": "urn:uuid:5e9a9a5b-92a8-50d7-8bd2-8251e3215570"
-        },
-        {
-          "@id": "urn:uuid:77959fc6-7644-5847-9ded-0941c37efbb7"
-        },
-        {
-          "@id": "urn:uuid:eeb76184-16d1-52c9-8956-4c47c4e4e110"
-        },
-        {
-          "@id": "urn:uuid:091fadb6-d418-53cc-9505-02e85f2a4729"
-        },
-        {
-          "@id": "urn:uuid:561de2f3-7312-5bb2-8ad7-c217413ca845"
-        },
-        {
-          "@id": "urn:uuid:bbd2312d-c29e-5d76-9a90-959d40097803"
-        },
-        {
-          "@id": "urn:uuid:12d3b72c-da72-53f4-a394-5e35b7d56c53"
-        },
-        {
-          "@id": "urn:uuid:c06d9ff8-2eae-5547-9fe6-45e896adabab"
-        },
-        {
-          "@id": "urn:uuid:7bfbc0c7-f51b-5b29-99e0-e6f5653b5cd5"
-        },
-        {
-          "@id": "urn:uuid:1588a85f-0269-58e8-9848-3af5bba54270"
-        },
-        {
-          "@id": "urn:uuid:35c16210-9d9c-5679-9d2f-7a85a4cd2d10"
-        },
-        {
-          "@id": "urn:uuid:5d507ec3-4724-5770-af10-7c6c3dc2d558"
-        },
-        {
-          "@id": "urn:uuid:0bd90131-a0c7-5aa2-a20e-4d596e676324"
-        },
-        {
-          "@id": "urn:uuid:61b1a680-223f-5abd-8b11-3a9d32b2b245"
-        },
-        {
-          "@id": "urn:uuid:c27cb2e4-d3ca-51ef-b9db-5f8b89adb010"
-        },
-        {
-          "@id": "urn:uuid:c2243335-1e85-5a43-bc7e-4239776d96a1"
-        },
-        {
-          "@id": "urn:uuid:6369432a-ca99-5141-8b20-eddc58d6a855"
-        },
-        {
-          "@id": "urn:uuid:c457a552-7def-5dcc-9623-a84e78b4b0c1"
-        },
-        {
-          "@id": "urn:uuid:5da687fc-a633-5083-88c2-003ad89909ca"
-        },
-        {
-          "@id": "urn:uuid:f7aed995-6764-5ed7-bdbf-9a43f2e03ceb"
-        },
-        {
-          "@id": "urn:uuid:f508870d-f283-5eb1-9a94-f7a526c2eda0"
-        },
-        {
-          "@id": "urn:uuid:650dd8cd-d5b7-586e-bce9-1fb6e06d8c0b"
-        },
-        {
-          "@id": "urn:uuid:cca55306-1760-5c43-8a44-ef4abc466e02"
-        },
-        {
-          "@id": "urn:uuid:85e4469c-a9f5-50cc-b235-3e783cc4f31b"
-        },
-        {
-          "@id": "urn:uuid:2ca7013d-5a42-5cda-961f-d74494c5b0c5"
-        },
-        {
-          "@id": "urn:uuid:31affbc8-f8e8-5629-b1bf-9891dc530d43"
-        },
-        {
-          "@id": "urn:uuid:e5a4f014-2d03-5cd7-8d22-96e9df2208de"
-        },
-        {
-          "@id": "urn:uuid:10703933-222f-514f-b38f-d95289e60e77"
-        },
-        {
-          "@id": "urn:uuid:819a3144-7a65-5ae8-9cf0-3c008923e9d4"
-        },
-        {
-          "@id": "urn:uuid:59be4bf3-0d97-5978-b895-315f608e720f"
-        },
-        {
-          "@id": "urn:uuid:f5eb4337-b6c3-522f-82fe-1d3f213aec08"
-        },
-        {
-          "@id": "urn:uuid:74d7f4be-df75-5d67-871e-3cbad3003103"
-        },
-        {
-          "@id": "urn:uuid:f4919e83-45e8-50be-b73c-826da1169141"
-        },
-        {
-          "@id": "urn:uuid:193e1d39-d236-5ccf-97bd-11c14595e15a"
-        },
-        {
-          "@id": "urn:uuid:810adec2-ba53-5b11-b50b-91066b973507"
-        },
-        {
-          "@id": "urn:uuid:a6295366-688e-5f6a-a7fd-f492748fe01d"
-        },
-        {
-          "@id": "urn:uuid:90d31b34-4d62-5c0e-99b8-5fd37425faa5"
-        },
-        {
-          "@id": "urn:uuid:55723ca0-34fc-5623-94a3-20dbd6b3827d"
-        },
-        {
-          "@id": "urn:uuid:8381fa94-088a-5f0a-85b9-8cfd8402b068"
-        },
-        {
-          "@id": "urn:uuid:524d2144-f03a-52a2-8dfe-e6017b6be11b"
-        },
-        {
-          "@id": "urn:uuid:5d89b4df-6fc2-5c4a-93be-f2ac1f0eb8f2"
-        },
-        {
-          "@id": "urn:uuid:95f11130-cfe2-5b4e-9fdd-35fecade29f0"
-        },
-        {
-          "@id": "urn:uuid:6946a655-5068-5193-8d57-fa799eb835c4"
-        },
-        {
-          "@id": "urn:uuid:8e0b52b7-0a7b-503a-a56f-78d81ab1ad77"
-        },
-        {
-          "@id": "urn:uuid:e974e1ec-b862-50d0-b9d0-413aa3e2c673"
-        },
-        {
-          "@id": "urn:uuid:cce139fa-b822-558f-aabd-100c9d2cd1d0"
+          "@id": "urn:uuid:41d570ef-80e4-5fdf-be3a-bf3d9eae6357"
         },
         {
           "@id": "urn:uuid:4014045a-9dac-5bf0-afad-de47d5b7a64c"
+        },
+        {
+          "@id": "urn:uuid:52b708a6-f4e2-5228-9f12-43ede814f2cb"
+        },
+        {
+          "@id": "urn:uuid:24b804a9-84ff-5d58-bd8b-7d4e1cf2a5a4"
+        },
+        {
+          "@id": "urn:uuid:fed27dd2-9515-5702-8fe3-f8097789b4ce"
+        },
+        {
+          "@id": "urn:uuid:7105f507-4e28-5017-ab1b-0639dc035702"
+        },
+        {
+          "@id": "urn:uuid:fc70827c-d47f-5a18-8fd3-17ea407d0a93"
+        },
+        {
+          "@id": "urn:uuid:2d808d6b-4267-5bdf-abb7-94c682564f52"
+        },
+        {
+          "@id": "urn:uuid:0f5b58fc-fe30-5fde-b01a-8a5c31844708"
+        },
+        {
+          "@id": "urn:uuid:a7f613ac-d0b7-5008-a8a9-adcacbae721c"
+        },
+        {
+          "@id": "urn:uuid:20ef03d2-774c-554a-a3be-93686f6433fd"
+        },
+        {
+          "@id": "urn:uuid:cb080be3-f4ac-5005-b492-a75aec5b6c35"
+        },
+        {
+          "@id": "urn:uuid:0c57f96b-24d7-5aa5-b577-03c2a77c87c3"
+        },
+        {
+          "@id": "urn:uuid:8b69b283-b43d-542e-bf88-aae0d22aa7c8"
+        },
+        {
+          "@id": "urn:uuid:474add53-b0b6-5874-80c9-c623906c3434"
+        },
+        {
+          "@id": "urn:uuid:e2bb41f4-824e-50ce-8519-c2a890228acb"
+        },
+        {
+          "@id": "urn:uuid:848557ea-df5a-5ff1-968a-c0f25371f744"
+        },
+        {
+          "@id": "urn:uuid:14973e84-1891-5861-b18d-8d4e5f9b27f4"
+        },
+        {
+          "@id": "urn:uuid:f384539f-5999-5e1f-a777-149c34a317c3"
+        },
+        {
+          "@id": "urn:uuid:11abf95c-ea2d-58c4-b783-cd0179be674c"
+        },
+        {
+          "@id": "urn:uuid:ac072017-2ce5-5b1c-bfd2-2f7d0c8ba9dc"
+        },
+        {
+          "@id": "urn:uuid:ff9a72bb-583a-5348-a080-212112d9b5ea"
+        },
+        {
+          "@id": "urn:uuid:b81ded80-2af1-5458-b8e7-2b926e38c6ff"
+        },
+        {
+          "@id": "urn:uuid:4dde719b-c36f-57e1-bb68-0476aee53001"
+        },
+        {
+          "@id": "urn:uuid:180946d7-4945-5b79-a71b-c9fcb42171c2"
+        },
+        {
+          "@id": "urn:uuid:91c98699-ff94-5162-8a8a-f0cbb4e79ff3"
+        },
+        {
+          "@id": "urn:uuid:b3a33502-f1b3-5a14-93d9-bb472b31f2be"
+        },
+        {
+          "@id": "urn:uuid:e8227a30-15c0-5d5d-881b-a8d656599e37"
+        },
+        {
+          "@id": "urn:uuid:1c82b575-30ba-5d38-8443-d0fa610defb5"
+        },
+        {
+          "@id": "urn:uuid:885796c3-98a4-564c-8867-3743dede19a2"
+        },
+        {
+          "@id": "urn:uuid:70d59e0e-bf3a-568a-9491-e3069aeb38d8"
+        },
+        {
+          "@id": "urn:uuid:b4da8afb-3c39-53a5-a91b-275dc06a442e"
+        },
+        {
+          "@id": "urn:uuid:22959b5b-f932-58fd-974c-d9d8549d63e3"
+        },
+        {
+          "@id": "urn:uuid:df3cc68d-c6cb-5ffc-aa52-706115ecb423"
+        },
+        {
+          "@id": "urn:uuid:a778fdfc-0af8-5381-9bf8-8f0a70e1c0a9"
+        },
+        {
+          "@id": "urn:uuid:10bdf193-5a72-537a-ac4d-bd3b09e7cde8"
+        },
+        {
+          "@id": "urn:uuid:cb6092c8-c83c-57d5-a162-91d35400a2a4"
+        },
+        {
+          "@id": "urn:uuid:5b891be1-343e-51b6-ac29-a5bf3a230b07"
+        },
+        {
+          "@id": "urn:uuid:b84b804b-f5a5-5117-9e9d-f289891488a2"
+        },
+        {
+          "@id": "urn:uuid:5d47a9b6-f03a-54c3-b6d3-190e64d8bb4f"
+        },
+        {
+          "@id": "urn:uuid:015cc586-7b3d-5e95-b37a-175095f226a6"
+        },
+        {
+          "@id": "urn:uuid:b0672eba-7dad-5bf5-b3ae-4b0f63409204"
+        },
+        {
+          "@id": "urn:uuid:c34b319d-9fa6-5628-abe7-038a60feed3d"
+        },
+        {
+          "@id": "urn:uuid:2d839288-a1aa-599e-9ca8-127c5bc3a401"
+        },
+        {
+          "@id": "urn:uuid:09e09e04-5497-5f8a-b792-b385bcf957fa"
+        },
+        {
+          "@id": "urn:uuid:14f9fc02-93bc-5f52-b86e-45708765d77f"
+        },
+        {
+          "@id": "urn:uuid:55589dc5-f54a-5b3b-a159-dbe00662221c"
+        },
+        {
+          "@id": "urn:uuid:9307b51b-d751-550d-9400-cbf06459b9a8"
+        },
+        {
+          "@id": "urn:uuid:1e512128-ddb3-5732-9a9a-75183a98f446"
+        },
+        {
+          "@id": "urn:uuid:c8eb679a-d515-5fb3-821a-48b28a9488d0"
+        },
+        {
+          "@id": "urn:uuid:e9d0e196-4614-5978-86bb-6a4ba0fc02a0"
+        },
+        {
+          "@id": "urn:uuid:6a921a1d-a6ac-53af-b30b-d19e80bb8ab3"
+        },
+        {
+          "@id": "urn:uuid:41bbd098-3ad3-5ed7-8434-0661157eaa7b"
+        },
+        {
+          "@id": "urn:uuid:d780a4a2-51d9-5fdf-8c1e-d10bb2ac4e21"
+        },
+        {
+          "@id": "urn:uuid:49a34c40-2b10-5401-a0aa-d2f3e866a87b"
+        },
+        {
+          "@id": "urn:uuid:f43ecc38-2105-5d1a-977d-1a17f516ea28"
+        },
+        {
+          "@id": "urn:uuid:5402fd19-fd30-5bbd-93ab-d06d79ee4657"
+        },
+        {
+          "@id": "urn:uuid:81758b2c-ef5a-508e-ba68-a35df14d0b09"
+        },
+        {
+          "@id": "urn:uuid:0ce3adc9-8060-5945-bfde-e9c5a39c69c2"
+        },
+        {
+          "@id": "urn:uuid:aee09ae7-5c18-5163-84ae-49472675995e"
+        },
+        {
+          "@id": "urn:uuid:3a0a2331-95e8-5163-8786-f3e6ed39963e"
+        },
+        {
+          "@id": "urn:uuid:e5b2d91c-b8dc-5bba-b583-c61014344589"
+        },
+        {
+          "@id": "urn:uuid:7378bedd-91e2-5d2e-bea6-baf3b5b54401"
+        },
+        {
+          "@id": "urn:uuid:f716edb7-0eb6-5058-aa6a-8a64f4742606"
+        },
+        {
+          "@id": "urn:uuid:d2d8c774-d28d-536b-9408-922e7f228042"
+        },
+        {
+          "@id": "urn:uuid:995a2787-eaf5-5b60-8499-225cef86cebe"
         }
       ],
       "about": [
@@ -406,2113 +288,1414 @@
       ]
     },
     {
-      "@id": "urn:uuid:578bca45-2b3f-544a-af92-f6f01acd7e54",
+      "@id": "urn:uuid:99082841-f17f-52cb-b282-67d2971dc4f0",
       "@type": [
-        "DefinedTermSet"
+        "LearningResource",
+        "marin:Note"
       ],
-      "identifier": "learning-objectives",
-      "name": "Learning objectives",
-      "description": "What a County leader should be able to explain or do after working through this guide.",
-      "hasDefinedTerm": [
+      "identifier": "data-101-notes",
+      "name": "Data 101",
+      "abstract": "Learn how data helps you understand needs and make better decisions.",
+      "inLanguage": "en-US",
+      "creativeWorkStatus": "published",
+      "dateCreated": "2026-10-14",
+      "dateModified": "2026-10-14",
+      "audience": [
         {
-          "@id": "urn:uuid:eaf538f8-bc70-5458-b884-614b32f4d511"
+          "@type": "EducationalAudience",
+          "audienceType": "County executives and staff",
+          "educationalRole": "learner"
+        }
+      ],
+      "isBasedOn": [
+        {
+          "@type": "CreativeWork",
+          "name": "U.S. Federal Data Strategy principles",
+          "url": "https://strategy.data.gov/principles/"
         },
         {
-          "@id": "urn:uuid:ed9d9629-64b2-57aa-9405-5223420deee5"
+          "@type": "CreativeWork",
+          "name": "UK Government Data Quality Framework",
+          "url": "https://www.gov.uk/government/publications/the-government-data-quality-framework"
         },
         {
-          "@id": "urn:uuid:f22fd048-08f2-57d8-849d-05e9c86be0b6"
+          "@type": "CreativeWork",
+          "name": "UK Data and AI Ethics Framework",
+          "url": "https://www.gov.uk/government/publications/data-ethics-framework"
         },
         {
-          "@id": "urn:uuid:c2341a61-93f9-592a-9fe9-8286c24be13a"
+          "@type": "CreativeWork",
+          "name": "UK Data Sharing Governance Framework",
+          "url": "https://www.gov.uk/government/publications/data-sharing-governance-framework"
         },
         {
-          "@id": "urn:uuid:6814353e-523e-5c00-8ee2-b503f636843a"
+          "@type": "CreativeWork",
+          "name": "UK Data Standards Authority",
+          "url": "https://www.gov.uk/government/collections/data-standards-authority"
+        }
+      ],
+      "marin:sectionSequence": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:6012b013-a6b7-565f-9667-7a686f66e80b"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@id": "urn:uuid:0b9ea926-6d85-5be3-b845-cf76d0f5797e"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@id": "urn:uuid:b8a8140a-5ba8-540f-aa8f-50bb746770cc"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "item": {
+              "@id": "urn:uuid:172154a4-014c-51cd-84a5-10c99de8ce71"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 5,
+            "item": {
+              "@id": "urn:uuid:ef3538d9-eee2-5dc6-a8cd-8522ecfee7ef"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 6,
+            "item": {
+              "@id": "urn:uuid:8a99b215-d589-5941-866d-49670e5a9a02"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 7,
+            "item": {
+              "@id": "urn:uuid:972de44b-1c47-5ecb-a4eb-5069922d6392"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 8,
+            "item": {
+              "@id": "urn:uuid:91b784ba-cfb6-59e5-8b74-fcf4723df03a"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 9,
+            "item": {
+              "@id": "urn:uuid:e8ef1e6b-d70a-5e5d-a3b0-0a6fe1d7804e"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 10,
+            "item": {
+              "@id": "urn:uuid:6d6552cb-ec26-5ee2-9395-3a0ddff4026e"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 11,
+            "item": {
+              "@id": "urn:uuid:41d570ef-80e4-5fdf-be3a-bf3d9eae6357"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@id": "urn:uuid:6012b013-a6b7-565f-9667-7a686f66e80b",
+      "@type": [
+        "CreativeWork",
+        "marin:NoteSection"
+      ],
+      "identifier": "data-101-overview",
+      "name": "Overview",
+      "marin:sectionType": "overview",
+      "marin:text": "Data is information we collect and record, such as a count, a date, or a status. Government uses data to see what people need, run services well, and explain its choices. Good data is accurate, current, and easy to find. It is also handled with care and shared under clear rules. You do not need to be a data expert. You do need to ask good questions about the data behind a decision."
+    },
+    {
+      "@id": "urn:uuid:0b9ea926-6d85-5be3-b845-cf76d0f5797e",
+      "@type": [
+        "CreativeWork",
+        "marin:NoteSection"
+      ],
+      "identifier": "data-101-why-it-matters",
+      "name": "Why it matters",
+      "marin:sectionType": "whyItMatters",
+      "marin:items": [
+        "Data shows what people need, so services can match real needs.",
+        "Poor-quality data leads to weak decisions.",
+        "Clear rules for sharing data help teams work together and avoid delays.",
+        "The public trusts government more when it explains how it uses data.",
+        "Careful use of data protects privacy and prevents harm."
+      ]
+    },
+    {
+      "@id": "urn:uuid:b8a8140a-5ba8-540f-aa8f-50bb746770cc",
+      "@type": [
+        "CreativeWork",
+        "marin:NoteSection"
+      ],
+      "identifier": "data-101-problem",
+      "name": "Problem",
+      "marin:sectionType": "problem",
+      "marin:text": "Many teams cannot find, trust, or share the data they need. Records are incomplete or out of date, and owners are unclear. Leaders then decide with weak evidence, and the public has little reason to trust the result."
+    },
+    {
+      "@id": "urn:uuid:172154a4-014c-51cd-84a5-10c99de8ce71",
+      "@type": [
+        "CreativeWork",
+        "marin:NoteSection"
+      ],
+      "identifier": "data-101-solution",
+      "name": "Solution",
+      "marin:sectionType": "solution",
+      "marin:text": "Treat data as a shared asset. Name an owner for each data set. Check its quality and say plainly what it can and cannot do. Share it under clear rules, protect personal information, and tell the public how you use it."
+    },
+    {
+      "@id": "urn:uuid:ef3538d9-eee2-5dc6-a8cd-8522ecfee7ef",
+      "@type": [
+        "CreativeWork",
+        "marin:NoteSection"
+      ],
+      "identifier": "data-101-user-stories",
+      "name": "User stories",
+      "marin:sectionType": "userStories",
+      "marin:items": [
+        "As a department head, I want to know if our data is good, so I can trust my decisions.",
+        "As a program manager, I want to find data other teams hold, so I do not start over.",
+        "As an analyst, I want clear sharing rules, so I can answer requests fast.",
+        "As a resident, I want to know how the County uses my information, so I can trust it."
+      ]
+    },
+    {
+      "@id": "urn:uuid:8a99b215-d589-5941-866d-49670e5a9a02",
+      "@type": [
+        "CreativeWork",
+        "marin:NoteSection"
+      ],
+      "identifier": "data-101-key-terms",
+      "name": "Key terms",
+      "marin:sectionType": "keyTerms",
+      "marin:items": [
+        {
+          "term": "Data quality",
+          "definition": "How well data fits its use. It can be complete, unique, consistent, timely, valid, and accurate."
         },
         {
-          "@id": "urn:uuid:c7ba39c4-4343-5040-98f1-4c1595cbfa04"
+          "term": "Completeness",
+          "definition": "All expected records are there, and the key values are filled in."
         },
         {
-          "@id": "urn:uuid:e826533a-0543-5503-b847-7bce45e410fc"
+          "term": "Accuracy",
+          "definition": "The data matches what is true in the real world."
         },
         {
-          "@id": "urn:uuid:a16fc3d0-ddd2-5367-a850-3b74c8bf5bb9"
+          "term": "Timeliness",
+          "definition": "The data is up to date when you need it."
+        },
+        {
+          "term": "Data standard",
+          "definition": "An agreed way to name, format, and describe data so it can be shared and combined."
+        },
+        {
+          "term": "Data governance",
+          "definition": "Clear roles, rules, and accountability for how data is managed and used."
+        },
+        {
+          "term": "Data owner",
+          "definition": "The person responsible for a set of data and who can use it."
+        },
+        {
+          "term": "Metadata",
+          "definition": "Details that describe data, such as what it means, where it came from, and known issues."
+        },
+        {
+          "term": "Data sharing agreement",
+          "definition": "A written deal on what data is shared, why, and how it is protected."
         }
       ]
     },
     {
-      "@id": "urn:uuid:eaf538f8-bc70-5458-b884-614b32f4d511",
+      "@id": "urn:uuid:972de44b-1c47-5ecb-a4eb-5069922d6392",
       "@type": [
-        "DefinedTerm"
+        "CreativeWork",
+        "marin:NoteSection"
       ],
-      "identifier": "use-data-in-decisions",
-      "name": "Use data to make accountable County decisions",
-      "inDefinedTermSet": {
-        "@id": "urn:uuid:578bca45-2b3f-544a-af92-f6f01acd7e54"
-      }
-    },
-    {
-      "@id": "urn:uuid:ed9d9629-64b2-57aa-9405-5223420deee5",
-      "@type": [
-        "DefinedTerm"
-      ],
-      "identifier": "recognize-useful-data",
-      "name": "Distinguish file-bound information from structured, useful data",
-      "inDefinedTermSet": {
-        "@id": "urn:uuid:578bca45-2b3f-544a-af92-f6f01acd7e54"
-      },
-      "marin:parentObjective": {
-        "@id": "urn:uuid:eaf538f8-bc70-5458-b884-614b32f4d511"
-      }
-    },
-    {
-      "@id": "urn:uuid:f22fd048-08f2-57d8-849d-05e9c86be0b6",
-      "@type": [
-        "DefinedTerm"
-      ],
-      "identifier": "practice-stewardship",
-      "name": "Balance public value with privacy, security, and integrity",
-      "inDefinedTermSet": {
-        "@id": "urn:uuid:578bca45-2b3f-544a-af92-f6f01acd7e54"
-      },
-      "marin:parentObjective": {
-        "@id": "urn:uuid:eaf538f8-bc70-5458-b884-614b32f4d511"
-      }
-    },
-    {
-      "@id": "urn:uuid:c2341a61-93f9-592a-9fe9-8286c24be13a",
-      "@type": [
-        "DefinedTerm"
-      ],
-      "identifier": "connect-systems-and-quality",
-      "name": "Explain how transactional systems, dashboards, and data hygiene relate",
-      "inDefinedTermSet": {
-        "@id": "urn:uuid:578bca45-2b3f-544a-af92-f6f01acd7e54"
-      },
-      "marin:parentObjective": {
-        "@id": "urn:uuid:eaf538f8-bc70-5458-b884-614b32f4d511"
-      }
-    },
-    {
-      "@id": "urn:uuid:6814353e-523e-5c00-8ee2-b503f636843a",
-      "@type": [
-        "DefinedTerm"
-      ],
-      "identifier": "lead-organizational-change",
-      "name": "Lead a practical change in County data culture",
-      "inDefinedTermSet": {
-        "@id": "urn:uuid:578bca45-2b3f-544a-af92-f6f01acd7e54"
-      }
-    },
-    {
-      "@id": "urn:uuid:c7ba39c4-4343-5040-98f1-4c1595cbfa04",
-      "@type": [
-        "DefinedTerm"
-      ],
-      "identifier": "lead-with-evidence",
-      "name": "Ask for evidence and respond constructively to uncomfortable results",
-      "inDefinedTermSet": {
-        "@id": "urn:uuid:578bca45-2b3f-544a-af92-f6f01acd7e54"
-      },
-      "marin:parentObjective": {
-        "@id": "urn:uuid:6814353e-523e-5c00-8ee2-b503f636843a"
-      }
-    },
-    {
-      "@id": "urn:uuid:e826533a-0543-5503-b847-7bce45e410fc",
-      "@type": [
-        "DefinedTerm"
-      ],
-      "identifier": "assign-data-responsibilities",
-      "name": "Distinguish the responsibilities of engineers, analysts, and stewards",
-      "inDefinedTermSet": {
-        "@id": "urn:uuid:578bca45-2b3f-544a-af92-f6f01acd7e54"
-      },
-      "marin:parentObjective": {
-        "@id": "urn:uuid:6814353e-523e-5c00-8ee2-b503f636843a"
-      }
-    },
-    {
-      "@id": "urn:uuid:a16fc3d0-ddd2-5367-a850-3b74c8bf5bb9",
-      "@type": [
-        "DefinedTerm"
-      ],
-      "identifier": "start-small",
-      "name": "Choose a small data-based change to an upcoming leadership decision",
-      "inDefinedTermSet": {
-        "@id": "urn:uuid:578bca45-2b3f-544a-af92-f6f01acd7e54"
-      },
-      "marin:parentObjective": {
-        "@id": "urn:uuid:6814353e-523e-5c00-8ee2-b503f636843a"
-      }
-    },
-    {
-      "@id": "urn:uuid:527b26a7-f4d0-55fd-bfbb-0b06552267c3",
-      "@type": [
-        "LearningResource",
-        "marin:ContentUnit"
-      ],
-      "identifier": "files-to-facts",
-      "name": "From files to facts",
-      "abstract": "Most County information still sits in files. Structured, trackable facts can be sorted, combined, and used to anticipate service and budget needs.",
-      "learningResourceType": "overview",
-      "teaches": [
+      "identifier": "data-101-dos-and-donts",
+      "name": "Do’s and don’ts",
+      "marin:sectionType": "dosAndDonts",
+      "marin:items": [
         {
-          "@id": "urn:uuid:ed9d9629-64b2-57aa-9405-5223420deee5"
-        }
-      ],
-      "encoding": {
-        "@type": "MediaObject",
-        "contentUrl": "content/files-to-facts.md",
-        "encodingFormat": "text/markdown"
-      }
-    },
-    {
-      "@id": "urn:uuid:7d278c68-d2b5-5164-895b-83c9cfd6fdcc",
-      "@type": [
-        "LearningResource",
-        "marin:ContentUnit"
-      ],
-      "identifier": "public-trust",
-      "name": "Data is a public trust",
-      "abstract": "Treat County data as a public asset: use it to improve services and protect the people represented in it.",
-      "learningResourceType": "concept",
-      "teaches": [
-        {
-          "@id": "urn:uuid:f22fd048-08f2-57d8-849d-05e9c86be0b6"
-        }
-      ],
-      "encoding": {
-        "@type": "MediaObject",
-        "contentUrl": "content/public-trust.md",
-        "encodingFormat": "text/markdown"
-      }
-    },
-    {
-      "@id": "urn:uuid:6cfb870f-a230-51e9-be5e-4752de1d7f40",
-      "@type": [
-        "LearningResource",
-        "marin:ContentUnit"
-      ],
-      "identifier": "data-mechanics",
-      "name": "How County data works",
-      "abstract": "Structured entries power operational records and leadership dashboards. Good data hygiene is essential to both.",
-      "learningResourceType": "concept",
-      "teaches": [
-        {
-          "@id": "urn:uuid:c2341a61-93f9-592a-9fe9-8286c24be13a"
-        }
-      ],
-      "encoding": {
-        "@type": "MediaObject",
-        "contentUrl": "content/data-mechanics.md",
-        "encodingFormat": "text/markdown"
-      }
-    },
-    {
-      "@id": "urn:uuid:765ab5a7-bb89-5c53-ae2b-d58939961aeb",
-      "@type": [
-        "LearningResource",
-        "marin:ContentUnit"
-      ],
-      "identifier": "leadership-culture",
-      "name": "Make evidence safe to share",
-      "abstract": "Reward transparency, ask for evidence, and do not turn a weak performance metric into a reason to hide information.",
-      "learningResourceType": "concept",
-      "teaches": [
-        {
-          "@id": "urn:uuid:c7ba39c4-4343-5040-98f1-4c1595cbfa04"
-        }
-      ],
-      "encoding": {
-        "@type": "MediaObject",
-        "contentUrl": "content/leadership-culture.md",
-        "encodingFormat": "text/markdown"
-      }
-    },
-    {
-      "@id": "urn:uuid:3fd98df5-6e4b-51d3-a231-369303d9882a",
-      "@type": [
-        "LearningResource",
-        "marin:ContentUnit"
-      ],
-      "identifier": "talents-required",
-      "name": "Builders, interpreters, and stewards",
-      "abstract": "Engineers build the pipes, analysts turn facts into answers, and existing staff uphold data quality at its source.",
-      "learningResourceType": "reference",
-      "teaches": [
-        {
-          "@id": "urn:uuid:e826533a-0543-5503-b847-7bce45e410fc"
-        }
-      ],
-      "encoding": {
-        "@type": "MediaObject",
-        "contentUrl": "content/talents-required.md",
-        "encodingFormat": "text/markdown"
-      }
-    },
-    {
-      "@id": "urn:uuid:f7b4bf70-363d-5867-8a97-70475de0c034",
-      "@type": [
-        "LearningResource",
-        "marin:ContentUnit"
-      ],
-      "identifier": "start-even-smaller",
-      "name": "Start even smaller",
-      "abstract": "For the next major decision, require one usable operational fact. Ask for an evidence-based narrative before approving expansion.",
-      "learningResourceType": "summary",
-      "teaches": [
-        {
-          "@id": "urn:uuid:a16fc3d0-ddd2-5367-a850-3b74c8bf5bb9"
-        }
-      ],
-      "encoding": {
-        "@type": "MediaObject",
-        "contentUrl": "content/start-even-smaller.md",
-        "encodingFormat": "text/markdown"
-      }
-    },
-    {
-      "@id": "urn:uuid:ef4dd81a-fe3b-5b85-9648-bd4075f2a61c",
-      "@type": [
-        "LearningResource",
-        "marin:ContentUnit"
-      ],
-      "identifier": "decision-ready-meeting",
-      "name": "Bring better evidence to the next meeting",
-      "abstract": "Ask for a decision, measurable need, data limitations, alternatives, and a follow-up measure before approving a major request.",
-      "learningResourceType": "procedure",
-      "teaches": [
-        {
-          "@id": "urn:uuid:c7ba39c4-4343-5040-98f1-4c1595cbfa04"
+          "do": "Ask who owns the data and how current it is.",
+          "dont": "Use numbers without knowing where they came from."
         },
         {
-          "@id": "urn:uuid:a16fc3d0-ddd2-5367-a850-3b74c8bf5bb9"
+          "do": "Say plainly how good the data is and what it can be used for.",
+          "dont": "Hide known gaps or errors in the data."
+        },
+        {
+          "do": "Bring in privacy and legal staff early when sharing data.",
+          "dont": "Share personal data first and check the rules later."
+        },
+        {
+          "do": "Collect only the data you need for a clear purpose.",
+          "dont": "Keep data just in case it might be useful."
+        },
+        {
+          "do": "Use common standards so data can be combined.",
+          "dont": "Create a new data format for every project."
+        },
+        {
+          "do": "Tell the public why you collect data and how you use it.",
+          "dont": "Assume people know how their data is used."
+        }
+      ]
+    },
+    {
+      "@id": "urn:uuid:91b784ba-cfb6-59e5-8b74-fcf4723df03a",
+      "@type": [
+        "CreativeWork",
+        "marin:NoteSection"
+      ],
+      "identifier": "data-101-questions",
+      "name": "Questions to ask",
+      "marin:sectionType": "questions",
+      "marin:items": [
+        "What decision will this data help us make?",
+        "Who owns this data, and who can answer questions about it?",
+        "How complete, accurate, and up to date is it?",
+        "What is missing, and who might be left out?",
+        "Does it include personal information, and are we allowed to use it?",
+        "Who else might need this data, and how can they ask for it?",
+        "How will we explain our use of this data to the public?"
+      ]
+    },
+    {
+      "@id": "urn:uuid:e8ef1e6b-d70a-5e5d-a3b0-0a6fe1d7804e",
+      "@type": [
+        "CreativeWork",
+        "marin:NoteSection"
+      ],
+      "identifier": "data-101-checklist",
+      "name": "Checklist",
+      "marin:sectionType": "checklist",
+      "marin:items": [
+        "I can say what decision the data supports.",
+        "I know who owns the data.",
+        "I checked that the data is complete, accurate, and current.",
+        "I know the limits of the data and can explain them in plain words.",
+        "Privacy and legal staff have reviewed any personal data.",
+        "I collected only the data I need.",
+        "Others can find the data and know how to ask for it."
+      ]
+    },
+    {
+      "@id": "urn:uuid:6d6552cb-ec26-5ee2-9395-3a0ddff4026e",
+      "@type": [
+        "CreativeWork",
+        "marin:NoteSection"
+      ],
+      "identifier": "data-101-mantras",
+      "name": "Mantras",
+      "marin:sectionType": "mantras",
+      "marin:items": [
+        "Know the source.",
+        "Say how good the data is.",
+        "Collect only what you need.",
+        "Share under clear rules.",
+        "Explain it in plain words."
+      ]
+    },
+    {
+      "@id": "urn:uuid:41d570ef-80e4-5fdf-be3a-bf3d9eae6357",
+      "@type": [
+        "CreativeWork",
+        "marin:NoteSection"
+      ],
+      "identifier": "data-101-learn-more",
+      "name": "Sources",
+      "marin:sectionType": "learnMore",
+      "marin:items": [
+        {
+          "title": "U.S. Federal Data Strategy principles",
+          "url": "https://strategy.data.gov/principles/"
+        },
+        {
+          "title": "UK Government Data Quality Framework",
+          "url": "https://www.gov.uk/government/publications/the-government-data-quality-framework"
+        },
+        {
+          "title": "UK Data and AI Ethics Framework",
+          "url": "https://www.gov.uk/government/publications/data-ethics-framework"
+        },
+        {
+          "title": "UK Data Sharing Governance Framework",
+          "url": "https://www.gov.uk/government/publications/data-sharing-governance-framework"
+        },
+        {
+          "title": "UK Data Standards Authority",
+          "url": "https://www.gov.uk/government/collections/data-standards-authority"
+        }
+      ]
+    },
+    {
+      "@id": "urn:uuid:4014045a-9dac-5bf0-afad-de47d5b7a64c",
+      "@type": [
+        "PresentationDigitalDocument",
+        "marin:Presentation"
+      ],
+      "identifier": "county-data-leadership-slides",
+      "name": "Data 101 — deck",
+      "abstract": "Slides for walking a team through Data 101.",
+      "learningResourceType": "presentation",
+      "isBasedOn": [
+        {
+          "@id": "urn:uuid:99082841-f17f-52cb-b282-67d2971dc4f0"
         }
       ],
-      "encoding": {
-        "@type": "MediaObject",
-        "contentUrl": "content/decision-ready-meeting.md",
-        "encodingFormat": "text/markdown"
+      "marin:slideSequence": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:e9d0e196-4614-5978-86bb-6a4ba0fc02a0"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@id": "urn:uuid:6a921a1d-a6ac-53af-b30b-d19e80bb8ab3"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@id": "urn:uuid:41bbd098-3ad3-5ed7-8434-0661157eaa7b"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "item": {
+              "@id": "urn:uuid:d780a4a2-51d9-5fdf-8c1e-d10bb2ac4e21"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 5,
+            "item": {
+              "@id": "urn:uuid:49a34c40-2b10-5401-a0aa-d2f3e866a87b"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 6,
+            "item": {
+              "@id": "urn:uuid:f43ecc38-2105-5d1a-977d-1a17f516ea28"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 7,
+            "item": {
+              "@id": "urn:uuid:5402fd19-fd30-5bbd-93ab-d06d79ee4657"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 8,
+            "item": {
+              "@id": "urn:uuid:81758b2c-ef5a-508e-ba68-a35df14d0b09"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 9,
+            "item": {
+              "@id": "urn:uuid:0ce3adc9-8060-5945-bfde-e9c5a39c69c2"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 10,
+            "item": {
+              "@id": "urn:uuid:aee09ae7-5c18-5163-84ae-49472675995e"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 11,
+            "item": {
+              "@id": "urn:uuid:3a0a2331-95e8-5163-8786-f3e6ed39963e"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 12,
+            "item": {
+              "@id": "urn:uuid:e5b2d91c-b8dc-5bba-b583-c61014344589"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 13,
+            "item": {
+              "@id": "urn:uuid:7378bedd-91e2-5d2e-bea6-baf3b5b54401"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 14,
+            "item": {
+              "@id": "urn:uuid:f716edb7-0eb6-5058-aa6a-8a64f4742606"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 15,
+            "item": {
+              "@id": "urn:uuid:d2d8c774-d28d-536b-9408-922e7f228042"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 16,
+            "item": {
+              "@id": "urn:uuid:995a2787-eaf5-5b60-8499-225cef86cebe"
+            }
+          }
+        ]
       }
     },
     {
-      "@id": "urn:uuid:6d665171-bb55-5459-a819-478f2344c23e",
-      "@type": [
-        "LearningResource",
-        "marin:ContentUnit"
-      ],
-      "identifier": "first-month-plan",
-      "name": "A first-month leadership challenge",
-      "abstract": "Make evidence routine: bring one fact, discuss its limits safely, name data owners and analysts, then revisit a decision.",
-      "learningResourceType": "procedure",
-      "teaches": [
-        {
-          "@id": "urn:uuid:a16fc3d0-ddd2-5367-a850-3b74c8bf5bb9"
-        },
-        {
-          "@id": "urn:uuid:e826533a-0543-5503-b847-7bce45e410fc"
-        }
-      ],
-      "encoding": {
-        "@type": "MediaObject",
-        "contentUrl": "content/first-month-plan.md",
-        "encodingFormat": "text/markdown"
-      }
-    },
-    {
-      "@id": "urn:uuid:951736ff-7a93-59b8-94d4-56fd5806dcc6",
-      "@type": [
-        "CreativeWork",
-        "marin:Section"
-      ],
-      "identifier": "understand-the-asset",
-      "name": "Understand the asset",
-      "marin:contentSequence": {
-        "@type": "ItemList",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "item": {
-              "@id": "urn:uuid:527b26a7-f4d0-55fd-bfbb-0b06552267c3"
-            }
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "item": {
-              "@id": "urn:uuid:7d278c68-d2b5-5164-895b-83c9cfd6fdcc"
-            }
-          }
-        ]
-      }
-    },
-    {
-      "@id": "urn:uuid:5443b89c-3c98-593c-b4e7-926dc16ea0f1",
-      "@type": [
-        "CreativeWork",
-        "marin:Section"
-      ],
-      "identifier": "make-data-useful",
-      "name": "Make data useful",
-      "marin:contentSequence": {
-        "@type": "ItemList",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "item": {
-              "@id": "urn:uuid:6cfb870f-a230-51e9-be5e-4752de1d7f40"
-            }
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "item": {
-              "@id": "urn:uuid:765ab5a7-bb89-5c53-ae2b-d58939961aeb"
-            }
-          }
-        ]
-      }
-    },
-    {
-      "@id": "urn:uuid:ad98b11b-61da-52e3-9742-68b879448f5f",
-      "@type": [
-        "CreativeWork",
-        "marin:Section"
-      ],
-      "identifier": "build-the-capability",
-      "name": "Build the capability",
-      "marin:contentSequence": {
-        "@type": "ItemList",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "item": {
-              "@id": "urn:uuid:3fd98df5-6e4b-51d3-a231-369303d9882a"
-            }
-          }
-        ]
-      }
-    },
-    {
-      "@id": "urn:uuid:0d0123df-ec66-52f2-8516-da4d239022d1",
-      "@type": [
-        "CreativeWork",
-        "marin:Section"
-      ],
-      "identifier": "change-the-next-decision",
-      "name": "Change the next decision",
-      "marin:contentSequence": {
-        "@type": "ItemList",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "item": {
-              "@id": "urn:uuid:f7b4bf70-363d-5867-8a97-70475de0c034"
-            }
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "item": {
-              "@id": "urn:uuid:ef4dd81a-fe3b-5b85-9648-bd4075f2a61c"
-            }
-          },
-          {
-            "@type": "ListItem",
-            "position": 3,
-            "item": {
-              "@id": "urn:uuid:6d665171-bb55-5459-a819-478f2344c23e"
-            }
-          }
-        ]
-      }
-    },
-    {
-      "@id": "urn:uuid:3713efe2-ff84-5bd6-a171-b1a751072b79",
-      "@type": [
-        "LearningResource",
-        "marin:LearningMaterial"
-      ],
-      "identifier": "county-leaders-data-guide",
-      "name": "Data 101 notes",
-      "abstract": "Read the key ideas and exercises about leading with data.",
-      "learningResourceType": "guide",
-      "educationalUse": [
-        "instruction",
-        "self-study"
-      ],
-      "educationalLevel": "introductory",
-      "timeRequired": "PT18M",
-      "marin:contentSequence": {
-        "@type": "ItemList",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "item": {
-              "@id": "urn:uuid:951736ff-7a93-59b8-94d4-56fd5806dcc6"
-            }
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "item": {
-              "@id": "urn:uuid:5443b89c-3c98-593c-b4e7-926dc16ea0f1"
-            }
-          },
-          {
-            "@type": "ListItem",
-            "position": 3,
-            "item": {
-              "@id": "urn:uuid:ad98b11b-61da-52e3-9742-68b879448f5f"
-            }
-          },
-          {
-            "@type": "ListItem",
-            "position": 4,
-            "item": {
-              "@id": "urn:uuid:0d0123df-ec66-52f2-8516-da4d239022d1"
-            }
-          }
-        ]
-      }
-    },
-    {
-      "@id": "urn:uuid:7babe3ed-01dd-531f-8f37-d84ad7477697",
-      "@type": [
-        "CreativeWork",
-        "marin:ResponseOption"
-      ],
-      "identifier": "q01-file-vs-data-a",
-      "text": "Staff must manually extract and combine facts before they can be analyzed.",
-      "marin:feedback": "Correct. A collection of files stores records but makes the underlying facts hard to sort and compare."
-    },
-    {
-      "@id": "urn:uuid:fdabac8d-d288-5445-b39e-dd76b6699f18",
-      "@type": [
-        "CreativeWork",
-        "marin:ResponseOption"
-      ],
-      "identifier": "q01-file-vs-data-b",
-      "text": "Scanned forms automatically provide standardized, queryable fields.",
-      "marin:feedback": "Scanned images do not automatically create structured fields for filtering and comparison."
-    },
-    {
-      "@id": "urn:uuid:ef83548a-751a-51a0-9afe-f544cc3fbae5",
-      "@type": [
-        "CreativeWork",
-        "marin:ResponseOption"
-      ],
-      "identifier": "q01-file-vs-data-c",
-      "text": "Charts are impossible unless the department buys a new server.",
-      "marin:feedback": "The barrier described here is the structure of the information, not an inevitable server purchase."
-    },
-    {
-      "@id": "urn:uuid:1d053cd2-b53e-577e-9821-28f77dee2e9e",
-      "@type": [
-        "CreativeWork",
-        "marin:ResponseOption"
-      ],
-      "identifier": "q01-file-vs-data-d",
-      "text": "The records have no value because they are not structured.",
-      "marin:feedback": "Existing files can hold valuable information, but extracting it is labor-intensive."
-    },
-    {
-      "@id": "urn:uuid:389dcc3c-a3e9-58a3-abbb-465ad31974fa",
-      "@type": [
-        "CreativeWork",
-        "marin:AssessmentItem"
-      ],
-      "identifier": "q01-file-vs-data",
-      "name": "A department has years of scanned service forms. Leadership wants to compare demand over time. What is the most important limitation of relying on the forms alone?",
-      "text": "A department has years of scanned service forms. Leadership wants to compare demand over time. What is the most important limitation of relying on the forms alone?",
-      "assesses": [
-        {
-          "@id": "urn:uuid:ed9d9629-64b2-57aa-9405-5223420deee5"
-        }
-      ],
-      "isBasedOn": [
-        {
-          "@id": "urn:uuid:527b26a7-f4d0-55fd-bfbb-0b06552267c3"
-        }
-      ],
-      "marin:interactionType": "single-select",
-      "marin:options": {
-        "@type": "ItemList",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "item": {
-              "@id": "urn:uuid:7babe3ed-01dd-531f-8f37-d84ad7477697"
-            }
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "item": {
-              "@id": "urn:uuid:fdabac8d-d288-5445-b39e-dd76b6699f18"
-            }
-          },
-          {
-            "@type": "ListItem",
-            "position": 3,
-            "item": {
-              "@id": "urn:uuid:ef83548a-751a-51a0-9afe-f544cc3fbae5"
-            }
-          },
-          {
-            "@type": "ListItem",
-            "position": 4,
-            "item": {
-              "@id": "urn:uuid:1d053cd2-b53e-577e-9821-28f77dee2e9e"
-            }
-          }
-        ]
-      },
-      "marin:correctResponse": [
-        {
-          "@id": "urn:uuid:7babe3ed-01dd-531f-8f37-d84ad7477697"
-        }
-      ],
-      "marin:hint": "Think about what someone would have to do before counting the same field across hundreds of forms.",
-      "marin:explanation": "The guide contrasts file-bound documents with individual trackable facts that can be filtered, sorted, and combined.",
-      "marin:shuffleOptions": true
-    },
-    {
-      "@id": "urn:uuid:36027945-fd70-5947-aaa4-e602ec133a5f",
-      "@type": [
-        "CreativeWork",
-        "marin:ResponseOption"
-      ],
-      "identifier": "q02-data-point-a",
-      "text": "The time a particular 911 dispatch was recorded.",
-      "marin:feedback": "Correct. A timestamp is one individual trackable fact."
-    },
-    {
-      "@id": "urn:uuid:ff57d0cb-3531-5a80-a037-02c9e3b8dc20",
-      "@type": [
-        "CreativeWork",
-        "marin:ResponseOption"
-      ],
-      "identifier": "q02-data-point-b",
-      "text": "A directory of PDF incident reports.",
-      "marin:feedback": "A folder of reports is a document collection, even though it contains facts."
-    },
-    {
-      "@id": "urn:uuid:bfeafa71-f45e-51fa-9049-8ebce115ed4b",
-      "@type": [
-        "CreativeWork",
-        "marin:ResponseOption"
-      ],
-      "identifier": "q02-data-point-c",
-      "text": "A scanned packet of permit applications.",
-      "marin:feedback": "A scanned packet is unstructured source material, not one discrete field value."
-    },
-    {
-      "@id": "urn:uuid:843c49fb-6069-592b-9ecf-b2429ec579e7",
-      "@type": [
-        "CreativeWork",
-        "marin:ResponseOption"
-      ],
-      "identifier": "q02-data-point-d",
-      "text": "A binder of quarterly department summaries.",
-      "marin:feedback": "A binder collects reports; it is not itself one individually trackable unit of fact."
-    },
-    {
-      "@id": "urn:uuid:d45267d4-f0e7-571c-9c64-989b0723fb1e",
-      "@type": [
-        "CreativeWork",
-        "marin:AssessmentItem"
-      ],
-      "identifier": "q02-data-point",
-      "name": "Which example is a single data point rather than a collection of files?",
-      "text": "Which example is a single data point rather than a collection of files?",
-      "assesses": [
-        {
-          "@id": "urn:uuid:ed9d9629-64b2-57aa-9405-5223420deee5"
-        }
-      ],
-      "isBasedOn": [
-        {
-          "@id": "urn:uuid:527b26a7-f4d0-55fd-bfbb-0b06552267c3"
-        }
-      ],
-      "marin:interactionType": "single-select",
-      "marin:options": {
-        "@type": "ItemList",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "item": {
-              "@id": "urn:uuid:36027945-fd70-5947-aaa4-e602ec133a5f"
-            }
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "item": {
-              "@id": "urn:uuid:ff57d0cb-3531-5a80-a037-02c9e3b8dc20"
-            }
-          },
-          {
-            "@type": "ListItem",
-            "position": 3,
-            "item": {
-              "@id": "urn:uuid:bfeafa71-f45e-51fa-9049-8ebce115ed4b"
-            }
-          },
-          {
-            "@type": "ListItem",
-            "position": 4,
-            "item": {
-              "@id": "urn:uuid:843c49fb-6069-592b-9ecf-b2429ec579e7"
-            }
-          }
-        ]
-      },
-      "marin:correctResponse": [
-        {
-          "@id": "urn:uuid:36027945-fd70-5947-aaa4-e602ec133a5f"
-        }
-      ],
-      "marin:hint": "Distinguish an individual value from the container holding many values.",
-      "marin:explanation": "The original guide offers individual locations, timestamps, and parcel values as examples of data points.",
-      "marin:shuffleOptions": true
-    },
-    {
-      "@id": "urn:uuid:8fe483cf-023a-5145-b399-a04b2085e982",
-      "@type": [
-        "CreativeWork",
-        "marin:ResponseOption"
-      ],
-      "identifier": "q03-stewardship-duty-a",
-      "text": "Use reliable information to improve services and resource allocation.",
-      "marin:feedback": "Yes. Stewardship involves extracting value for public services."
-    },
-    {
-      "@id": "urn:uuid:564c8327-26f4-5508-b04f-63211f06ac01",
-      "@type": [
-        "CreativeWork",
-        "marin:ResponseOption"
-      ],
-      "identifier": "q03-stewardship-duty-b",
-      "text": "Protect the privacy and integrity of sensitive information.",
-      "marin:feedback": "Yes. A steward has an explicit duty to protect affected people and the records about them."
-    },
-    {
-      "@id": "urn:uuid:331e4955-d5b1-5da3-91f1-d37eb9a28870",
-      "@type": [
-        "CreativeWork",
-        "marin:ResponseOption"
-      ],
-      "identifier": "q03-stewardship-duty-c",
-      "text": "Circulate all individual records across departments whenever someone asks.",
-      "marin:feedback": "No. The guide calls for secure sharing, not unrestricted circulation."
-    },
-    {
-      "@id": "urn:uuid:f33889f3-a912-5f04-bb02-9c93b9759781",
-      "@type": [
-        "CreativeWork",
-        "marin:ResponseOption"
-      ],
-      "identifier": "q03-stewardship-duty-d",
-      "text": "Treat the department as the permanent owner that can veto every appropriate use.",
-      "marin:feedback": "No. The guide challenges territorial claims and emphasizes collective public stewardship."
-    },
-    {
-      "@id": "urn:uuid:3c489b83-97c4-52c9-a489-209214334bce",
-      "@type": [
-        "CreativeWork",
-        "marin:AssessmentItem"
-      ],
-      "identifier": "q03-stewardship-duty",
-      "name": "A County data steward is balancing public value and public trust. Which responsibilities belong in that balance? Select all that apply.",
-      "text": "A County data steward is balancing public value and public trust. Which responsibilities belong in that balance? Select all that apply.",
-      "assesses": [
-        {
-          "@id": "urn:uuid:f22fd048-08f2-57d8-849d-05e9c86be0b6"
-        }
-      ],
-      "isBasedOn": [
-        {
-          "@id": "urn:uuid:7d278c68-d2b5-5164-895b-83c9cfd6fdcc"
-        }
-      ],
-      "marin:interactionType": "multiple-select",
-      "marin:options": {
-        "@type": "ItemList",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "item": {
-              "@id": "urn:uuid:8fe483cf-023a-5145-b399-a04b2085e982"
-            }
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "item": {
-              "@id": "urn:uuid:564c8327-26f4-5508-b04f-63211f06ac01"
-            }
-          },
-          {
-            "@type": "ListItem",
-            "position": 3,
-            "item": {
-              "@id": "urn:uuid:331e4955-d5b1-5da3-91f1-d37eb9a28870"
-            }
-          },
-          {
-            "@type": "ListItem",
-            "position": 4,
-            "item": {
-              "@id": "urn:uuid:f33889f3-a912-5f04-bb02-9c93b9759781"
-            }
-          }
-        ]
-      },
-      "marin:correctResponse": [
-        {
-          "@id": "urn:uuid:8fe483cf-023a-5145-b399-a04b2085e982"
-        },
-        {
-          "@id": "urn:uuid:564c8327-26f4-5508-b04f-63211f06ac01"
-        }
-      ],
-      "marin:hint": "The guide makes stewardship a two-sided obligation, not a choice between value and protection.",
-      "marin:explanation": "Good stewardship both delivers public benefit and protects sensitive information; neither blanket secrecy nor blanket disclosure meets the standard.",
-      "marin:shuffleOptions": true
-    },
-    {
-      "@id": "urn:uuid:93ff09a9-b77e-5049-8c3c-ad5c610a2163",
-      "@type": [
-        "CreativeWork",
-        "marin:ResponseOption"
-      ],
-      "identifier": "q04-sharing-case-a",
-      "text": "Clarify the purpose and use an appropriately authorized, privacy-protective way to share the needed facts.",
-      "marin:feedback": "Correct. Secure collaboration should preserve the purpose of the analysis and the people represented in the data."
-    },
-    {
-      "@id": "urn:uuid:60503e3b-141f-55f5-a95d-3a3360a04777",
-      "@type": [
-        "CreativeWork",
-        "marin:ResponseOption"
-      ],
-      "identifier": "q04-sharing-case-b",
-      "text": "Release every record because departments are co-stewards.",
-      "marin:feedback": "Co-stewardship does not eliminate the need to protect sensitive information."
-    },
-    {
-      "@id": "urn:uuid:a0fe3e17-5075-53c0-92a8-bf8df8539b69",
-      "@type": [
-        "CreativeWork",
-        "marin:ResponseOption"
-      ],
-      "identifier": "q04-sharing-case-c",
-      "text": "Refuse any collaboration because the source department owns the records.",
-      "marin:feedback": "The guide rejects territorial ownership as the basis for blocking appropriate collaboration."
-    },
-    {
-      "@id": "urn:uuid:1ff3789c-9916-54d3-aae2-a203fdfbd768",
-      "@type": [
-        "CreativeWork",
-        "marin:ResponseOption"
-      ],
-      "identifier": "q04-sharing-case-d",
-      "text": "Send unreviewed files and ask the receiving team to handle the risk.",
-      "marin:feedback": "Passing along sensitive records without safeguards neglects stewardship obligations."
-    },
-    {
-      "@id": "urn:uuid:52557ddb-8a7a-5f3c-81f0-5830d5b4c703",
-      "@type": [
-        "CreativeWork",
-        "marin:AssessmentItem"
-      ],
-      "identifier": "q04-sharing-case",
-      "name": "A program asks another department for person-level records to understand a service trend. Which leadership response best reflects the guide?",
-      "text": "A program asks another department for person-level records to understand a service trend. Which leadership response best reflects the guide?",
-      "assesses": [
-        {
-          "@id": "urn:uuid:f22fd048-08f2-57d8-849d-05e9c86be0b6"
-        },
-        {
-          "@id": "urn:uuid:eaf538f8-bc70-5458-b884-614b32f4d511"
-        }
-      ],
-      "isBasedOn": [
-        {
-          "@id": "urn:uuid:7d278c68-d2b5-5164-895b-83c9cfd6fdcc"
-        }
-      ],
-      "marin:interactionType": "single-select",
-      "marin:options": {
-        "@type": "ItemList",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "item": {
-              "@id": "urn:uuid:93ff09a9-b77e-5049-8c3c-ad5c610a2163"
-            }
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "item": {
-              "@id": "urn:uuid:60503e3b-141f-55f5-a95d-3a3360a04777"
-            }
-          },
-          {
-            "@type": "ListItem",
-            "position": 3,
-            "item": {
-              "@id": "urn:uuid:a0fe3e17-5075-53c0-92a8-bf8df8539b69"
-            }
-          },
-          {
-            "@type": "ListItem",
-            "position": 4,
-            "item": {
-              "@id": "urn:uuid:1ff3789c-9916-54d3-aae2-a203fdfbd768"
-            }
-          }
-        ]
-      },
-      "marin:correctResponse": [
-        {
-          "@id": "urn:uuid:93ff09a9-b77e-5049-8c3c-ad5c610a2163"
-        }
-      ],
-      "marin:hint": "Think about both sides of stewardship: useful cooperation and safeguarding sensitive details.",
-      "marin:explanation": "The guide urges secure cross-department sharing while defending the privacy, security, and integrity of sensitive data.",
-      "marin:shuffleOptions": true
-    },
-    {
-      "@id": "urn:uuid:ffc4f882-26b0-5919-85e1-7be6f66d83d7",
-      "@type": [
-        "CreativeWork",
-        "marin:ResponseOption"
-      ],
-      "identifier": "q05-transactional-a",
-      "text": "Record operational facts when staff perform day-to-day work.",
-      "marin:feedback": "Correct. Dispatch and permitting tools are examples of transactional systems."
-    },
-    {
-      "@id": "urn:uuid:363625e6-433d-5805-ac25-01b447c9c681",
-      "@type": [
-        "CreativeWork",
-        "marin:ResponseOption"
-      ],
-      "identifier": "q05-transactional-b",
-      "text": "Evaluate the County's long-range financial strategy for executives.",
-      "marin:feedback": "Strategic interpretation belongs more closely to analysis and leadership decisions."
-    },
-    {
-      "@id": "urn:uuid:e2468e85-2057-5992-9cdc-ef2fde9fc35c",
-      "@type": [
-        "CreativeWork",
-        "marin:ResponseOption"
-      ],
-      "identifier": "q05-transactional-c",
-      "text": "Replace the need for data hygiene and consistent definitions.",
-      "marin:feedback": "Transactions still need accurate and standardized entries."
-    },
-    {
-      "@id": "urn:uuid:e5767021-6a54-5a62-9296-2a7212e5425c",
-      "@type": [
-        "CreativeWork",
-        "marin:ResponseOption"
-      ],
-      "identifier": "q05-transactional-d",
-      "text": "Publish only completed dashboard graphics for the public.",
-      "marin:feedback": "Dashboards are analytical outputs, not the core transactional input process."
-    },
-    {
-      "@id": "urn:uuid:c6d7dd99-83b8-5ca3-979c-569f156f7e8d",
-      "@type": [
-        "CreativeWork",
-        "marin:AssessmentItem"
-      ],
-      "identifier": "q05-transactional",
-      "name": "In the guide, what does a transactional system primarily do?",
-      "text": "In the guide, what does a transactional system primarily do?",
-      "assesses": [
-        {
-          "@id": "urn:uuid:c2341a61-93f9-592a-9fe9-8286c24be13a"
-        }
-      ],
-      "isBasedOn": [
-        {
-          "@id": "urn:uuid:6cfb870f-a230-51e9-be5e-4752de1d7f40"
-        }
-      ],
-      "marin:interactionType": "single-select",
-      "marin:options": {
-        "@type": "ItemList",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "item": {
-              "@id": "urn:uuid:ffc4f882-26b0-5919-85e1-7be6f66d83d7"
-            }
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "item": {
-              "@id": "urn:uuid:363625e6-433d-5805-ac25-01b447c9c681"
-            }
-          },
-          {
-            "@type": "ListItem",
-            "position": 3,
-            "item": {
-              "@id": "urn:uuid:e2468e85-2057-5992-9cdc-ef2fde9fc35c"
-            }
-          },
-          {
-            "@type": "ListItem",
-            "position": 4,
-            "item": {
-              "@id": "urn:uuid:e5767021-6a54-5a62-9296-2a7212e5425c"
-            }
-          }
-        ]
-      },
-      "marin:correctResponse": [
-        {
-          "@id": "urn:uuid:ffc4f882-26b0-5919-85e1-7be6f66d83d7"
-        }
-      ],
-      "marin:hint": "Consider where an operational fact enters a system for the first time.",
-      "marin:explanation": "Transactional tools are used by frontline staff to enter or update operational facts.",
-      "marin:shuffleOptions": true
-    },
-    {
-      "@id": "urn:uuid:ea9038ad-ca18-51ac-94a8-32626a9708c7",
-      "@type": [
-        "CreativeWork",
-        "marin:ResponseOption"
-      ],
-      "identifier": "q06-dashboard-a",
-      "text": "An analytical dashboard drawing on operational data.",
-      "marin:feedback": "Correct. Dashboards transform operational records into charts, maps, and patterns for leadership."
-    },
-    {
-      "@id": "urn:uuid:f01a542b-4d79-50d1-822c-5ad5307f6e15",
-      "@type": [
-        "CreativeWork",
-        "marin:ResponseOption"
-      ],
-      "identifier": "q06-dashboard-b",
-      "text": "A scanned filing cabinet that stores each request as a PDF.",
-      "marin:feedback": "A digital filing cabinet preserves documents but does not by itself produce trend analysis."
-    },
-    {
-      "@id": "urn:uuid:2c7bdfff-cdb1-57ae-ae89-a9dabd8ffca6",
-      "@type": [
-        "CreativeWork",
-        "marin:ResponseOption"
-      ],
-      "identifier": "q06-dashboard-c",
-      "text": "A separate spreadsheet with different definitions for each program.",
-      "marin:feedback": "Inconsistent definitions make comparison unreliable."
-    },
-    {
-      "@id": "urn:uuid:3e7c37e3-b88b-5a6a-914b-8da7017dd255",
-      "@type": [
-        "CreativeWork",
-        "marin:ResponseOption"
-      ],
-      "identifier": "q06-dashboard-d",
-      "text": "A permitting portal limited to entering individual applications.",
-      "marin:feedback": "A permitting portal is primarily transactional rather than an executive analysis layer."
-    },
-    {
-      "@id": "urn:uuid:69aec9d8-4785-5db4-a293-57c31e8b257f",
-      "@type": [
-        "CreativeWork",
-        "marin:AssessmentItem"
-      ],
-      "identifier": "q06-dashboard",
-      "name": "A County executive wants a cross-program chart of demand trends. Which kind of system is intended to make the big picture visible?",
-      "text": "A County executive wants a cross-program chart of demand trends. Which kind of system is intended to make the big picture visible?",
-      "assesses": [
-        {
-          "@id": "urn:uuid:c2341a61-93f9-592a-9fe9-8286c24be13a"
-        }
-      ],
-      "isBasedOn": [
-        {
-          "@id": "urn:uuid:6cfb870f-a230-51e9-be5e-4752de1d7f40"
-        }
-      ],
-      "marin:interactionType": "single-select",
-      "marin:options": {
-        "@type": "ItemList",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "item": {
-              "@id": "urn:uuid:ea9038ad-ca18-51ac-94a8-32626a9708c7"
-            }
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "item": {
-              "@id": "urn:uuid:f01a542b-4d79-50d1-822c-5ad5307f6e15"
-            }
-          },
-          {
-            "@type": "ListItem",
-            "position": 3,
-            "item": {
-              "@id": "urn:uuid:2c7bdfff-cdb1-57ae-ae89-a9dabd8ffca6"
-            }
-          },
-          {
-            "@type": "ListItem",
-            "position": 4,
-            "item": {
-              "@id": "urn:uuid:3e7c37e3-b88b-5a6a-914b-8da7017dd255"
-            }
-          }
-        ]
-      },
-      "marin:correctResponse": [
-        {
-          "@id": "urn:uuid:ea9038ad-ca18-51ac-94a8-32626a9708c7"
-        }
-      ],
-      "marin:hint": "Think about the difference between capturing an event and interpreting many events together.",
-      "marin:explanation": "The guide distinguishes transactional input systems from analytical systems used to see patterns and trends.",
-      "marin:shuffleOptions": true
-    },
-    {
-      "@id": "urn:uuid:f0d890e4-318a-5ff4-b940-0e3b37feb094",
-      "@type": [
-        "CreativeWork",
-        "marin:ResponseOption"
-      ],
-      "identifier": "q07-hygiene-a",
-      "text": "Agree on consistent field definitions and permitted values.",
-      "marin:feedback": "Yes. Shared definitions prevent similar facts from being counted differently."
-    },
-    {
-      "@id": "urn:uuid:5f9cdd0d-1a1c-52a1-8b4a-92eb88b4ec53",
-      "@type": [
-        "CreativeWork",
-        "marin:ResponseOption"
-      ],
-      "identifier": "q07-hygiene-b",
-      "text": "Identify incomplete or duplicated sensitive records before they drive decisions.",
-      "marin:feedback": "Yes. Completeness, accuracy, and careful handling are central to data hygiene."
-    },
-    {
-      "@id": "urn:uuid:b6d821a7-9223-5175-8060-0a1312987f16",
-      "@type": [
-        "CreativeWork",
-        "marin:ResponseOption"
-      ],
-      "identifier": "q07-hygiene-c",
-      "text": "Let each team invent a different abbreviation for the same street name.",
-      "marin:feedback": "No. This reproduces the inconsistent naming problem raised in the guide."
-    },
-    {
-      "@id": "urn:uuid:90a11c59-095c-5409-a350-54b7ba74873c",
-      "@type": [
-        "CreativeWork",
-        "marin:ResponseOption"
-      ],
-      "identifier": "q07-hygiene-d",
-      "text": "Stop checking entries once a dashboard looks convincing.",
-      "marin:feedback": "No. A convincing chart cannot compensate for unreliable underlying data."
-    },
-    {
-      "@id": "urn:uuid:e9bd4a2d-a72c-5c89-830b-9cedc88ef247",
-      "@type": [
-        "CreativeWork",
-        "marin:AssessmentItem"
-      ],
-      "identifier": "q07-hygiene",
-      "name": "Which changes would improve data hygiene across County programs? Select all that apply.",
-      "text": "Which changes would improve data hygiene across County programs? Select all that apply.",
-      "assesses": [
-        {
-          "@id": "urn:uuid:c2341a61-93f9-592a-9fe9-8286c24be13a"
-        }
-      ],
-      "isBasedOn": [
-        {
-          "@id": "urn:uuid:6cfb870f-a230-51e9-be5e-4752de1d7f40"
-        }
-      ],
-      "marin:interactionType": "multiple-select",
-      "marin:options": {
-        "@type": "ItemList",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "item": {
-              "@id": "urn:uuid:f0d890e4-318a-5ff4-b940-0e3b37feb094"
-            }
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "item": {
-              "@id": "urn:uuid:5f9cdd0d-1a1c-52a1-8b4a-92eb88b4ec53"
-            }
-          },
-          {
-            "@type": "ListItem",
-            "position": 3,
-            "item": {
-              "@id": "urn:uuid:b6d821a7-9223-5175-8060-0a1312987f16"
-            }
-          },
-          {
-            "@type": "ListItem",
-            "position": 4,
-            "item": {
-              "@id": "urn:uuid:90a11c59-095c-5409-a350-54b7ba74873c"
-            }
-          }
-        ]
-      },
-      "marin:correctResponse": [
-        {
-          "@id": "urn:uuid:f0d890e4-318a-5ff4-b940-0e3b37feb094"
-        },
-        {
-          "@id": "urn:uuid:5f9cdd0d-1a1c-52a1-8b4a-92eb88b4ec53"
-        }
-      ],
-      "marin:hint": "Look for actions that make the same fact mean the same thing in different systems.",
-      "marin:explanation": "The guide's street-name example illustrates standardization; it also links poor quality to flawed policy and sensitive-record handling.",
-      "marin:shuffleOptions": true
-    },
-    {
-      "@id": "urn:uuid:9bd1915b-a8aa-569a-8a1c-b24e273a35b0",
-      "@type": [
-        "CreativeWork",
-        "marin:ResponseOption"
-      ],
-      "identifier": "q08-visibility-a",
-      "text": "Thank the team for surfacing the issue, examine the facts, and decide what to improve.",
-      "marin:feedback": "Correct. A culture that rewards transparency makes reliable reporting more likely."
-    },
-    {
-      "@id": "urn:uuid:12dbc8bf-5661-53af-911d-a2f22663a85d",
-      "@type": [
-        "CreativeWork",
-        "marin:ResponseOption"
-      ],
-      "identifier": "q08-visibility-b",
-      "text": "Remove the metric from the next report so the department avoids criticism.",
-      "marin:feedback": "Hiding weak performance eliminates the information needed to improve."
-    },
-    {
-      "@id": "urn:uuid:9ba09916-12e9-5646-91c9-c54280bc32b9",
-      "@type": [
-        "CreativeWork",
-        "marin:ResponseOption"
-      ],
-      "identifier": "q08-visibility-c",
-      "text": "Assume staff are incompetent based on one chart.",
-      "marin:feedback": "Punitive conclusions from a metric discourage candid reporting."
-    },
-    {
-      "@id": "urn:uuid:00cbd065-a6d4-5c71-a22e-a5c843e4bfd4",
-      "@type": [
-        "CreativeWork",
-        "marin:ResponseOption"
-      ],
-      "identifier": "q08-visibility-d",
-      "text": "Require the team to improve the reported value before discussing its cause.",
-      "marin:feedback": "Changing the number without improving the process damages trust in the data."
-    },
-    {
-      "@id": "urn:uuid:75385869-c9c8-5891-b3c3-24bf37a545d0",
-      "@type": [
-        "CreativeWork",
-        "marin:AssessmentItem"
-      ],
-      "identifier": "q08-visibility",
-      "name": "A dashboard shows that a service target was missed. What leadership response is most likely to keep accurate reporting alive?",
-      "text": "A dashboard shows that a service target was missed. What leadership response is most likely to keep accurate reporting alive?",
-      "assesses": [
-        {
-          "@id": "urn:uuid:c7ba39c4-4343-5040-98f1-4c1595cbfa04"
-        },
-        {
-          "@id": "urn:uuid:6814353e-523e-5c00-8ee2-b503f636843a"
-        }
-      ],
-      "isBasedOn": [
-        {
-          "@id": "urn:uuid:765ab5a7-bb89-5c53-ae2b-d58939961aeb"
-        }
-      ],
-      "marin:interactionType": "single-select",
-      "marin:options": {
-        "@type": "ItemList",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "item": {
-              "@id": "urn:uuid:9bd1915b-a8aa-569a-8a1c-b24e273a35b0"
-            }
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "item": {
-              "@id": "urn:uuid:12dbc8bf-5661-53af-911d-a2f22663a85d"
-            }
-          },
-          {
-            "@type": "ListItem",
-            "position": 3,
-            "item": {
-              "@id": "urn:uuid:9ba09916-12e9-5646-91c9-c54280bc32b9"
-            }
-          },
-          {
-            "@type": "ListItem",
-            "position": 4,
-            "item": {
-              "@id": "urn:uuid:00cbd065-a6d4-5c71-a22e-a5c843e4bfd4"
-            }
-          }
-        ]
-      },
-      "marin:correctResponse": [
-        {
-          "@id": "urn:uuid:9bd1915b-a8aa-569a-8a1c-b24e273a35b0"
-        }
-      ],
-      "marin:hint": "Consider what a team will report next month if sharing uncomfortable evidence triggers punishment.",
-      "marin:explanation": "The guide argues that weaponized metrics produce avoidance and manipulation; leaders should protect transparency and investigate.",
-      "marin:shuffleOptions": true
-    },
-    {
-      "@id": "urn:uuid:a94d8617-af41-541c-95fa-ec7d4510e948",
-      "@type": [
-        "CreativeWork",
-        "marin:ResponseOption"
-      ],
-      "identifier": "q09-evidence-a",
-      "text": "What data supports that conclusion?",
-      "marin:feedback": "Correct. The guide specifically asks leaders to require evidence for staffing claims."
-    },
-    {
-      "@id": "urn:uuid:24cf318b-e5f8-52ef-92be-48b22dce859b",
-      "@type": [
-        "CreativeWork",
-        "marin:ResponseOption"
-      ],
-      "identifier": "q09-evidence-b",
-      "text": "Which other department can we copy without checking its workload?",
-      "marin:feedback": "Copying staffing levels without relevant evidence skips the analysis."
-    },
-    {
-      "@id": "urn:uuid:69527dbf-9427-58e2-a7e9-141bfd7f66d0",
-      "@type": [
-        "CreativeWork",
-        "marin:ResponseOption"
-      ],
-      "identifier": "q09-evidence-c",
-      "text": "Can we remove the request from the agenda until next fiscal year?",
-      "marin:feedback": "Deferral does not test the underlying claim."
-    },
-    {
-      "@id": "urn:uuid:38314a57-1ac8-54d5-b57f-053369aba466",
-      "@type": [
-        "CreativeWork",
-        "marin:ResponseOption"
-      ],
-      "identifier": "q09-evidence-d",
-      "text": "Which chart will look most persuasive regardless of its source?",
-      "marin:feedback": "The guide advocates evidence, not decorative justification."
-    },
-    {
-      "@id": "urn:uuid:4db87aaf-9ad4-5659-b7a0-93d14e22d992",
-      "@type": [
-        "CreativeWork",
-        "marin:AssessmentItem"
-      ],
-      "identifier": "q09-evidence",
-      "name": "A manager says a division is severely understaffed. What is the first leadership question recommended by the guide?",
-      "text": "A manager says a division is severely understaffed. What is the first leadership question recommended by the guide?",
-      "assesses": [
-        {
-          "@id": "urn:uuid:c7ba39c4-4343-5040-98f1-4c1595cbfa04"
-        }
-      ],
-      "isBasedOn": [
-        {
-          "@id": "urn:uuid:765ab5a7-bb89-5c53-ae2b-d58939961aeb"
-        }
-      ],
-      "marin:interactionType": "single-select",
-      "marin:options": {
-        "@type": "ItemList",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "item": {
-              "@id": "urn:uuid:a94d8617-af41-541c-95fa-ec7d4510e948"
-            }
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "item": {
-              "@id": "urn:uuid:24cf318b-e5f8-52ef-92be-48b22dce859b"
-            }
-          },
-          {
-            "@type": "ListItem",
-            "position": 3,
-            "item": {
-              "@id": "urn:uuid:69527dbf-9427-58e2-a7e9-141bfd7f66d0"
-            }
-          },
-          {
-            "@type": "ListItem",
-            "position": 4,
-            "item": {
-              "@id": "urn:uuid:38314a57-1ac8-54d5-b57f-053369aba466"
-            }
-          }
-        ]
-      },
-      "marin:correctResponse": [
-        {
-          "@id": "urn:uuid:a94d8617-af41-541c-95fa-ec7d4510e948"
-        }
-      ],
-      "marin:hint": "The guide proposes a short question that changes the meeting's currency.",
-      "marin:explanation": "The leadership habit is to ask to see the underlying evidence rather than decide from volume of complaints or intuition.",
-      "marin:shuffleOptions": true
-    },
-    {
-      "@id": "urn:uuid:5e9a9a5b-92a8-50d7-8bd2-8251e3215570",
-      "@type": [
-        "CreativeWork",
-        "marin:ResponseOption"
-      ],
-      "identifier": "q10-roles-a",
-      "text": "Data engineers create secure pathways among isolated systems.",
-      "marin:feedback": "Yes. Building infrastructure and moving data are engineering responsibilities."
-    },
-    {
-      "@id": "urn:uuid:77959fc6-7644-5847-9ded-0941c37efbb7",
-      "@type": [
-        "CreativeWork",
-        "marin:ResponseOption"
-      ],
-      "identifier": "q10-roles-b",
-      "text": "Data analysts turn operational numbers into meaningful answers for leaders.",
-      "marin:feedback": "Yes. Analysts interpret information in the context of County services."
-    },
-    {
-      "@id": "urn:uuid:eeb76184-16d1-52c9-8956-4c47c4e4e110",
-      "@type": [
-        "CreativeWork",
-        "marin:ResponseOption"
-      ],
-      "identifier": "q10-roles-c",
-      "text": "Existing managers and frontline staff help enforce reliable data entry.",
-      "marin:feedback": "Yes. Day-to-day stewardship is part of existing operating responsibilities."
-    },
-    {
-      "@id": "urn:uuid:091fadb6-d418-53cc-9505-02e85f2a4729",
-      "@type": [
-        "CreativeWork",
-        "marin:ResponseOption"
-      ],
-      "identifier": "q10-roles-d",
-      "text": "Executive dashboards automatically fix inconsistent data entries.",
-      "marin:feedback": "No. A dashboard cannot replace data-entry quality and stewardship."
-    },
-    {
-      "@id": "urn:uuid:561de2f3-7312-5bb2-8ad7-c217413ca845",
-      "@type": [
-        "CreativeWork",
-        "marin:AssessmentItem"
-      ],
-      "identifier": "q10-roles",
-      "name": "Which role-to-responsibility matches follow the guide? Select all that apply.",
-      "text": "Which role-to-responsibility matches follow the guide? Select all that apply.",
-      "assesses": [
-        {
-          "@id": "urn:uuid:e826533a-0543-5503-b847-7bce45e410fc"
-        }
-      ],
-      "isBasedOn": [
-        {
-          "@id": "urn:uuid:3fd98df5-6e4b-51d3-a231-369303d9882a"
-        }
-      ],
-      "marin:interactionType": "multiple-select",
-      "marin:options": {
-        "@type": "ItemList",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "item": {
-              "@id": "urn:uuid:5e9a9a5b-92a8-50d7-8bd2-8251e3215570"
-            }
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "item": {
-              "@id": "urn:uuid:77959fc6-7644-5847-9ded-0941c37efbb7"
-            }
-          },
-          {
-            "@type": "ListItem",
-            "position": 3,
-            "item": {
-              "@id": "urn:uuid:eeb76184-16d1-52c9-8956-4c47c4e4e110"
-            }
-          },
-          {
-            "@type": "ListItem",
-            "position": 4,
-            "item": {
-              "@id": "urn:uuid:091fadb6-d418-53cc-9505-02e85f2a4729"
-            }
-          }
-        ]
-      },
-      "marin:correctResponse": [
-        {
-          "@id": "urn:uuid:5e9a9a5b-92a8-50d7-8bd2-8251e3215570"
-        },
-        {
-          "@id": "urn:uuid:77959fc6-7644-5847-9ded-0941c37efbb7"
-        },
-        {
-          "@id": "urn:uuid:eeb76184-16d1-52c9-8956-4c47c4e4e110"
-        }
-      ],
-      "marin:hint": "Separate who builds data pathways, who interprets results, and who protects data quality at entry.",
-      "marin:explanation": "The guide distinguishes builders (engineers), interpreters (analysts), and enforcers (stewards already embedded in operations).",
-      "marin:shuffleOptions": true
-    },
-    {
-      "@id": "urn:uuid:bbd2312d-c29e-5d76-9a90-959d40097803",
-      "@type": [
-        "CreativeWork",
-        "marin:ResponseOption"
-      ],
-      "identifier": "q11-sourcing-a",
-      "text": "Use specialized build capacity initially, retain ongoing analytical context internally, and make data quality a responsibility of current operations staff.",
-      "marin:feedback": "Correct. The guide differentiates temporary specialized engineering, ongoing internal interpretation, and routine stewardship."
-    },
-    {
-      "@id": "urn:uuid:12d3b72c-da72-53f4-a394-5e35b7d56c53",
-      "@type": [
-        "CreativeWork",
-        "marin:ResponseOption"
-      ],
-      "identifier": "q11-sourcing-b",
-      "text": "Hire a permanent team of external analysts with no operational context and leave data-entry quality unassigned.",
-      "marin:feedback": "Analytical work benefits from operational knowledge, and data quality needs accountable staff."
-    },
-    {
-      "@id": "urn:uuid:c06d9ff8-2eae-5547-9fe6-45e896adabab",
-      "@type": [
-        "CreativeWork",
-        "marin:ResponseOption"
-      ],
-      "identifier": "q11-sourcing-c",
-      "text": "Treat infrastructure maintenance and analytical interpretation as interchangeable roles.",
-      "marin:feedback": "The guide explicitly separates building pipelines from making sense of their outputs."
-    },
-    {
-      "@id": "urn:uuid:7bfbc0c7-f51b-5b29-99e0-e6f5653b5cd5",
-      "@type": [
-        "CreativeWork",
-        "marin:ResponseOption"
-      ],
-      "identifier": "q11-sourcing-d",
-      "text": "Let each department build undocumented pipelines without long-term support planning.",
-      "marin:feedback": "The guide emphasizes standards, documentation, and maintainable architecture."
-    },
-    {
-      "@id": "urn:uuid:1588a85f-0269-58e8-9848-3af5bba54270",
-      "@type": [
-        "CreativeWork",
-        "marin:AssessmentItem"
-      ],
-      "identifier": "q11-sourcing",
-      "name": "For a new cross-department data architecture, which staffing model most closely matches the guide?",
-      "text": "For a new cross-department data architecture, which staffing model most closely matches the guide?",
-      "assesses": [
-        {
-          "@id": "urn:uuid:e826533a-0543-5503-b847-7bce45e410fc"
-        }
-      ],
-      "isBasedOn": [
-        {
-          "@id": "urn:uuid:3fd98df5-6e4b-51d3-a231-369303d9882a"
-        }
-      ],
-      "marin:interactionType": "single-select",
-      "marin:options": {
-        "@type": "ItemList",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "item": {
-              "@id": "urn:uuid:bbd2312d-c29e-5d76-9a90-959d40097803"
-            }
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "item": {
-              "@id": "urn:uuid:12d3b72c-da72-53f4-a394-5e35b7d56c53"
-            }
-          },
-          {
-            "@type": "ListItem",
-            "position": 3,
-            "item": {
-              "@id": "urn:uuid:c06d9ff8-2eae-5547-9fe6-45e896adabab"
-            }
-          },
-          {
-            "@type": "ListItem",
-            "position": 4,
-            "item": {
-              "@id": "urn:uuid:7bfbc0c7-f51b-5b29-99e0-e6f5653b5cd5"
-            }
-          }
-        ]
-      },
-      "marin:correctResponse": [
-        {
-          "@id": "urn:uuid:bbd2312d-c29e-5d76-9a90-959d40097803"
-        }
-      ],
-      "marin:hint": "Match the likely duration of the work to the role's need for ongoing County context.",
-      "marin:explanation": "The source recommends careful sourcing of specialist build work while emphasizing institutional knowledge for analysts and existing staff ownership of hygiene.",
-      "marin:shuffleOptions": true
-    },
-    {
-      "@id": "urn:uuid:35c16210-9d9c-5679-9d2f-7a85a4cd2d10",
-      "@type": [
-        "CreativeWork",
-        "marin:ResponseOption"
-      ],
-      "identifier": "q12-start-small-a",
-      "text": "Require one well-defined operational measure for the next major agenda decision.",
-      "marin:feedback": "Correct. A meeting expectation is a small change with direct leadership influence."
-    },
-    {
-      "@id": "urn:uuid:5d507ec3-4724-5770-af10-7c6c3dc2d558",
-      "@type": [
-        "CreativeWork",
-        "marin:ResponseOption"
-      ],
-      "identifier": "q12-start-small-b",
-      "text": "Wait until every department has a replacement software platform.",
-      "marin:feedback": "The guide rejects an all-at-once overhaul as a prerequisite."
-    },
-    {
-      "@id": "urn:uuid:0bd90131-a0c7-5aa2-a20e-4d596e676324",
-      "@type": [
-        "CreativeWork",
-        "marin:ResponseOption"
-      ],
-      "identifier": "q12-start-small-c",
-      "text": "Build an enterprise dashboard before asking which decision it should inform.",
-      "marin:feedback": "Starting with technology rather than the decision reverses the guide's emphasis."
-    },
-    {
-      "@id": "urn:uuid:61b1a680-223f-5abd-8b11-3a9d32b2b245",
-      "@type": [
-        "CreativeWork",
-        "marin:ResponseOption"
-      ],
-      "identifier": "q12-start-small-d",
-      "text": "Stop data reviews until all historical records are error-free.",
-      "marin:feedback": "The guide recommends beginning with imperfect information and improving it."
-    },
-    {
-      "@id": "urn:uuid:c27cb2e4-d3ca-51ef-b9db-5f8b89adb010",
-      "@type": [
-        "CreativeWork",
-        "marin:AssessmentItem"
-      ],
-      "identifier": "q12-start-small",
-      "name": "Which action best reflects the guide's instruction to start \"even smaller\"?",
-      "text": "Which action best reflects the guide's instruction to start \"even smaller\"?",
-      "assesses": [
-        {
-          "@id": "urn:uuid:a16fc3d0-ddd2-5367-a850-3b74c8bf5bb9"
-        }
-      ],
-      "isBasedOn": [
-        {
-          "@id": "urn:uuid:f7b4bf70-363d-5867-8a97-70475de0c034"
-        }
-      ],
-      "marin:interactionType": "single-select",
-      "marin:options": {
-        "@type": "ItemList",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "item": {
-              "@id": "urn:uuid:35c16210-9d9c-5679-9d2f-7a85a4cd2d10"
-            }
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "item": {
-              "@id": "urn:uuid:5d507ec3-4724-5770-af10-7c6c3dc2d558"
-            }
-          },
-          {
-            "@type": "ListItem",
-            "position": 3,
-            "item": {
-              "@id": "urn:uuid:0bd90131-a0c7-5aa2-a20e-4d596e676324"
-            }
-          },
-          {
-            "@type": "ListItem",
-            "position": 4,
-            "item": {
-              "@id": "urn:uuid:61b1a680-223f-5abd-8b11-3a9d32b2b245"
-            }
-          }
-        ]
-      },
-      "marin:correctResponse": [
-        {
-          "@id": "urn:uuid:35c16210-9d9c-5679-9d2f-7a85a4cd2d10"
-        }
-      ],
-      "marin:hint": "Look for an action a department head can take at the very next meeting.",
-      "marin:explanation": "The immediate change is to require structured evidence for important decisions, not to start with a multi-million-dollar platform replacement.",
-      "marin:shuffleOptions": true
-    },
-    {
-      "@id": "urn:uuid:c2243335-1e85-5a43-bc7e-4239776d96a1",
-      "@type": [
-        "CreativeWork",
-        "marin:ResponseOption"
-      ],
-      "identifier": "q13-decision-check-a",
-      "text": "A clear statement of the decision and the service need.",
-      "marin:feedback": "Yes. Decision-makers need to know what action the facts are meant to support."
-    },
-    {
-      "@id": "urn:uuid:6369432a-ca99-5141-8b20-eddc58d6a855",
-      "@type": [
-        "CreativeWork",
-        "marin:ResponseOption"
-      ],
-      "identifier": "q13-decision-check-b",
-      "text": "Measures with definitions, time periods, and known limitations.",
-      "marin:feedback": "Yes. Without context and limitations, a number can mislead."
-    },
-    {
-      "@id": "urn:uuid:c457a552-7def-5dcc-9623-a84e78b4b0c1",
-      "@type": [
-        "CreativeWork",
-        "marin:ResponseOption"
-      ],
-      "identifier": "q13-decision-check-c",
-      "text": "A follow-up measure showing whether the change worked.",
-      "marin:feedback": "Yes. A decision should be reviewed against an observable result."
-    },
-    {
-      "@id": "urn:uuid:5da687fc-a633-5083-88c2-003ad89909ca",
-      "@type": [
-        "CreativeWork",
-        "marin:ResponseOption"
-      ],
-      "identifier": "q13-decision-check-d",
-      "text": "A persuasive anecdote presented as a substitute for operational records.",
-      "marin:feedback": "No. An anecdote may identify a question but should not replace the requested structured evidence."
-    },
-    {
-      "@id": "urn:uuid:f7aed995-6764-5ed7-bdbf-9a43f2e03ceb",
-      "@type": [
-        "CreativeWork",
-        "marin:AssessmentItem"
-      ],
-      "identifier": "q13-decision-check",
-      "name": "Before approving a substantial program expansion, which elements make an evidence-based request more useful? Select all that apply.",
-      "text": "Before approving a substantial program expansion, which elements make an evidence-based request more useful? Select all that apply.",
-      "assesses": [
-        {
-          "@id": "urn:uuid:a16fc3d0-ddd2-5367-a850-3b74c8bf5bb9"
-        }
-      ],
-      "isBasedOn": [
-        {
-          "@id": "urn:uuid:ef4dd81a-fe3b-5b85-9648-bd4075f2a61c"
-        }
-      ],
-      "marin:interactionType": "multiple-select",
-      "marin:options": {
-        "@type": "ItemList",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "item": {
-              "@id": "urn:uuid:c2243335-1e85-5a43-bc7e-4239776d96a1"
-            }
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "item": {
-              "@id": "urn:uuid:6369432a-ca99-5141-8b20-eddc58d6a855"
-            }
-          },
-          {
-            "@type": "ListItem",
-            "position": 3,
-            "item": {
-              "@id": "urn:uuid:c457a552-7def-5dcc-9623-a84e78b4b0c1"
-            }
-          },
-          {
-            "@type": "ListItem",
-            "position": 4,
-            "item": {
-              "@id": "urn:uuid:5da687fc-a633-5083-88c2-003ad89909ca"
-            }
-          }
-        ]
-      },
-      "marin:correctResponse": [
-        {
-          "@id": "urn:uuid:c2243335-1e85-5a43-bc7e-4239776d96a1"
-        },
-        {
-          "@id": "urn:uuid:6369432a-ca99-5141-8b20-eddc58d6a855"
-        },
-        {
-          "@id": "urn:uuid:c457a552-7def-5dcc-9623-a84e78b4b0c1"
-        }
-      ],
-      "marin:hint": "Think about the before, during, and after of a major decision.",
-      "marin:explanation": "The practical exercise asks for a defined decision, meaningful measures, quality limitations, alternatives, and a way to evaluate the result.",
-      "marin:shuffleOptions": true
-    },
-    {
-      "@id": "urn:uuid:f508870d-f283-5eb1-9a94-f7a526c2eda0",
-      "@type": [
-        "CreativeWork",
-        "marin:ResponseOption"
-      ],
-      "identifier": "true",
-      "text": "True",
-      "marin:feedback": "Choosing True treats a technology overhaul as a prerequisite, which the guide explicitly rejects."
-    },
-    {
-      "@id": "urn:uuid:650dd8cd-d5b7-586e-bce9-1fb6e06d8c0b",
-      "@type": [
-        "CreativeWork",
-        "marin:ResponseOption"
-      ],
-      "identifier": "false",
-      "text": "False",
-      "marin:feedback": "Choosing False follows the guide: change meeting habits and ask for better evidence before pursuing a sweeping overhaul."
-    },
-    {
-      "@id": "urn:uuid:cca55306-1760-5c43-8a44-ef4abc466e02",
-      "@type": [
-        "CreativeWork",
-        "marin:AssessmentItem"
-      ],
-      "identifier": "q14-technology",
-      "name": "A County must complete a multi-million-dollar technology overhaul before leaders can begin making data-driven decisions.",
-      "text": "A County must complete a multi-million-dollar technology overhaul before leaders can begin making data-driven decisions.",
-      "assesses": [
-        {
-          "@id": "urn:uuid:a16fc3d0-ddd2-5367-a850-3b74c8bf5bb9"
-        }
-      ],
-      "isBasedOn": [
-        {
-          "@id": "urn:uuid:f7b4bf70-363d-5867-8a97-70475de0c034"
-        }
-      ],
-      "marin:interactionType": "true-false",
-      "marin:options": {
-        "@type": "ItemList",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "item": {
-              "@id": "urn:uuid:f508870d-f283-5eb1-9a94-f7a526c2eda0"
-            }
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "item": {
-              "@id": "urn:uuid:650dd8cd-d5b7-586e-bce9-1fb6e06d8c0b"
-            }
-          }
-        ]
-      },
-      "marin:correctResponse": [
-        {
-          "@id": "urn:uuid:650dd8cd-d5b7-586e-bce9-1fb6e06d8c0b"
-        }
-      ],
-      "marin:hint": "Consider the size of the first step the author recommends.",
-      "marin:explanation": "The source advocates small executive habits rather than an immediate comprehensive technology project.",
-      "marin:shuffleOptions": false
-    },
-    {
-      "@id": "urn:uuid:85e4469c-a9f5-50cc-b235-3e783cc4f31b",
-      "@type": [
-        "CreativeWork",
-        "marin:ResponseOption"
-      ],
-      "identifier": "true",
-      "text": "True",
-      "marin:feedback": "Choosing True recognizes the guide's closing advice: reveal the imperfections and begin cleaning them up."
-    },
-    {
-      "@id": "urn:uuid:2ca7013d-5a42-5cda-961f-d74494c5b0c5",
-      "@type": [
-        "CreativeWork",
-        "marin:ResponseOption"
-      ],
-      "identifier": "false",
-      "text": "False",
-      "marin:feedback": "Choosing False assumes imperfect data must be hidden until fixed, contrary to the guide's advice to embrace the mess."
-    },
-    {
-      "@id": "urn:uuid:31affbc8-f8e8-5629-b1bf-9891dc530d43",
-      "@type": [
-        "CreativeWork",
-        "marin:AssessmentItem"
-      ],
-      "identifier": "q15-messy-data",
-      "name": "An imperfect first data extract can still be useful if leaders acknowledge its limitations and begin improving the quality.",
-      "text": "An imperfect first data extract can still be useful if leaders acknowledge its limitations and begin improving the quality.",
-      "assesses": [
-        {
-          "@id": "urn:uuid:c7ba39c4-4343-5040-98f1-4c1595cbfa04"
-        }
-      ],
-      "isBasedOn": [
-        {
-          "@id": "urn:uuid:f7b4bf70-363d-5867-8a97-70475de0c034"
-        }
-      ],
-      "marin:interactionType": "true-false",
-      "marin:options": {
-        "@type": "ItemList",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "item": {
-              "@id": "urn:uuid:85e4469c-a9f5-50cc-b235-3e783cc4f31b"
-            }
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "item": {
-              "@id": "urn:uuid:2ca7013d-5a42-5cda-961f-d74494c5b0c5"
-            }
-          }
-        ]
-      },
-      "marin:correctResponse": [
-        {
-          "@id": "urn:uuid:85e4469c-a9f5-50cc-b235-3e783cc4f31b"
-        }
-      ],
-      "marin:hint": "Think about how leaders should react when their first report contains errors.",
-      "marin:explanation": "The guide closes by treating messy data as the beginning of improvement, not proof that the effort has failed.",
-      "marin:shuffleOptions": false
-    },
-    {
-      "@id": "urn:uuid:e5a4f014-2d03-5cd7-8d22-96e9df2208de",
-      "@type": [
-        "CreativeWork",
-        "marin:ResponseOption"
-      ],
-      "identifier": "q16-first-month-a",
-      "text": "Clarify data definitions, assign responsibility for quality, and revisit a decision using the same measure.",
-      "marin:feedback": "Correct. Repeatable measures and clear operating responsibilities turn a one-time request into a management habit."
-    },
-    {
-      "@id": "urn:uuid:10703933-222f-514f-b38f-d95289e60e77",
-      "@type": [
-        "CreativeWork",
-        "marin:ResponseOption"
-      ],
-      "identifier": "q16-first-month-b",
-      "text": "Ask for a different, undocumented metric at every meeting.",
-      "marin:feedback": "Changing definitions unpredictably undermines comparison and accountability."
-    },
-    {
-      "@id": "urn:uuid:819a3144-7a65-5ae8-9cf0-3c008923e9d4",
-      "@type": [
-        "CreativeWork",
-        "marin:ResponseOption"
-      ],
-      "identifier": "q16-first-month-c",
-      "text": "Delegate all decisions to a dashboard without discussion of context.",
-      "marin:feedback": "The guide sees dashboards as tools for informed leadership, not automatic decision-makers."
-    },
-    {
-      "@id": "urn:uuid:59be4bf3-0d97-5978-b895-315f608e720f",
-      "@type": [
-        "CreativeWork",
-        "marin:ResponseOption"
-      ],
-      "identifier": "q16-first-month-d",
-      "text": "Stop asking questions when the first report contains mistakes.",
-      "marin:feedback": "The guide argues that the first messy report is the moment to begin improving data quality."
-    },
-    {
-      "@id": "urn:uuid:f5eb4337-b6c3-522f-82fe-1d3f213aec08",
-      "@type": [
-        "CreativeWork",
-        "marin:AssessmentItem"
-      ],
-      "identifier": "q16-first-month",
-      "name": "A director has started requesting operational evidence. What next step best makes that habit sustainable?",
-      "text": "A director has started requesting operational evidence. What next step best makes that habit sustainable?",
-      "assesses": [
-        {
-          "@id": "urn:uuid:a16fc3d0-ddd2-5367-a850-3b74c8bf5bb9"
-        }
-      ],
-      "isBasedOn": [
-        {
-          "@id": "urn:uuid:6d665171-bb55-5459-a819-478f2344c23e"
-        }
-      ],
-      "marin:interactionType": "single-select",
-      "marin:options": {
-        "@type": "ItemList",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "item": {
-              "@id": "urn:uuid:e5a4f014-2d03-5cd7-8d22-96e9df2208de"
-            }
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "item": {
-              "@id": "urn:uuid:10703933-222f-514f-b38f-d95289e60e77"
-            }
-          },
-          {
-            "@type": "ListItem",
-            "position": 3,
-            "item": {
-              "@id": "urn:uuid:819a3144-7a65-5ae8-9cf0-3c008923e9d4"
-            }
-          },
-          {
-            "@type": "ListItem",
-            "position": 4,
-            "item": {
-              "@id": "urn:uuid:59be4bf3-0d97-5978-b895-315f608e720f"
-            }
-          }
-        ]
-      },
-      "marin:correctResponse": [
-        {
-          "@id": "urn:uuid:e5a4f014-2d03-5cd7-8d22-96e9df2208de"
-        }
-      ],
-      "marin:hint": "Consider which steps make data work repeatable rather than performative.",
-      "marin:explanation": "The added first-month exercise emphasizes consistent measures, responsibility for data quality, constructive review, and follow-through.",
-      "marin:shuffleOptions": true
-    },
-    {
-      "@id": "urn:uuid:74d7f4be-df75-5d67-871e-3cbad3003103",
+      "@id": "urn:uuid:52b708a6-f4e2-5228-9f12-43ede814f2cb",
       "@type": [
         "marin:GradeScale"
       ],
-      "identifier": "leader-data-letter-grades",
-      "name": "Data leadership knowledge check",
+      "identifier": "data-101-grades",
+      "name": "Data 101 — quiz grades",
       "marin:gradeBands": [
         {
           "name": "A",
           "minPercent": 90,
-          "marin:message": "Excellent. You are ready to ask for evidence, protect the public trust, and make it safe to tell the truth."
+          "marin:message": "Excellent. You can ask good questions about data and explain why quality and sharing rules matter."
         },
         {
           "name": "B",
           "minPercent": 80,
-          "marin:message": "Strong work. Keep turning good questions into routine leadership habits."
+          "marin:message": "Strong work. Keep asking who owns the data and how good it is."
         },
         {
           "name": "C",
           "minPercent": 70,
-          "marin:message": "A sound start. Review the explanations and sharpen the link between data quality and decisions."
+          "marin:message": "A sound start. Read the explanations, then check the notes for the ones you missed."
         },
         {
           "name": "D",
           "minPercent": 60,
-          "marin:message": "The next meeting is an opportunity to improve. Revisit the stewardship and data-hygiene sections."
+          "marin:message": "Go back to the key terms and the do’s and don’ts in the notes, then try again."
         },
         {
           "name": "F",
           "minPercent": 0,
-          "marin:message": "Start smaller. Read the guide again, then ask what evidence you would need before making a decision."
+          "marin:message": "Start with the notes. Then take the quiz again."
         }
       ]
     },
     {
-      "@id": "urn:uuid:f4919e83-45e8-50be-b73c-826da1169141",
+      "@id": "urn:uuid:24b804a9-84ff-5d58-bd8b-7d4e1cf2a5a4",
+      "@type": [
+        "CreativeWork",
+        "marin:AssessmentItem"
+      ],
+      "identifier": "q01-why-it-matters",
+      "name": "What happens when government explains how it uses data?",
+      "text": "What happens when government explains how it uses data?",
+      "isBasedOn": [
+        {
+          "@id": "urn:uuid:0b9ea926-6d85-5be3-b845-cf76d0f5797e"
+        }
+      ],
+      "marin:interactionType": "single-select",
+      "marin:options": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:fed27dd2-9515-5702-8fe3-f8097789b4ce"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@id": "urn:uuid:7105f507-4e28-5017-ab1b-0639dc035702"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@id": "urn:uuid:fc70827c-d47f-5a18-8fd3-17ea407d0a93"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "item": {
+              "@id": "urn:uuid:2d808d6b-4267-5bdf-abb7-94c682564f52"
+            }
+          }
+        ]
+      },
+      "marin:correctResponse": [
+        {
+          "@id": "urn:uuid:7105f507-4e28-5017-ab1b-0639dc035702"
+        }
+      ],
+      "marin:hint": "Think about the public.",
+      "marin:explanation": "Why it matters says the public trusts government more when it explains how it uses data.",
+      "marin:shuffleOptions": true
+    },
+    {
+      "@id": "urn:uuid:fed27dd2-9515-5702-8fe3-f8097789b4ce",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q01-a",
+      "text": "Data quality improves by itself."
+    },
+    {
+      "@id": "urn:uuid:7105f507-4e28-5017-ab1b-0639dc035702",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q01-b",
+      "text": "The public trusts it more."
+    },
+    {
+      "@id": "urn:uuid:fc70827c-d47f-5a18-8fd3-17ea407d0a93",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q01-c",
+      "text": "Staff need less training."
+    },
+    {
+      "@id": "urn:uuid:2d808d6b-4267-5bdf-abb7-94c682564f52",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q01-d",
+      "text": "Fewer people use County services."
+    },
+    {
+      "@id": "urn:uuid:0f5b58fc-fe30-5fde-b01a-8a5c31844708",
+      "@type": [
+        "CreativeWork",
+        "marin:AssessmentItem"
+      ],
+      "identifier": "q02-problem",
+      "name": "Which problem often keeps teams from using data well?",
+      "text": "Which problem often keeps teams from using data well?",
+      "isBasedOn": [
+        {
+          "@id": "urn:uuid:b8a8140a-5ba8-540f-aa8f-50bb746770cc"
+        }
+      ],
+      "marin:interactionType": "single-select",
+      "marin:options": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:a7f613ac-d0b7-5008-a8a9-adcacbae721c"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@id": "urn:uuid:20ef03d2-774c-554a-a3be-93686f6433fd"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@id": "urn:uuid:cb080be3-f4ac-5005-b492-a75aec5b6c35"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "item": {
+              "@id": "urn:uuid:0c57f96b-24d7-5aa5-b577-03c2a77c87c3"
+            }
+          }
+        ]
+      },
+      "marin:correctResponse": [
+        {
+          "@id": "urn:uuid:a7f613ac-d0b7-5008-a8a9-adcacbae721c"
+        }
+      ],
+      "marin:hint": "Think about what happens when records are incomplete and owners are unclear.",
+      "marin:explanation": "The Problem section says many teams cannot find, trust, or share the data they need, so leaders decide with weak evidence.",
+      "marin:shuffleOptions": true
+    },
+    {
+      "@id": "urn:uuid:a7f613ac-d0b7-5008-a8a9-adcacbae721c",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q02-a",
+      "text": "They cannot find, trust, or share the data they need."
+    },
+    {
+      "@id": "urn:uuid:20ef03d2-774c-554a-a3be-93686f6433fd",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q02-b",
+      "text": "The County has more storage than it can use."
+    },
+    {
+      "@id": "urn:uuid:cb080be3-f4ac-5005-b492-a75aec5b6c35",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q02-c",
+      "text": "Residents do not want any data collected."
+    },
+    {
+      "@id": "urn:uuid:0c57f96b-24d7-5aa5-b577-03c2a77c87c3",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q02-d",
+      "text": "Staff share too much data with the public."
+    },
+    {
+      "@id": "urn:uuid:8b69b283-b43d-542e-bf88-aae0d22aa7c8",
+      "@type": [
+        "CreativeWork",
+        "marin:AssessmentItem"
+      ],
+      "identifier": "q03-solution",
+      "name": "Which action helps teams use data well?",
+      "text": "Which action helps teams use data well?",
+      "isBasedOn": [
+        {
+          "@id": "urn:uuid:172154a4-014c-51cd-84a5-10c99de8ce71"
+        }
+      ],
+      "marin:interactionType": "single-select",
+      "marin:options": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:474add53-b0b6-5874-80c9-c623906c3434"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@id": "urn:uuid:e2bb41f4-824e-50ce-8519-c2a890228acb"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@id": "urn:uuid:848557ea-df5a-5ff1-968a-c0f25371f744"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "item": {
+              "@id": "urn:uuid:14973e84-1891-5861-b18d-8d4e5f9b27f4"
+            }
+          }
+        ]
+      },
+      "marin:correctResponse": [
+        {
+          "@id": "urn:uuid:848557ea-df5a-5ff1-968a-c0f25371f744"
+        }
+      ],
+      "marin:hint": "The first step treats data as a shared asset.",
+      "marin:explanation": "The Solution section says to name an owner for each data set, check its quality, and share it under clear rules.",
+      "marin:shuffleOptions": true
+    },
+    {
+      "@id": "urn:uuid:474add53-b0b6-5874-80c9-c623906c3434",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q03-a",
+      "text": "Collect as much data as possible."
+    },
+    {
+      "@id": "urn:uuid:e2bb41f4-824e-50ce-8519-c2a890228acb",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q03-b",
+      "text": "Let each team choose its own format."
+    },
+    {
+      "@id": "urn:uuid:848557ea-df5a-5ff1-968a-c0f25371f744",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q03-c",
+      "text": "Name an owner for each data set."
+    },
+    {
+      "@id": "urn:uuid:14973e84-1891-5861-b18d-8d4e5f9b27f4",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q03-d",
+      "text": "Check data quality only after a problem appears."
+    },
+    {
+      "@id": "urn:uuid:f384539f-5999-5e1f-a777-149c34a317c3",
+      "@type": [
+        "CreativeWork",
+        "marin:AssessmentItem"
+      ],
+      "identifier": "q04-key-terms",
+      "name": "What does data quality describe?",
+      "text": "What does data quality describe?",
+      "isBasedOn": [
+        {
+          "@id": "urn:uuid:8a99b215-d589-5941-866d-49670e5a9a02"
+        }
+      ],
+      "marin:interactionType": "single-select",
+      "marin:options": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:11abf95c-ea2d-58c4-b783-cd0179be674c"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@id": "urn:uuid:ac072017-2ce5-5b1c-bfd2-2f7d0c8ba9dc"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@id": "urn:uuid:ff9a72bb-583a-5348-a080-212112d9b5ea"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "item": {
+              "@id": "urn:uuid:b81ded80-2af1-5458-b8e7-2b926e38c6ff"
+            }
+          }
+        ]
+      },
+      "marin:correctResponse": [
+        {
+          "@id": "urn:uuid:b81ded80-2af1-5458-b8e7-2b926e38c6ff"
+        }
+      ],
+      "marin:hint": "Quality is about fit for a purpose.",
+      "marin:explanation": "Key terms defines data quality as how well data fits its use. It can be complete, unique, consistent, timely, valid, and accurate.",
+      "marin:shuffleOptions": true
+    },
+    {
+      "@id": "urn:uuid:11abf95c-ea2d-58c4-b783-cd0179be674c",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q04-a",
+      "text": "How much data a system can store."
+    },
+    {
+      "@id": "urn:uuid:ac072017-2ce5-5b1c-bfd2-2f7d0c8ba9dc",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q04-b",
+      "text": "How fast data is collected."
+    },
+    {
+      "@id": "urn:uuid:ff9a72bb-583a-5348-a080-212112d9b5ea",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q04-c",
+      "text": "How many people can see the data."
+    },
+    {
+      "@id": "urn:uuid:b81ded80-2af1-5458-b8e7-2b926e38c6ff",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q04-d",
+      "text": "How well data fits its use."
+    },
+    {
+      "@id": "urn:uuid:4dde719b-c36f-57e1-bb68-0476aee53001",
+      "@type": [
+        "CreativeWork",
+        "marin:AssessmentItem"
+      ],
+      "identifier": "q05-key-terms",
+      "name": "Timeliness means the data is up to date when you need it.",
+      "text": "Timeliness means the data is up to date when you need it.",
+      "isBasedOn": [
+        {
+          "@id": "urn:uuid:8a99b215-d589-5941-866d-49670e5a9a02"
+        }
+      ],
+      "marin:interactionType": "true-false",
+      "marin:options": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:180946d7-4945-5b79-a71b-c9fcb42171c2"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@id": "urn:uuid:91c98699-ff94-5162-8a8a-f0cbb4e79ff3"
+            }
+          }
+        ]
+      },
+      "marin:correctResponse": [
+        {
+          "@id": "urn:uuid:180946d7-4945-5b79-a71b-c9fcb42171c2"
+        }
+      ],
+      "marin:hint": "Think about the word “timely.”",
+      "marin:explanation": "Key terms defines timeliness as data that is up to date when you need it.",
+      "marin:shuffleOptions": false
+    },
+    {
+      "@id": "urn:uuid:180946d7-4945-5b79-a71b-c9fcb42171c2",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "true",
+      "text": "True"
+    },
+    {
+      "@id": "urn:uuid:91c98699-ff94-5162-8a8a-f0cbb4e79ff3",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "false",
+      "text": "False"
+    },
+    {
+      "@id": "urn:uuid:b3a33502-f1b3-5a14-93d9-bb472b31f2be",
+      "@type": [
+        "CreativeWork",
+        "marin:AssessmentItem"
+      ],
+      "identifier": "q06-key-terms",
+      "name": "Which term means a written deal about sharing data?",
+      "text": "Which term means a written deal about sharing data?",
+      "isBasedOn": [
+        {
+          "@id": "urn:uuid:8a99b215-d589-5941-866d-49670e5a9a02"
+        }
+      ],
+      "marin:interactionType": "single-select",
+      "marin:options": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:e8227a30-15c0-5d5d-881b-a8d656599e37"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@id": "urn:uuid:1c82b575-30ba-5d38-8443-d0fa610defb5"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@id": "urn:uuid:885796c3-98a4-564c-8867-3743dede19a2"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "item": {
+              "@id": "urn:uuid:70d59e0e-bf3a-568a-9491-e3069aeb38d8"
+            }
+          }
+        ]
+      },
+      "marin:correctResponse": [
+        {
+          "@id": "urn:uuid:e8227a30-15c0-5d5d-881b-a8d656599e37"
+        }
+      ],
+      "marin:hint": "The answer is a written deal.",
+      "marin:explanation": "Key terms defines a data sharing agreement as a written deal on what data is shared, why, and how it is protected.",
+      "marin:shuffleOptions": true
+    },
+    {
+      "@id": "urn:uuid:e8227a30-15c0-5d5d-881b-a8d656599e37",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q06-a",
+      "text": "Data sharing agreement"
+    },
+    {
+      "@id": "urn:uuid:1c82b575-30ba-5d38-8443-d0fa610defb5",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q06-b",
+      "text": "Data standard"
+    },
+    {
+      "@id": "urn:uuid:885796c3-98a4-564c-8867-3743dede19a2",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q06-c",
+      "text": "Metadata"
+    },
+    {
+      "@id": "urn:uuid:70d59e0e-bf3a-568a-9491-e3069aeb38d8",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q06-d",
+      "text": "Data governance"
+    },
+    {
+      "@id": "urn:uuid:b4da8afb-3c39-53a5-a91b-275dc06a442e",
+      "@type": [
+        "CreativeWork",
+        "marin:AssessmentItem"
+      ],
+      "identifier": "q07-dos-and-donts",
+      "name": "A teammate wants to share personal data first and check the rules later. What should you do?",
+      "text": "A teammate wants to share personal data first and check the rules later. What should you do?",
+      "isBasedOn": [
+        {
+          "@id": "urn:uuid:972de44b-1c47-5ecb-a4eb-5069922d6392"
+        }
+      ],
+      "marin:interactionType": "single-select",
+      "marin:options": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:22959b5b-f932-58fd-974c-d9d8549d63e3"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@id": "urn:uuid:df3cc68d-c6cb-5ffc-aa52-706115ecb423"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@id": "urn:uuid:a778fdfc-0af8-5381-9bf8-8f0a70e1c0a9"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "item": {
+              "@id": "urn:uuid:10bdf193-5a72-537a-ac4d-bd3b09e7cde8"
+            }
+          }
+        ]
+      },
+      "marin:correctResponse": [
+        {
+          "@id": "urn:uuid:df3cc68d-c6cb-5ffc-aa52-706115ecb423"
+        }
+      ],
+      "marin:hint": "Think about who should be involved early.",
+      "marin:explanation": "Do’s and don’ts says to bring in privacy and legal staff early when sharing data, and not to share personal data first and check the rules later.",
+      "marin:shuffleOptions": true
+    },
+    {
+      "@id": "urn:uuid:22959b5b-f932-58fd-974c-d9d8549d63e3",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q07-a",
+      "text": "Agree, because speed matters most."
+    },
+    {
+      "@id": "urn:uuid:df3cc68d-c6cb-5ffc-aa52-706115ecb423",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q07-b",
+      "text": "Bring in privacy and legal staff early."
+    },
+    {
+      "@id": "urn:uuid:a778fdfc-0af8-5381-9bf8-8f0a70e1c0a9",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q07-c",
+      "text": "Share only half of the data."
+    },
+    {
+      "@id": "urn:uuid:10bdf193-5a72-537a-ac4d-bd3b09e7cde8",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q07-d",
+      "text": "Ask the vendor to decide."
+    },
+    {
+      "@id": "urn:uuid:cb6092c8-c83c-57d5-a162-91d35400a2a4",
+      "@type": [
+        "CreativeWork",
+        "marin:AssessmentItem"
+      ],
+      "identifier": "q08-dos-and-donts",
+      "name": "It is a good idea to keep data just in case it might be useful.",
+      "text": "It is a good idea to keep data just in case it might be useful.",
+      "isBasedOn": [
+        {
+          "@id": "urn:uuid:972de44b-1c47-5ecb-a4eb-5069922d6392"
+        }
+      ],
+      "marin:interactionType": "true-false",
+      "marin:options": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:5b891be1-343e-51b6-ac29-a5bf3a230b07"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@id": "urn:uuid:b84b804b-f5a5-5117-9e9d-f289891488a2"
+            }
+          }
+        ]
+      },
+      "marin:correctResponse": [
+        {
+          "@id": "urn:uuid:b84b804b-f5a5-5117-9e9d-f289891488a2"
+        }
+      ],
+      "marin:hint": "Think about collecting only what you need.",
+      "marin:explanation": "Do’s and don’ts says to collect only the data you need for a clear purpose, and not to keep data just in case.",
+      "marin:shuffleOptions": false
+    },
+    {
+      "@id": "urn:uuid:5b891be1-343e-51b6-ac29-a5bf3a230b07",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "true",
+      "text": "True"
+    },
+    {
+      "@id": "urn:uuid:b84b804b-f5a5-5117-9e9d-f289891488a2",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "false",
+      "text": "False"
+    },
+    {
+      "@id": "urn:uuid:5d47a9b6-f03a-54c3-b6d3-190e64d8bb4f",
+      "@type": [
+        "CreativeWork",
+        "marin:AssessmentItem"
+      ],
+      "identifier": "q09-questions",
+      "name": "Which is a good question to ask about data before a decision?",
+      "text": "Which is a good question to ask about data before a decision?",
+      "isBasedOn": [
+        {
+          "@id": "urn:uuid:91b784ba-cfb6-59e5-8b74-fcf4723df03a"
+        }
+      ],
+      "marin:interactionType": "single-select",
+      "marin:options": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:015cc586-7b3d-5e95-b37a-175095f226a6"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@id": "urn:uuid:b0672eba-7dad-5bf5-b3ae-4b0f63409204"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@id": "urn:uuid:c34b319d-9fa6-5628-abe7-038a60feed3d"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "item": {
+              "@id": "urn:uuid:2d839288-a1aa-599e-9ca8-127c5bc3a401"
+            }
+          }
+        ]
+      },
+      "marin:correctResponse": [
+        {
+          "@id": "urn:uuid:c34b319d-9fa6-5628-abe7-038a60feed3d"
+        }
+      ],
+      "marin:hint": "Think about ownership, quality, and gaps.",
+      "marin:explanation": "Questions to ask includes how complete, accurate, and up to date the data is.",
+      "marin:shuffleOptions": true
+    },
+    {
+      "@id": "urn:uuid:015cc586-7b3d-5e95-b37a-175095f226a6",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q09-a",
+      "text": "Which chart color looks best?"
+    },
+    {
+      "@id": "urn:uuid:b0672eba-7dad-5bf5-b3ae-4b0f63409204",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q09-b",
+      "text": "Can we skip checking the data this time?"
+    },
+    {
+      "@id": "urn:uuid:c34b319d-9fa6-5628-abe7-038a60feed3d",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q09-c",
+      "text": "How complete, accurate, and up to date is it?"
+    },
+    {
+      "@id": "urn:uuid:2d839288-a1aa-599e-9ca8-127c5bc3a401",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q09-d",
+      "text": "How long is the report?"
+    },
+    {
+      "@id": "urn:uuid:09e09e04-5497-5f8a-b792-b385bcf957fa",
+      "@type": [
+        "CreativeWork",
+        "marin:AssessmentItem"
+      ],
+      "identifier": "q10-checklist",
+      "name": "What should you know before you rely on a data set?",
+      "text": "What should you know before you rely on a data set?",
+      "isBasedOn": [
+        {
+          "@id": "urn:uuid:e8ef1e6b-d70a-5e5d-a3b0-0a6fe1d7804e"
+        }
+      ],
+      "marin:interactionType": "single-select",
+      "marin:options": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:14f9fc02-93bc-5f52-b86e-45708765d77f"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@id": "urn:uuid:55589dc5-f54a-5b3b-a159-dbe00662221c"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@id": "urn:uuid:9307b51b-d751-550d-9400-cbf06459b9a8"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "item": {
+              "@id": "urn:uuid:1e512128-ddb3-5732-9a9a-75183a98f446"
+            }
+          }
+        ]
+      },
+      "marin:correctResponse": [
+        {
+          "@id": "urn:uuid:1e512128-ddb3-5732-9a9a-75183a98f446"
+        }
+      ],
+      "marin:hint": "Think about who is responsible for it.",
+      "marin:explanation": "The Checklist includes “I know who owns the data.”",
+      "marin:shuffleOptions": true
+    },
+    {
+      "@id": "urn:uuid:14f9fc02-93bc-5f52-b86e-45708765d77f",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q10-a",
+      "text": "How many copies exist."
+    },
+    {
+      "@id": "urn:uuid:55589dc5-f54a-5b3b-a159-dbe00662221c",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q10-b",
+      "text": "Which report is the longest."
+    },
+    {
+      "@id": "urn:uuid:9307b51b-d751-550d-9400-cbf06459b9a8",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q10-c",
+      "text": "Who shared it last."
+    },
+    {
+      "@id": "urn:uuid:1e512128-ddb3-5732-9a9a-75183a98f446",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q10-d",
+      "text": "Who owns it."
+    },
+    {
+      "@id": "urn:uuid:c8eb679a-d515-5fb3-821a-48b28a9488d0",
       "@type": [
         "LearningResource",
         "marin:Assessment"
       ],
-      "identifier": "county-data-leadership-quiz",
-      "name": "Data leadership knowledge check",
+      "identifier": "data-101-quiz",
+      "name": "Data 101 — quiz",
       "abstract": "Ten questions to check what you learned about data.",
       "learningResourceType": "quiz",
       "educationalUse": [
@@ -2521,7 +1704,7 @@
       "interactivityType": "active",
       "isBasedOn": [
         {
-          "@id": "urn:uuid:3713efe2-ff84-5bd6-a171-b1a751072b79"
+          "@id": "urn:uuid:99082841-f17f-52cb-b282-67d2971dc4f0"
         }
       ],
       "marin:itemSequence": {
@@ -2531,7 +1714,7 @@
             "@type": "ListItem",
             "position": 1,
             "item": {
-              "@id": "urn:uuid:389dcc3c-a3e9-58a3-abbb-465ad31974fa"
+              "@id": "urn:uuid:24b804a9-84ff-5d58-bd8b-7d4e1cf2a5a4"
             },
             "marin:weight": 1
           },
@@ -2539,7 +1722,7 @@
             "@type": "ListItem",
             "position": 2,
             "item": {
-              "@id": "urn:uuid:d45267d4-f0e7-571c-9c64-989b0723fb1e"
+              "@id": "urn:uuid:0f5b58fc-fe30-5fde-b01a-8a5c31844708"
             },
             "marin:weight": 1
           },
@@ -2547,23 +1730,23 @@
             "@type": "ListItem",
             "position": 3,
             "item": {
-              "@id": "urn:uuid:3c489b83-97c4-52c9-a489-209214334bce"
+              "@id": "urn:uuid:8b69b283-b43d-542e-bf88-aae0d22aa7c8"
             },
-            "marin:weight": 2
+            "marin:weight": 1
           },
           {
             "@type": "ListItem",
             "position": 4,
             "item": {
-              "@id": "urn:uuid:52557ddb-8a7a-5f3c-81f0-5830d5b4c703"
+              "@id": "urn:uuid:f384539f-5999-5e1f-a777-149c34a317c3"
             },
-            "marin:weight": 2
+            "marin:weight": 1
           },
           {
             "@type": "ListItem",
             "position": 5,
             "item": {
-              "@id": "urn:uuid:c6d7dd99-83b8-5ca3-979c-569f156f7e8d"
+              "@id": "urn:uuid:4dde719b-c36f-57e1-bb68-0476aee53001"
             },
             "marin:weight": 1
           },
@@ -2571,7 +1754,7 @@
             "@type": "ListItem",
             "position": 6,
             "item": {
-              "@id": "urn:uuid:69aec9d8-4785-5db4-a293-57c31e8b257f"
+              "@id": "urn:uuid:b3a33502-f1b3-5a14-93d9-bb472b31f2be"
             },
             "marin:weight": 1
           },
@@ -2579,23 +1762,23 @@
             "@type": "ListItem",
             "position": 7,
             "item": {
-              "@id": "urn:uuid:e9bd4a2d-a72c-5c89-830b-9cedc88ef247"
+              "@id": "urn:uuid:b4da8afb-3c39-53a5-a91b-275dc06a442e"
             },
-            "marin:weight": 2
+            "marin:weight": 1
           },
           {
             "@type": "ListItem",
             "position": 8,
             "item": {
-              "@id": "urn:uuid:75385869-c9c8-5891-b3c3-24bf37a545d0"
+              "@id": "urn:uuid:cb6092c8-c83c-57d5-a162-91d35400a2a4"
             },
-            "marin:weight": 2
+            "marin:weight": 1
           },
           {
             "@type": "ListItem",
             "position": 9,
             "item": {
-              "@id": "urn:uuid:4db87aaf-9ad4-5659-b7a0-93d14e22d992"
+              "@id": "urn:uuid:5d47a9b6-f03a-54c3-b6d3-190e64d8bb4f"
             },
             "marin:weight": 1
           },
@@ -2603,70 +1786,21 @@
             "@type": "ListItem",
             "position": 10,
             "item": {
-              "@id": "urn:uuid:561de2f3-7312-5bb2-8ad7-c217413ca845"
-            },
-            "marin:weight": 2
-          },
-          {
-            "@type": "ListItem",
-            "position": 11,
-            "item": {
-              "@id": "urn:uuid:1588a85f-0269-58e8-9848-3af5bba54270"
-            },
-            "marin:weight": 2
-          },
-          {
-            "@type": "ListItem",
-            "position": 12,
-            "item": {
-              "@id": "urn:uuid:c27cb2e4-d3ca-51ef-b9db-5f8b89adb010"
+              "@id": "urn:uuid:09e09e04-5497-5f8a-b792-b385bcf957fa"
             },
             "marin:weight": 1
-          },
-          {
-            "@type": "ListItem",
-            "position": 13,
-            "item": {
-              "@id": "urn:uuid:f7aed995-6764-5ed7-bdbf-9a43f2e03ceb"
-            },
-            "marin:weight": 2
-          },
-          {
-            "@type": "ListItem",
-            "position": 14,
-            "item": {
-              "@id": "urn:uuid:cca55306-1760-5c43-8a44-ef4abc466e02"
-            },
-            "marin:weight": 1
-          },
-          {
-            "@type": "ListItem",
-            "position": 15,
-            "item": {
-              "@id": "urn:uuid:31affbc8-f8e8-5629-b1bf-9891dc530d43"
-            },
-            "marin:weight": 1
-          },
-          {
-            "@type": "ListItem",
-            "position": 16,
-            "item": {
-              "@id": "urn:uuid:f5eb4337-b6c3-522f-82fe-1d3f213aec08"
-            },
-            "marin:weight": 2
           }
         ]
       },
       "marin:selectionPolicy": {
-        "mode": "random",
-        "count": 10,
+        "mode": "all",
         "shuffle": true
       },
       "marin:scoringPolicy": {
         "method": "weighted-sum",
         "passingPercent": 70,
         "gradeScale": {
-          "@id": "urn:uuid:74d7f4be-df75-5d67-871e-3cbad3003103"
+          "@id": "urn:uuid:52b708a6-f4e2-5228-9f12-43ede814f2cb"
         }
       },
       "marin:feedbackPolicy": {
@@ -2677,26 +1811,24 @@
       }
     },
     {
-      "@id": "urn:uuid:193e1d39-d236-5ccf-97bd-11c14595e15a",
+      "@id": "urn:uuid:e9d0e196-4614-5978-86bb-6a4ba0fc02a0",
       "@type": [
         "CreativeWork",
         "marin:Slide"
       ],
-      "identifier": "slide-title",
+      "identifier": "data-101-notes-slide-01",
       "name": "Data 101",
-      "marin:layout": "title",
-      "marin:speakerNotes": "Open by asking: When was the last time a County decision changed because a leader asked to see the underlying facts?"
+      "marin:layout": "title"
     },
     {
-      "@id": "urn:uuid:810adec2-ba53-5b11-b50b-91066b973507",
+      "@id": "urn:uuid:6a921a1d-a6ac-53af-b30b-d19e80bb8ab3",
       "@type": [
         "CreativeWork",
         "marin:Slide"
       ],
-      "identifier": "slide-decisions",
-      "name": "Data is a leadership issue",
+      "identifier": "data-101-notes-slide-02",
+      "name": "Overview",
       "marin:layout": "content",
-      "marin:speakerNotes": "Keep this about public administration, not software procurement. Files and data are different ways of making information usable.",
       "marin:contentSequence": {
         "@type": "ItemList",
         "itemListElement": [
@@ -2704,23 +1836,76 @@
             "@type": "ListItem",
             "position": 1,
             "item": {
-              "@id": "urn:uuid:527b26a7-f4d0-55fd-bfbb-0b06552267c3"
+              "@id": "urn:uuid:6012b013-a6b7-565f-9667-7a686f66e80b"
             },
-            "marin:displayMode": "abstract"
+            "marin:displayMode": "full"
           }
         ]
       }
     },
     {
-      "@id": "urn:uuid:a6295366-688e-5f6a-a7fd-f492748fe01d",
+      "@id": "urn:uuid:41bbd098-3ad3-5ed7-8434-0661157eaa7b",
       "@type": [
         "CreativeWork",
         "marin:Slide"
       ],
-      "identifier": "slide-files-facts",
-      "name": "Files preserve records. Data reveals patterns.",
+      "identifier": "data-101-notes-slide-03",
+      "name": "Why it matters (1 of 2)",
+      "marin:layout": "content",
+      "marin:contentSequence": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:0b9ea926-6d85-5be3-b845-cf76d0f5797e"
+            },
+            "marin:displayMode": "full",
+            "marin:itemRange": {
+              "first": 1,
+              "last": 3
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@id": "urn:uuid:d780a4a2-51d9-5fdf-8c1e-d10bb2ac4e21",
+      "@type": [
+        "CreativeWork",
+        "marin:Slide"
+      ],
+      "identifier": "data-101-notes-slide-04",
+      "name": "Why it matters (2 of 2)",
+      "marin:layout": "content",
+      "marin:contentSequence": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:0b9ea926-6d85-5be3-b845-cf76d0f5797e"
+            },
+            "marin:displayMode": "full",
+            "marin:itemRange": {
+              "first": 4,
+              "last": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@id": "urn:uuid:49a34c40-2b10-5401-a0aa-d2f3e866a87b",
+      "@type": [
+        "CreativeWork",
+        "marin:Slide"
+      ],
+      "identifier": "data-101-notes-slide-05",
+      "name": "Problem and solution",
       "marin:layout": "split",
-      "marin:speakerNotes": "Contrast static documents with individual measurable facts. Use a pothole location or dispatch timestamp as an example.",
       "marin:contentSequence": {
         "@type": "ItemList",
         "itemListElement": [
@@ -2728,31 +1913,30 @@
             "@type": "ListItem",
             "position": 1,
             "item": {
-              "@id": "urn:uuid:527b26a7-f4d0-55fd-bfbb-0b06552267c3"
+              "@id": "urn:uuid:b8a8140a-5ba8-540f-aa8f-50bb746770cc"
             },
-            "marin:displayMode": "abstract"
+            "marin:displayMode": "full"
           },
           {
             "@type": "ListItem",
             "position": 2,
             "item": {
-              "@id": "urn:uuid:6cfb870f-a230-51e9-be5e-4752de1d7f40"
+              "@id": "urn:uuid:172154a4-014c-51cd-84a5-10c99de8ce71"
             },
-            "marin:displayMode": "title"
+            "marin:displayMode": "full"
           }
         ]
       }
     },
     {
-      "@id": "urn:uuid:90d31b34-4d62-5c0e-99b8-5fd37425faa5",
+      "@id": "urn:uuid:f43ecc38-2105-5d1a-977d-1a17f516ea28",
       "@type": [
         "CreativeWork",
         "marin:Slide"
       ],
-      "identifier": "slide-trust",
-      "name": "Use the asset. Protect the people.",
+      "identifier": "data-101-notes-slide-06",
+      "name": "User stories",
       "marin:layout": "content",
-      "marin:speakerNotes": "The guide frames data stewardship as a two-sided public obligation. Secure collaboration and privacy safeguards are not competing priorities.",
       "marin:contentSequence": {
         "@type": "ItemList",
         "itemListElement": [
@@ -2760,55 +1944,22 @@
             "@type": "ListItem",
             "position": 1,
             "item": {
-              "@id": "urn:uuid:7d278c68-d2b5-5164-895b-83c9cfd6fdcc"
+              "@id": "urn:uuid:ef3538d9-eee2-5dc6-a8cd-8522ecfee7ef"
             },
-            "marin:displayMode": "abstract"
+            "marin:displayMode": "full"
           }
         ]
       }
     },
     {
-      "@id": "urn:uuid:55723ca0-34fc-5623-94a3-20dbd6b3827d",
+      "@id": "urn:uuid:5402fd19-fd30-5bbd-93ab-d06d79ee4657",
       "@type": [
         "CreativeWork",
         "marin:Slide"
       ],
-      "identifier": "slide-systems",
-      "name": "From entry to insight",
-      "marin:layout": "split",
-      "marin:speakerNotes": "Transactional systems capture events; analytical views help interpret many events. Do not imply a dashboard improves bad inputs on its own.",
-      "marin:contentSequence": {
-        "@type": "ItemList",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "item": {
-              "@id": "urn:uuid:6cfb870f-a230-51e9-be5e-4752de1d7f40"
-            },
-            "marin:displayMode": "abstract"
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "item": {
-              "@id": "urn:uuid:527b26a7-f4d0-55fd-bfbb-0b06552267c3"
-            },
-            "marin:displayMode": "title"
-          }
-        ]
-      }
-    },
-    {
-      "@id": "urn:uuid:8381fa94-088a-5f0a-85b9-8cfd8402b068",
-      "@type": [
-        "CreativeWork",
-        "marin:Slide"
-      ],
-      "identifier": "slide-quality",
-      "name": "Garbage in, garbage out",
+      "identifier": "data-101-notes-slide-07",
+      "name": "Key terms (1 of 3)",
       "marin:layout": "content",
-      "marin:speakerNotes": "Ask participants whether two programs use the same definitions for the measures on their dashboards.",
       "marin:contentSequence": {
         "@type": "ItemList",
         "itemListElement": [
@@ -2816,23 +1967,26 @@
             "@type": "ListItem",
             "position": 1,
             "item": {
-              "@id": "urn:uuid:6cfb870f-a230-51e9-be5e-4752de1d7f40"
+              "@id": "urn:uuid:8a99b215-d589-5941-866d-49670e5a9a02"
             },
-            "marin:displayMode": "abstract"
+            "marin:displayMode": "full",
+            "marin:itemRange": {
+              "first": 1,
+              "last": 3
+            }
           }
         ]
       }
     },
     {
-      "@id": "urn:uuid:524d2144-f03a-52a2-8dfe-e6017b6be11b",
+      "@id": "urn:uuid:81758b2c-ef5a-508e-ba68-a35df14d0b09",
       "@type": [
         "CreativeWork",
         "marin:Slide"
       ],
-      "identifier": "slide-culture",
-      "name": "Reward the uncomfortable truth",
+      "identifier": "data-101-notes-slide-08",
+      "name": "Key terms (2 of 3)",
       "marin:layout": "content",
-      "marin:speakerNotes": "When a metric is missed, the initial response determines whether staff will report the next problem. Transparency is a precondition for improvement.",
       "marin:contentSequence": {
         "@type": "ItemList",
         "itemListElement": [
@@ -2840,34 +1994,26 @@
             "@type": "ListItem",
             "position": 1,
             "item": {
-              "@id": "urn:uuid:765ab5a7-bb89-5c53-ae2b-d58939961aeb"
+              "@id": "urn:uuid:8a99b215-d589-5941-866d-49670e5a9a02"
             },
-            "marin:displayMode": "abstract"
+            "marin:displayMode": "full",
+            "marin:itemRange": {
+              "first": 4,
+              "last": 6
+            }
           }
         ]
       }
     },
     {
-      "@id": "urn:uuid:5d89b4df-6fc2-5c4a-93be-f2ac1f0eb8f2",
+      "@id": "urn:uuid:0ce3adc9-8060-5945-bfde-e9c5a39c69c2",
       "@type": [
         "CreativeWork",
         "marin:Slide"
       ],
-      "identifier": "slide-show-me",
-      "name": "Show me the data",
-      "marin:layout": "section",
-      "marin:speakerNotes": "Use the guide's central management question: “Show me the data that leads you to that conclusion.” Ask for interpretation, not only a chart."
-    },
-    {
-      "@id": "urn:uuid:95f11130-cfe2-5b4e-9fdd-35fecade29f0",
-      "@type": [
-        "CreativeWork",
-        "marin:Slide"
-      ],
-      "identifier": "slide-roles",
-      "name": "Builders, interpreters, stewards",
+      "identifier": "data-101-notes-slide-09",
+      "name": "Key terms (3 of 3)",
       "marin:layout": "content",
-      "marin:speakerNotes": "Separate specialist engineering work from ongoing interpretation and daily data quality. The source suggests contractors or specialists for an initial build, internal analysts, and existing staff as stewards.",
       "marin:contentSequence": {
         "@type": "ItemList",
         "itemListElement": [
@@ -2875,23 +2021,26 @@
             "@type": "ListItem",
             "position": 1,
             "item": {
-              "@id": "urn:uuid:3fd98df5-6e4b-51d3-a231-369303d9882a"
+              "@id": "urn:uuid:8a99b215-d589-5941-866d-49670e5a9a02"
             },
-            "marin:displayMode": "abstract"
+            "marin:displayMode": "full",
+            "marin:itemRange": {
+              "first": 7,
+              "last": 9
+            }
           }
         ]
       }
     },
     {
-      "@id": "urn:uuid:6946a655-5068-5193-8d57-fa799eb835c4",
+      "@id": "urn:uuid:aee09ae7-5c18-5163-84ae-49472675995e",
       "@type": [
         "CreativeWork",
         "marin:Slide"
       ],
-      "identifier": "slide-small",
-      "name": "Start even smaller",
+      "identifier": "data-101-notes-slide-10",
+      "name": "Do’s and don’ts (1 of 3)",
       "marin:layout": "content",
-      "marin:speakerNotes": "The guide recommends changing a meeting agenda and the evidence expected with major requests before seeking an expansive platform build.",
       "marin:contentSequence": {
         "@type": "ItemList",
         "itemListElement": [
@@ -2899,23 +2048,26 @@
             "@type": "ListItem",
             "position": 1,
             "item": {
-              "@id": "urn:uuid:f7b4bf70-363d-5867-8a97-70475de0c034"
+              "@id": "urn:uuid:972de44b-1c47-5ecb-a4eb-5069922d6392"
             },
-            "marin:displayMode": "abstract"
+            "marin:displayMode": "full",
+            "marin:itemRange": {
+              "first": 1,
+              "last": 2
+            }
           }
         ]
       }
     },
     {
-      "@id": "urn:uuid:8e0b52b7-0a7b-503a-a56f-78d81ab1ad77",
+      "@id": "urn:uuid:3a0a2331-95e8-5163-8786-f3e6ed39963e",
       "@type": [
         "CreativeWork",
         "marin:Slide"
       ],
-      "identifier": "slide-decision",
-      "name": "Put the next decision to the test",
+      "identifier": "data-101-notes-slide-11",
+      "name": "Do’s and don’ts (2 of 3)",
       "marin:layout": "content",
-      "marin:speakerNotes": "Invite learners to name one pending decision and the facts needed to defend it. Discuss definitions, privacy, and alternative courses.",
       "marin:contentSequence": {
         "@type": "ItemList",
         "itemListElement": [
@@ -2923,23 +2075,26 @@
             "@type": "ListItem",
             "position": 1,
             "item": {
-              "@id": "urn:uuid:ef4dd81a-fe3b-5b85-9648-bd4075f2a61c"
+              "@id": "urn:uuid:972de44b-1c47-5ecb-a4eb-5069922d6392"
             },
-            "marin:displayMode": "abstract"
+            "marin:displayMode": "full",
+            "marin:itemRange": {
+              "first": 3,
+              "last": 4
+            }
           }
         ]
       }
     },
     {
-      "@id": "urn:uuid:e974e1ec-b862-50d0-b9d0-413aa3e2c673",
+      "@id": "urn:uuid:e5b2d91c-b8dc-5bba-b583-c61014344589",
       "@type": [
         "CreativeWork",
         "marin:Slide"
       ],
-      "identifier": "slide-month",
-      "name": "Make it a habit",
+      "identifier": "data-101-notes-slide-12",
+      "name": "Do’s and don’ts (3 of 3)",
       "marin:layout": "content",
-      "marin:speakerNotes": "This is an illustrative practice plan added for the learning package, not a County-adopted policy or schedule.",
       "marin:contentSequence": {
         "@type": "ItemList",
         "itemListElement": [
@@ -2947,132 +2102,105 @@
             "@type": "ListItem",
             "position": 1,
             "item": {
-              "@id": "urn:uuid:6d665171-bb55-5459-a819-478f2344c23e"
+              "@id": "urn:uuid:972de44b-1c47-5ecb-a4eb-5069922d6392"
             },
-            "marin:displayMode": "abstract"
+            "marin:displayMode": "full",
+            "marin:itemRange": {
+              "first": 5,
+              "last": 6
+            }
           }
         ]
       }
     },
     {
-      "@id": "urn:uuid:cce139fa-b822-558f-aabd-100c9d2cd1d0",
+      "@id": "urn:uuid:7378bedd-91e2-5d2e-bea6-baf3b5b54401",
       "@type": [
         "CreativeWork",
         "marin:Slide"
       ],
-      "identifier": "slide-close",
-      "name": "Embrace the mess. Then improve it.",
-      "marin:layout": "section",
-      "marin:speakerNotes": "Close by reminding leaders that incomplete first data extracts are not proof of failure. Start cleaning one fact at a time."
-    },
-    {
-      "@id": "urn:uuid:4014045a-9dac-5bf0-afad-de47d5b7a64c",
-      "@type": [
-        "PresentationDigitalDocument",
-        "marin:Presentation"
-      ],
-      "identifier": "county-data-leadership-slides",
-      "name": "Data 101 — slide deck",
-      "abstract": "Slides for leadership talks about data, trust, and skills.",
-      "learningResourceType": "presentation",
-      "isBasedOn": [
-        {
-          "@id": "urn:uuid:3713efe2-ff84-5bd6-a171-b1a751072b79"
-        }
-      ],
-      "marin:slideSequence": {
+      "identifier": "data-101-notes-slide-13",
+      "name": "Questions to ask",
+      "marin:layout": "content",
+      "marin:contentSequence": {
         "@type": "ItemList",
         "itemListElement": [
           {
             "@type": "ListItem",
             "position": 1,
             "item": {
-              "@id": "urn:uuid:193e1d39-d236-5ccf-97bd-11c14595e15a"
-            }
-          },
+              "@id": "urn:uuid:91b784ba-cfb6-59e5-8b74-fcf4723df03a"
+            },
+            "marin:displayMode": "full"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "urn:uuid:f716edb7-0eb6-5058-aa6a-8a64f4742606",
+      "@type": [
+        "CreativeWork",
+        "marin:Slide"
+      ],
+      "identifier": "data-101-notes-slide-14",
+      "name": "Checklist",
+      "marin:layout": "content",
+      "marin:contentSequence": {
+        "@type": "ItemList",
+        "itemListElement": [
           {
             "@type": "ListItem",
-            "position": 2,
+            "position": 1,
             "item": {
-              "@id": "urn:uuid:810adec2-ba53-5b11-b50b-91066b973507"
-            }
-          },
+              "@id": "urn:uuid:e8ef1e6b-d70a-5e5d-a3b0-0a6fe1d7804e"
+            },
+            "marin:displayMode": "full"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "urn:uuid:d2d8c774-d28d-536b-9408-922e7f228042",
+      "@type": [
+        "CreativeWork",
+        "marin:Slide"
+      ],
+      "identifier": "data-101-notes-slide-15",
+      "name": "Mantras",
+      "marin:layout": "content",
+      "marin:contentSequence": {
+        "@type": "ItemList",
+        "itemListElement": [
           {
             "@type": "ListItem",
-            "position": 3,
+            "position": 1,
             "item": {
-              "@id": "urn:uuid:a6295366-688e-5f6a-a7fd-f492748fe01d"
-            }
-          },
+              "@id": "urn:uuid:6d6552cb-ec26-5ee2-9395-3a0ddff4026e"
+            },
+            "marin:displayMode": "full"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "urn:uuid:995a2787-eaf5-5b60-8499-225cef86cebe",
+      "@type": [
+        "CreativeWork",
+        "marin:Slide"
+      ],
+      "identifier": "data-101-notes-slide-16",
+      "name": "Sources",
+      "marin:layout": "content",
+      "marin:contentSequence": {
+        "@type": "ItemList",
+        "itemListElement": [
           {
             "@type": "ListItem",
-            "position": 4,
+            "position": 1,
             "item": {
-              "@id": "urn:uuid:90d31b34-4d62-5c0e-99b8-5fd37425faa5"
-            }
-          },
-          {
-            "@type": "ListItem",
-            "position": 5,
-            "item": {
-              "@id": "urn:uuid:55723ca0-34fc-5623-94a3-20dbd6b3827d"
-            }
-          },
-          {
-            "@type": "ListItem",
-            "position": 6,
-            "item": {
-              "@id": "urn:uuid:8381fa94-088a-5f0a-85b9-8cfd8402b068"
-            }
-          },
-          {
-            "@type": "ListItem",
-            "position": 7,
-            "item": {
-              "@id": "urn:uuid:524d2144-f03a-52a2-8dfe-e6017b6be11b"
-            }
-          },
-          {
-            "@type": "ListItem",
-            "position": 8,
-            "item": {
-              "@id": "urn:uuid:5d89b4df-6fc2-5c4a-93be-f2ac1f0eb8f2"
-            }
-          },
-          {
-            "@type": "ListItem",
-            "position": 9,
-            "item": {
-              "@id": "urn:uuid:95f11130-cfe2-5b4e-9fdd-35fecade29f0"
-            }
-          },
-          {
-            "@type": "ListItem",
-            "position": 10,
-            "item": {
-              "@id": "urn:uuid:6946a655-5068-5193-8d57-fa799eb835c4"
-            }
-          },
-          {
-            "@type": "ListItem",
-            "position": 11,
-            "item": {
-              "@id": "urn:uuid:8e0b52b7-0a7b-503a-a56f-78d81ab1ad77"
-            }
-          },
-          {
-            "@type": "ListItem",
-            "position": 12,
-            "item": {
-              "@id": "urn:uuid:e974e1ec-b862-50d0-b9d0-413aa3e2c673"
-            }
-          },
-          {
-            "@type": "ListItem",
-            "position": 13,
-            "item": {
-              "@id": "urn:uuid:cce139fa-b822-558f-aabd-100c9d2cd1d0"
-            }
+              "@id": "urn:uuid:41d570ef-80e4-5fdf-be3a-bf3d9eae6357"
+            },
+            "marin:displayMode": "full"
           }
         ]
       }

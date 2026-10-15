@@ -1,4 +1,5 @@
-import { MAX_SECTION_DEPTH, TYPES, TYPE_LABELS } from './constants.js';
+import { MAX_QUIZ_QUESTIONS, MAX_SECTION_DEPTH, NOTE_ABSTRACT_MAX, NOTE_TARGET_GRADE, NOTE_SECTIONS, NOTE_TITLE_MAX, TYPES, TYPE_LABELS } from './constants.js';
+import { characterCount, lintNote, readingGrade } from './note.js';
 import { validateAssetBytes } from './assets.js';
 import { extractMarkdownReferences, validateMarkdown } from './markdown.js';
 import {
@@ -69,7 +70,7 @@ export function validatePackage(pkg) {
   };
 
   const root = rootLearningSet(pkg);
-  if (root?.['marin:startResource']) resolve(root['marin:startResource'], root, 'marin:startResource', [TYPES.MATERIAL, TYPES.ASSESSMENT, TYPES.PRESENTATION]);
+  if (root?.['marin:startResource']) resolve(root['marin:startResource'], root, 'marin:startResource', [TYPES.NOTE, TYPES.MATERIAL, TYPES.ASSESSMENT, TYPES.PRESENTATION]);
 
   for (const object of objects) {
     for (const property of ['teaches', 'assesses', 'competencyRequired']) {
@@ -81,6 +82,7 @@ export function validatePackage(pkg) {
   validateObjectives(pkg, resolve, add);
   validateContent(pkg, byId, add);
   validateMaterials(pkg, resolve, add);
+  validateNotes(pkg, resolve, add);
   validateAssessments(pkg, resolve, add);
   validatePresentations(pkg, resolve, add);
   validateAssets(pkg, add);
@@ -183,7 +185,9 @@ function validateAssessments(pkg, resolve, add) {
       const target = resolve(entry.item, assessment, 'marin:itemSequence', [TYPES.ASSESSMENT_ITEM]);
       if (target) questionsInAssessment.add(target['@id']);
     }
+    if (entries.length > MAX_QUIZ_QUESTIONS) add('error', 'Limits', 'quiz-too-many-questions', `Quiz “${assessment.name}” has ${entries.length} questions. A quiz has at most ${MAX_QUIZ_QUESTIONS}.`, objectDetails(assessment, 'marin:itemSequence'));
     const policy = assessment['marin:selectionPolicy'];
+    if (policy?.mode === 'random' && entries.length <= MAX_QUIZ_QUESTIONS) add('warning', 'Semantics', 'selection-redundant', `Quiz “${assessment.name}” picks a random set from ${entries.length} questions. A quiz of ${MAX_QUIZ_QUESTIONS} or fewer should ask all of them.`, objectDetails(assessment, 'marin:selectionPolicy'));
     if (policy?.mode === 'random' && policy.count > entries.length) add('error', 'Semantics', 'selection-count', `Quiz “${assessment.name}” selects ${policy.count} questions from a bank of ${entries.length}.`, objectDetails(assessment, 'marin:selectionPolicy.count'));
     const scaleRef = assessment['marin:scoringPolicy']?.gradeScale;
     if (scaleRef) resolve(scaleRef, assessment, 'marin:scoringPolicy.gradeScale', [TYPES.GRADE_SCALE]);
@@ -212,7 +216,15 @@ function validateAssessments(pkg, resolve, add) {
       const identifiers = new Set(options.map((option) => option.identifier));
       if (options.length !== 2 || !identifiers.has('true') || !identifiers.has('false')) add('error', 'Semantics', 'true-false-options', 'A true/false question must contain exactly the stable options “true” and “false”.', objectDetails(item, 'marin:options'));
     }
-    if (!asArray(item.assesses).length) add('warning', 'Semantics', 'question-no-objective', `Question “${item.name || item.identifier}” does not assess a learning objective.`, objectDetails(item, 'assesses'));
+    // Questions based on a Note section need no learning objective: Notes have none.
+    const fromNote = asArray(item.isBasedOn).some((source) => source?.['@id'] && getObject(pkg, source['@id']) && hasType(getObject(pkg, source['@id']), TYPES.NOTE_SECTION));
+    if (!asArray(item.assesses).length && !fromNote) add('warning', 'Semantics', 'question-no-objective', `Question “${item.name || item.identifier}” does not assess a learning objective.`, objectDetails(item, 'assesses'));
+    resolveSources(item, resolve);
+    if (fromNote) {
+      const words = [item.text, ...sequenceItems(item, 'marin:options').map((entry) => getObject(pkg, entry.item?.['@id'])?.text)].filter(Boolean).join(' ');
+      const grade = readingGrade(words);
+      if (grade !== null && grade > NOTE_TARGET_GRADE + 1) add('warning', 'Writing', 'question-reading-level', `Question “${item.name || item.identifier}” reads at about grade ${Math.round(grade)}. Aim for grade ${NOTE_TARGET_GRADE} or lower.`, objectDetails(item, 'text'));
+    }
     if (!asArray(item.isBasedOn).length) add('warning', 'Semantics', 'question-no-source', `Question “${item.name || item.identifier}” does not identify source content.`, objectDetails(item, 'isBasedOn'));
     if (!questionsInAssessment.has(item['@id'])) add('warning', 'Semantics', 'unused-question', `Question “${item.name || item.identifier}” is not used by a quiz.`, objectDetails(item));
   }
@@ -233,6 +245,7 @@ function validatePresentations(pkg, resolve, add) {
   const usedSlides = new Set();
   for (const presentation of getObjects(pkg, TYPES.PRESENTATION)) {
     validateSequence(presentation['marin:slideSequence'], presentation, 'marin:slideSequence', add);
+    resolveSources(presentation, resolve);
     for (const entry of sequenceItems(presentation, 'marin:slideSequence')) {
       const slide = resolve(entry.item, presentation, 'marin:slideSequence', [TYPES.SLIDE]);
       if (slide) usedSlides.add(slide['@id']);
@@ -243,11 +256,162 @@ function validatePresentations(pkg, resolve, add) {
     if (sequence) {
       validateSequence(sequence, slide, 'marin:contentSequence', add);
       for (const entry of sequenceItems(slide, 'marin:contentSequence')) {
-        const unit = resolve(entry.item, slide, 'marin:contentSequence', [TYPES.CONTENT_UNIT]);
-        if (unit && entry['marin:displayMode'] === 'abstract' && !unit.abstract) add('error', 'Semantics', 'slide-missing-abstract', `Slide “${slide.name || slide.identifier}” uses the abstract of “${unit.name}”, but that ContentUnit has no abstract.`, objectDetails(slide, 'marin:contentSequence'));
+        const unit = resolve(entry.item, slide, 'marin:contentSequence', [TYPES.CONTENT_UNIT, TYPES.NOTE_SECTION]);
+        if (!unit) continue;
+        const range = entry['marin:itemRange'];
+        if (hasType(unit, TYPES.NOTE_SECTION)) {
+          if (entry['marin:displayMode'] === 'abstract') add('error', 'Semantics', 'slide-note-abstract', `Slide “${slide.name || slide.identifier}” cannot show the abstract of the Note section “${unit.name}”. Use full or title.`, objectDetails(slide, 'marin:contentSequence'));
+          const codeRange = entry['marin:codeRange'];
+          if (codeRange) {
+            const samples = asArray(unit['marin:code']).length;
+            if (unit['marin:sectionType'] !== 'examples') add('error', 'Semantics', 'slide-code-range-target', `Slide “${slide.name || slide.identifier}” uses marin:codeRange on “${unit.name}”, which has no code samples.`, objectDetails(slide, 'marin:contentSequence'));
+            else if (codeRange.first > codeRange.last || codeRange.last > samples) add('error', 'Semantics', 'slide-code-range', `Slide “${slide.name || slide.identifier}” shows code samples ${codeRange.first} to ${codeRange.last} of “${unit.name}”, which has ${samples}.`, objectDetails(slide, 'marin:contentSequence'));
+          }
+          if (range) {
+            const count = asArray(unit['marin:items']).length;
+            if (range.first > range.last || range.last > count) add('error', 'Semantics', 'slide-item-range', `Slide “${slide.name || slide.identifier}” shows items ${range.first} to ${range.last} of “${unit.name}”, which has ${count} item(s).`, objectDetails(slide, 'marin:contentSequence'));
+          }
+        } else {
+          if (range || entry['marin:codeRange']) add('error', 'Semantics', 'slide-item-range-target', `Slide “${slide.name || slide.identifier}” uses marin:itemRange on “${unit.name}”, which is not a Note section.`, objectDetails(slide, 'marin:contentSequence'));
+          if (entry['marin:displayMode'] === 'abstract' && !unit.abstract) add('error', 'Semantics', 'slide-missing-abstract', `Slide “${slide.name || slide.identifier}” uses the abstract of “${unit.name}”, but that ContentUnit has no abstract.`, objectDetails(slide, 'marin:contentSequence'));
+        }
       }
     }
     if (!usedSlides.has(slide['@id'])) add('warning', 'Semantics', 'unused-slide', `Slide “${slide.name || slide.identifier}” is not used by a presentation.`, objectDetails(slide));
+  }
+}
+
+// isBasedOn may name outside works (no @id) or point at content inside the package.
+// Internal references must resolve to something that can be a source.
+function resolveSources(owner, resolve) {
+  for (const reference of asArray(owner.isBasedOn)) {
+    if (reference?.['@id']) resolve(reference, owner, 'isBasedOn', [TYPES.CONTENT_UNIT, TYPES.MATERIAL, TYPES.NOTE, TYPES.NOTE_SECTION]);
+  }
+}
+
+// Notes: twelve sections in the standard order. Maximums are in the JSON Schema.
+// Minimums and completeness are errors on a published Note and warnings on a draft.
+function validateNotes(pkg, resolve, add) {
+  const notes = getObjects(pkg, TYPES.NOTE);
+  const sectionsByNote = new Map();
+  for (const note of notes) {
+    const published = note.creativeWorkStatus === 'published';
+    const severity = published ? 'error' : 'warning';
+    validateSequence(note['marin:sectionSequence'], note, 'marin:sectionSequence', add);
+    const sections = sequenceItems(note, 'marin:sectionSequence')
+      .map((entry) => resolve(entry.item, note, 'marin:sectionSequence', [TYPES.NOTE_SECTION]))
+      .filter(Boolean);
+    sectionsByNote.set(note['@id'], sections);
+
+    const seen = new Set();
+    let lastIndex = -1;
+    for (const section of sections) {
+      const type = section['marin:sectionType'];
+      const index = NOTE_SECTIONS.findIndex((rule) => rule.type === type);
+      if (seen.has(type)) add('error', 'Semantics', 'note-duplicate-section', `Note “${note.name}” has more than one ${NOTE_SECTIONS[index]?.label || type} section.`, objectDetails(section));
+      seen.add(type);
+      if (index < lastIndex) add('error', 'Semantics', 'note-section-order', `In Note “${note.name}”, ${NOTE_SECTIONS[index]?.label || type} is out of order. Sections follow the standard order.`, objectDetails(section));
+      lastIndex = Math.max(lastIndex, index);
+    }
+
+    for (const rule of NOTE_SECTIONS) {
+      const section = sections.find((candidate) => candidate['marin:sectionType'] === rule.type);
+      if (!section) {
+        if (rule.required) add(severity, 'Semantics', 'note-missing-section', `Note “${note.name}” has no ${rule.label} section.`, objectDetails(note, 'marin:sectionSequence'));
+        continue;
+      }
+      if (rule.text) {
+        if (!String(section['marin:text'] || '').trim()) add(severity, 'Semantics', 'note-empty-section', `The ${rule.label} of Note “${note.name}” is empty.`, objectDetails(section));
+        continue;
+      }
+      // An Examples section counts its code samples too: one link or one sample is enough.
+      const count = asArray(section['marin:items']).length + (rule.code ? asArray(section['marin:code']).length : 0);
+      if (count === 0 && !rule.required) {
+        add('warning', 'Semantics', 'note-empty-section', `${rule.label} in Note “${note.name}” is empty. Remove the section or add items; an empty section is hidden.`, objectDetails(section));
+      } else if (count < rule.min) {
+        add(severity, 'Semantics', 'note-too-few-items', `${rule.label} in Note “${note.name}” needs at least ${rule.min} item(s); it has ${count}.`, objectDetails(section, 'marin:items'));
+      }
+    }
+
+    checkNoteLimits(note, sections, add);
+    for (const advice of lintNote(note, sections)) add('warning', 'Writing', advice.code, advice.message, objectDetails(note, advice.field));
+  }
+
+  // Quizzes and decks built from a Note should cover its sections. One warning per
+  // quiz or deck lists what is missing. Slogans and links are not quizzable.
+  const NOT_QUIZZABLE = new Set(['overview', 'userStories', 'examples', 'mantras', 'learnMore']);
+  const label = (section) => NOTE_SECTIONS.find((rule) => rule.type === section['marin:sectionType'])?.label || section.name;
+  for (const assessment of getObjects(pkg, TYPES.ASSESSMENT)) {
+    for (const reference of asArray(assessment.isBasedOn)) {
+      const sections = sectionsByNote.get(reference?.['@id']);
+      if (!sections) continue;
+      const covered = new Set();
+      for (const entry of sequenceItems(assessment, 'marin:itemSequence')) {
+        const question = getObject(pkg, entry.item?.['@id']);
+        for (const source of asArray(question?.isBasedOn)) covered.add(source['@id']);
+      }
+      const missing = sections.filter((section) => !NOT_QUIZZABLE.has(section['marin:sectionType']) && !covered.has(section['@id']));
+      if (missing.length) add('warning', 'Semantics', 'section-no-question', `Quiz “${assessment.name}” has no question based on: ${missing.map(label).join(', ')}.`, objectDetails(assessment, 'isBasedOn'));
+    }
+  }
+  for (const presentation of getObjects(pkg, TYPES.PRESENTATION)) {
+    for (const reference of asArray(presentation.isBasedOn)) {
+      const sections = sectionsByNote.get(reference?.['@id']);
+      if (!sections) continue;
+      const covered = new Set();
+      for (const entry of sequenceItems(presentation, 'marin:slideSequence')) {
+        const slide = getObject(pkg, entry.item?.['@id']);
+        for (const content of sequenceItems(slide || {}, 'marin:contentSequence')) covered.add(content.item?.['@id']);
+      }
+      const missing = sections.filter((section) => !covered.has(section['@id']));
+      if (missing.length) add('warning', 'Semantics', 'section-no-slide', `Slide deck “${presentation.name}” shows none of: ${missing.map(label).join(', ')}.`, objectDetails(presentation, 'isBasedOn'));
+    }
+  }
+}
+
+// Plain-language versions of the JSON Schema limits, so authors see which field is
+// too long and by how much. The schema still rejects these values on its own.
+function checkNoteLimits(note, sections, add) {
+  const tooLong = (text, max, where, target) => {
+    const length = characterCount(text);
+    if (length > max) add('error', 'Limits', 'note-too-long', `${where} is ${length} characters. The limit is ${max}.`, objectDetails(target, where));
+  };
+  tooLong(note.name, NOTE_TITLE_MAX, 'The Note title', note);
+  tooLong(note.abstract, NOTE_ABSTRACT_MAX, 'The short description', note);
+  for (const section of sections) {
+    const rule = NOTE_SECTIONS.find((candidate) => candidate.type === section['marin:sectionType']);
+    if (!rule) continue;
+    if (rule.text) {
+      tooLong(section['marin:text'] || '', rule.textMax, `The ${rule.label}`, section);
+      continue;
+    }
+    if (rule.code) {
+      const samples = asArray(section['marin:code']);
+      if (samples.length > rule.code.max) add('error', 'Limits', 'note-too-many-items', `${rule.label} has ${samples.length} code samples. The limit is ${rule.code.max}.`, objectDetails(section, 'marin:code'));
+      samples.forEach((sample, index) => {
+        const where = `${rule.label}, code sample ${index + 1}`;
+        if (!String(sample?.title ?? '').trim() || !String(sample?.code ?? '').trim()) add('error', 'Limits', 'note-incomplete-pair', `${where} needs a title and code.`, objectDetails(section, 'marin:code'));
+        else {
+          tooLong(sample.title, rule.code.titleMax, `${where} title`, section);
+          tooLong(sample.code, rule.code.codeMax, `${where} code`, section);
+        }
+        if (sample?.language) tooLong(sample.language, rule.code.languageMax, `${where} language`, section);
+      });
+    }
+    const items = asArray(section['marin:items']);
+    if (items.length > rule.max) add('error', 'Limits', 'note-too-many-items', `${rule.label} has ${items.length} items. The limit is ${rule.max}.`, objectDetails(section, 'marin:items'));
+    items.forEach((item, index) => {
+      const where = `${rule.label}, item ${index + 1}`;
+      if (typeof item === 'string') {
+        tooLong(item, rule.itemMax, where, section);
+        return;
+      }
+      for (const [field, max] of Object.entries(rule.fields || {})) {
+        if (!String(item?.[field] ?? '').trim()) add('error', 'Limits', 'note-incomplete-pair', `${where} is missing its ${field === 'dont' ? 'don’t' : field}.`, objectDetails(section, 'marin:items'));
+        else tooLong(item[field], max, `${where} ${field === 'dont' ? 'don’t' : field}`, section);
+      }
+      if (rule.link && !/^https:\/\/\S+$/.test(String(item?.url ?? ''))) add('error', 'Limits', 'note-bad-url', `${where} needs a valid HTTPS link.`, objectDetails(section, 'marin:items'));
+    });
   }
 }
 
@@ -350,6 +514,7 @@ function routeForObject(object) {
   if (hasType(object, TYPES.OBJECTIVE) || hasType(object, TYPES.DEFINED_TERM_SET)) return 'objectives';
   if (hasType(object, TYPES.CONTENT_UNIT)) return 'content';
   if (hasType(object, TYPES.MATERIAL) || hasType(object, TYPES.SECTION)) return 'materials';
+  // Notes get their own editor route when the Note editor is added.
   if (hasType(object, TYPES.ASSESSMENT) || hasType(object, TYPES.ASSESSMENT_ITEM) || hasType(object, TYPES.RESPONSE_OPTION) || hasType(object, TYPES.GRADE_SCALE)) return 'quizzes';
   if (hasType(object, TYPES.PRESENTATION) || hasType(object, TYPES.SLIDE)) return 'slides';
   if (hasType(object, TYPES.IMAGE) || hasType(object, TYPES.MEDIA)) return 'assets';

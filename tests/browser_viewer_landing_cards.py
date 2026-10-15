@@ -28,9 +28,9 @@ def run(screenshots: Path | None = None) -> None:
         mime = "font/woff2" if relative.endswith(".woff2") else "font/ttf"
         shell_css = shell_css.replace(relative, f"data:{mime};base64,{base64.b64encode(font).decode('ascii')}")
     css = shell_css + "\n" + (ROOT / "assets/app.css").read_text(encoding="utf-8")
-    graph = json.loads((ROOT / "learning/marinos-foundations/learning.json").read_text(encoding="utf-8"))
+    graph = json.loads((ROOT / "learning/county-leaders-guide-to-data/learning.json").read_text(encoding="utf-8"))
     catalog = json.loads((ROOT / "catalog.json").read_text(encoding="utf-8"))["items"]
-    resource_types = {'LearningMaterial', 'Presentation', 'Assessment'}
+    resource_types = {'Note', 'Presentation', 'Assessment'}
     count = 0
     for obj in graph['@graph']:
         types = obj.get('@type') or []
@@ -63,7 +63,7 @@ def run(screenshots: Path | None = None) -> None:
                     });
                     const { renderLandingPage } = await import(moduleUrl);
                     await renderLandingPage(document.getElementById('view'),
-                        'marinos-foundations', catalogEntries,
+                        'county-leaders-guide-to-data', catalogEntries,
                         route => window.__navigation.push(route));
                 }""", [inline_module(ROOT / 'js/viewer/landing.js'), graph, catalog])
 
@@ -72,14 +72,14 @@ def run(screenshots: Path | None = None) -> None:
                 assert page.locator('.landing-resource-grid.catalog-grid > article.app-card').count() == count
                 assert page.locator('.landing-section, .resource-list').count() == 0
                 assert page.locator('#landing-resources-heading').count() == 0, 'Resource heading should be gone'
-                assert page.locator('header.landing-header > h2').inner_text() == 'MarinOS 101'
+                assert page.locator('header.landing-header > h2').inner_text() == 'Data 101'
                 assert page.locator('.viewer-breadcrumb a').all_text_contents() == ['Catalog']
-                assert page.locator('.viewer-breadcrumb [aria-current="page"]').inner_text() == 'MarinOS 101'
+                assert page.locator('.viewer-breadcrumb [aria-current="page"]').inner_text() == 'Data 101'
                 assert page.evaluate('document.documentElement.scrollWidth <= innerWidth + 1'), f'overflow at {width}px'
 
                 links = page.locator('.landing-resource-card h3 > a.resource-action')
                 assert links.count() == count
-                assert all(link.get_attribute('href').startswith('?set=marinos-foundations&view=')
+                assert all(link.get_attribute('href').startswith('?set=county-leaders-guide-to-data&view=')
                            for link in links.all())
                 assert all(link.get_attribute('aria-label') for link in links.all())
                 assert page.locator('.landing-resource-card .app-badge').count() == 0, 'Cards must not show type badges'

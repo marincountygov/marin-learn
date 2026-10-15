@@ -283,7 +283,7 @@ def run() -> None:
             problems.extend(configure(context, base_url))
             page = context.new_page()
             page.goto(f"{base_url}editor/", wait_until="networkidle")
-            page.locator("#file-import-zip").set_input_files(str(ROOT / "packages" / "marinos-foundations.zip"))
+            page.locator("#file-import-zip").set_input_files(str(ROOT / "tests" / "fixtures" / "reference-package" / "marinos-foundations.zip"))
             page.locator("#workspace-view").wait_for(state="visible")
             page.locator('[data-tab="materials"]').click()
             page.get_by_text("MarinOS 101", exact=True).wait_for()

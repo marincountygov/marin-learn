@@ -16,6 +16,8 @@ import sys
 import zipfile
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "scripts"))
+from note_validate import validate_notes, validate_quizzes  # noqa: E402
 
 def load_themes() -> list:
     """Read the fixed theme list that learning sets may be filed under."""
@@ -28,12 +30,10 @@ def error(msg: str) -> None:
 
 def has_type(obj: dict, type_name: str) -> bool:
     """Check if object matches a given JSON-LD type name (string or list)."""
+    # Match the whole local name ("Assessment" must not match "marin:AssessmentItem").
     t = obj.get("@type")
-    if isinstance(t, str):
-        return type_name in t
-    if isinstance(t, list):
-        return any(type_name in item for item in t if isinstance(item, str))
-    return False
+    types = [t] if isinstance(t, str) else t if isinstance(t, list) else []
+    return any(isinstance(item, str) and item.split(":")[-1] == type_name for item in types)
 
 def validate_zip_safety(zf: zipfile.ZipFile) -> None:
     """Enforce ZIP safety limits and path traversal protection."""
@@ -193,6 +193,11 @@ def publish_package(zip_path: pathlib.Path, output_dir: pathlib.Path) -> dict:
     if orphans_assets:
         error(f"Orphan asset files found under assets/: {orphans_assets}")
 
+    note_problems = validate_notes(graph) + validate_quizzes(graph)
+    if note_problems:
+        error("Invalid Note content:\n  - " + "\n  - ".join(note_problems))
+
+    notes = [obj for obj in graph if has_type(obj, "Note")]
     materials = [obj for obj in graph if has_type(obj, "LearningMaterial")]
     presentations = [obj for obj in graph if has_type(obj, "Presentation")]
     assessments = [obj for obj in graph if has_type(obj, "Assessment")]
@@ -234,6 +239,7 @@ def publish_package(zip_path: pathlib.Path, output_dir: pathlib.Path) -> dict:
         "themes": themes_for(lset),
         "graphUrl": f"learning/{identifier}/learning.json",
         "resourceCounts": {
+            "notes": len(notes),
             "materials": len(materials),
             "presentations": len(presentations),
             "assessments": len(assessments)

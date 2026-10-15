@@ -32,8 +32,11 @@ export async function loadLearningSetGraph(graphUrl) {
     audiences: [],
     contentUnits: [],
     materials: [],
+    notes: [],
+    noteSections: [],
     sections: [],
     assessments: [],
+    gradeScales: [],
     presentations: [],
     imageAssets: [],
     mediaAssets: []
@@ -52,8 +55,11 @@ export async function loadLearningSetGraph(graphUrl) {
     else if (hasType(obj, 'EducationalAudience')) types.audiences.push(obj);
     else if (hasType(obj, 'ContentUnit')) types.contentUnits.push(obj);
     else if (hasType(obj, 'LearningMaterial')) types.materials.push(obj);
+    else if (hasType(obj, 'NoteSection')) types.noteSections.push(obj);
+    else if (hasType(obj, 'Note')) types.notes.push(obj);
     else if (hasType(obj, 'Section')) types.sections.push(obj);
     else if (hasType(obj, 'Assessment')) types.assessments.push(obj);
+    else if (hasType(obj, 'GradeScale')) types.gradeScales.push(obj);
     else if (hasType(obj, 'Presentation')) types.presentations.push(obj);
     else if (hasType(obj, 'ImageObject')) types.imageAssets.push(obj);
     else if (hasType(obj, 'MediaObject')) types.mediaAssets.push(obj);

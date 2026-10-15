@@ -9,7 +9,7 @@ import shutil
 from threading import Thread
 
 ROOT = Path(__file__).resolve().parents[1]
-PACKAGE = ROOT / "packages" / "marinos-foundations.zip"
+PACKAGE = ROOT / "tests" / "fixtures" / "reference-package" / "marinos-foundations.zip"
 
 MATERIAL_ID = "urn:uuid:10000000-0000-4000-8000-000000000022"
 SECTION_FOUNDATIONS = "urn:uuid:10000000-0000-4000-8000-000000000020"

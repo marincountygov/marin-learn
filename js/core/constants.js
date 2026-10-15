@@ -10,6 +10,8 @@ export const TYPES = Object.freeze({
   AUDIENCE: 'EducationalAudience',
   CONTENT_UNIT: 'marin:ContentUnit',
   MATERIAL: 'marin:LearningMaterial',
+  NOTE: 'marin:Note',
+  NOTE_SECTION: 'marin:NoteSection',
   SECTION: 'marin:Section',
   ASSESSMENT: 'marin:Assessment',
   ASSESSMENT_ITEM: 'marin:AssessmentItem',
@@ -50,6 +52,8 @@ export const TYPE_LABELS = Object.freeze({
   [TYPES.AUDIENCE]: 'Audience',
   [TYPES.CONTENT_UNIT]: 'Content unit',
   [TYPES.MATERIAL]: 'Learning material',
+  [TYPES.NOTE]: 'Note',
+  [TYPES.NOTE_SECTION]: 'Note section',
   [TYPES.SECTION]: 'Section',
   [TYPES.ASSESSMENT]: 'Quiz',
   [TYPES.ASSESSMENT_ITEM]: 'Question',
@@ -60,6 +64,31 @@ export const TYPE_LABELS = Object.freeze({
   [TYPES.IMAGE]: 'Image',
   [TYPES.MEDIA]: 'Media asset'
 });
+
+// The twelve Note sections, in required reading order. The Note's title is the
+// thirteenth part. Limits count characters (code points) including spaces and must
+// match schema/marin-learn-v1.schema.json (a test keeps them in step).
+// min/max are item counts; `text` sections (overview, problem, solution) hold plain text up to textMax; item limits are
+// per field. `required: false` sections are hidden when empty.
+export const NOTE_SECTIONS = Object.freeze([
+  { type: 'overview', label: 'Overview', required: true, text: true, textMax: 600 },
+  { type: 'whyItMatters', label: 'Why it matters', required: true, min: 3, max: 5, itemMax: 150 },
+  { type: 'problem', label: 'Problem', required: true, text: true, textMax: 300 },
+  { type: 'solution', label: 'Solution', required: true, text: true, textMax: 300 },
+  { type: 'userStories', label: 'User stories', required: true, min: 3, max: 4, itemMax: 200 },
+  { type: 'keyTerms', label: 'Key terms', required: true, min: 6, max: 10, fields: { term: 50, definition: 120 } },
+  { type: 'dosAndDonts', label: 'Do\u2019s and don\u2019ts', required: true, min: 4, max: 6, fields: { do: 100, dont: 100 } },
+  { type: 'questions', label: 'Questions to ask', required: true, min: 5, max: 8, itemMax: 150 },
+  { type: 'examples', label: 'Examples', required: false, min: 1, max: 6, fields: { title: 100 }, link: true, code: { max: 3, titleMax: 100, languageMax: 20, codeMax: 1500 } },
+  { type: 'checklist', label: 'Checklist', required: true, min: 5, max: 8, itemMax: 125 },
+  { type: 'mantras', label: 'Mantras', required: true, min: 3, max: 5, itemMax: 60 },
+  { type: 'learnMore', label: 'Sources', required: false, min: 1, max: 5, fields: { title: 100 }, link: true }
+]);
+// A quiz has at most this many questions. The JSON Schema enforces it too.
+export const MAX_QUIZ_QUESTIONS = 10;
+export const NOTE_TITLE_MAX = 60;
+export const NOTE_ABSTRACT_MAX = 120;
+export const NOTE_TARGET_GRADE = 6;
 
 export const APP_VERSION = '0.1.0';
 export const EDITOR_STORAGE_VERSION = 1;

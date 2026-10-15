@@ -9,7 +9,9 @@ import shutil
 from threading import Thread
 
 ROOT = Path(__file__).resolve().parents[1]
-PACKAGE = ROOT / "packages" / "county-leaders-guide-to-data.zip"
+# The editor test opens a deck with a hand-built two-entry split slide. The published Data 101 deck
+# is now built from the Note, so the editor test keeps a copy of the earlier package as a fixture.
+PACKAGE = ROOT / "tests" / "fixtures" / "legacy-deck" / "county-leaders-guide-to-data.zip"
 
 SLIDE_ID = "urn:uuid:a6295366-688e-5f6a-a7fd-f492748fe01d"
 UNIT_FILES = "urn:uuid:527b26a7-f4d0-55fd-bfbb-0b06552267c3"
@@ -160,21 +162,19 @@ def test_editor(page, base_url: str) -> None:
 
 
 def test_public_viewer(page, base_url: str) -> None:
-    page.goto(
-        f"{base_url}?set=county-leaders-guide-to-data&view=slides&resource=county-data-leadership-slides",
-        wait_until="networkidle",
-    )
+    """The published Data 101 deck: its Problem and solution slide is a two-entry split slide."""
+    page.goto(f"{base_url}?set=county-leaders-guide-to-data&view=slides", wait_until="networkidle")
     page.get_by_role("heading", name="Data 101", exact=True).wait_for()
-    page.locator("#next-slide").click()
-    page.locator("#next-slide").click()
-    page.get_by_role("heading", name=SLIDE_TITLE, exact=True).wait_for()
+    for _ in range(4):
+        page.locator("#next-slide").click()
+    page.get_by_role("heading", name="Problem and solution", exact=True).wait_for()
 
     canvas = page.locator("#slide-canvas-el")
     require("slide-layout--split" in (canvas.get_attribute("class") or ""),
             "The public viewer did not apply the split layout")
     items = canvas.locator(".slide-content-item")
     require(items.count() == 2, "The public viewer did not render both canonical content entries")
-    require("From files to facts" in items.nth(0).inner_text(),
+    require("Problem" in items.nth(0).inner_text() and "Solution" in items.nth(1).inner_text(),
             "The public viewer did not preserve canonical content order")
     columns = canvas.locator(".slide-body").evaluate(
         "element => getComputedStyle(element).gridTemplateColumns.split(' ').filter(Boolean).length"

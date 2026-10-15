@@ -39,14 +39,19 @@ function runtime() {
 }
 
 test('all current published slide decks pass PPTX preflight and the complete structural export gate', async () => {
-  const packageNames = (await readdir(join(ROOT, 'packages')))
+  // The published decks, plus the reference package, which exercises the older
+  // content-block slides that the Note decks no longer use.
+  const packageFiles = (await readdir(join(ROOT, 'packages')))
     .filter((name) => name.endsWith('.zip'))
-    .sort();
+    .sort()
+    .map((name) => join(ROOT, 'packages', name));
+  packageFiles.push(join(ROOT, 'tests', 'fixtures', 'reference-package', 'marinos-foundations.zip'));
   const pptxRuntime = await runtime();
   let deckCount = 0;
 
-  for (const packageName of packageNames) {
-    const source = await readFile(join(ROOT, 'packages', packageName));
+  for (const packageFile of packageFiles) {
+    const packageName = packageFile.split('/').at(-1);
+    const source = await readFile(packageFile);
     const imported = await importLearningPackage(source, { filename: packageName });
     const before = snapshotPackage(imported.pkg);
     const presentations = imported.pkg.graphDocument['@graph']

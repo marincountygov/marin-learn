@@ -22,7 +22,7 @@ class PublishTests(unittest.TestCase):
         self.temp_dir.cleanup()
 
     def test_publish_valid_fixture(self) -> None:
-        fixture = ROOT / "packages" / "marinos-foundations.zip"
+        fixture = ROOT / "tests" / "fixtures" / "reference-package" / "marinos-foundations.zip"
         self.assertTrue(fixture.is_file(), "Reference fixture must exist")
         item = publish.publish_package(fixture, self.out_dir)
         self.assertEqual(item["identifier"], "marinos-foundations")
@@ -32,7 +32,7 @@ class PublishTests(unittest.TestCase):
         self.assertTrue((self.out_dir / "learning" / "marinos-foundations" / "content" / "what-is-marinos.md").is_file())
 
     def test_reject_unpublished_status(self) -> None:
-        fixture = ROOT / "packages" / "marinos-foundations.zip"
+        fixture = ROOT / "tests" / "fixtures" / "reference-package" / "marinos-foundations.zip"
         with tempfile.NamedTemporaryFile(suffix=".zip", delete=False) as tmp:
             tmp_path = pathlib.Path(tmp.name)
 

@@ -163,6 +163,28 @@
   margin-top: auto;
 }
 
+.course-card.app-card--secondary {
+  padding: 0.875rem 1rem;
+}
+
+/* Secondary card: the same card, quieter. Smaller icon, title, and description. */
+.app-card--secondary .app-card__icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.app-card--secondary h3,
+.app-card--secondary h4 {
+  margin-bottom: 0.25rem;
+  font-size: 1.125rem;
+}
+
+.app-card--secondary p {
+  margin-bottom: 0;
+  font-size: 0.875rem;
+}
+
 .catalog-card-meta {
   display: flex;
   flex-wrap: wrap;
@@ -434,6 +456,11 @@ a.app-badge:hover {
   text-decoration: none;
 }
 
+.reader-toc a.is-active {
+  color: var(--learn-text);
+  font-weight: 700;
+}
+
 .reader-toc a:hover,
 .reader-toc a:focus-visible {
   background: var(--learn-surface-hover);
@@ -589,9 +616,9 @@ a.app-badge:hover {
   display: flex;
   min-width: 0;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   gap: 0.2rem;
-  text-align: center;
+  text-align: left;
 }
 
 .slides-pres-name {
@@ -625,6 +652,8 @@ a.app-badge:hover {
 
 .slide-canvas-wrapper {
   width: 100%;
+  /* Slide text scales with the slide: sizes below use cqw, a share of this width. */
+  container-type: inline-size;
 }
 
 .slide-canvas {
@@ -633,7 +662,7 @@ a.app-badge:hover {
   aspect-ratio: 16 / 9;
   flex-direction: column;
   justify-content: space-between;
-  padding: 3rem;
+  padding: clamp(1.5rem, 4cqw, 3.5rem);
   overflow-y: auto;
   border: 1px solid var(--learn-border-subtle);
   border-radius: var(--pico-border-radius);
@@ -657,19 +686,79 @@ a.app-badge:hover {
 .slide-layout--title {
   align-items: center;
   justify-content: center;
-  background:
-    linear-gradient(
-      135deg,
-      color-mix(in srgb, var(--learn-accent) 30%, var(--learn-surface)),
-      color-mix(in srgb, var(--learn-accent) 7%, var(--learn-surface))
-    );
   text-align: center;
+}
+
+/* The title slide has no body, so the header can sit in the middle of the slide. */
+.slide-layout--title .slide-body:not(:has(.slide-content-item)) {
+  display: none;
+}
+
+.slide-layout--title .slide-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .slide-layout--title .slide-header h2 {
   margin-bottom: 1rem;
   color: var(--learn-text);
-  font-size: 3rem;
+  font-size: clamp(2rem, 5.2cqw, 4.5rem);
+}
+
+.slide-footer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  color: var(--learn-muted);
+  font-size: clamp(0.8rem, 1.5cqw, 1.1rem);
+  line-height: 1;
+}
+
+.slide-footer-icon {
+  display: inline-flex;
+  width: 1.25em;
+  height: 1.25em;
+  color: var(--learn-accent);
+}
+
+.slide-footer-icon svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.slide-title-icon {
+  display: inline-flex;
+  width: clamp(3rem, 8cqw, 6rem);
+  height: clamp(3rem, 8cqw, 6rem);
+  margin-bottom: 1.25rem;
+  color: var(--learn-accent);
+}
+
+.slide-title-icon svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.slide-title-description {
+  max-width: 44rem;
+  margin: 0;
+  color: var(--learn-muted);
+  font-size: clamp(1.1rem, 2.4cqw, 2rem);
+  line-height: 1.4;
 }
 
 .slide-layout--section {
@@ -685,7 +774,7 @@ a.app-badge:hover {
 .slide-header h2 {
   margin: 0;
   color: var(--learn-text);
-  font-size: 2rem;
+  font-size: clamp(1.5rem, 3.4cqw, 3rem);
 }
 
 .slide-body {
@@ -695,8 +784,8 @@ a.app-badge:hover {
   justify-content: center;
   gap: 1.5rem;
   margin-top: 1.5rem;
-  font-size: 1.15rem;
-  line-height: 1.6;
+  font-size: clamp(1.05rem, 2.3cqw, 2.1rem);
+  line-height: 1.5;
 }
 
 .slide-layout--split .slide-body {
@@ -730,10 +819,16 @@ a.app-badge:hover {
   gap: 0.75rem;
 }
 
+.slide-markdown-body pre {
+  margin: 0;
+  font-size: 0.7em;
+  line-height: 1.4;
+}
+
 .slide-content-item h4 {
   margin: 0;
   color: var(--learn-accent);
-  font-size: 1.25rem;
+  font-size: 0.85em;
 }
 
 .slide-content-item p {
@@ -1184,6 +1279,23 @@ a.app-badge:hover {
   font-size: 0.9rem;
 }
 
+.quiz-sections-to-review {
+  margin-bottom: 1.5rem;
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--learn-border-subtle);
+  border-radius: var(--pico-border-radius);
+  background: var(--learn-surface-subtle);
+}
+
+.quiz-sections-to-review h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.15rem;
+}
+
+.quiz-sections-to-review ul {
+  margin: 0;
+}
+
 .quiz-source-link {
   color: var(--learn-muted);
   font-size: 0.9rem;
@@ -1363,6 +1475,251 @@ a.app-badge:hover {
   .quiz-question-header {
     align-items: flex-start;
     flex-direction: column;
+  }
+}
+
+
+/* Notes: short, structured briefs */
+.note-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0 0 1rem;
+  color: var(--learn-muted);
+}
+
+.note-actions {
+  margin-bottom: 0.25rem;
+}
+
+.note-actions--bottom {
+  margin-top: 2.5rem;
+}
+
+.note-action-icon {
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.375rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vertical-align: -0.125rem;
+}
+
+.note-status {
+  min-height: 1.5rem;
+  margin: 0.25rem 0 0;
+}
+
+.note-copy-fallback textarea {
+  width: 100%;
+}
+
+/* Each section is a box: the card look without the shadow, on the surface color. */
+.note-section {
+  margin-top: 1.5rem;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid var(--app-border);
+  border-radius: var(--pico-border-radius);
+  background: var(--app-surface);
+  scroll-margin-top: 1rem;
+}
+
+.note-section > :last-child {
+  margin-bottom: 0;
+}
+
+.note-section h2 {
+  margin: 0 0 0.75rem;
+  font-size: 1.5rem;
+}
+
+.note-stories {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.note-story {
+  margin: 0;
+  padding: 0.75rem 1rem;
+  border-left: 0.25rem solid var(--learn-accent);
+  background: var(--learn-surface-subtle);
+}
+
+.note-terms {
+  margin: 0;
+}
+
+.note-terms > div {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--learn-border-subtle);
+}
+
+.note-terms dt {
+  font-weight: 700;
+}
+
+.note-terms dd {
+  margin: 0.25rem 0 0;
+}
+
+.note-pairs {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.note-pair {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.note-do,
+.note-dont {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--learn-border-subtle);
+  border-radius: var(--pico-border-radius);
+}
+
+.note-do {
+  border-color: color-mix(in srgb, var(--learn-success) 55%, var(--learn-border-subtle));
+  background: var(--learn-success-tint);
+}
+
+.note-dont {
+  border-color: color-mix(in srgb, var(--app-danger) 45%, var(--learn-border-subtle));
+  background: var(--learn-danger-tint);
+}
+
+.note-do .note-pair-label {
+  color: var(--learn-success);
+}
+
+.note-dont .note-pair-label {
+  color: var(--learn-danger);
+}
+
+.note-checklist {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.note-check {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin: 0 0 0.5rem;
+}
+
+.note-check input[type='checkbox'] {
+  flex: 0 0 auto;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin: 0;
+}
+
+
+.note-code h3 {
+  margin: 1.25rem 0 0.5rem;
+  font-size: 1.15rem;
+}
+
+.note-code-block {
+  margin: 0 0 1rem;
+}
+
+.note-code-block figcaption {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.note-code-title {
+  font-weight: 600;
+}
+
+.note-code-copy {
+  margin-left: auto;
+}
+
+.note-code-status:empty {
+  display: none;
+}
+
+.note-code-block pre code {
+  padding: 0;
+  background: none;
+}
+
+.note-code-status {
+  flex-basis: 100%;
+  min-height: 1.25rem;
+  color: var(--learn-muted);
+  font-size: 0.875rem;
+  text-align: right;
+}
+
+.note-code-block pre {
+  margin: 0;
+  padding: 0.75rem 1rem;
+  overflow-x: auto;
+  border: 1px solid var(--learn-border-subtle);
+  border-radius: var(--pico-border-radius);
+  background: var(--learn-surface-subtle);
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.note-code-block pre:focus-visible {
+  outline: 2px solid var(--learn-focus);
+  outline-offset: 2px;
+}
+
+@media (max-width: 36rem) {
+  .note-pair {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media print {
+  .note-actions,
+  .note-status,
+  .note-copy-fallback,
+  .note-actions--bottom,
+  .note-code-copy,
+  .note-code-status,
+  .reader-next {
+    display: none !important;
+  }
+
+  .note-code-block pre {
+    overflow: visible;
+    white-space: pre-wrap;
+  }
+
+  .note-section {
+    break-inside: avoid;
+  }
+
+  .note-main a[href^='http']::after {
+    content: ' (' attr(href) ')';
+    font-size: 0.85em;
+    word-break: break-all;
+  }
+
+  .note-do,
+  .note-dont,
+  .note-story {
+    background: transparent;
+    color: inherit;
   }
 }
 
