@@ -131,3 +131,16 @@ test('PowerPoint release-candidate workflow is dispatch-only, read-only, and doe
   assert.doesNotMatch(workflow, /pull_request:|push:|schedule:/);
   assert.doesNotMatch(workflow, /scripts\/publish\.py|deploy-pages|upload-pages-artifact|pages: write|id-token: write/);
 });
+
+test('A title slide with no content of its own shows the description', async () => {
+  const temp = await mkdtemp(path.join(os.tmpdir(), 'marin-learn-pptx-title-'));
+  const outputDir = path.join(temp, 'review');
+  const packageFile = path.join(ROOT, 'tests', 'fixtures', 'reference-package', 'marinos-foundations.zip');
+  const { summary } = await generatePptxArtifacts({ inputs: [packageFile], outputDir });
+  assert.equal(summary.status, 'pass', JSON.stringify(summary.failures));
+  const { JSZip } = { JSZip: (await loadNodePptxRuntime()).JSZip };
+  const zip = await JSZip.loadAsync(await readFile(path.join(outputDir, summary.artifacts[0].file)));
+  const text = [...(await zip.file('ppt/slides/slide1.xml').async('string')).matchAll(/<a:t>([^<]*)<\/a:t>/g)]
+    .map((match) => match[1]);
+  assert.ok(text.length >= 2, `Title slide should have a title and a description, found: ${JSON.stringify(text)}`);
+});

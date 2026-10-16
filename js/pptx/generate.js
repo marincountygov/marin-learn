@@ -215,7 +215,7 @@ function renderSlidePlan(pptx, slide, slidePlan, language, record) {
 }
 
 function renderStructuralSlide(slide, slidePlan, language, record) {
-  const support = slidePlan.entries[0];
+  const support = slidePlan.entries[0] || (slidePlan.description && { ...slidePlan.description });
   if (!support) return;
   slide.addText(support.text, {
     x: support.area.x,
