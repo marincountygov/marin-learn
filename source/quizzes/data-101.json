@@ -3,7 +3,7 @@
   "identifier": "data-101-quiz",
   "abstract": "Ten questions to check what you learned about data.",
   "passingPercent": 70,
-  "courseDescription": "Notes, a deck, and a quiz about using data to understand needs and make better decisions.",
+  "courseDescription": "Notes, slides, and a quiz about using data to understand needs and make better decisions.",
   "grades": [
     {
       "name": "A",

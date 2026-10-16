@@ -24,12 +24,12 @@ export async function buildDeckForPackage(zipPath, { budget = 45, abstract } = {
   const { pkg } = await importLearningPackage(new Uint8Array(await readFile(zipPath)), { allowInvalid: true });
   const [note] = getObjects(pkg, 'marin:Note');
   const [deck] = getObjects(pkg, 'marin:Presentation');
-  if (!note || !deck) throw new Error('The package needs one Note and one slide deck.');
+  if (!note || !deck) throw new Error('The package needs one Note and one set of slides.');
   const slides = applyNoteDeck(pkg.graphDocument, {
     noteId: note['@id'],
     presentationId: deck['@id'],
     abstract,
-    name: `${note.name} — deck`,
+    name: `${note.name} — slides`,
     makeId: (key) => uuid5(`marin-learn/deck/${note['@id']}/${key}`),
     options: { wordBudget: budget }
   });

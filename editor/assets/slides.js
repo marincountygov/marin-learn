@@ -45,7 +45,7 @@ export function createSlidesModule({ getPkg, persistWorkspace, showMessage, dial
       container.innerHTML = `
         <div class="editor-empty-state">
           <p class="text-muted editor-empty-text">Turn your reading materials into a presentation without rewriting the content.</p>
-          <button id="btn-create-first-deck" class="primary" type="button">Create slide deck</button>
+          <button id="btn-create-first-deck" class="primary" type="button">Create slides</button>
         </div>`;
       container.querySelector('#btn-create-first-deck')?.addEventListener('click', () => createNewDeck(container));
       return;
@@ -75,24 +75,24 @@ export function createSlidesModule({ getPkg, persistWorkspace, showMessage, dial
 
     container.innerHTML = `
       <div class="editor-materials-layout">
-        <aside class="editor-materials-sidebar" aria-label="Slide decks list">
-          <h4>Slide Decks</h4>
+        <aside class="editor-materials-sidebar" aria-label="Slides list">
+          <h4>Slides</h4>
           <div class="editor-subnav-list">${navigation}</div>
           <div class="editor-sidebar-actions">
-            <button id="btn-create-deck-side" type="button" class="editor-sidebar-action"><span aria-hidden="true">+</span> Add slide deck</button>
+            <button id="btn-create-deck-side" type="button" class="editor-sidebar-action"><span aria-hidden="true">+</span> Add slides</button>
           </div>
         </aside>
 
         <div class="editor-materials-main">
           <header class="editor-material-header">
             <div class="editor-material-title-row">
-              <h3>${escapeHtml(activeDeck?.name || 'Slide Deck')}</h3>
+              <h3>${escapeHtml(activeDeck?.name || 'Slides')}</h3>
               <div class="editor-header-actions">
                 <button type="button" id="btn-rename-deck" class="secondary outline btn-sm">Rename</button>
-                <button type="button" id="btn-duplicate-deck" class="secondary outline btn-sm">Duplicate deck</button>
+                <button type="button" id="btn-duplicate-deck" class="secondary outline btn-sm">Duplicate slides</button>
                 <button type="button" id="btn-deck-settings" class="secondary outline btn-sm">Settings</button>
                 <button type="button" id="btn-preview-deck" class="secondary outline btn-sm">Preview presentation</button>
-                <button type="button" id="btn-delete-deck" class="secondary outline btn-sm btn-remove">Delete deck</button>
+                <button type="button" id="btn-delete-deck" class="secondary outline btn-sm btn-remove">Delete slides</button>
               </div>
             </div>
             ${activeDeck?.abstract ? `<p class="editor-material-abstract">${escapeHtml(activeDeck.abstract)}</p>` : ''}
@@ -102,13 +102,13 @@ export function createSlidesModule({ getPkg, persistWorkspace, showMessage, dial
             </div>
           </header>
 
-          <section class="editor-material-sequence" aria-label="Deck slides">
+          <section class="editor-material-sequence" aria-label="Slides in this set">
             <div class="editor-sequence-header">
               <h4>Slides (${entries.length})</h4>
               <span class="text-muted editor-help-text">Drag a slide by its handle, or use the Up and Down buttons. Expand a slide to edit layout, content reference, and presenter notes.</span>
             </div>
             <div class="editor-sequence-tree editor-slide-sortable-list" data-sort-container-id="${escapeHtml(activeDeck['@id'])}">
-              ${slidesHtml || '<p class="text-muted" data-sortable-empty-notice>This deck has no slides yet. Click "Add slide" below to get started.</p>'}
+              ${slidesHtml || '<p class="text-muted" data-sortable-empty-notice>There are no slides yet. Click "Add slide" below to get started.</p>'}
             </div>
           </section>
 
@@ -191,7 +191,7 @@ export function createSlidesModule({ getPkg, persistWorkspace, showMessage, dial
             <button type="button" class="secondary outline btn-sm" data-action="duplicate-slide" data-id="${escapeHtml(slideId)}" title="Duplicate slide">Duplicate</button>
             <button type="button" class="secondary outline btn-sm" data-action="move-s-up" data-id="${escapeHtml(slideId)}" ${isFirst ? 'disabled aria-disabled="true"' : ''} title="Move slide up">&#8593; Up</button>
             <button type="button" class="secondary outline btn-sm" data-action="move-s-down" data-id="${escapeHtml(slideId)}" ${isLast ? 'disabled aria-disabled="true"' : ''} title="Move slide down">&#8595; Down</button>
-            <button type="button" class="secondary outline btn-sm btn-remove" data-action="remove-slide" data-id="${escapeHtml(slideId)}" title="Remove slide from deck">Remove</button>
+            <button type="button" class="secondary outline btn-sm btn-remove" data-action="remove-slide" data-id="${escapeHtml(slideId)}" title="Remove slide from these slides">Remove</button>
           </div>
         </header>
         <div class="editor-slide-card-body">
@@ -413,10 +413,10 @@ export function createSlidesModule({ getPkg, persistWorkspace, showMessage, dial
       const deck = getObject(pkg, activeDeckId);
       if (!deck) return;
       const newTitle = await dialogs.requestText({
-        title: 'Rename slide deck',
-        label: 'Slide deck title',
+        title: 'Rename slides',
+        label: 'Slides title',
         value: deck.name,
-        requiredMessage: 'Enter a slide deck title.',
+        requiredMessage: 'Enter a title for the slides.',
         submitLabel: 'Rename'
       });
       if (!newTitle || newTitle === deck.name) return;
@@ -426,7 +426,7 @@ export function createSlidesModule({ getPkg, persistWorkspace, showMessage, dial
       touchPackage(pkg);
       await persistWorkspace();
       render(container);
-      showMessage('Slide deck renamed.', 'success', { focus: false });
+      showMessage('Slides renamed.', 'success', { focus: false });
     });
 
     container.querySelector('#btn-duplicate-deck')?.addEventListener('click', async () => {
@@ -437,7 +437,7 @@ export function createSlidesModule({ getPkg, persistWorkspace, showMessage, dial
       touchPackage(pkg);
       await persistWorkspace();
       render(container);
-      showMessage(`Duplicated slide deck as "${duplicate.name}".`, 'success');
+      showMessage(`Duplicated slides as "${duplicate.name}".`, 'success');
     });
 
     container.querySelector('#btn-deck-settings')?.addEventListener('click', () => {
@@ -453,9 +453,9 @@ export function createSlidesModule({ getPkg, persistWorkspace, showMessage, dial
       const deck = getObject(pkg, activeDeckId);
       if (!deck) return;
       const confirmed = await dialogs.confirmAction({
-        title: 'Delete slide deck?',
+        title: 'Delete slides?',
         description: `Delete “${deck.name}” from this project? Existing slide records are not deleted.`,
-        submitLabel: 'Delete slide deck',
+        submitLabel: 'Delete slides',
         destructive: true
       });
       if (!confirmed) return;
@@ -470,7 +470,7 @@ export function createSlidesModule({ getPkg, persistWorkspace, showMessage, dial
       await persistWorkspace();
       render(container);
       if (!nextDeckId) container.querySelector('#btn-create-first-deck')?.focus();
-      showMessage('Slide deck deleted.', 'success', { focus: false });
+      showMessage('Slides deleted.', 'success', { focus: false });
     });
 
     container.querySelector('#btn-add-slide')?.addEventListener('click', () => {
@@ -705,7 +705,7 @@ export function createSlidesModule({ getPkg, persistWorkspace, showMessage, dial
         touchPackage(pkg);
         await persistWorkspace();
         render(container);
-        showMessage('Removed slide from deck.', 'success');
+        showMessage('Removed slide from these slides.', 'success');
       }
       return;
     }
@@ -715,10 +715,10 @@ export function createSlidesModule({ getPkg, persistWorkspace, showMessage, dial
     const pkg = getPkg();
     if (!pkg) return;
     const title = await dialogs.requestText({
-      title: 'Create slide deck',
-      label: 'Slide deck title',
-      value: 'New Slide Deck',
-      requiredMessage: 'Enter a slide deck title.',
+      title: 'Create slides',
+      label: 'Slides title',
+      value: 'New Slides',
+      requiredMessage: 'Enter a title for the slides.',
       submitLabel: 'Create'
     });
     if (!title) return;
@@ -744,14 +744,14 @@ export function createSlidesModule({ getPkg, persistWorkspace, showMessage, dial
         <div class="editor-preview-content editor-settings-modal-content">
           <header class="editor-preview-header">
             <div>
-              <span class="app-badge badge--level">Deck Settings</span>
+              <span class="app-badge badge--level">Slides Settings</span>
               <h2 id="deck-settings-title">${escapeHtml(deck.name)} — Settings</h2>
             </div>
             <button type="button" class="secondary outline btn-close-modal" aria-label="Close settings">Close</button>
           </header>
           <div class="editor-modal-body">
             <div class="grid">
-              <label>Deck title
+              <label>Slides title
                 <input type="text" id="setting-deck-name" value="${escapeHtml(deck.name)}">
               </label>
               <label>Associated Reading Material (optional)
@@ -767,7 +767,7 @@ export function createSlidesModule({ getPkg, persistWorkspace, showMessage, dial
             <details class="editor-advanced-details">
               <summary>Technical Details</summary>
               <div class="editor-advanced-body">
-                <p><strong>Deck ID:</strong> <code>${escapeHtml(deck['@id'])}</code></p>
+                <p><strong>Slides ID:</strong> <code>${escapeHtml(deck['@id'])}</code></p>
                 <p><strong>Identifier Slug:</strong> <code>${escapeHtml(deck.identifier)}</code></p>
                 <pre class="editor-json-preview"><code>${escapeHtml(JSON.stringify(deck, null, 2))}</code></pre>
               </div>
@@ -793,7 +793,7 @@ export function createSlidesModule({ getPkg, persistWorkspace, showMessage, dial
     modalHost.querySelector('#btn-save-deck-settings')?.addEventListener('click', async () => {
       const name = modalHost.querySelector('#setting-deck-name').value.trim();
       if (!name) {
-        showMessage('Enter a slide deck title.', 'error');
+        showMessage('Enter a title for the slides.', 'error');
         return;
       }
       deck.name = name;
@@ -808,7 +808,7 @@ export function createSlidesModule({ getPkg, persistWorkspace, showMessage, dial
       await persistWorkspace();
       closeModal();
       render(container);
-      showMessage('Slide deck settings saved.', 'success');
+      showMessage('Slides settings saved.', 'success');
     });
 
     modalHost.querySelector('#setting-deck-name')?.focus();
@@ -820,7 +820,7 @@ export function createSlidesModule({ getPkg, persistWorkspace, showMessage, dial
     const modalHost = document.getElementById('editor-modal-root') || container;
     if (!deck || !modalHost) return;
 
-    modalHost.innerHTML = '<div class="catalog-status" aria-live="polite">Preparing slide deck preview...</div>';
+    modalHost.innerHTML = '<div class="catalog-status" aria-live="polite">Preparing slides preview...</div>';
 
     let model;
     try {
@@ -831,14 +831,14 @@ export function createSlidesModule({ getPkg, persistWorkspace, showMessage, dial
       });
     } catch (error) {
       modalHost.innerHTML = '';
-      showMessage(error.message || 'The slide deck preview could not be prepared.', 'error');
+      showMessage(error.message || 'The slides preview could not be prepared.', 'error');
       return;
     }
 
     const slides = model.slides;
     if (!slides.length) {
       modalHost.innerHTML = '';
-      showMessage('This slide deck has no slides to preview.', 'warning');
+      showMessage('These slides are empty, so there is nothing to preview.', 'warning');
       return;
     }
 
@@ -849,7 +849,7 @@ export function createSlidesModule({ getPkg, persistWorkspace, showMessage, dial
       const slide = slides[currentIndex];
       const notesHtml = renderSpeakerNotesHtml(slide, { markdownOptions });
       return `
-        <div class="slides-viewer-container" role="region" aria-label="Deck preview">
+        <div class="slides-viewer-container" role="region" aria-label="Slides preview">
           <div class="slide-canvas-wrapper">
             <div class="slide-canvas slide-layout--${escapeHtml(slide.layout)}" aria-label="Slide ${currentIndex + 1}: ${escapeHtml(slide.name || 'Untitled slide')}">
               ${renderSlideCanvasInnerHtml(slide, {
@@ -876,7 +876,7 @@ export function createSlidesModule({ getPkg, persistWorkspace, showMessage, dial
         <div class="editor-preview-content editor-deck-preview-content">
           <header class="editor-preview-header">
             <div>
-              <span class="app-badge badge--level">Slide Deck Preview</span>
+              <span class="app-badge badge--level">Slides Preview</span>
               <h2 id="preview-deck-title">${escapeHtml(model.presentation.name)}</h2>
             </div>
             <button type="button" class="secondary outline btn-close-modal" aria-label="Close preview">Close</button>

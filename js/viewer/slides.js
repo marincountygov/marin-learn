@@ -64,8 +64,8 @@ export async function renderSlideViewer(container, setSlug, resourceSlug, catalo
 
     // Build the persistent shell once so fullscreen state survives slide changes.
     container.innerHTML = `
-      ${breadcrumbHtml([{ label: 'Catalog', route: {} }, { label: catalogEntry.name, route: { set: setSlug } }, { label: 'Deck' }])}
-      <div class="slides-viewer-container" role="region" aria-label="Deck">
+      ${breadcrumbHtml([{ label: 'Catalog', route: {} }, { label: catalogEntry.name, route: { set: setSlug } }, { label: 'Slides' }])}
+      <div class="slides-viewer-container" role="region" aria-label="Slides">
         <header class="slides-top-bar">
           <div class="slides-title-info">
             <span class="slides-pres-name">${escapeHtml(model.presentation.name)}</span>
@@ -252,7 +252,7 @@ function renderError(container, message, setSlug, onNavigate) {
   container.innerHTML = `
     <div class="catalog-error-box">
       ${breadcrumbHtml([{ label: 'Catalog', route: {} }, { label: 'Error' }])}
-      <h3>Deck error</h3>
+      <h3>Slides error</h3>
       <p>${escapeHtml(message)}</p>
     </div>`;
   wireBreadcrumb(container, onNavigate);

@@ -47,7 +47,7 @@ export async function preflightPptxExport(pkg, presentationId = null, options = 
     return failedPreflight(errors.concat(pptxDiagnostic(
       'error',
       error?.code || 'pptx-presentation-unavailable',
-      error?.message || 'The selected slide deck could not be resolved.'
+      error?.message || 'The selected slides could not be resolved.'
     )), warnings);
   }
 
@@ -146,7 +146,7 @@ export async function preflightPptxExport(pkg, presentationId = null, options = 
     language: model.presentation.inLanguage || model.learningSet?.inLanguage || 'en-US',
     filename,
     title: model.presentation.name,
-    subject: model.presentation.abstract || model.learningSet?.name || 'Marin Learn slide deck',
+    subject: model.presentation.abstract || model.learningSet?.name || 'Marin Learn slides',
     presentationId: model.presentation.id,
     presentationIdentifier: model.presentation.identifier,
     slides: slidePlans
@@ -486,7 +486,7 @@ function failedPreflight(errors, warnings) {
 
 export function assertPptxPreflight(preflight) {
   if (preflight?.status === 'pass') return preflight;
-  throw new PptxExportError('The selected slide deck cannot be exported to PowerPoint.', 'pptx-preflight-failed', {
+  throw new PptxExportError('The selected slides cannot be exported to PowerPoint.', 'pptx-preflight-failed', {
     diagnostics: preflight?.errors || []
   });
 }

@@ -43,7 +43,7 @@
           <!-- First-run / Welcome view -->
           <div class="editor-welcome-card" id="welcome-view">
             <h2>Create and update learning materials</h2>
-            <p>Create reading materials, slide decks, and quizzes from one shared set of content. Your work stays in this browser until you download a learning package.</p>
+            <p>Create reading materials, slides, and quizzes from one shared set of content. Your work stays in this browser until you download a learning package.</p>
             
             <div class="editor-welcome-actions">
               <button id="btn-new-project" class="primary">Create learning project</button>
@@ -88,7 +88,7 @@
               <button class="editor-tab-btn active" id="tab-button-overview" role="tab" aria-selected="true" aria-controls="tab-overview" data-tab="overview">Overview</button>
               <button class="editor-tab-btn" id="tab-button-materials" role="tab" aria-selected="false" aria-controls="tab-materials" tabindex="-1" data-tab="materials">Reading Materials</button>
               <button class="editor-tab-btn" id="tab-button-quizzes" role="tab" aria-selected="false" aria-controls="tab-quizzes" tabindex="-1" data-tab="quizzes">Quizzes</button>
-              <button class="editor-tab-btn" id="tab-button-slides" role="tab" aria-selected="false" aria-controls="tab-slides" tabindex="-1" data-tab="slides">Slide Decks</button>
+              <button class="editor-tab-btn" id="tab-button-slides" role="tab" aria-selected="false" aria-controls="tab-slides" tabindex="-1" data-tab="slides">Slides</button>
               <button class="editor-tab-btn" id="tab-button-assets" role="tab" aria-selected="false" aria-controls="tab-assets" tabindex="-1" data-tab="assets">Images and Files</button>
               <button class="editor-tab-btn" id="tab-button-export" role="tab" aria-selected="false" aria-controls="tab-export" tabindex="-1" data-tab="export">Review and Download</button>
             </div>
@@ -107,9 +107,9 @@
                   <span class="editor-task-link">Open quizzes &rarr;</span>
                 </button>
                 <button type="button" class="editor-task-card" data-gototab="slides">
-                  <h4>Build a slide deck</h4>
+                  <h4>Build slides</h4>
                   <p>Present the same information as slides.</p>
-                  <span class="editor-task-link">Open slide decks &rarr;</span>
+                  <span class="editor-task-link">Open slides &rarr;</span>
                 </button>
                 <button type="button" class="editor-task-card" data-gototab="export">
                   <h4>Review and download</h4>
@@ -177,7 +177,7 @@
               <div id="quizzes-list-container"></div>
             </div>
 
-            <!-- Slide Decks Tab -->
+            <!-- Slides Tab -->
             <div class="editor-tab-content editor-hidden" id="tab-slides" role="tabpanel" aria-labelledby="tab-button-slides" tabindex="-1" hidden>
               <div id="slides-list-container"></div>
             </div>
@@ -193,7 +193,7 @@
 
             <!-- Review and Download Tab -->
             <div class="editor-tab-content editor-hidden" id="tab-export" role="tabpanel" aria-labelledby="tab-button-export" tabindex="-1" hidden>
-              <p>Check for missing information, then download a portable learning package or an editable PowerPoint slide deck.</p>
+              <p>Check for missing information, then download a portable learning package or an editable PowerPoint presentation.</p>
               <button id="btn-run-validation" class="secondary">Check project status</button>
               <div id="validation-results" class="editor-mt-1"></div>
 
@@ -205,18 +205,18 @@
 
               <section class="editor-download-section" id="pptx-export-section" aria-labelledby="pptx-export-heading" aria-busy="false">
                 <h4 id="pptx-export-heading">Download PowerPoint</h4>
-                <p>Create an editable PowerPoint presentation from one slide deck. The file is generated in this browser and is not added to the learning package.</p>
+                <p>Create an editable PowerPoint presentation from one set of slides. The file is generated in this browser and is not added to the learning package.</p>
 
                 <div id="pptx-export-empty" class="app-alert app-alert--warning editor-hidden">
-                  <h5>No slide deck available</h5>
-                  <p>Create a slide deck before downloading PowerPoint.</p>
-                  <button type="button" id="btn-pptx-open-slides" class="secondary outline">Open Slide Decks</button>
+                  <h5>No slides available</h5>
+                  <p>Create slides before downloading PowerPoint.</p>
+                  <button type="button" id="btn-pptx-open-slides" class="secondary outline">Open Slides</button>
                 </div>
 
                 <div id="pptx-export-controls" class="editor-pptx-controls editor-hidden">
-                  <label for="pptx-presentation-select">Slide deck</label>
+                  <label for="pptx-presentation-select">Slides</label>
                   <select id="pptx-presentation-select" aria-describedby="pptx-export-help"></select>
-                  <p id="pptx-export-help" class="text-muted editor-help-text">Marin Learn checks the selected deck before enabling the download. Your project stays in this browser while the file is created.</p>
+                  <p id="pptx-export-help" class="text-muted editor-help-text">Marin Learn checks the selected slides before enabling the download. Your project stays in this browser while the file is created.</p>
                   <button type="button" id="btn-export-pptx" class="primary" disabled aria-disabled="true">Download PowerPoint</button>
                 </div>
 

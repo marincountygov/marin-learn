@@ -52,10 +52,10 @@ def run() -> None:
             errors: list[str] = []
             page.on("pageerror", lambda error: errors.append(str(error)))
 
-            # The course shows one Notes card, a Deck, and a Quiz.
+            # The course shows one Notes card, Slides, and a Quiz.
             page.goto(f"{base}?set=sample-note-course", wait_until="networkidle")
-            require(page.locator(".landing-resource-card h3").all_text_contents() == ["Notes", "Deck", "Quiz"],
-                    "A course with a Note shows Notes, Deck, and Quiz")
+            require(page.locator(".landing-resource-card h3").all_text_contents() == ["Notes", "Slides", "Quiz"],
+                    "A course with a Note shows Notes, Slides, and Quiz")
             page.locator(".landing-resource-card h3 a", has_text="Notes").click()
             page.locator("h1", has_text="Plain language 101 notes").wait_for()
 
@@ -88,10 +88,10 @@ def run() -> None:
             require(page.locator("[data-note-action][data-where=top] svg").count() == 3 and page.locator("[data-note-action][data-where=bottom] svg").count() == 3,
                     "Share, Copy note, and Print need icons, above and below the note")
             require(page.locator(".reader-next .app-card p").all_text_contents() == ["Go through the Plain language 101 slides.", "Take the Plain language 101 quiz."],
-                    "Deck and Quiz cards need a description from context")
+                    "Slides and Quiz cards need a description from context")
             require(page.locator(".note-section--examples a").first.get_attribute("href") == "https://example.gov/one", "Example link is wrong")
             require(page.locator("#download-pdf").count() == 0, "No PDF button")
-            require(page.locator(".reader-next h3").all_text_contents() == ["Deck", "Quiz"], "Deck and Quiz cards belong below the note")
+            require(page.locator(".reader-next h3").all_text_contents() == ["Slides", "Quiz"], "Slides and Quiz cards belong below the note")
 
             # On this page: the link for the section being read is bold and marked current.
             def active() -> str:

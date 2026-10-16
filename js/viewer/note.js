@@ -240,7 +240,7 @@ export function renderNotePage(container, setSlug, note, graphData, catalogEntry
         ${fallbackHtml('bottom')}
         ${themeBadgesHtml(catalogEntry.themes)}
 
-        ${nextCards.length ? `<section class="reader-next" aria-label="Deck and quiz"><div class="catalog-grid landing-resource-grid">${nextCards.join('')}</div></section>` : ''}
+        ${nextCards.length ? `<section class="reader-next" aria-label="Slides and quiz"><div class="catalog-grid landing-resource-grid">${nextCards.join('')}</div></section>` : ''}
       </div>
     </div>`;
 

@@ -18,8 +18,8 @@ export async function generateRawPptx(preflight, runtime, options = {}) {
   const company = options.company || 'County of Marin';
   pptx.author = author;
   pptx.company = company;
-  pptx.subject = plan.subject || 'Marin Learn slide deck';
-  pptx.title = plan.title || 'Marin Learn slide deck';
+  pptx.subject = plan.subject || 'Marin Learn slides';
+  pptx.title = plan.title || 'Marin Learn slides';
   pptx.lang = plan.language;
   pptx.theme = {
     headFontFace: PPTX_BRAND.fonts.heading,

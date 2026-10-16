@@ -29,7 +29,7 @@ export function pptxDiagnosticContext(diagnostic = {}) {
 }
 
 export function pptxDiagnosticDisplayMessage(diagnostic = {}) {
-  const original = String(diagnostic.message || 'Review this slide-deck issue.').trim();
+  const original = String(diagnostic.message || 'Review this slides issue.').trim();
   const title = String(diagnostic.slideTitle || '').trim();
   const position = Number(diagnostic.slidePosition);
   let message = original;
@@ -122,7 +122,7 @@ export function createPptxExportModule({
     lastPreflight = null;
     setSectionBusy(true);
     setButtonAvailability(false);
-    renderProgress('Checking whether this slide deck is ready for PowerPoint...');
+    renderProgress('Checking whether these slides are ready for PowerPoint...');
 
     let preflight;
     try {
@@ -133,7 +133,7 @@ export function createPptxExportModule({
         errors: [pptxDiagnostic(
           'error',
           'pptx-preflight-unavailable',
-          'Marin Learn could not check this slide deck for PowerPoint export.',
+          'Marin Learn could not check these slides for PowerPoint export.',
           { cause: error?.message || String(error), presentationId }
         )],
         warnings: []
@@ -181,7 +181,7 @@ export function createPptxExportModule({
       if (authoringFailure) {
         lastPreflight = { status: 'fail', errors: diagnostics, warnings: [] };
         renderPreflight(lastPreflight);
-        showMessage?.('Fix the PowerPoint issues before downloading this slide deck.', 'error', { focus: false });
+        showMessage?.('Fix the PowerPoint issues before downloading these slides.', 'error', { focus: false });
       } else {
         renderInternalFailure(diagnostics);
         showMessage?.('The PowerPoint file could not be created. Your learning project was not changed.', 'error', { focus: false });
@@ -204,7 +204,7 @@ export function createPptxExportModule({
       const option = document.createElement('option');
       option.value = presentation['@id'];
       const slideCount = sequenceItems(presentation, 'marin:slideSequence').length;
-      option.textContent = `${presentation.name || presentation.identifier || 'Untitled slide deck'} - ${slideCount} slide${slideCount === 1 ? '' : 's'}`;
+      option.textContent = `${presentation.name || presentation.identifier || 'Untitled slides'} - ${slideCount} slide${slideCount === 1 ? '' : 's'}`;
       return option;
     });
     select.replaceChildren(...options);
@@ -226,7 +226,7 @@ export function createPptxExportModule({
       fragments.push(createStatusAlert(
         'success',
         'Ready to download',
-        'The selected slide deck passed the PowerPoint checks.'
+        'The selected slides passed the PowerPoint checks.'
       ));
     } else if (preflight.status === 'pass') {
       fragments.push(createDiagnosticAlert(
@@ -239,7 +239,7 @@ export function createPptxExportModule({
       fragments.push(createDiagnosticAlert(
         'danger',
         'PowerPoint is not ready',
-        'Fix these slide-deck issues before downloading PowerPoint.',
+        'Fix these slides issues before downloading PowerPoint.',
         preflight.errors || []
       ));
       if (preflight.warnings?.length) {
@@ -382,7 +382,7 @@ function normalizeExportDiagnostics(error, presentationId, authoringFailure) {
     'error',
     authoringFailure ? 'pptx-preflight-failed' : 'pptx-export-failed',
     authoringFailure
-      ? 'The selected slide deck did not pass the PowerPoint checks.'
+      ? 'The selected slides did not pass the PowerPoint checks.'
       : 'Marin Learn stopped the export because the generated file did not pass its checks.',
     { presentationId }
   )];

@@ -59,7 +59,7 @@ export const TYPE_LABELS = Object.freeze({
   [TYPES.ASSESSMENT_ITEM]: 'Question',
   [TYPES.RESPONSE_OPTION]: 'Answer option',
   [TYPES.GRADE_SCALE]: 'Grade scale',
-  [TYPES.PRESENTATION]: 'Slide deck',
+  [TYPES.PRESENTATION]: 'Slides',
   [TYPES.SLIDE]: 'Slide',
   [TYPES.IMAGE]: 'Image',
   [TYPES.MEDIA]: 'Media asset'

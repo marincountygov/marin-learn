@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Exercise the course page's Notes, Deck, and Quiz cards in light/dark modes.
+"""Exercise the course page's Notes, Slides, and Quiz cards in light/dark modes.
 
 Uses the actual published learning-set graph, viewer module, and bundled theme.
 The offline fixture does not replace the normal end-to-end HTTP browser tests.
@@ -83,9 +83,9 @@ def run(screenshots: Path | None = None) -> None:
                            for link in links.all())
                 assert all(link.get_attribute('aria-label') for link in links.all())
                 assert page.locator('.landing-resource-card .app-badge').count() == 0, 'Cards must not show type badges'
-                assert page.locator('.landing-resource-card h3').all_text_contents() == ['Notes', 'Deck', 'Quiz']
+                assert page.locator('.landing-resource-card h3').all_text_contents() == ['Notes', 'Slides', 'Quiz']
                 assert page.locator('.landing-resource-card .app-card__icon svg').count() == count
-                assert links.all_text_contents() == ['Notes', 'Deck', 'Quiz']
+                assert links.all_text_contents() == ['Notes', 'Slides', 'Quiz']
                 if screenshots:
                     page.screenshot(path=str(screenshots / f'landing-{theme}-{width}.png'), full_page=True)
                 links.first.click()
