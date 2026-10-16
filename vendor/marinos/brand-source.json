@@ -1,10 +1,10 @@
 {
   "schema": 1,
-  "marinUiVersion": "1.25.0",
+  "marinUiVersion": "1.27.0",
   "upstream": "https://github.com/marincountygov/marin-ui",
   "provenance": {
     "source": "Explicitly imported local marin-ui checkout",
-    "gitCommit": "71a1d02b625f3d514bb07f8ebd21ddc6211ec2e9"
+    "gitCommit": "d4201b41819a2f4dde68d89b39c2bd9ad9be128d"
   },
   "files": {
     "vendor/icons/lucide/LICENSE": {

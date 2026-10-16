@@ -456,7 +456,7 @@ a.app-badge:hover {
   text-decoration: none;
 }
 
-.reader-toc a.is-active {
+.reader-toc a[aria-current='location'] {
   color: var(--learn-text);
   font-weight: 700;
 }

@@ -101,7 +101,7 @@ def run() -> None:
             page.evaluate("document.getElementById('note-mantras').scrollIntoView({block: 'start'})")
             page.wait_for_timeout(300)
             require(active() == "Mantras", f"Mantras should be current when it is at the top, got {active()}")
-            require(page.locator(".reader-toc a.is-active").evaluate("el => getComputedStyle(el).fontWeight") in ("700", "bold"), "The current link should be bold")
+            require(page.locator(".reader-toc a[aria-current='location']").evaluate("el => getComputedStyle(el).fontWeight") in ("700", "bold"), "The current link should be bold")
             require(page.locator(".reader-toc a[aria-current]").count() == 1, "Only one link is current")
             page.evaluate("window.scrollTo(0, document.documentElement.scrollHeight)")
             page.wait_for_timeout(300)

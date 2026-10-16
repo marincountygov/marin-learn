@@ -4,7 +4,6 @@ import { parseMarkdownToHtml } from '../core/markdown.js';
 import { breadcrumbHtml, wireBreadcrumb } from './breadcrumb.js';
 import { resourceCard, RESOURCE_KINDS } from './landing.js';
 import { renderNotePage } from './note.js';
-import { wireScrollSpy } from './scrollspy.js';
 
 export async function renderContinuousReader(container, setSlug, resourceSlug, catalogItems, onNavigate) {
   container.innerHTML = '<div class="catalog-status" aria-live="polite">Loading Marin Learn…</div>';
@@ -151,7 +150,7 @@ export async function renderContinuousReader(container, setSlug, resourceSlug, c
       ${breadcrumbHtml([{ label: 'Catalog', route: {} }, { label: catalogEntry.name, route: { set: setSlug } }, { label: 'Notes' }])}
       <div class="reader-layout" role="region" aria-label="Notes">
         <aside class="reader-sidebar" aria-label="On this page">
-          <nav class="reader-toc">
+          <nav class="reader-toc" data-on-this-page-line="140">
             <h4>On this page</h4>
             <ul>
               ${tocItems.map(item => `<li><a href="#${item.anchor}">${escapeHtml(item.name)}</a></li>`).join('')}
@@ -180,7 +179,8 @@ export async function renderContinuousReader(container, setSlug, resourceSlug, c
     `;
 
     wireBreadcrumb(container, onNavigate);
-    wireScrollSpy(container);
+    // The shell marks the section being read in the "On this page" list.
+  window.marinOnThisPage?.(container.querySelector('.reader-toc'));
 
     const shareButton = container.querySelector('#share-notes');
     const shareStatus = container.querySelector('.doc-action-status');
