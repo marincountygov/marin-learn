@@ -121,6 +121,16 @@ export async function preflightPptxExport(pkg, presentationId = null, options = 
 
     const preparedEntries = slide.content.map((entry) => prepareEntry(pkg, assetIndex, entry, errors, warnings, context));
     const slidePlan = planSlide(slide, preparedEntries, errors, warnings, context);
+    // A title slide with no content of its own shows the deck's description, as the viewer does.
+    if (slide.layout === 'title' && !preparedEntries.length) {
+      const text = titleDescription(pkg, model);
+      if (text) {
+        const area = titleSupportArea('title');
+        const height = estimateTextHeight(text, area.w, 21, 1.25, 0.06);
+        if (height > area.h + 0.001) addOverflow(errors, slide, area.h, height, context);
+        slidePlan.description = { text, area, fontSize: 21, requiredHeight: height };
+      }
+    }
     slidePlans.push({
       ...slidePlan,
       source: slide,
@@ -150,6 +160,14 @@ export async function preflightPptxExport(pkg, presentationId = null, options = 
     plan,
     assetIndex
   };
+}
+
+// The abstract of the Note the deck is based on, else the abstract of the course.
+function titleDescription(pkg, model) {
+  const byId = new Map((pkg.graphDocument['@graph'] || []).map((object) => [object?.['@id'], object]));
+  const presentation = byId.get(model.presentation.id);
+  const basedOn = (presentation?.isBasedOn || []).map((ref) => byId.get(ref?.['@id'])).find(Boolean);
+  return String(basedOn?.abstract || model.learningSet?.abstract || '').trim();
 }
 
 function prepareEntry(pkg, assetIndex, entry, errors, warnings, slideContext) {

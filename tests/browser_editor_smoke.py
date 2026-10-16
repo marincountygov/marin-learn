@@ -257,10 +257,13 @@ def run() -> None:
             page.locator("#btn-run-validation").click()
             require(page.locator("#validation-results .app-alert--danger").count() == 0,
                     "New valid content produced blocking validation errors")
-            require(page.get_by_role("heading", name="No issues found", exact=True).is_visible(),
-                    "Valid project status did not show the success heading")
-            require(page.get_by_text("This learning package has no blocking errors or warnings.", exact=True).is_visible(),
-                    "Valid project status did not show the no-issues message")
+            # The new unit has no learning objective and the material has no duration, so the check
+            # reports exactly those two warnings and no blocking errors.
+            results = page.locator("#validation-results").inner_text()
+            require("Worth reviewing (warnings)" in results,
+                    "Valid project with warnings did not show the warnings section")
+            require("is not mapped to a learning objective" in results and "has no estimated duration" in results,
+                    "Validation did not report the expected warnings")
 
             with page.expect_download() as download_info:
                 page.locator("#btn-export-zip").click()

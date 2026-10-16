@@ -162,7 +162,6 @@ export async function renderContinuousReader(container, setSlug, resourceSlug, c
           <header class="reader-header">
             <h1>${escapeHtml(material.name)}</h1>
             ${material.abstract ? `<p class="reader-abstract">${escapeHtml(material.abstract)}</p>` : ''}
-            <!-- Download PDF is hidden for now; the PDFs are still built by scripts/publish.py. -->
             <div class="doc-actions">
               <button type="button" class="doc-action" id="share-notes">Share</button>
               <span class="doc-action-status" role="status" aria-live="polite"></span>

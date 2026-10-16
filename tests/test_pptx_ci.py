@@ -143,7 +143,8 @@ class PptxCiTests(unittest.TestCase):
         self.assertIn("PASS:", completed.stdout)
 
     def test_render_helpers_discover_and_count_generated_deck(self) -> None:
-        self.assertEqual(render_pptx.discover_pptx([self.output]), [self.pptx])
+        # macOS temp folders sit behind a /var -> /private/var link, so compare resolved paths.
+        self.assertEqual([path.resolve() for path in render_pptx.discover_pptx([self.output])], [self.pptx.resolve()])
         self.assertEqual(render_pptx.pptx_slide_count(self.pptx), 7)
         self.assertRegex(render_pptx.sha256(self.pptx), r"^[0-9a-f]{64}$")
 
