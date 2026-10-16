@@ -6,7 +6,6 @@ import { breadcrumbHtml, wireBreadcrumb } from './breadcrumb.js';
 import { copyRich, copyText } from './clipboard.js';
 import { resourceCard, RESOURCE_KINDS } from './landing.js';
 import { themeBadgesHtml } from './course-card.js';
-import { wireScrollSpy } from './scrollspy.js';
 
 // Lucide icons for the action buttons.
 const ICONS = {
@@ -214,7 +213,7 @@ export function renderNotePage(container, setSlug, note, graphData, catalogEntry
     ${breadcrumbHtml([{ label: 'Catalog', route: {} }, { label: catalogEntry.name, route: { set: setSlug } }, { label: 'Notes' }])}
     <div class="reader-layout note-layout" role="region" aria-label="Notes">
       <aside class="reader-sidebar" aria-label="On this page">
-        <nav class="reader-toc">
+        <nav class="reader-toc" data-on-this-page-line="140">
           <h4>On this page</h4>
           <ul>${sections.map(section => `<li><a href="#${sectionId(section)}">${escapeHtml(ruleFor(section).label)}</a></li>`).join('')}</ul>
         </nav>
@@ -247,7 +246,8 @@ export function renderNotePage(container, setSlug, note, graphData, catalogEntry
 
   wireBreadcrumb(container, onNavigate);
   wireActions(container, setSlug, note, sections);
-  wireScrollSpy(container);
+  // The shell marks the section being read in the "On this page" list.
+  window.marinOnThisPage?.(container.querySelector('.reader-toc'));
   wireCodeCopy(container, sections);
   // A link from a quiz result can name a section: #note-keyTerms.
   const wanted = window.location.hash.slice(1);
