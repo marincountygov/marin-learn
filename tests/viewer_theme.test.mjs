@@ -50,7 +50,7 @@ test('viewer markup uses the App Shell badge and Pico role-button contracts', as
   assert.match(combined, /class="app-badge \$\{isCorrect \? 'badge--success' : 'badge--error'\}"/);
   assert.doesNotMatch(combined, /class="badge(?:\s|\")/);
 
-  // The reader has no role-button right now (Download PDF is hidden), so only the old class is ruled out.
+  // The reader has no role-button right now, so only the old class is ruled out.
   assert.doesNotMatch(reader, /class="button\b/);
 });
 

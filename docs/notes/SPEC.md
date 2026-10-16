@@ -122,7 +122,7 @@ The Data 101 and Schema 101 quizzes are authored in `source/quizzes/*.json` and 
 - The checklist is interactive but keeps nothing. Checked items are not saved, and nothing says "completed". (Local storage was approved and then removed.)
 - Examples are provided by the Marin Learn owner. With none, the section is hidden. No examples or citations are invented.
 - Build order: schema, viewer, editor, catalog, Data 101 content, testing.
-- Download PDF stays hidden. There is no PDF export for Notes.
+- There is no PDF export for Notes.
 
 ## 6. Phases
 

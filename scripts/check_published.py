@@ -3,8 +3,8 @@
 
 The site is served straight from the repository (GitHub Pages, branch main, root), so
 `learning/` and `catalog.json` are committed. If someone changes a package and forgets
-to publish, this fails and says what to run. PDFs and the catalog `revision` hash are
-ignored because they change on every build.
+to publish, this fails and says what to run. The catalog `revision` hash is ignored
+because the files it covers are compared directly.
 """
 from __future__ import annotations
 
@@ -39,7 +39,7 @@ def main() -> int:
 
         def files(base: pathlib.Path) -> dict[str, bytes]:
             return {p.relative_to(base).as_posix(): p.read_bytes()
-                    for p in sorted(base.glob("**/*")) if p.is_file() and p.suffix != ".pdf"}
+                    for p in sorted(base.glob("**/*")) if p.is_file()}
 
         built, committed = files(out / "learning"), files(ROOT / "learning")
         for name in sorted(set(built) | set(committed)):

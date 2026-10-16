@@ -212,15 +212,6 @@ def publish_package(zip_path: pathlib.Path, output_dir: pathlib.Path) -> dict:
     zf.extractall(set_out_dir)
     zf.close()
 
-    try:
-        from generate_pdf import generate_material_pdf
-        for mat in materials:
-            mat_ident = mat.get("identifier", "material")
-            pdf_out = set_out_dir / f"{mat_ident}.pdf"
-            generate_material_pdf(set_out_dir / "learning.json", pdf_out)
-    except Exception as e:
-        print(f"Warning: PDF generation failed during publication: {e}", file=sys.stderr)
-
     hasher = hashlib.sha256()
     for p in sorted(set_out_dir.glob("**/*")):
         if p.is_file():
