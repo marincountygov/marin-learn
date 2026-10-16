@@ -134,10 +134,10 @@ test('a title slide can show an icon above the title and a description below it'
   assert.doesNotMatch(renderSlideCanvasInnerHtml({ ...title, layout: 'content' }, { titleExtras: { description: 'x' } }), /slide-title-description/, 'only title slides get extras');
 });
 
-test('the deck is named "<title> — deck"', async () => {
+test('the deck is named "<title> — slides"', async () => {
   const pkg = createExampleNotePackage();
-  applyNoteDeck(pkg.graphDocument, { noteId: EXAMPLE_NOTE_IDS.note, presentationId: EXAMPLE_NOTE_IDS.presentation, name: 'Plain language 101 \u2014 deck', makeId: (key) => `urn:uuid:30000000-0000-4000-8000-${String(key.length).padStart(12, '0')}` });
-  assert.equal(getObject(pkg, EXAMPLE_NOTE_IDS.presentation).name, 'Plain language 101 \u2014 deck');
+  applyNoteDeck(pkg.graphDocument, { noteId: EXAMPLE_NOTE_IDS.note, presentationId: EXAMPLE_NOTE_IDS.presentation, name: 'Plain language 101 \u2014 slides', makeId: (key) => `urn:uuid:30000000-0000-4000-8000-${String(key.length).padStart(12, '0')}` });
+  assert.equal(getObject(pkg, EXAMPLE_NOTE_IDS.presentation).name, 'Plain language 101 \u2014 slides');
 });
 
 test('a deck built from a Note exports to PowerPoint', async () => {

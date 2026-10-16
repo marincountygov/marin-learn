@@ -15,7 +15,7 @@
       "identifier": "county-leaders-guide-to-data",
       "name": "Data 101",
       "abstract": "Learn how County leaders can use data to make better decisions.",
-      "description": "Notes, a deck, and a quiz about using data to understand needs and make better decisions.",
+      "description": "Notes, slides, and a quiz about using data to understand needs and make better decisions.",
       "schemaVersion": "1.0.0",
       "inLanguage": "en-US",
       "version": "1.0.0",
@@ -661,7 +661,7 @@
         "marin:Presentation"
       ],
       "identifier": "county-data-leadership-slides",
-      "name": "Data 101 — deck",
+      "name": "Data 101 — slides",
       "abstract": "Slides for walking a team through Data 101.",
       "learningResourceType": "presentation",
       "isBasedOn": [

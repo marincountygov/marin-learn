@@ -55,7 +55,7 @@ def run() -> None:
                         titles = []
                         canvas = page.locator("#slide-canvas-el")
                         info = page.locator(".slides-title-info")
-                        require(info.inner_text().split("\n")[0] == f"{title} \u2014 deck", f"{title}: deck name is {info.inner_text()!r}")
+                        require(info.inner_text().split("\n")[0] == f"{title} \u2014 slides", f"{title}: slides name is {info.inner_text()!r}")
                         require(info.evaluate("e => getComputedStyle(e).textAlign") == "left" and info.evaluate("e => getComputedStyle(e).alignItems") == "flex-start",
                                 f"{title}: the deck name and slide count should be left aligned")
                         require(canvas.locator(".slide-footer").count() == 0, f"{title}: the title slide has no footer")

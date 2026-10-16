@@ -15,7 +15,7 @@
       "identifier": "county-leaders-guide-to-schemas",
       "name": "Schema 101",
       "abstract": "Learn how shared data rules help County systems work together.",
-      "description": "Notes, a deck, and a quiz about schemas and shared data rules that help systems work together.",
+      "description": "Notes, slides, and a quiz about schemas and shared data rules that help systems work together.",
       "schemaVersion": "1.0.0",
       "inLanguage": "en-US",
       "version": "1.0.0",
@@ -692,7 +692,7 @@
         "marin:Presentation"
       ],
       "identifier": "county-schema-leadership-slides",
-      "name": "Schema 101 — deck",
+      "name": "Schema 101 — slides",
       "abstract": "Slides for walking a team through Schema 101.",
       "learningResourceType": "presentation",
       "isBasedOn": [

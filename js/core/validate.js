@@ -364,7 +364,7 @@ function validateNotes(pkg, resolve, add) {
         for (const content of sequenceItems(slide || {}, 'marin:contentSequence')) covered.add(content.item?.['@id']);
       }
       const missing = sections.filter((section) => !covered.has(section['@id']));
-      if (missing.length) add('warning', 'Semantics', 'section-no-slide', `Slide deck “${presentation.name}” shows none of: ${missing.map(label).join(', ')}.`, objectDetails(presentation, 'isBasedOn'));
+      if (missing.length) add('warning', 'Semantics', 'section-no-slide', `Slides “${presentation.name}” show none of: ${missing.map(label).join(', ')}.`, objectDetails(presentation, 'isBasedOn'));
     }
   }
 }

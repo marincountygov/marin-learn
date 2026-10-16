@@ -58,7 +58,7 @@ def run() -> None:
             require(badges.all_text_contents() == ["Data", "Buying and vendors"], "Course page theme badges are wrong")
             require(page.locator(".landing-header a.app-badge").count() == 0, "Theme badges belong below the cards, not in the header")
             require(page.evaluate("document.querySelector('.landing-themes').getBoundingClientRect().top > document.querySelector('.landing-resources').getBoundingClientRect().bottom - 1"),
-                    "Theme badges should sit below the Notes, Deck, and Quiz cards")
+                    "Theme badges should sit below the Notes, Slides, and Quiz cards")
             badges.nth(1).click()
             page.locator("h2", has_text="Buying and vendors").wait_for()
             require(page.url.endswith("?theme=buying-and-vendors"), "Badge did not open its theme page")

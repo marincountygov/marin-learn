@@ -6,6 +6,7 @@ Existing applications do not automatically inherit these changes. Template chang
 
 ## Unreleased
 
+- Say "Slides" instead of "Deck" or "Slide deck" everywhere learners and authors see it: the course cards, page headings, breadcrumbs, the editor, PowerPoint messages, and the Data 101 and Schema 101 packages. Code names such as `deck` and the `slides` page address are unchanged.
 - Update to the app shell with the "On this page" helper. Marin Learn drops its own scroll-tracking code and uses the shell's. Declare in `marin.yml` that Marin Learn uses no AI and no outside services, so the Tech page no longer says "Not documented".
 - Fix the live site showing only "Loading Marin Learn…". The `publish.yml` workflow uploaded just the generated catalog as the whole Pages site, so whenever it finished after the normal Pages build the app's scripts and styles disappeared (404). It no longer deploys. It now checks that `learning/` and `catalog.json` match `packages/` (`scripts/check_published.py`), and a test keeps deploy steps out of it.
 - Add `scripts/validate_package.mjs`: checks a package against every rule, including the Note, deck, and quiz rules, and prints each error and warning.

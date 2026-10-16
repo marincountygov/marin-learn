@@ -12,7 +12,7 @@ const ICONS = {
 export const RESOURCE_KINDS = [
   { key: 'notes', title: 'Notes', icon: 'sticky-note', view: 'read' },
   { key: 'materials', title: 'Notes', icon: 'sticky-note', view: 'read' },
-  { key: 'presentations', title: 'Deck', icon: 'presentation', view: 'slides' },
+  { key: 'presentations', title: 'Slides', icon: 'presentation', view: 'slides' },
   { key: 'assessments', title: 'Quiz', icon: 'blocks', view: 'quiz' }
 ];
 
@@ -60,10 +60,10 @@ export async function renderLandingPage(container, setSlug, catalogItems, onNavi
           <p class="landing-abstract">${escapeHtml(lset.abstract || catalogEntry.abstract || '')}</p>
         </header>
 
-        <section class="landing-resources" aria-label="Notes, deck, and quiz">
+        <section class="landing-resources" aria-label="Notes, slides, and quiz">
           ${cards.length ? `
             <div class="catalog-grid landing-resource-grid">${cards.join('')}</div>
-          ` : '<p class="text-muted">This course has no notes, deck, or quiz yet.</p>'}
+          ` : '<p class="text-muted">This course has no notes, slides, or quiz yet.</p>'}
         </section>
 
         ${catalogEntry.themes && catalogEntry.themes.length ? `<section class="landing-themes" aria-label="Themes">${themeBadgesHtml(catalogEntry.themes)}</section>` : ''}

@@ -131,7 +131,7 @@ export async function renderContinuousReader(container, setSlug, resourceSlug, c
     const nextCards = RESOURCE_KINDS.filter(kind => kind.key !== 'materials')
       .flatMap(kind => graphData[kind.key].map(item => resourceCard(item, kind, setSlug)));
     const nextCardsHtml = nextCards.length ? `
-          <section class="reader-next" aria-label="Deck and quiz">
+          <section class="reader-next" aria-label="Slides and quiz">
             <div class="catalog-grid landing-resource-grid">${nextCards.join('')}</div>
           </section>` : '';
 

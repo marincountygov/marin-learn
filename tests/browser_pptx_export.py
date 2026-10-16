@@ -201,7 +201,7 @@ def test_empty_state(context, base_url: str | None, in_memory: bool) -> None:
     require(page.locator("#btn-export-pptx").is_disabled(),
             "PowerPoint download should be disabled when no deck exists")
 
-    page.get_by_role("button", name="Open Slide Decks").focus()
+    page.get_by_role("button", name="Open Slides").focus()
     page.keyboard.press("Enter")
     require(page.locator("#tab-slides").is_visible(),
             "Open Slide Decks did not navigate to the slide-deck tab")
@@ -237,7 +237,7 @@ def test_generation_and_diagnostics(context, base_url: str | None, requests: lis
     page.locator("#pptx-export-results .app-alert").wait_for(state="visible")
     require(page.get_by_role("region", name="Download PowerPoint").count() == 1,
             "PowerPoint export section is missing its accessible region name")
-    require(page.get_by_role("combobox", name="Slide deck").count() == 1,
+    require(page.get_by_role("combobox", name="Slides").count() == 1,
             "PowerPoint deck selector is missing its accessible name")
     require(page.get_by_role("button", name="Download PowerPoint").count() == 1,
             "PowerPoint download button is missing its accessible name")

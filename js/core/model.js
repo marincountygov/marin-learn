@@ -438,7 +438,7 @@ export function createGradeScale(pkg, name = 'Letter grades') {
   return scale;
 }
 
-export function createPresentation(pkg, name = 'New slide deck', basedOnMaterialId = null) {
+export function createPresentation(pkg, name = 'New slides', basedOnMaterialId = null) {
   const presentation = {
     '@id': uuidUrn(),
     '@type': ['PresentationDigitalDocument', TYPES.PRESENTATION],
