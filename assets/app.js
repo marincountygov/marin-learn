@@ -30,11 +30,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   await fetchCatalog();
 
-  // Support links are placeholders until the request forms exist.
-  document.querySelectorAll('[data-placeholder-link]').forEach(link => {
-    link.addEventListener('click', event => event.preventDefault());
-  });
-
   function handleRoute() {
     const route = parseRoute();
     if (route.theme && !route.set) {

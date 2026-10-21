@@ -1,0 +1,2258 @@
+{
+  "@context": [
+    "https://schema.org",
+    {
+      "marin": "https://marincountygov.github.io/marin-learn/ns#"
+    }
+  ],
+  "@graph": [
+    {
+      "@id": "urn:uuid:1ab1f676-f7b0-539b-852f-06a85d160121",
+      "@type": [
+        "LearningResource",
+        "marin:LearningSet"
+      ],
+      "identifier": "county-leaders-guide-to-apis",
+      "name": "API 101",
+      "abstract": "Learn what an application programming interface is and what County leaders should ask before they build or buy one.",
+      "description": "Notes, slides, and a quiz about application programming interfaces, the connections that let County systems share data and services.",
+      "schemaVersion": "1.0.0",
+      "inLanguage": "en-US",
+      "version": "1.0.0",
+      "dateCreated": "2026-10-21",
+      "dateModified": "2026-10-21",
+      "creativeWorkStatus": "published",
+      "educationalLevel": "introductory",
+      "educationalUse": [
+        "orientation",
+        "self-study"
+      ],
+      "learningResourceType": "guide",
+      "timeRequired": "PT25M",
+      "audience": [
+        {
+          "@type": "EducationalAudience",
+          "audienceType": "County executives and department leaders",
+          "educationalRole": "learner"
+        }
+      ],
+      "keywords": [
+        "county government",
+        "API",
+        "open standards",
+        "open data",
+        "integration",
+        "OpenAPI"
+      ],
+      "marin:startResource": {
+        "@id": "urn:uuid:fcefc308-e6c3-596f-a219-371bd749bfca"
+      },
+      "hasPart": [
+        {
+          "@id": "urn:uuid:fcefc308-e6c3-596f-a219-371bd749bfca"
+        },
+        {
+          "@id": "urn:uuid:e4a95b11-58f1-570d-b997-07adf9964f80"
+        },
+        {
+          "@id": "urn:uuid:c732f480-947b-5ef1-8b36-dc4a82e1b987"
+        },
+        {
+          "@id": "urn:uuid:eaf24f22-05b3-5b74-80a0-ae220b7dfc49"
+        },
+        {
+          "@id": "urn:uuid:83ae9dd8-8bb3-525a-ab71-ef20b15567b7"
+        },
+        {
+          "@id": "urn:uuid:53668e82-aea8-5f61-a0a7-083d45092031"
+        },
+        {
+          "@id": "urn:uuid:d6887f2e-e88d-574d-b669-bb68976db57e"
+        },
+        {
+          "@id": "urn:uuid:ac101a3b-f4e4-5556-a4fb-943f2887337a"
+        },
+        {
+          "@id": "urn:uuid:7f51c346-5ee3-515b-9211-9d468310b5ca"
+        },
+        {
+          "@id": "urn:uuid:ab2b5780-73b6-5d36-bf96-c54651cd85d3"
+        },
+        {
+          "@id": "urn:uuid:b1a363b3-b799-5c98-b719-042e77864992"
+        },
+        {
+          "@id": "urn:uuid:019e0d7d-1794-5725-b477-a58070077976"
+        },
+        {
+          "@id": "urn:uuid:b94138ba-0920-5431-b8d8-d96bf5d36afc"
+        },
+        {
+          "@id": "urn:uuid:a9ea8ccc-05fc-59c0-90a6-c0e79b0e5da6"
+        },
+        {
+          "@id": "urn:uuid:8c1e7531-cd76-51d2-b32a-d4dd195dfb18"
+        },
+        {
+          "@id": "urn:uuid:0ef02ad2-e7c2-5b0b-92af-793fa8571e0b"
+        },
+        {
+          "@id": "urn:uuid:84a98e7b-25ac-53df-aaf4-3cddfc547599"
+        },
+        {
+          "@id": "urn:uuid:d0f34d9d-5f92-56d7-98f2-8879965e809b"
+        },
+        {
+          "@id": "urn:uuid:2192984c-c360-59a9-9d3c-3ea4ac65df63"
+        },
+        {
+          "@id": "urn:uuid:b87d698a-1579-5838-9a09-a07798b3b49f"
+        },
+        {
+          "@id": "urn:uuid:88f51bd0-d199-5240-b177-4226bdfcbd10"
+        },
+        {
+          "@id": "urn:uuid:5d671999-7956-58df-85cf-0c5b6ef91749"
+        },
+        {
+          "@id": "urn:uuid:13ee8862-900a-5c82-9c5b-94c9cbe660b5"
+        },
+        {
+          "@id": "urn:uuid:897c83e8-c232-599b-bebb-1f9294f0ab7f"
+        },
+        {
+          "@id": "urn:uuid:3c6f37e4-2163-520d-ae09-f7a5db3d07d7"
+        },
+        {
+          "@id": "urn:uuid:01b82491-d65b-5e3e-aab2-5b2c73210cd6"
+        },
+        {
+          "@id": "urn:uuid:7d11a915-813b-546d-8b41-3a4cc67c6bc9"
+        },
+        {
+          "@id": "urn:uuid:6b1b02ce-3f9b-5c7c-bc78-b33126967482"
+        },
+        {
+          "@id": "urn:uuid:d99f7e06-4f4c-5829-9f36-88e72ca1074e"
+        },
+        {
+          "@id": "urn:uuid:666efd1e-62ea-5405-af4c-46ae4b096c3e"
+        },
+        {
+          "@id": "urn:uuid:a2f69b1f-5e08-56e7-9d03-82c1b09f9f9c"
+        },
+        {
+          "@id": "urn:uuid:ea84cf90-4a01-5795-9e41-f83172a4be56"
+        },
+        {
+          "@id": "urn:uuid:1085afe4-0939-504e-b4b3-0175673dc34c"
+        },
+        {
+          "@id": "urn:uuid:01829315-4325-5646-8d8d-5251f4daae75"
+        },
+        {
+          "@id": "urn:uuid:052d03e4-0e97-5c50-96b7-f692118b2857"
+        },
+        {
+          "@id": "urn:uuid:b637f3e0-744b-50c1-a8ce-e9abe37c34a6"
+        },
+        {
+          "@id": "urn:uuid:c7a5b18e-e938-5752-8b9e-d5b8ced09a9a"
+        },
+        {
+          "@id": "urn:uuid:c33a7019-38fc-59c0-94cd-a5511443288b"
+        },
+        {
+          "@id": "urn:uuid:0bea78d3-cfa2-56f3-a63c-69331620596c"
+        },
+        {
+          "@id": "urn:uuid:a6b85776-486a-567f-a1ca-d1f2478b6052"
+        },
+        {
+          "@id": "urn:uuid:f76fe31e-d053-541a-943f-19a9f2a07d7b"
+        },
+        {
+          "@id": "urn:uuid:0d86c155-28ff-5118-aad9-22c114bd631a"
+        },
+        {
+          "@id": "urn:uuid:526126bb-e0e6-5161-b448-806e02b9fa2c"
+        },
+        {
+          "@id": "urn:uuid:c260b6f5-d003-5912-8b78-832b039a9122"
+        },
+        {
+          "@id": "urn:uuid:296553f6-7293-5192-89dc-258c7122c1c1"
+        },
+        {
+          "@id": "urn:uuid:1da03cbc-2267-54f7-bfee-c8b97091cf10"
+        },
+        {
+          "@id": "urn:uuid:639b7210-d16d-59a3-aef9-694f748baed4"
+        },
+        {
+          "@id": "urn:uuid:e603126a-8346-51f8-96e0-3f7e7370808d"
+        },
+        {
+          "@id": "urn:uuid:d06fcf34-0ace-51f5-90e4-31cd98e0bab0"
+        },
+        {
+          "@id": "urn:uuid:a29c8414-b51e-59f5-b3b8-ae0ae9ed2a7a"
+        },
+        {
+          "@id": "urn:uuid:b7b909fe-ff89-5acc-9b60-f0f572a251f3"
+        },
+        {
+          "@id": "urn:uuid:4030397f-2baf-5e06-962a-8746f7efc0cc"
+        },
+        {
+          "@id": "urn:uuid:ad86c427-b9b9-5fa5-ac1f-9b69964a08da"
+        },
+        {
+          "@id": "urn:uuid:e1cc0be3-b512-5400-b126-e04edacffed6"
+        },
+        {
+          "@id": "urn:uuid:66c729ca-4395-5126-913d-d6d29d20315d"
+        },
+        {
+          "@id": "urn:uuid:83f87270-f5db-5c59-8c67-44d49822e5f9"
+        },
+        {
+          "@id": "urn:uuid:0a2703ab-ff76-5986-ab60-6c4f7abb0487"
+        },
+        {
+          "@id": "urn:uuid:441180b3-4f8e-5cad-8cf7-6a9d03273f0e"
+        },
+        {
+          "@id": "urn:uuid:20407765-e1c3-5faf-bb37-ca1e40faaaee"
+        },
+        {
+          "@id": "urn:uuid:b2b14517-a9d0-512f-8828-97f8908ae184"
+        },
+        {
+          "@id": "urn:uuid:1d7298f0-7bb2-512b-8bbb-d76eb94bd1f5"
+        },
+        {
+          "@id": "urn:uuid:9a5fc9c0-1e0e-59f1-9ef3-2183c1b4e2f8"
+        },
+        {
+          "@id": "urn:uuid:b53d7007-4408-5b99-a247-8d21d994794a"
+        },
+        {
+          "@id": "urn:uuid:bb2adc28-7883-5805-af0f-9d692c9b2119"
+        },
+        {
+          "@id": "urn:uuid:00e6ed2c-d90f-50a2-87ec-d2e9ed00eade"
+        },
+        {
+          "@id": "urn:uuid:60403307-b122-520b-ac63-18cf55c84646"
+        },
+        {
+          "@id": "urn:uuid:eff903a9-fe6a-56b2-be68-8746b15eec96"
+        },
+        {
+          "@id": "urn:uuid:293fe960-1fd5-5fe8-bd0c-f0d703930c07"
+        },
+        {
+          "@id": "urn:uuid:998310c9-f2ed-5c1e-b6c6-3aea63e42a3d"
+        },
+        {
+          "@id": "urn:uuid:a7b8900d-50c1-5f15-b059-eca236b42b52"
+        },
+        {
+          "@id": "urn:uuid:fdd05985-d849-5ff0-9202-419a2456f8aa"
+        },
+        {
+          "@id": "urn:uuid:91b10fe8-7f62-5af8-8d5e-4a003ce10c2b"
+        },
+        {
+          "@id": "urn:uuid:f3ccf5e4-5acd-565f-9cf1-dd60564959da"
+        },
+        {
+          "@id": "urn:uuid:f56c964c-2bb0-5f20-b078-20d530031719"
+        },
+        {
+          "@id": "urn:uuid:b1625168-d823-5315-8f9d-bcb9d916e056"
+        },
+        {
+          "@id": "urn:uuid:c8443676-cbc0-5b8a-8147-6456c00bf943"
+        },
+        {
+          "@id": "urn:uuid:68fee470-25ff-5aff-a413-d3b9dc89a34d"
+        },
+        {
+          "@id": "urn:uuid:377b3ed8-2228-5ac7-8f8c-c8d8bbefb525"
+        },
+        {
+          "@id": "urn:uuid:376d60d0-1935-57a3-b554-f1b2bb619027"
+        }
+      ],
+      "about": [
+        {
+          "@type": "DefinedTerm",
+          "name": "Digital services"
+        },
+        {
+          "@type": "DefinedTerm",
+          "name": "Data"
+        }
+      ]
+    },
+    {
+      "@id": "urn:uuid:fcefc308-e6c3-596f-a219-371bd749bfca",
+      "@type": [
+        "LearningResource",
+        "marin:Note"
+      ],
+      "identifier": "api-101-notes",
+      "name": "API 101",
+      "abstract": "Learn what an application programming interface is and what County leaders should ask before they build or buy one.",
+      "inLanguage": "en-US",
+      "creativeWorkStatus": "published",
+      "dateCreated": "2026-10-21",
+      "dateModified": "2026-10-21",
+      "audience": [
+        {
+          "@type": "EducationalAudience",
+          "audienceType": "County executives and staff",
+          "educationalRole": "learner"
+        }
+      ],
+      "isBasedOn": [
+        {
+          "@type": "CreativeWork",
+          "name": "API (Wikipedia)",
+          "url": "https://en.wikipedia.org/wiki/API"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Open API (Wikipedia)",
+          "url": "https://en.wikipedia.org/wiki/Open_API"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "What is OpenAPI? (OpenAPI Initiative)",
+          "url": "https://www.openapis.org/what-is-openapi"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "api.data.gov",
+          "url": "https://api.data.gov/"
+        }
+      ],
+      "marin:sectionSequence": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:e4a95b11-58f1-570d-b997-07adf9964f80"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@id": "urn:uuid:c732f480-947b-5ef1-8b36-dc4a82e1b987"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@id": "urn:uuid:eaf24f22-05b3-5b74-80a0-ae220b7dfc49"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "item": {
+              "@id": "urn:uuid:83ae9dd8-8bb3-525a-ab71-ef20b15567b7"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 5,
+            "item": {
+              "@id": "urn:uuid:53668e82-aea8-5f61-a0a7-083d45092031"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 6,
+            "item": {
+              "@id": "urn:uuid:d6887f2e-e88d-574d-b669-bb68976db57e"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 7,
+            "item": {
+              "@id": "urn:uuid:ac101a3b-f4e4-5556-a4fb-943f2887337a"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 8,
+            "item": {
+              "@id": "urn:uuid:7f51c346-5ee3-515b-9211-9d468310b5ca"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 9,
+            "item": {
+              "@id": "urn:uuid:ab2b5780-73b6-5d36-bf96-c54651cd85d3"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 10,
+            "item": {
+              "@id": "urn:uuid:b1a363b3-b799-5c98-b719-042e77864992"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 11,
+            "item": {
+              "@id": "urn:uuid:019e0d7d-1794-5725-b477-a58070077976"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 12,
+            "item": {
+              "@id": "urn:uuid:b94138ba-0920-5431-b8d8-d96bf5d36afc"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@id": "urn:uuid:e4a95b11-58f1-570d-b997-07adf9964f80",
+      "@type": [
+        "CreativeWork",
+        "marin:NoteSection"
+      ],
+      "identifier": "api-101-overview",
+      "name": "Overview",
+      "marin:sectionType": "overview",
+      "marin:text": "An application programming interface, or API, is a connection between two computer programs. One program sends a request, and the other sends back a response. For example, a weather sensor with an API replies with a weather report when a program sends it the right message. The message is the request. The report is the response. An API works like a contract: it states what you can ask for and what you will get back. Anyone with data can offer an API, including governments and vendors."
+    },
+    {
+      "@id": "urn:uuid:c732f480-947b-5ef1-8b36-dc4a82e1b987",
+      "@type": [
+        "CreativeWork",
+        "marin:NoteSection"
+      ],
+      "identifier": "api-101-why-it-matters",
+      "name": "Why it matters",
+      "marin:sectionType": "whyItMatters",
+      "marin:items": [
+        "A vendor's API lets County systems connect to the products you buy and share their data.",
+        "A product with no API cannot link to your other systems this way.",
+        "A steady, well-described County API lets other teams and vendors build on it with confidence.",
+        "A public API lets residents and companies use County data in their own tools."
+      ]
+    },
+    {
+      "@id": "urn:uuid:eaf24f22-05b3-5b74-80a0-ae220b7dfc49",
+      "@type": [
+        "CreativeWork",
+        "marin:NoteSection"
+      ],
+      "identifier": "api-101-problem",
+      "name": "Problem",
+      "marin:sectionType": "problem",
+      "marin:text": "An API that is not written down comes with no guarantee for the people who use it. A change to an API can break the systems that depend on it. A product with no API gives other systems no way to connect to it."
+    },
+    {
+      "@id": "urn:uuid:83ae9dd8-8bb3-525a-ab71-ef20b15567b7",
+      "@type": [
+        "CreativeWork",
+        "marin:NoteSection"
+      ],
+      "identifier": "api-101-solution",
+      "name": "Solution",
+      "marin:sectionType": "solution",
+      "marin:text": "Ask for an API before you buy, and get it described in writing. Treat each County API as a service with an owner. Describe it in a shared standard such as OpenAPI, and warn users before you change or retire any part."
+    },
+    {
+      "@id": "urn:uuid:53668e82-aea8-5f61-a0a7-083d45092031",
+      "@type": [
+        "CreativeWork",
+        "marin:NoteSection"
+      ],
+      "identifier": "api-101-user-stories",
+      "name": "User stories",
+      "marin:sectionType": "userStories",
+      "marin:items": [
+        "As a buyer, I want to know if a product has an API, so we can link it to our systems.",
+        "As a department head, I want our systems to share data, so staff do not enter a record twice.",
+        "As a vendor, I want a clear guide to the County's API, so I can connect without guessing.",
+        "As a resident, I want to use County data in an app I pick, so I can find what I need fast."
+      ]
+    },
+    {
+      "@id": "urn:uuid:d6887f2e-e88d-574d-b669-bb68976db57e",
+      "@type": [
+        "CreativeWork",
+        "marin:NoteSection"
+      ],
+      "identifier": "api-101-key-terms",
+      "name": "Key terms",
+      "marin:sectionType": "keyTerms",
+      "marin:items": [
+        {
+          "term": "API",
+          "definition": "A connection that lets one program ask another program for data or for an action."
+        },
+        {
+          "term": "API call",
+          "definition": "A message that asks a system for data or an action. The system sends back a response."
+        },
+        {
+          "term": "Endpoint",
+          "definition": "One place where a system can be reached to get a certain kind of data or action."
+        },
+        {
+          "term": "API specification",
+          "definition": "A document that explains how a connection between programs works and how to use it."
+        },
+        {
+          "term": "OpenAPI",
+          "definition": "An open standard for describing web APIs in a file that both people and tools can read."
+        },
+        {
+          "term": "Open API",
+          "definition": "A public connection that anyone can use. It may need free sign-up and may limit use."
+        },
+        {
+          "term": "Private API",
+          "definition": "A connection only the organization’s own staff and contractors can use."
+        },
+        {
+          "term": "Partner API",
+          "definition": "A connection that only chosen business partners may use."
+        },
+        {
+          "term": "Deprecated",
+          "definition": "Marked as likely to change or end. Users should plan to move away from it."
+        },
+        {
+          "term": "Vendor API",
+          "definition": "A connection a software seller offers so that County systems can work with its product."
+        }
+      ]
+    },
+    {
+      "@id": "urn:uuid:ac101a3b-f4e4-5556-a4fb-943f2887337a",
+      "@type": [
+        "CreativeWork",
+        "marin:NoteSection"
+      ],
+      "identifier": "api-101-dos-and-donts",
+      "name": "Do’s and don’ts",
+      "marin:sectionType": "dosAndDonts",
+      "marin:items": [
+        {
+          "do": "Ask each vendor for its API description before you buy.",
+          "dont": "Count on vendor features that are not documented."
+        },
+        {
+          "do": "Name an owner for every API.",
+          "dont": "Leave an API with no one in charge."
+        },
+        {
+          "do": "Describe each API in a shared standard such as OpenAPI.",
+          "dont": "Make other teams guess how an API works."
+        },
+        {
+          "do": "Warn users before you change or retire an API.",
+          "dont": "Change an API without telling the people who use it."
+        },
+        {
+          "do": "Mark the unstable parts so users know they may change.",
+          "dont": "Promise stability that you cannot keep."
+        }
+      ]
+    },
+    {
+      "@id": "urn:uuid:7f51c346-5ee3-515b-9211-9d468310b5ca",
+      "@type": [
+        "CreativeWork",
+        "marin:NoteSection"
+      ],
+      "identifier": "api-101-questions",
+      "name": "Questions to ask",
+      "marin:sectionType": "questions",
+      "marin:items": [
+        "Does this product have an API, and is it described in writing?",
+        "Who owns this API, and who do we call when it breaks?",
+        "Is it private, partner-only, or public?",
+        "Where is it described, and is that description kept up to date?",
+        "How will users learn about a change before it happens?",
+        "What data does it share, and who approved that?",
+        "How do we know who is using it, and how much?",
+        "Could a new vendor learn to use it from the documentation alone?"
+      ]
+    },
+    {
+      "@id": "urn:uuid:ab2b5780-73b6-5d36-bf96-c54651cd85d3",
+      "@type": [
+        "CreativeWork",
+        "marin:NoteSection"
+      ],
+      "identifier": "api-101-examples",
+      "name": "Examples",
+      "marin:sectionType": "examples",
+      "marin:items": [
+        {
+          "title": "api.data.gov, a U.S. federal service that helps agencies share APIs",
+          "url": "https://api.data.gov/"
+        }
+      ]
+    },
+    {
+      "@id": "urn:uuid:b1a363b3-b799-5c98-b719-042e77864992",
+      "@type": [
+        "CreativeWork",
+        "marin:NoteSection"
+      ],
+      "identifier": "api-101-checklist",
+      "name": "Checklist",
+      "marin:sectionType": "checklist",
+      "marin:items": [
+        "We know whether each product we buy has an API.",
+        "Each API has a named owner.",
+        "Each API is marked private, partner, or public.",
+        "A written description of each API exists and is current.",
+        "Users are told before an API changes or ends.",
+        "Someone can see who uses each API.",
+        "Parts that may change are labeled as unstable."
+      ]
+    },
+    {
+      "@id": "urn:uuid:019e0d7d-1794-5725-b477-a58070077976",
+      "@type": [
+        "CreativeWork",
+        "marin:NoteSection"
+      ],
+      "identifier": "api-101-mantras",
+      "name": "Mantras",
+      "marin:sectionType": "mantras",
+      "marin:items": [
+        "Ask the vendor before you buy.",
+        "Treat an API as a contract.",
+        "Describe it before you build it.",
+        "Tell users before you change it."
+      ]
+    },
+    {
+      "@id": "urn:uuid:b94138ba-0920-5431-b8d8-d96bf5d36afc",
+      "@type": [
+        "CreativeWork",
+        "marin:NoteSection"
+      ],
+      "identifier": "api-101-learn-more",
+      "name": "Sources",
+      "marin:sectionType": "learnMore",
+      "marin:items": [
+        {
+          "title": "API (Wikipedia)",
+          "url": "https://en.wikipedia.org/wiki/API"
+        },
+        {
+          "title": "Open API (Wikipedia)",
+          "url": "https://en.wikipedia.org/wiki/Open_API"
+        },
+        {
+          "title": "What is OpenAPI? (OpenAPI Initiative)",
+          "url": "https://www.openapis.org/what-is-openapi"
+        }
+      ]
+    },
+    {
+      "@id": "urn:uuid:a9ea8ccc-05fc-59c0-90a6-c0e79b0e5da6",
+      "@type": [
+        "PresentationDigitalDocument",
+        "marin:Presentation"
+      ],
+      "identifier": "api-101-slides",
+      "name": "API 101 — slides",
+      "abstract": "Slides for walking a team through application programming interfaces.",
+      "learningResourceType": "presentation",
+      "isBasedOn": [
+        {
+          "@id": "urn:uuid:fcefc308-e6c3-596f-a219-371bd749bfca"
+        }
+      ],
+      "marin:slideSequence": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:b53d7007-4408-5b99-a247-8d21d994794a"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@id": "urn:uuid:bb2adc28-7883-5805-af0f-9d692c9b2119"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@id": "urn:uuid:00e6ed2c-d90f-50a2-87ec-d2e9ed00eade"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "item": {
+              "@id": "urn:uuid:60403307-b122-520b-ac63-18cf55c84646"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 5,
+            "item": {
+              "@id": "urn:uuid:eff903a9-fe6a-56b2-be68-8746b15eec96"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 6,
+            "item": {
+              "@id": "urn:uuid:293fe960-1fd5-5fe8-bd0c-f0d703930c07"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 7,
+            "item": {
+              "@id": "urn:uuid:998310c9-f2ed-5c1e-b6c6-3aea63e42a3d"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 8,
+            "item": {
+              "@id": "urn:uuid:a7b8900d-50c1-5f15-b059-eca236b42b52"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 9,
+            "item": {
+              "@id": "urn:uuid:fdd05985-d849-5ff0-9202-419a2456f8aa"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 10,
+            "item": {
+              "@id": "urn:uuid:91b10fe8-7f62-5af8-8d5e-4a003ce10c2b"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 11,
+            "item": {
+              "@id": "urn:uuid:f3ccf5e4-5acd-565f-9cf1-dd60564959da"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 12,
+            "item": {
+              "@id": "urn:uuid:f56c964c-2bb0-5f20-b078-20d530031719"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 13,
+            "item": {
+              "@id": "urn:uuid:b1625168-d823-5315-8f9d-bcb9d916e056"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 14,
+            "item": {
+              "@id": "urn:uuid:c8443676-cbc0-5b8a-8147-6456c00bf943"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 15,
+            "item": {
+              "@id": "urn:uuid:68fee470-25ff-5aff-a413-d3b9dc89a34d"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 16,
+            "item": {
+              "@id": "urn:uuid:377b3ed8-2228-5ac7-8f8c-c8d8bbefb525"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 17,
+            "item": {
+              "@id": "urn:uuid:376d60d0-1935-57a3-b554-f1b2bb619027"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@id": "urn:uuid:8c1e7531-cd76-51d2-b32a-d4dd195dfb18",
+      "@type": [
+        "marin:GradeScale"
+      ],
+      "identifier": "api-101-grades",
+      "name": "API 101 — quiz grades",
+      "marin:gradeBands": [
+        {
+          "name": "A",
+          "minPercent": 90,
+          "marin:message": "Excellent. You can ask good questions about who owns an API and who may use it."
+        },
+        {
+          "name": "B",
+          "minPercent": 80,
+          "marin:message": "Strong work. Keep asking how an API is described and how users hear about changes."
+        },
+        {
+          "name": "C",
+          "minPercent": 70,
+          "marin:message": "A sound start. Read the explanations, then check the notes for the ones you missed."
+        },
+        {
+          "name": "D",
+          "minPercent": 60,
+          "marin:message": "Go back to the key terms and the do’s and don’ts in the notes, then try again."
+        },
+        {
+          "name": "F",
+          "minPercent": 0,
+          "marin:message": "Start with the notes. Then take the quiz again."
+        }
+      ]
+    },
+    {
+      "@id": "urn:uuid:0ef02ad2-e7c2-5b0b-92af-793fa8571e0b",
+      "@type": [
+        "CreativeWork",
+        "marin:AssessmentItem"
+      ],
+      "identifier": "q01-why-it-matters",
+      "name": "What does a vendor's API let County systems do?",
+      "text": "What does a vendor's API let County systems do?",
+      "isBasedOn": [
+        {
+          "@id": "urn:uuid:c732f480-947b-5ef1-8b36-dc4a82e1b987"
+        }
+      ],
+      "marin:interactionType": "single-select",
+      "marin:options": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:84a98e7b-25ac-53df-aaf4-3cddfc547599"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@id": "urn:uuid:d0f34d9d-5f92-56d7-98f2-8879965e809b"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@id": "urn:uuid:2192984c-c360-59a9-9d3c-3ea4ac65df63"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "item": {
+              "@id": "urn:uuid:b87d698a-1579-5838-9a09-a07798b3b49f"
+            }
+          }
+        ]
+      },
+      "marin:correctResponse": [
+        {
+          "@id": "urn:uuid:2192984c-c360-59a9-9d3c-3ea4ac65df63"
+        }
+      ],
+      "marin:hint": "Think about connecting products you buy to your other systems.",
+      "marin:explanation": "Why it matters says a vendor's API lets County systems connect to the products you buy and share their data.",
+      "marin:shuffleOptions": true
+    },
+    {
+      "@id": "urn:uuid:84a98e7b-25ac-53df-aaf4-3cddfc547599",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q01-a",
+      "text": "Skip the contract with the vendor."
+    },
+    {
+      "@id": "urn:uuid:d0f34d9d-5f92-56d7-98f2-8879965e809b",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q01-b",
+      "text": "Make the product free to use."
+    },
+    {
+      "@id": "urn:uuid:2192984c-c360-59a9-9d3c-3ea4ac65df63",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q01-c",
+      "text": "Connect to the product and share its data."
+    },
+    {
+      "@id": "urn:uuid:b87d698a-1579-5838-9a09-a07798b3b49f",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q01-d",
+      "text": "Hide the product from staff."
+    },
+    {
+      "@id": "urn:uuid:88f51bd0-d199-5240-b177-4226bdfcbd10",
+      "@type": [
+        "CreativeWork",
+        "marin:AssessmentItem"
+      ],
+      "identifier": "q02-problem",
+      "name": "What does an API that is not written down give the people who use it?",
+      "text": "What does an API that is not written down give the people who use it?",
+      "isBasedOn": [
+        {
+          "@id": "urn:uuid:eaf24f22-05b3-5b74-80a0-ae220b7dfc49"
+        }
+      ],
+      "marin:interactionType": "single-select",
+      "marin:options": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:5d671999-7956-58df-85cf-0c5b6ef91749"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@id": "urn:uuid:13ee8862-900a-5c82-9c5b-94c9cbe660b5"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@id": "urn:uuid:897c83e8-c232-599b-bebb-1f9294f0ab7f"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "item": {
+              "@id": "urn:uuid:3c6f37e4-2163-520d-ae09-f7a5db3d07d7"
+            }
+          }
+        ]
+      },
+      "marin:correctResponse": [
+        {
+          "@id": "urn:uuid:897c83e8-c232-599b-bebb-1f9294f0ab7f"
+        }
+      ],
+      "marin:hint": "Think about what users can count on.",
+      "marin:explanation": "Problem says an API that is not written down comes with no guarantee for the people who use it.",
+      "marin:shuffleOptions": true
+    },
+    {
+      "@id": "urn:uuid:5d671999-7956-58df-85cf-0c5b6ef91749",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q02-a",
+      "text": "A faster connection"
+    },
+    {
+      "@id": "urn:uuid:13ee8862-900a-5c82-9c5b-94c9cbe660b5",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q02-b",
+      "text": "A new owner"
+    },
+    {
+      "@id": "urn:uuid:897c83e8-c232-599b-bebb-1f9294f0ab7f",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q02-c",
+      "text": "No guarantee"
+    },
+    {
+      "@id": "urn:uuid:3c6f37e4-2163-520d-ae09-f7a5db3d07d7",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q02-d",
+      "text": "A public audience"
+    },
+    {
+      "@id": "urn:uuid:01b82491-d65b-5e3e-aab2-5b2c73210cd6",
+      "@type": [
+        "CreativeWork",
+        "marin:AssessmentItem"
+      ],
+      "identifier": "q03-solution",
+      "name": "Which step helps other teams and vendors know how to use an API?",
+      "text": "Which step helps other teams and vendors know how to use an API?",
+      "isBasedOn": [
+        {
+          "@id": "urn:uuid:83ae9dd8-8bb3-525a-ab71-ef20b15567b7"
+        }
+      ],
+      "marin:interactionType": "single-select",
+      "marin:options": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:7d11a915-813b-546d-8b41-3a4cc67c6bc9"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@id": "urn:uuid:6b1b02ce-3f9b-5c7c-bc78-b33126967482"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@id": "urn:uuid:d99f7e06-4f4c-5829-9f36-88e72ca1074e"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "item": {
+              "@id": "urn:uuid:666efd1e-62ea-5405-af4c-46ae4b096c3e"
+            }
+          }
+        ]
+      },
+      "marin:correctResponse": [
+        {
+          "@id": "urn:uuid:666efd1e-62ea-5405-af4c-46ae4b096c3e"
+        }
+      ],
+      "marin:hint": "Think about a shared way to write it down.",
+      "marin:explanation": "Solution says to describe each API in a shared standard such as OpenAPI.",
+      "marin:shuffleOptions": true
+    },
+    {
+      "@id": "urn:uuid:7d11a915-813b-546d-8b41-3a4cc67c6bc9",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q03-a",
+      "text": "Keep it private and tell no one."
+    },
+    {
+      "@id": "urn:uuid:6b1b02ce-3f9b-5c7c-bc78-b33126967482",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q03-b",
+      "text": "Let each user work it out alone."
+    },
+    {
+      "@id": "urn:uuid:d99f7e06-4f4c-5829-9f36-88e72ca1074e",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q03-c",
+      "text": "Change it often so users stay alert."
+    },
+    {
+      "@id": "urn:uuid:666efd1e-62ea-5405-af4c-46ae4b096c3e",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q03-d",
+      "text": "Describe it in a shared standard such as OpenAPI."
+    },
+    {
+      "@id": "urn:uuid:a2f69b1f-5e08-56e7-9d03-82c1b09f9f9c",
+      "@type": [
+        "CreativeWork",
+        "marin:AssessmentItem"
+      ],
+      "identifier": "q04-key-terms",
+      "name": "What is an endpoint?",
+      "text": "What is an endpoint?",
+      "isBasedOn": [
+        {
+          "@id": "urn:uuid:d6887f2e-e88d-574d-b669-bb68976db57e"
+        }
+      ],
+      "marin:interactionType": "single-select",
+      "marin:options": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:ea84cf90-4a01-5795-9e41-f83172a4be56"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@id": "urn:uuid:1085afe4-0939-504e-b4b3-0175673dc34c"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@id": "urn:uuid:01829315-4325-5646-8d8d-5251f4daae75"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "item": {
+              "@id": "urn:uuid:052d03e4-0e97-5c50-96b7-f692118b2857"
+            }
+          }
+        ]
+      },
+      "marin:correctResponse": [
+        {
+          "@id": "urn:uuid:1085afe4-0939-504e-b4b3-0175673dc34c"
+        }
+      ],
+      "marin:hint": "Think of a place you can reach.",
+      "marin:explanation": "Key terms defines an endpoint as one place where a system can be reached to get a certain kind of data or action.",
+      "marin:shuffleOptions": true
+    },
+    {
+      "@id": "urn:uuid:ea84cf90-4a01-5795-9e41-f83172a4be56",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q04-a",
+      "text": "A guide that explains a whole system."
+    },
+    {
+      "@id": "urn:uuid:1085afe4-0939-504e-b4b3-0175673dc34c",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q04-b",
+      "text": "A place where a system can be reached to get a kind of data or action."
+    },
+    {
+      "@id": "urn:uuid:01829315-4325-5646-8d8d-5251f4daae75",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q04-c",
+      "text": "A person who owns an API."
+    },
+    {
+      "@id": "urn:uuid:052d03e4-0e97-5c50-96b7-f692118b2857",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q04-d",
+      "text": "A rule that bans public use."
+    },
+    {
+      "@id": "urn:uuid:b637f3e0-744b-50c1-a8ce-e9abe37c34a6",
+      "@type": [
+        "CreativeWork",
+        "marin:AssessmentItem"
+      ],
+      "identifier": "q05-key-terms",
+      "name": "Which kind of API can only chosen business partners use?",
+      "text": "Which kind of API can only chosen business partners use?",
+      "isBasedOn": [
+        {
+          "@id": "urn:uuid:d6887f2e-e88d-574d-b669-bb68976db57e"
+        }
+      ],
+      "marin:interactionType": "single-select",
+      "marin:options": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:c7a5b18e-e938-5752-8b9e-d5b8ced09a9a"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@id": "urn:uuid:c33a7019-38fc-59c0-94cd-a5511443288b"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@id": "urn:uuid:0bea78d3-cfa2-56f3-a63c-69331620596c"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "item": {
+              "@id": "urn:uuid:a6b85776-486a-567f-a1ca-d1f2478b6052"
+            }
+          }
+        ]
+      },
+      "marin:correctResponse": [
+        {
+          "@id": "urn:uuid:0bea78d3-cfa2-56f3-a63c-69331620596c"
+        }
+      ],
+      "marin:hint": "Think about the word “partner.”",
+      "marin:explanation": "Key terms defines a partner API as a connection that only chosen business partners may use.",
+      "marin:shuffleOptions": true
+    },
+    {
+      "@id": "urn:uuid:c7a5b18e-e938-5752-8b9e-d5b8ced09a9a",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q05-a",
+      "text": "A private API"
+    },
+    {
+      "@id": "urn:uuid:c33a7019-38fc-59c0-94cd-a5511443288b",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q05-b",
+      "text": "An open API"
+    },
+    {
+      "@id": "urn:uuid:0bea78d3-cfa2-56f3-a63c-69331620596c",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q05-c",
+      "text": "A partner API"
+    },
+    {
+      "@id": "urn:uuid:a6b85776-486a-567f-a1ca-d1f2478b6052",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q05-d",
+      "text": "A deprecated API"
+    },
+    {
+      "@id": "urn:uuid:f76fe31e-d053-541a-943f-19a9f2a07d7b",
+      "@type": [
+        "CreativeWork",
+        "marin:AssessmentItem"
+      ],
+      "identifier": "q06-key-terms",
+      "name": "A deprecated part of an API is one that users should plan to move away from.",
+      "text": "A deprecated part of an API is one that users should plan to move away from.",
+      "isBasedOn": [
+        {
+          "@id": "urn:uuid:d6887f2e-e88d-574d-b669-bb68976db57e"
+        }
+      ],
+      "marin:interactionType": "true-false",
+      "marin:options": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:0d86c155-28ff-5118-aad9-22c114bd631a"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@id": "urn:uuid:526126bb-e0e6-5161-b448-806e02b9fa2c"
+            }
+          }
+        ]
+      },
+      "marin:correctResponse": [
+        {
+          "@id": "urn:uuid:0d86c155-28ff-5118-aad9-22c114bd631a"
+        }
+      ],
+      "marin:hint": "Think about a part that is likely to change or end.",
+      "marin:explanation": "Key terms defines deprecated as marked as likely to change or end, so users should plan to move away from it.",
+      "marin:shuffleOptions": false
+    },
+    {
+      "@id": "urn:uuid:0d86c155-28ff-5118-aad9-22c114bd631a",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "true",
+      "text": "True"
+    },
+    {
+      "@id": "urn:uuid:526126bb-e0e6-5161-b448-806e02b9fa2c",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "false",
+      "text": "False"
+    },
+    {
+      "@id": "urn:uuid:c260b6f5-d003-5912-8b78-832b039a9122",
+      "@type": [
+        "CreativeWork",
+        "marin:AssessmentItem"
+      ],
+      "identifier": "q07-dos-and-donts",
+      "name": "What should every API have?",
+      "text": "What should every API have?",
+      "isBasedOn": [
+        {
+          "@id": "urn:uuid:ac101a3b-f4e4-5556-a4fb-943f2887337a"
+        }
+      ],
+      "marin:interactionType": "single-select",
+      "marin:options": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:296553f6-7293-5192-89dc-258c7122c1c1"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@id": "urn:uuid:1da03cbc-2267-54f7-bfee-c8b97091cf10"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@id": "urn:uuid:639b7210-d16d-59a3-aef9-694f748baed4"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "item": {
+              "@id": "urn:uuid:e603126a-8346-51f8-96e0-3f7e7370808d"
+            }
+          }
+        ]
+      },
+      "marin:correctResponse": [
+        {
+          "@id": "urn:uuid:1da03cbc-2267-54f7-bfee-c8b97091cf10"
+        }
+      ],
+      "marin:hint": "Think about who is in charge.",
+      "marin:explanation": "Do’s and don’ts says to name an owner for every API.",
+      "marin:shuffleOptions": true
+    },
+    {
+      "@id": "urn:uuid:296553f6-7293-5192-89dc-258c7122c1c1",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q07-a",
+      "text": "A new version every year"
+    },
+    {
+      "@id": "urn:uuid:1da03cbc-2267-54f7-bfee-c8b97091cf10",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q07-b",
+      "text": "A named owner"
+    },
+    {
+      "@id": "urn:uuid:639b7210-d16d-59a3-aef9-694f748baed4",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q07-c",
+      "text": "A public audience"
+    },
+    {
+      "@id": "urn:uuid:e603126a-8346-51f8-96e0-3f7e7370808d",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q07-d",
+      "text": "A hidden description"
+    },
+    {
+      "@id": "urn:uuid:d06fcf34-0ace-51f5-90e4-31cd98e0bab0",
+      "@type": [
+        "CreativeWork",
+        "marin:AssessmentItem"
+      ],
+      "identifier": "q08-dos-and-donts",
+      "name": "It is fine to change an API without telling the people who use it.",
+      "text": "It is fine to change an API without telling the people who use it.",
+      "isBasedOn": [
+        {
+          "@id": "urn:uuid:ac101a3b-f4e4-5556-a4fb-943f2887337a"
+        }
+      ],
+      "marin:interactionType": "true-false",
+      "marin:options": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:a29c8414-b51e-59f5-b3b8-ae0ae9ed2a7a"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@id": "urn:uuid:b7b909fe-ff89-5acc-9b60-f0f572a251f3"
+            }
+          }
+        ]
+      },
+      "marin:correctResponse": [
+        {
+          "@id": "urn:uuid:b7b909fe-ff89-5acc-9b60-f0f572a251f3"
+        }
+      ],
+      "marin:hint": "Think about the people who rely on it.",
+      "marin:explanation": "Do’s and don’ts says to warn users before you change or retire an API.",
+      "marin:shuffleOptions": false
+    },
+    {
+      "@id": "urn:uuid:a29c8414-b51e-59f5-b3b8-ae0ae9ed2a7a",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "true",
+      "text": "True"
+    },
+    {
+      "@id": "urn:uuid:b7b909fe-ff89-5acc-9b60-f0f572a251f3",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "false",
+      "text": "False"
+    },
+    {
+      "@id": "urn:uuid:4030397f-2baf-5e06-962a-8746f7efc0cc",
+      "@type": [
+        "CreativeWork",
+        "marin:AssessmentItem"
+      ],
+      "identifier": "q09-questions",
+      "name": "Which is a good question to ask about a product you want to buy?",
+      "text": "Which is a good question to ask about a product you want to buy?",
+      "isBasedOn": [
+        {
+          "@id": "urn:uuid:7f51c346-5ee3-515b-9211-9d468310b5ca"
+        }
+      ],
+      "marin:interactionType": "single-select",
+      "marin:options": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:ad86c427-b9b9-5fa5-ac1f-9b69964a08da"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@id": "urn:uuid:e1cc0be3-b512-5400-b126-e04edacffed6"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@id": "urn:uuid:66c729ca-4395-5126-913d-d6d29d20315d"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "item": {
+              "@id": "urn:uuid:83f87270-f5db-5c59-8c67-44d49822e5f9"
+            }
+          }
+        ]
+      },
+      "marin:correctResponse": [
+        {
+          "@id": "urn:uuid:e1cc0be3-b512-5400-b126-e04edacffed6"
+        }
+      ],
+      "marin:hint": "Think about connecting it to your other systems.",
+      "marin:explanation": "Questions to ask includes asking whether a product has an API and whether it is described in writing.",
+      "marin:shuffleOptions": true
+    },
+    {
+      "@id": "urn:uuid:ad86c427-b9b9-5fa5-ac1f-9b69964a08da",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q09-a",
+      "text": "How many colors does its screen use?"
+    },
+    {
+      "@id": "urn:uuid:e1cc0be3-b512-5400-b126-e04edacffed6",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q09-b",
+      "text": "Does it have an API, and is that described in writing?"
+    },
+    {
+      "@id": "urn:uuid:66c729ca-4395-5126-913d-d6d29d20315d",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q09-c",
+      "text": "Can we skip asking about it?"
+    },
+    {
+      "@id": "urn:uuid:83f87270-f5db-5c59-8c67-44d49822e5f9",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q09-d",
+      "text": "Who can we keep from asking about it?"
+    },
+    {
+      "@id": "urn:uuid:0a2703ab-ff76-5986-ab60-6c4f7abb0487",
+      "@type": [
+        "CreativeWork",
+        "marin:AssessmentItem"
+      ],
+      "identifier": "q10-checklist",
+      "name": "Which statement belongs on a checklist for an API?",
+      "text": "Which statement belongs on a checklist for an API?",
+      "isBasedOn": [
+        {
+          "@id": "urn:uuid:b1a363b3-b799-5c98-b719-042e77864992"
+        }
+      ],
+      "marin:interactionType": "single-select",
+      "marin:options": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:441180b3-4f8e-5cad-8cf7-6a9d03273f0e"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@id": "urn:uuid:20407765-e1c3-5faf-bb37-ca1e40faaaee"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@id": "urn:uuid:b2b14517-a9d0-512f-8828-97f8908ae184"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "item": {
+              "@id": "urn:uuid:1d7298f0-7bb2-512b-8bbb-d76eb94bd1f5"
+            }
+          }
+        ]
+      },
+      "marin:correctResponse": [
+        {
+          "@id": "urn:uuid:441180b3-4f8e-5cad-8cf7-6a9d03273f0e"
+        }
+      ],
+      "marin:hint": "Choose the statement you want to be true.",
+      "marin:explanation": "Checklist includes the item “Users are told before an API changes or ends.”",
+      "marin:shuffleOptions": true
+    },
+    {
+      "@id": "urn:uuid:441180b3-4f8e-5cad-8cf7-6a9d03273f0e",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q10-a",
+      "text": "Users are told before it changes or ends."
+    },
+    {
+      "@id": "urn:uuid:20407765-e1c3-5faf-bb37-ca1e40faaaee",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q10-b",
+      "text": "Only one person knows how it works."
+    },
+    {
+      "@id": "urn:uuid:b2b14517-a9d0-512f-8828-97f8908ae184",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q10-c",
+      "text": "Its owner is not yet known."
+    },
+    {
+      "@id": "urn:uuid:1d7298f0-7bb2-512b-8bbb-d76eb94bd1f5",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q10-d",
+      "text": "Its rules live only in staff memory."
+    },
+    {
+      "@id": "urn:uuid:9a5fc9c0-1e0e-59f1-9ef3-2183c1b4e2f8",
+      "@type": [
+        "LearningResource",
+        "marin:Assessment"
+      ],
+      "identifier": "api-101-quiz",
+      "name": "API 101 — quiz",
+      "abstract": "Ten questions to check what you learned about application programming interfaces.",
+      "learningResourceType": "quiz",
+      "educationalUse": [
+        "assessment"
+      ],
+      "interactivityType": "active",
+      "isBasedOn": [
+        {
+          "@id": "urn:uuid:fcefc308-e6c3-596f-a219-371bd749bfca"
+        }
+      ],
+      "marin:itemSequence": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:0ef02ad2-e7c2-5b0b-92af-793fa8571e0b"
+            },
+            "marin:weight": 1
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@id": "urn:uuid:88f51bd0-d199-5240-b177-4226bdfcbd10"
+            },
+            "marin:weight": 1
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@id": "urn:uuid:01b82491-d65b-5e3e-aab2-5b2c73210cd6"
+            },
+            "marin:weight": 1
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "item": {
+              "@id": "urn:uuid:a2f69b1f-5e08-56e7-9d03-82c1b09f9f9c"
+            },
+            "marin:weight": 1
+          },
+          {
+            "@type": "ListItem",
+            "position": 5,
+            "item": {
+              "@id": "urn:uuid:b637f3e0-744b-50c1-a8ce-e9abe37c34a6"
+            },
+            "marin:weight": 1
+          },
+          {
+            "@type": "ListItem",
+            "position": 6,
+            "item": {
+              "@id": "urn:uuid:f76fe31e-d053-541a-943f-19a9f2a07d7b"
+            },
+            "marin:weight": 1
+          },
+          {
+            "@type": "ListItem",
+            "position": 7,
+            "item": {
+              "@id": "urn:uuid:c260b6f5-d003-5912-8b78-832b039a9122"
+            },
+            "marin:weight": 1
+          },
+          {
+            "@type": "ListItem",
+            "position": 8,
+            "item": {
+              "@id": "urn:uuid:d06fcf34-0ace-51f5-90e4-31cd98e0bab0"
+            },
+            "marin:weight": 1
+          },
+          {
+            "@type": "ListItem",
+            "position": 9,
+            "item": {
+              "@id": "urn:uuid:4030397f-2baf-5e06-962a-8746f7efc0cc"
+            },
+            "marin:weight": 1
+          },
+          {
+            "@type": "ListItem",
+            "position": 10,
+            "item": {
+              "@id": "urn:uuid:0a2703ab-ff76-5986-ab60-6c4f7abb0487"
+            },
+            "marin:weight": 1
+          }
+        ]
+      },
+      "marin:selectionPolicy": {
+        "mode": "all",
+        "shuffle": true
+      },
+      "marin:scoringPolicy": {
+        "method": "weighted-sum",
+        "passingPercent": 70,
+        "gradeScale": {
+          "@id": "urn:uuid:8c1e7531-cd76-51d2-b32a-d4dd195dfb18"
+        }
+      },
+      "marin:feedbackPolicy": {
+        "timing": "after-assessment",
+        "showCorrectResponses": true,
+        "showOptionFeedback": true,
+        "showExplanation": true
+      }
+    },
+    {
+      "@id": "urn:uuid:b53d7007-4408-5b99-a247-8d21d994794a",
+      "@type": [
+        "CreativeWork",
+        "marin:Slide"
+      ],
+      "identifier": "api-101-notes-slide-01",
+      "name": "API 101",
+      "marin:layout": "title"
+    },
+    {
+      "@id": "urn:uuid:bb2adc28-7883-5805-af0f-9d692c9b2119",
+      "@type": [
+        "CreativeWork",
+        "marin:Slide"
+      ],
+      "identifier": "api-101-notes-slide-02",
+      "name": "Overview",
+      "marin:layout": "content",
+      "marin:contentSequence": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:e4a95b11-58f1-570d-b997-07adf9964f80"
+            },
+            "marin:displayMode": "full"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "urn:uuid:00e6ed2c-d90f-50a2-87ec-d2e9ed00eade",
+      "@type": [
+        "CreativeWork",
+        "marin:Slide"
+      ],
+      "identifier": "api-101-notes-slide-03",
+      "name": "Why it matters (1 of 2)",
+      "marin:layout": "content",
+      "marin:contentSequence": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:c732f480-947b-5ef1-8b36-dc4a82e1b987"
+            },
+            "marin:displayMode": "full",
+            "marin:itemRange": {
+              "first": 1,
+              "last": 2
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@id": "urn:uuid:60403307-b122-520b-ac63-18cf55c84646",
+      "@type": [
+        "CreativeWork",
+        "marin:Slide"
+      ],
+      "identifier": "api-101-notes-slide-04",
+      "name": "Why it matters (2 of 2)",
+      "marin:layout": "content",
+      "marin:contentSequence": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:c732f480-947b-5ef1-8b36-dc4a82e1b987"
+            },
+            "marin:displayMode": "full",
+            "marin:itemRange": {
+              "first": 3,
+              "last": 4
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@id": "urn:uuid:eff903a9-fe6a-56b2-be68-8746b15eec96",
+      "@type": [
+        "CreativeWork",
+        "marin:Slide"
+      ],
+      "identifier": "api-101-notes-slide-05",
+      "name": "Problem and solution",
+      "marin:layout": "split",
+      "marin:contentSequence": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:eaf24f22-05b3-5b74-80a0-ae220b7dfc49"
+            },
+            "marin:displayMode": "full"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@id": "urn:uuid:83ae9dd8-8bb3-525a-ab71-ef20b15567b7"
+            },
+            "marin:displayMode": "full"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "urn:uuid:293fe960-1fd5-5fe8-bd0c-f0d703930c07",
+      "@type": [
+        "CreativeWork",
+        "marin:Slide"
+      ],
+      "identifier": "api-101-notes-slide-06",
+      "name": "User stories",
+      "marin:layout": "content",
+      "marin:contentSequence": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:53668e82-aea8-5f61-a0a7-083d45092031"
+            },
+            "marin:displayMode": "full"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "urn:uuid:998310c9-f2ed-5c1e-b6c6-3aea63e42a3d",
+      "@type": [
+        "CreativeWork",
+        "marin:Slide"
+      ],
+      "identifier": "api-101-notes-slide-07",
+      "name": "Key terms (1 of 3)",
+      "marin:layout": "content",
+      "marin:contentSequence": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:d6887f2e-e88d-574d-b669-bb68976db57e"
+            },
+            "marin:displayMode": "full",
+            "marin:itemRange": {
+              "first": 1,
+              "last": 4
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@id": "urn:uuid:a7b8900d-50c1-5f15-b059-eca236b42b52",
+      "@type": [
+        "CreativeWork",
+        "marin:Slide"
+      ],
+      "identifier": "api-101-notes-slide-08",
+      "name": "Key terms (2 of 3)",
+      "marin:layout": "content",
+      "marin:contentSequence": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:d6887f2e-e88d-574d-b669-bb68976db57e"
+            },
+            "marin:displayMode": "full",
+            "marin:itemRange": {
+              "first": 5,
+              "last": 7
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@id": "urn:uuid:fdd05985-d849-5ff0-9202-419a2456f8aa",
+      "@type": [
+        "CreativeWork",
+        "marin:Slide"
+      ],
+      "identifier": "api-101-notes-slide-09",
+      "name": "Key terms (3 of 3)",
+      "marin:layout": "content",
+      "marin:contentSequence": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:d6887f2e-e88d-574d-b669-bb68976db57e"
+            },
+            "marin:displayMode": "full",
+            "marin:itemRange": {
+              "first": 8,
+              "last": 10
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@id": "urn:uuid:91b10fe8-7f62-5af8-8d5e-4a003ce10c2b",
+      "@type": [
+        "CreativeWork",
+        "marin:Slide"
+      ],
+      "identifier": "api-101-notes-slide-10",
+      "name": "Do’s and don’ts (1 of 3)",
+      "marin:layout": "content",
+      "marin:contentSequence": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:ac101a3b-f4e4-5556-a4fb-943f2887337a"
+            },
+            "marin:displayMode": "full",
+            "marin:itemRange": {
+              "first": 1,
+              "last": 2
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@id": "urn:uuid:f3ccf5e4-5acd-565f-9cf1-dd60564959da",
+      "@type": [
+        "CreativeWork",
+        "marin:Slide"
+      ],
+      "identifier": "api-101-notes-slide-11",
+      "name": "Do’s and don’ts (2 of 3)",
+      "marin:layout": "content",
+      "marin:contentSequence": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:ac101a3b-f4e4-5556-a4fb-943f2887337a"
+            },
+            "marin:displayMode": "full",
+            "marin:itemRange": {
+              "first": 3,
+              "last": 4
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@id": "urn:uuid:f56c964c-2bb0-5f20-b078-20d530031719",
+      "@type": [
+        "CreativeWork",
+        "marin:Slide"
+      ],
+      "identifier": "api-101-notes-slide-12",
+      "name": "Do’s and don’ts (3 of 3)",
+      "marin:layout": "content",
+      "marin:contentSequence": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:ac101a3b-f4e4-5556-a4fb-943f2887337a"
+            },
+            "marin:displayMode": "full",
+            "marin:itemRange": {
+              "first": 5,
+              "last": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@id": "urn:uuid:b1625168-d823-5315-8f9d-bcb9d916e056",
+      "@type": [
+        "CreativeWork",
+        "marin:Slide"
+      ],
+      "identifier": "api-101-notes-slide-13",
+      "name": "Questions to ask",
+      "marin:layout": "content",
+      "marin:contentSequence": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:7f51c346-5ee3-515b-9211-9d468310b5ca"
+            },
+            "marin:displayMode": "full"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "urn:uuid:c8443676-cbc0-5b8a-8147-6456c00bf943",
+      "@type": [
+        "CreativeWork",
+        "marin:Slide"
+      ],
+      "identifier": "api-101-notes-slide-14",
+      "name": "Examples",
+      "marin:layout": "content",
+      "marin:contentSequence": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:ab2b5780-73b6-5d36-bf96-c54651cd85d3"
+            },
+            "marin:displayMode": "full"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "urn:uuid:68fee470-25ff-5aff-a413-d3b9dc89a34d",
+      "@type": [
+        "CreativeWork",
+        "marin:Slide"
+      ],
+      "identifier": "api-101-notes-slide-15",
+      "name": "Checklist",
+      "marin:layout": "content",
+      "marin:contentSequence": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:b1a363b3-b799-5c98-b719-042e77864992"
+            },
+            "marin:displayMode": "full"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "urn:uuid:377b3ed8-2228-5ac7-8f8c-c8d8bbefb525",
+      "@type": [
+        "CreativeWork",
+        "marin:Slide"
+      ],
+      "identifier": "api-101-notes-slide-16",
+      "name": "Mantras",
+      "marin:layout": "content",
+      "marin:contentSequence": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:019e0d7d-1794-5725-b477-a58070077976"
+            },
+            "marin:displayMode": "full"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "urn:uuid:376d60d0-1935-57a3-b554-f1b2bb619027",
+      "@type": [
+        "CreativeWork",
+        "marin:Slide"
+      ],
+      "identifier": "api-101-notes-slide-17",
+      "name": "Sources",
+      "marin:layout": "content",
+      "marin:contentSequence": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:b94138ba-0920-5431-b8d8-d96bf5d36afc"
+            },
+            "marin:displayMode": "full"
+          }
+        ]
+      }
+    }
+  ]
+}

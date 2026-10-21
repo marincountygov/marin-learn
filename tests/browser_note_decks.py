@@ -51,7 +51,10 @@ def run() -> None:
                         page.locator("#slide-canvas-el h2").wait_for()
                         total = int(page.inner_text("#slides-counter").split(" of ")[1])
                         require(total == count, f"{title}: expected {count} slides, found {total}")
-                        require(page.locator(".viewer-breadcrumb a").all_text_contents() == ["Catalog", title], f"{title}: breadcrumb is wrong")
+                        require(page.locator(".viewer-breadcrumb:visible a").all_text_contents() == ["Catalog", title], f"{title}: breadcrumb is wrong")
+                        require(page.locator(".reader-next .resource-action").all_text_contents() == ["Notes", "Quiz"], f"{title}: Notes and Quiz cards belong below the slides")
+                        require(page.evaluate("document.querySelector('.reader-next').getBoundingClientRect().top >= document.querySelector('.slides-viewer-container').getBoundingClientRect().bottom"),
+                                f"{title}: the cards sit below the slides")
                         titles = []
                         canvas = page.locator("#slide-canvas-el")
                         info = page.locator(".slides-title-info")

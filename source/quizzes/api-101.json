@@ -1,0 +1,252 @@
+{
+  "name": "API 101 — quiz",
+  "identifier": "api-101-quiz",
+  "abstract": "Ten questions to check what you learned about application programming interfaces.",
+  "passingPercent": 70,
+  "courseDescription": "Notes, slides, and a quiz about application programming interfaces, the connections that let County systems share data and services.",
+  "grades": [
+    {
+      "name": "A",
+      "minPercent": 90,
+      "message": "Excellent. You can ask good questions about who owns an API and who may use it."
+    },
+    {
+      "name": "B",
+      "minPercent": 80,
+      "message": "Strong work. Keep asking how an API is described and how users hear about changes."
+    },
+    {
+      "name": "C",
+      "minPercent": 70,
+      "message": "A sound start. Read the explanations, then check the notes for the ones you missed."
+    },
+    {
+      "name": "D",
+      "minPercent": 60,
+      "message": "Go back to the key terms and the do’s and don’ts in the notes, then try again."
+    },
+    {
+      "name": "F",
+      "minPercent": 0,
+      "message": "Start with the notes. Then take the quiz again."
+    }
+  ],
+  "questions": [
+    {
+      "section": "whyItMatters",
+      "type": "single-select",
+      "text": "What does a vendor's API let County systems do?",
+      "options": [
+        {
+          "text": "Skip the contract with the vendor.",
+          "correct": false
+        },
+        {
+          "text": "Make the product free to use.",
+          "correct": false
+        },
+        {
+          "text": "Connect to the product and share its data.",
+          "correct": true
+        },
+        {
+          "text": "Hide the product from staff.",
+          "correct": false
+        }
+      ],
+      "hint": "Think about connecting products you buy to your other systems.",
+      "explanation": "Why it matters says a vendor's API lets County systems connect to the products you buy and share their data."
+    },
+    {
+      "section": "problem",
+      "type": "single-select",
+      "text": "What does an API that is not written down give the people who use it?",
+      "options": [
+        {
+          "text": "A faster connection",
+          "correct": false
+        },
+        {
+          "text": "A new owner",
+          "correct": false
+        },
+        {
+          "text": "No guarantee",
+          "correct": true
+        },
+        {
+          "text": "A public audience",
+          "correct": false
+        }
+      ],
+      "hint": "Think about what users can count on.",
+      "explanation": "Problem says an API that is not written down comes with no guarantee for the people who use it."
+    },
+    {
+      "section": "solution",
+      "type": "single-select",
+      "text": "Which step helps other teams and vendors know how to use an API?",
+      "options": [
+        {
+          "text": "Keep it private and tell no one.",
+          "correct": false
+        },
+        {
+          "text": "Let each user work it out alone.",
+          "correct": false
+        },
+        {
+          "text": "Change it often so users stay alert.",
+          "correct": false
+        },
+        {
+          "text": "Describe it in a shared standard such as OpenAPI.",
+          "correct": true
+        }
+      ],
+      "hint": "Think about a shared way to write it down.",
+      "explanation": "Solution says to describe each API in a shared standard such as OpenAPI."
+    },
+    {
+      "section": "keyTerms",
+      "type": "single-select",
+      "text": "What is an endpoint?",
+      "options": [
+        {
+          "text": "A guide that explains a whole system.",
+          "correct": false
+        },
+        {
+          "text": "A place where a system can be reached to get a kind of data or action.",
+          "correct": true
+        },
+        {
+          "text": "A person who owns an API.",
+          "correct": false
+        },
+        {
+          "text": "A rule that bans public use.",
+          "correct": false
+        }
+      ],
+      "hint": "Think of a place you can reach.",
+      "explanation": "Key terms defines an endpoint as one place where a system can be reached to get a certain kind of data or action."
+    },
+    {
+      "section": "keyTerms",
+      "type": "single-select",
+      "text": "Which kind of API can only chosen business partners use?",
+      "options": [
+        {
+          "text": "A private API",
+          "correct": false
+        },
+        {
+          "text": "An open API",
+          "correct": false
+        },
+        {
+          "text": "A partner API",
+          "correct": true
+        },
+        {
+          "text": "A deprecated API",
+          "correct": false
+        }
+      ],
+      "hint": "Think about the word “partner.”",
+      "explanation": "Key terms defines a partner API as a connection that only chosen business partners may use."
+    },
+    {
+      "section": "keyTerms",
+      "type": "true-false",
+      "text": "A deprecated part of an API is one that users should plan to move away from.",
+      "answer": true,
+      "hint": "Think about a part that is likely to change or end.",
+      "explanation": "Key terms defines deprecated as marked as likely to change or end, so users should plan to move away from it."
+    },
+    {
+      "section": "dosAndDonts",
+      "type": "single-select",
+      "text": "What should every API have?",
+      "options": [
+        {
+          "text": "A new version every year",
+          "correct": false
+        },
+        {
+          "text": "A named owner",
+          "correct": true
+        },
+        {
+          "text": "A public audience",
+          "correct": false
+        },
+        {
+          "text": "A hidden description",
+          "correct": false
+        }
+      ],
+      "hint": "Think about who is in charge.",
+      "explanation": "Do’s and don’ts says to name an owner for every API."
+    },
+    {
+      "section": "dosAndDonts",
+      "type": "true-false",
+      "text": "It is fine to change an API without telling the people who use it.",
+      "answer": false,
+      "hint": "Think about the people who rely on it.",
+      "explanation": "Do’s and don’ts says to warn users before you change or retire an API."
+    },
+    {
+      "section": "questions",
+      "type": "single-select",
+      "text": "Which is a good question to ask about a product you want to buy?",
+      "options": [
+        {
+          "text": "How many colors does its screen use?",
+          "correct": false
+        },
+        {
+          "text": "Does it have an API, and is that described in writing?",
+          "correct": true
+        },
+        {
+          "text": "Can we skip asking about it?",
+          "correct": false
+        },
+        {
+          "text": "Who can we keep from asking about it?",
+          "correct": false
+        }
+      ],
+      "hint": "Think about connecting it to your other systems.",
+      "explanation": "Questions to ask includes asking whether a product has an API and whether it is described in writing."
+    },
+    {
+      "section": "checklist",
+      "type": "single-select",
+      "text": "Which statement belongs on a checklist for an API?",
+      "options": [
+        {
+          "text": "Users are told before it changes or ends.",
+          "correct": true
+        },
+        {
+          "text": "Only one person knows how it works.",
+          "correct": false
+        },
+        {
+          "text": "Its owner is not yet known.",
+          "correct": false
+        },
+        {
+          "text": "Its rules live only in staff memory.",
+          "correct": false
+        }
+      ],
+      "hint": "Choose the statement you want to be true.",
+      "explanation": "Checklist includes the item “Users are told before an API changes or ends.”"
+    }
+  ]
+}

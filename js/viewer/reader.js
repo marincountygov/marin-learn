@@ -163,7 +163,7 @@ export async function renderContinuousReader(container, setSlug, resourceSlug, c
             <h1>${escapeHtml(material.name)}</h1>
             ${material.abstract ? `<p class="reader-abstract">${escapeHtml(material.abstract)}</p>` : ''}
             <div class="doc-actions">
-              <button type="button" class="doc-action" id="share-notes">Share</button>
+              <div class="action-group" role="group" aria-label="Share"><button type="button" class="action-button" id="share-notes" aria-label="Share these notes" title="Share"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 2v13"/><path d="m16 6-4-4-4 4"/><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/></svg></button></div>
               <span class="doc-action-status" role="status" aria-live="polite"></span>
             </div>
           </header>

@@ -73,8 +73,8 @@ def run(screenshots: Path | None = None) -> None:
                 assert page.locator('.landing-section, .resource-list').count() == 0
                 assert page.locator('#landing-resources-heading').count() == 0, 'Resource heading should be gone'
                 assert page.locator('header.landing-header > h2').inner_text() == 'Data 101'
-                assert page.locator('.viewer-breadcrumb a').all_text_contents() == ['Catalog']
-                assert page.locator('.viewer-breadcrumb [aria-current="page"]').inner_text() == 'Data 101'
+                assert page.locator('.viewer-breadcrumb:visible a').all_text_contents() == ['Catalog']
+                assert page.locator('.viewer-breadcrumb:visible [aria-current="page"]').inner_text() == 'Data 101'
                 assert page.evaluate('document.documentElement.scrollWidth <= innerWidth + 1'), f'overflow at {width}px'
 
                 links = page.locator('.landing-resource-card h3 > a.resource-action')
