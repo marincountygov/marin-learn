@@ -88,6 +88,7 @@ test('Node CLI argument and package discovery contracts remain deterministic', a
 
   const files = await discoverPackageFiles([path.join(ROOT, 'packages')]);
   assert.deepEqual(files.map((value) => path.basename(value)), [
+    'county-leaders-guide-to-apis.zip',
     'county-leaders-guide-to-data.zip',
     'county-leaders-guide-to-schemas.zip'
   ]);

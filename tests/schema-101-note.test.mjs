@@ -48,9 +48,9 @@ test('the Schema 101 code samples are real: the sample record follows the sample
   assert.ok(validateJsonSchema(missing, schema).length > 0, 'a missing required field is rejected');
 });
 
-test('the catalog lists Data 101 and Schema 101 only; MarinOS 101 is gone from Marin Learn', async () => {
+test('the catalog lists API 101, Data 101 and Schema 101 only; MarinOS 101 is gone from Marin Learn', async () => {
   const catalog = JSON.parse(await readFile(new URL('../catalog.json', import.meta.url), 'utf8'));
-  assert.deepEqual(catalog.items.map((item) => item.identifier), ['county-leaders-guide-to-data', 'county-leaders-guide-to-schemas']);
+  assert.deepEqual(catalog.items.map((item) => item.identifier), ['county-leaders-guide-to-apis', 'county-leaders-guide-to-data', 'county-leaders-guide-to-schemas']);
   assert.ok(!catalog.items.some((item) => item.hidden), 'nothing is hidden');
   await assert.rejects(readFile(new URL('../packages/marinos-foundations.zip', import.meta.url)));
   await assert.rejects(readFile(new URL('../learning/marinos-foundations/learning.json', import.meta.url)));

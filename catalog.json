@@ -32,6 +32,34 @@
   ],
   "items": [
     {
+      "setId": "urn:uuid:1ab1f676-f7b0-539b-852f-06a85d160121",
+      "identifier": "county-leaders-guide-to-apis",
+      "name": "API 101",
+      "abstract": "Learn what an application programming interface is and what County leaders should ask before they build or buy one.",
+      "educationalLevel": "introductory",
+      "inLanguage": "en-US",
+      "keywords": [
+        "county government",
+        "API",
+        "open standards",
+        "open data",
+        "integration",
+        "OpenAPI"
+      ],
+      "themes": [
+        "Digital services",
+        "Data"
+      ],
+      "graphUrl": "learning/county-leaders-guide-to-apis/learning.json",
+      "resourceCounts": {
+        "notes": 1,
+        "materials": 0,
+        "presentations": 1,
+        "assessments": 1
+      },
+      "revision": "b4621d249333"
+    },
+    {
       "setId": "urn:uuid:ffcdfa4a-a5a1-51a2-a381-c20c2ab91c1b",
       "identifier": "county-leaders-guide-to-data",
       "name": "Data 101",

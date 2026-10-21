@@ -67,7 +67,7 @@ def run() -> None:
             page.locator("h1", has_text="Plain language 101 notes").wait_for()
 
             # Header, breadcrumb, reading time, and the twelve sections in order.
-            require(page.locator(".viewer-breadcrumb a").all_text_contents() == ["Catalog", "Sample note course"], "Breadcrumb is wrong")
+            require(page.locator(".viewer-breadcrumb:visible a").all_text_contents() == ["Catalog", "Sample note course"], "Breadcrumb is wrong")
             require("min read" in page.locator(".note-meta").inner_text(), "Reading time is missing")
             require(page.locator(".note-meta .app-badge").count() == 0 and page.locator(".note-header a.app-badge").count() == 0,
                     "No Note badge, and no theme badges in the header")
@@ -87,6 +87,9 @@ def run() -> None:
             require(page.locator(".note-section-header, [data-copy-section]").count() == 0, "No copy button per section")
             require(page.locator("[data-note-action][data-where=top] svg").count() == 3 and page.locator("[data-note-action][data-where=bottom] svg").count() == 3,
                     "Share, Copy note, and Print need icons, above and below the note")
+            require(page.locator("[data-note-action]").evaluate_all("els => els.every(e => e.textContent.trim() === '' && e.getAttribute('aria-label') && e.title)"),
+                    "Share, Copy note, and Print are icon-only, named by aria-label and title")
+            require(page.locator("[data-where=top]").first.evaluate("e => e.parentElement.classList.contains('action-group')"), "The three buttons are one cluster")
             require(page.locator(".reader-next .app-card p").all_text_contents() == ["Go through the Plain language 101 slides.", "Take the Plain language 101 quiz."],
                     "Slides and Quiz cards need a description from context")
             require(page.locator(".note-section--examples a").first.get_attribute("href") == "https://example.gov/one", "Example link is wrong")

@@ -62,7 +62,7 @@ def run() -> None:
             badges.nth(1).click()
             page.locator("h2", has_text="Buying and vendors").wait_for()
             require(page.url.endswith("?theme=buying-and-vendors"), "Badge did not open its theme page")
-            require(page.locator(".viewer-breadcrumb a").all_text_contents() == ["Catalog"], "Theme breadcrumb is wrong")
+            require(page.locator(".viewer-breadcrumb:visible a").all_text_contents() == ["Catalog"], "Theme breadcrumb is wrong")
             require(page.locator(".landing-page .course-card h3").all_text_contents() == ["Schema 101"],
                     "Theme page lists the wrong courses")
 
@@ -77,19 +77,20 @@ def run() -> None:
             page.locator("h2", has_text="AI").first.wait_for()
             require(page.url.endswith("?theme=ai"), "Theme badge on the homepage did not open its page")
 
-            # Catalog badge -> theme page with every course in the theme.
+            # Course cards carry no badges; a theme page lists every course in the theme.
             page.goto(base_url, wait_until="networkidle")
-            page.locator("#catalog-grid a.app-badge", has_text="Data").first.click()
+            require(page.locator("#catalog-grid a.app-badge").count() == 0, "Course cards should not show theme badges")
+            page.locator("#theme-badges a.app-badge", has_text="Data").click()
             page.locator("h2", has_text="Data").first.wait_for()
-            require(page.locator(".landing-page .course-card h3").all_text_contents() == ["Data 101", "Schema 101"],
-                    "Data theme should list Data 101 and Schema 101")
+            require(page.locator(".landing-page .course-card h3").all_text_contents() == ["API 101", "Data 101", "Schema 101"],
+                    "Data theme should list API 101, Data 101 and Schema 101")
 
-            # The catalog lists Data 101 and Schema 101 only; MarinOS 101 is no longer in Marin Learn.
+            # The catalog lists API 101, Data 101 and Schema 101 only; MarinOS 101 is no longer in Marin Learn.
             page.goto(base_url, wait_until="networkidle")
-            require(page.locator("#catalog-grid .course-card h3").all_text_contents() == ["Data 101", "Schema 101"],
-                    "The catalog should list Data 101 and Schema 101 only")
+            require(page.locator("#catalog-grid .course-card h3").all_text_contents() == ["API 101", "Data 101", "Schema 101"],
+                    "The catalog should list API 101, Data 101 and Schema 101 only")
             page.goto(f"{base_url}?theme=digital-services", wait_until="networkidle")
-            require("No courses in this theme yet." in page.locator(".landing-page").inner_text(), "Digital services has no courses now")
+            require(page.locator(".landing-page .course-card h3").all_text_contents() == ["API 101"], "Digital services lists API 101")
             page.goto(f"{base_url}?set=marinos-foundations", wait_until="networkidle")
             page.locator("h3", has_text="Course not found").wait_for()
 

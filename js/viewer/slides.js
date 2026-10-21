@@ -1,10 +1,12 @@
 // Marin Learn - Slide Deck Viewer
+import { actionIcon } from './action-icons.js';
 import { loadLearningSetGraph } from '../core/graph.js';
 import { buildPresentationModel } from '../core/presentation.js';
 import { escapeHtml } from '../core/utils.js';
 import { renderSlideCanvasInnerHtml, renderSpeakerNotesHtml } from '../renderers/slides-html.js';
 import { courseIconSvg } from './course-card.js';
 import { breadcrumbHtml, wireBreadcrumb } from './breadcrumb.js';
+import { resourceCard, RESOURCE_KINDS } from './landing.js';
 
 export async function renderSlideViewer(container, setSlug, resourceSlug, catalogItems, onNavigate) {
   container.innerHTML = '<div class="catalog-status" aria-live="polite">Loading Marin Learn…</div>';
@@ -62,6 +64,10 @@ export async function renderSlideViewer(container, setSlug, resourceSlug, catalo
     let currentIndex = 0;
     let showNotes = false;
 
+    // Notes and quiz cards sit below the slides, as slides and quiz do below the notes.
+    const nextCards = RESOURCE_KINDS.filter((kind) => ['notes', 'materials', 'assessments'].includes(kind.key))
+      .flatMap((kind) => (graphData[kind.key] || []).map((item) => resourceCard(item, kind, setSlug)));
+
     // Build the persistent shell once so fullscreen state survives slide changes.
     container.innerHTML = `
       ${breadcrumbHtml([{ label: 'Catalog', route: {} }, { label: catalogEntry.name, route: { set: setSlug } }, { label: 'Slides' }])}
@@ -72,8 +78,10 @@ export async function renderSlideViewer(container, setSlug, resourceSlug, catalo
             <span id="slides-counter" class="slides-counter">Slide 1 of ${slides.length}</span>
           </div>
           <div class="slides-top-actions">
-            <button id="toggle-notes" class="secondary outline" aria-pressed="false">Speaker Notes</button>
-            <button id="toggle-fullscreen" class="secondary outline">Fullscreen</button>
+            <div class="action-group" role="group" aria-label="Slide tools">
+              <button type="button" id="toggle-notes" class="action-button" aria-pressed="false" aria-label="Speaker notes" title="Speaker notes">${actionIcon('sticky-note')}</button>
+              <button type="button" id="toggle-fullscreen" class="action-button" aria-label="Fullscreen" title="Fullscreen">${actionIcon('maximize')}</button>
+            </div>
           </div>
         </header>
 
@@ -82,13 +90,16 @@ export async function renderSlideViewer(container, setSlug, resourceSlug, catalo
         </div>
 
         <footer class="slides-control-bar">
-          <button id="prev-slide" class="secondary">&larr; Previous</button>
+          <div class="action-group" role="group" aria-label="Change slide">
+            <button type="button" id="prev-slide" class="action-button" aria-label="Previous slide" title="Previous slide">${actionIcon('arrow-left')}</button>
+            <button type="button" id="next-slide" class="action-button" aria-label="Next slide" title="Next slide">${actionIcon('arrow-right')}</button>
+          </div>
           <div class="slides-keyboard-hint">Use Left/Right arrow keys or click slide canvas to navigate</div>
-          <button id="next-slide" class="primary">Next &rarr;</button>
         </footer>
 
         <div id="slides-notes-container"></div>
-      </div>`;
+      </div>
+      ${nextCards.length ? `<section class="reader-next" aria-label="Notes and quiz"><div class="catalog-grid landing-resource-grid">${nextCards.join('')}</div></section>` : ''}`;
 
     const counter = container.querySelector('#slides-counter');
     const canvasEl = container.querySelector('#slide-canvas-el');
@@ -121,7 +132,7 @@ export async function renderSlideViewer(container, setSlug, resourceSlug, catalo
           <aside class="slides-notes-panel" aria-label="Speaker notes">
             <header class="slides-notes-header">
               <h4>Speaker Notes (Slide ${currentIndex + 1})</h4>
-              <button id="close-notes" class="link-button">Close Notes</button>
+              <button type="button" id="close-notes" class="action-button" aria-label="Close notes" title="Close notes">${actionIcon('x')}</button>
             </header>
             <div class="slides-notes-body">
               ${renderSpeakerNotesHtml(slide, {
@@ -140,6 +151,13 @@ export async function renderSlideViewer(container, setSlug, resourceSlug, catalo
     }
 
     wireBreadcrumb(container, onNavigate);
+    container.querySelectorAll('.resource-action').forEach((link) => {
+      link.addEventListener('click', (event) => {
+        if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+        event.preventDefault();
+        onNavigate({ set: setSlug, view: link.dataset.view, resource: link.dataset.resource });
+      });
+    });
 
     prevBtn.addEventListener('click', () => {
       if (currentIndex > 0) {

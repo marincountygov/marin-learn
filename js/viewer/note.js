@@ -13,7 +13,7 @@ const ICONS = {
   copy: '<rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>',
   printer: '<path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 9V3a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v6"/><rect x="6" y="14" width="12" height="8" rx="1"/>'
 };
-const icon = name => `<svg class="note-action-icon" aria-hidden="true" viewBox="0 0 24 24">${ICONS[name]}</svg>`;
+const icon = name => `<svg aria-hidden="true" viewBox="0 0 24 24">${ICONS[name]}</svg>`;
 
 const COPY_FAILED = 'Could not copy. Select the text in the box below and copy it.';
 
@@ -57,7 +57,7 @@ function codeHtml(samples) {
           <figcaption>
             <span class="note-code-title">${escapeHtml(sample.title)}</span>
             ${sample.language ? `<span class="app-badge">${escapeHtml(sample.language)}</span>` : ''}
-            <button type="button" class="doc-action note-code-copy" data-code-index="${index}" aria-label="Copy code: ${escapeAttr(sample.title)}">${icon('copy')}Copy code</button>
+            <button type="button" class="action-button note-code-copy" data-code-index="${index}" aria-label="Copy code: ${escapeAttr(sample.title)}" title="Copy code">${icon('copy')}</button>
             <span class="note-code-status" role="status" aria-live="polite"></span>
           </figcaption>
           <pre tabindex="0" role="region" aria-label="${escapeAttr(sample.title)}"><code>${escapeHtml(sample.code)}</code></pre>
@@ -188,9 +188,11 @@ export function noteCopy(note, sections, only = null) {
 // Share, Copy note, and Print appear above and below the note.
 function actionButtons(where) {
   return `
-    <button type="button" class="doc-action" data-note-action="share" data-where="${where}">${icon('share')}Share</button>
-    <button type="button" class="doc-action" data-note-action="copy" data-where="${where}">${icon('copy')}Copy note</button>
-    <button type="button" class="doc-action" data-note-action="print" data-where="${where}">${icon('printer')}Print</button>`;
+    <div class="action-group" role="group" aria-label="Note actions">
+      <button type="button" class="action-button" data-note-action="share" data-where="${where}" aria-label="Share this note" title="Share">${icon('share')}</button>
+      <button type="button" class="action-button" data-note-action="copy" data-where="${where}" aria-label="Copy note" title="Copy note">${icon('copy')}</button>
+      <button type="button" class="action-button" data-note-action="print" data-where="${where}" aria-label="Print note" title="Print">${icon('printer')}</button>
+    </div>`;
 }
 
 function fallbackHtml(where) {
@@ -224,7 +226,7 @@ export function renderNotePage(container, setSlug, note, graphData, catalogEntry
           <h1>${escapeHtml(noteHeading(note))}</h1>
           ${note.abstract ? `<p class="reader-abstract">${escapeHtml(note.abstract)}</p>` : ''}
           <p class="note-meta"><span>${minutes} min read</span></p>
-          <div class="doc-actions note-actions">
+          <div class="action-toolbar note-actions">
             ${actionButtons('top')}
           </div>
           <p class="doc-action-status note-status" id="note-status" role="status" aria-live="polite"></p>
@@ -233,7 +235,7 @@ export function renderNotePage(container, setSlug, note, graphData, catalogEntry
 
         <div class="note-body">${sections.map(section => sectionHtml(section, {})).join('')}</div>
 
-        <div class="doc-actions note-actions note-actions--bottom">
+        <div class="action-toolbar note-actions note-actions--bottom">
           ${actionButtons('bottom')}
         </div>
         <p class="doc-action-status note-status" id="note-status-bottom" role="status" aria-live="polite"></p>

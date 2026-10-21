@@ -1,4 +1,5 @@
 // Marin Learn - Quiz Viewer and Assessment Engine (Phase 7)
+import { actionIcon } from './action-icons.js';
 import { loadLearningSetGraph, hasType } from '../core/graph.js';
 import { parseMarkdownToHtml } from '../core/markdown.js';
 import { breadcrumbHtml, wireBreadcrumb } from './breadcrumb.js';
@@ -193,10 +194,13 @@ export async function renderQuizViewer(container, setSlug, resourceSlug, catalog
               ` : ''}
 
               <div class="quiz-step-buttons">
-                <button id="prev-q" class="secondary outline" ${currentIndex === 0 ? 'disabled' : ''}>&larr; Previous</button>
-                ${currentIndex < attemptItems.length - 1 ? `
-                  <button id="next-q" class="primary" ${!hasAnswer ? 'disabled' : ''}>Next &rarr;</button>
-                ` : `
+                <div class="action-group" role="group" aria-label="Change question">
+                  <button type="button" id="prev-q" class="action-button" aria-label="Previous question" title="Previous question" ${currentIndex === 0 ? 'disabled' : ''}>${actionIcon('arrow-left')}</button>
+                  ${currentIndex < attemptItems.length - 1 ? `
+                    <button type="button" id="next-q" class="action-button" aria-label="Next question" title="Next question" ${!hasAnswer ? 'disabled' : ''}>${actionIcon('arrow-right')}</button>
+                  ` : ''}
+                </div>
+                ${currentIndex < attemptItems.length - 1 ? '' : `
                   <button id="submit-quiz" class="primary" ${!hasAnswer ? 'disabled' : ''}>Finish Quiz</button>
                 `}
               </div>
@@ -383,7 +387,7 @@ export async function renderQuizViewer(container, setSlug, resourceSlug, catalog
             </div>
 
             <div class="quiz-share">
-              <button id="share-results" class="secondary outline">Share</button>
+              <div class="action-group" role="group" aria-label="Share"><button type="button" id="share-results" class="action-button" aria-label="Share results" title="Share"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 2v13"/><path d="m16 6-4-4-4 4"/><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/></svg></button></div>
               <p id="share-status" class="quiz-share-status" role="status" aria-live="polite"></p>
             </div>
 
@@ -397,8 +401,8 @@ export async function renderQuizViewer(container, setSlug, resourceSlug, catalog
             </section>
 
             <div class="quiz-results-actions">
-              <button id="restart-attempt" class="primary">Retake quiz</button>
-              <button id="return-landing" class="secondary outline">Return to course</button>
+              <div class="action-group" role="group" aria-label="After the quiz"><button type="button" id="restart-attempt" class="action-button" aria-label="Retake quiz" title="Retake quiz">${actionIcon('rotate-ccw')}</button>
+              <button type="button" id="return-landing" class="action-button" aria-label="Return to course" title="Return to course">${actionIcon('corner-up-left')}</button></div>
             </div>
 
           </main>

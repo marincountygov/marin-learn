@@ -211,6 +211,10 @@ a.app-badge:hover {
   margin-top: 2.5rem;
 }
 
+.support-section .action-group {
+  margin-top: 1.25rem;
+}
+
 /* Breadcrumb trail: links, then the current page as plain text. */
 .viewer-breadcrumb {
   margin-bottom: 1.5rem;
@@ -637,19 +641,6 @@ a.app-badge:hover {
   gap: 0.5rem;
 }
 
-.slides-top-actions button {
-  width: auto;
-  margin: 0;
-  padding: 0.35rem 0.75rem;
-  font-size: 0.85rem;
-}
-
-.slides-top-actions button[aria-pressed="true"] {
-  border-color: var(--learn-accent);
-  background: var(--learn-accent-tint);
-  color: var(--learn-accent-on-tint);
-}
-
 .slide-canvas-wrapper {
   width: 100%;
   /* Slide text scales with the slide: sizes below use cqw, a share of this width. */
@@ -838,11 +829,6 @@ a.app-badge:hover {
 
 .slides-control-bar {
   padding-block: 1rem;
-}
-
-.slides-control-bar button {
-  width: auto;
-  margin: 0;
 }
 
 .slides-keyboard-hint {
@@ -1464,10 +1450,6 @@ a.app-badge:hover {
     justify-self: stretch;
   }
 
-  .slides-top-actions button {
-    flex: 1 1 0;
-  }
-
   .quiz-progress-indicator {
     width: 100%;
   }
@@ -1494,18 +1476,6 @@ a.app-badge:hover {
 
 .note-actions--bottom {
   margin-top: 2.5rem;
-}
-
-.note-action-icon {
-  width: 1rem;
-  height: 1rem;
-  margin-right: 0.375rem;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  vertical-align: -0.125rem;
 }
 
 .note-status {

@@ -2,6 +2,7 @@
 
 // Lucide icons shown above each course title, keyed by course identifier.
 const COURSE_ICONS = {
+  'county-leaders-guide-to-apis': '<path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/><path d="M16 16h5v5"/>',
   'county-leaders-guide-to-data': '<ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/>',
   'county-leaders-guide-to-schemas': '<path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"/><path d="M14 2v5a1 1 0 0 0 1 1h5"/><path d="M10 12a1 1 0 0 0-1 1v1a1 1 0 0 1-1 1 1 1 0 0 1 1 1v1a1 1 0 0 0 1 1"/><path d="M14 18a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1 1 1 0 0 1-1-1v-1a1 1 0 0 0-1-1"/>'
 };
@@ -33,7 +34,6 @@ export function courseCardHtml(item) {
       ${icon ? `<span class="app-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24">${icon}</svg></span>` : ''}
       <h3 id="set-title-${escapeHtml(item.identifier)}"><a href="${escapeHtml(href)}" data-route="${escapeHtml(JSON.stringify({ set: item.identifier }))}">${escapeHtml(item.name)}</a></h3>
       <p>${escapeHtml(item.abstract || '')}</p>
-      ${themeBadgesHtml(item.themes)}
     </article>`;
 }
 
