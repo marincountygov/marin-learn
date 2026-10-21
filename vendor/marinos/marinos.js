@@ -6,8 +6,8 @@
     return;
   }
 
-  const SHELL_VERSION = "1.13.0";
-  const MARIN_UI_VERSION = "1.27.0";
+  const SHELL_VERSION = "1.15.0";
+  const MARIN_UI_VERSION = "1.28.1";
   const MARINOS_URL = "https://marincountygov.github.io/marin-os/";
   const MARINOS_STATUS_URL = `${MARINOS_URL}#status`;
   const CATALOG_URL = `${MARINOS_URL}catalog.json`;
@@ -32,7 +32,7 @@
   const MARINOS_STATUS_LABELS = Object.freeze({ alpha: "Alpha", beta: "Beta", live: "Live" });
 
   // Generated from the hash-locked vendor/icons/lucide/*.svg at build time.
-  const LUCIDE_ICONS = Object.freeze({"check": "<path d=\"M20 6 9 17l-5-5\"/>", "chevron-down": "<path d=\"m6 9 6 6 6-6\"/>", "copy": "<rect width=\"14\" height=\"14\" x=\"8\" y=\"8\" rx=\"2\" ry=\"2\"/><path d=\"M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2\"/>", "layout-grid": "<rect width=\"7\" height=\"7\" x=\"3\" y=\"3\" rx=\"1\"/><rect width=\"7\" height=\"7\" x=\"14\" y=\"3\" rx=\"1\"/><rect width=\"7\" height=\"7\" x=\"14\" y=\"14\" rx=\"1\"/><rect width=\"7\" height=\"7\" x=\"3\" y=\"14\" rx=\"1\"/>"});
+  const LUCIDE_ICONS = Object.freeze({"check": "<path d=\"M20 6 9 17l-5-5\"/>", "chevron-down": "<path d=\"m6 9 6 6 6-6\"/>", "copy": "<rect width=\"14\" height=\"14\" x=\"8\" y=\"8\" rx=\"2\" ry=\"2\"/><path d=\"M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2\"/>", "layout-grid": "<rect width=\"7\" height=\"7\" x=\"3\" y=\"3\" rx=\"1\"/><rect width=\"7\" height=\"7\" x=\"14\" y=\"3\" rx=\"1\"/><rect width=\"7\" height=\"7\" x=\"14\" y=\"14\" rx=\"1\"/><rect width=\"7\" height=\"7\" x=\"3\" y=\"14\" rx=\"1\"/>", "panel-left-open": "<rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\"/><path d=\"M9 3v18\"/><path d=\"m14 9 3 3-3 3\"/>", "panel-right-open": "<rect width=\"18\" height=\"18\" x=\"3\" y=\"3\" rx=\"2\"/><path d=\"M15 3v18\"/><path d=\"m10 15-3-3 3-3\"/>"});
   const LUCIDE_ATTRIBUTES = Object.freeze({
     viewBox: "0 0 24 24", fill: "none", stroke: "currentColor",
     "stroke-width": "2", "stroke-linecap": "round", "stroke-linejoin": "round",
@@ -1161,6 +1161,86 @@
   }
   window.marinOnThisPage = marinOnThisPage;
   document.querySelectorAll(".docs-toc, .toc").forEach(marinOnThisPage);
+
+  // Collapsible filter panels (Marin UI 1.28.0): any button[data-filter-toggle] hides and shows the filter
+  // panel it controls (aria-controls) inside its nearest .search-layout. The shell draws the Lucide
+  // panel-right-open icon while the panel is open and panel-left-open while it is hidden (unless the button holds
+  // its own SVGs marked data-filter-icon="open" and "closed"), sets aria-expanded, data-open on the panel and
+  // data-filters ("open" or "closed") on the layout, starts open on wide screens (a choice made there is remembered
+  // per app and toggle in this browser) and closed up to 850px, names the button "Filters" (or data-filter-label)
+  // plus ", N active" from data-filter-active, and dispatches a bubbling "marin-filters-change" event
+  // ({ detail: { open, button, panel } }) so an app can resize anything sized by the results. Hiding the panel
+  // never changes a filter. The button has no visible text, so its name is its label.
+  const filterToggles = document.querySelectorAll("button[data-filter-toggle]");
+  if (filterToggles.length) {
+    const narrowFilters = window.matchMedia("(max-width: 850px)");
+
+    function filterStorageKey(button) {
+      const app = document.body.dataset.appId || window.location.pathname;
+      return `marinos.filters.${app}.${button.dataset.filterToggle || "filters"}`;
+    }
+
+    function savedFilterChoice(button) {
+      try {
+        return window.localStorage.getItem(filterStorageKey(button));
+      } catch {
+        return null;
+      }
+    }
+
+    function setFilterPanel(button, open, remember) {
+      const layout = button.closest(".search-layout");
+      const panel = document.getElementById(button.getAttribute("aria-controls"));
+      if (!layout || !panel) return;
+      panel.dataset.open = String(open);
+      layout.dataset.filters = open ? "open" : "closed";
+      button.setAttribute("aria-expanded", String(open));
+      // SVG elements have no hidden property, so the attribute is toggled directly.
+      button.querySelector('[data-filter-icon="open"]')?.toggleAttribute("hidden", !open);
+      button.querySelector('[data-filter-icon="closed"]')?.toggleAttribute("hidden", open);
+      if (remember && !narrowFilters.matches) {
+        try {
+          window.localStorage.setItem(filterStorageKey(button), open ? "open" : "closed");
+        } catch {
+          // The choice is just not remembered.
+        }
+      }
+      layout.dispatchEvent(new CustomEvent("marin-filters-change", { bubbles: true, detail: { open, button, panel } }));
+    }
+
+    function nameFilterToggle(button) {
+      const count = Number(button.dataset.filterActive) || 0;
+      const base = button.dataset.filterLabel || "Filters";
+      const name = count ? `${base}, ${count} active` : base;
+      button.setAttribute("aria-label", name);
+      button.title = name;
+    }
+
+    function applyFilterDefaults() {
+      filterToggles.forEach((button) => {
+        setFilterPanel(button, !narrowFilters.matches && savedFilterChoice(button) !== "closed", false);
+      });
+    }
+
+    const filterNames = new MutationObserver((records) => records.forEach((record) => nameFilterToggle(record.target)));
+    filterToggles.forEach((button) => {
+      if (!button.querySelector("svg")) {
+        const open = createLucideIcon("panel-right-open");
+        const closed = createLucideIcon("panel-left-open");
+        open.dataset.filterIcon = "open";
+        closed.dataset.filterIcon = "closed";
+        button.append(open, closed);
+      }
+      nameFilterToggle(button);
+      filterNames.observe(button, { attributes: true, attributeFilter: ["data-filter-active", "data-filter-label"] });
+      button.addEventListener("click", () => {
+        const panel = document.getElementById(button.getAttribute("aria-controls"));
+        if (panel) setFilterPanel(button, panel.dataset.open !== "true", true);
+      });
+    });
+    narrowFilters.addEventListener("change", applyFilterDefaults);
+    applyFilterDefaults();
+  }
 
   // Sortable table columns: a <thead> button[data-sort-key="foo"] sorts the
   // tbody's rows by their data-sort-foo attribute. Rows don't need any JS
