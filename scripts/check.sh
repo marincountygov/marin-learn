@@ -26,6 +26,21 @@ python3 "$ROOT_DIR/scripts/sync-security-meta.py" --check
 python3 "$ROOT_DIR/tests/validate_template.py"
 python3 "$ROOT_DIR/tests/test_brand_icons.py"
 python3 "$ROOT_DIR/tests/test_security_meta.py"
+# The button audit, without the editor (a separate authoring app with its own rules).
+python3 - "$ROOT_DIR" <<'PY'
+import importlib.util, sys
+from pathlib import Path
+sys.dont_write_bytecode = True  # importing must not leave a __pycache__ in vendor/marinos
+root = Path(sys.argv[1])
+spec = importlib.util.spec_from_file_location("audit_buttons", root / "vendor/marinos/audit-buttons.py")
+audit = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(audit)
+found = [item for item in audit.audit(root) if not item[0].startswith("editor/")]
+for path, problem, label in found:
+    print(f"{path}: {problem}: {label}")
+print(f"{len(found)} button(s) to update in marin-learn (the editor is not audited)")
+sys.exit(1 if found else 0)
+PY
 python3 "$ROOT_DIR/tests/test_publish.py"
 python3 "$ROOT_DIR/tests/test_notes_publish.py"
 python3 "$ROOT_DIR/scripts/check_published.py"
