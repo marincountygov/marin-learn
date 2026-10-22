@@ -90,7 +90,7 @@ export async function renderSlideViewer(container, setSlug, resourceSlug, catalo
         </div>
 
         <footer class="slides-control-bar">
-          <div class="action-group" role="group" aria-label="Change slide">
+          <div class="action-group action-group--spaced" role="group" aria-label="Change slide">
             <button type="button" id="prev-slide" class="action-button" aria-label="Previous slide" title="Previous slide">${actionIcon('arrow-left')}</button>
             <button type="button" id="next-slide" class="action-button" aria-label="Next slide" title="Next slide">${actionIcon('arrow-right')}</button>
           </div>

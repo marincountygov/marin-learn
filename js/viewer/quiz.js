@@ -194,7 +194,7 @@ export async function renderQuizViewer(container, setSlug, resourceSlug, catalog
               ` : ''}
 
               <div class="quiz-step-buttons">
-                <div class="action-group" role="group" aria-label="Change question">
+                <div class="action-group action-group--spaced" role="group" aria-label="Change question">
                   <button type="button" id="prev-q" class="action-button" aria-label="Previous question" title="Previous question" ${currentIndex === 0 ? 'disabled' : ''}>${actionIcon('arrow-left')}</button>
                   ${currentIndex < attemptItems.length - 1 ? `
                     <button type="button" id="next-q" class="action-button" aria-label="Next question" title="Next question" ${!hasAnswer ? 'disabled' : ''}>${actionIcon('arrow-right')}</button>
