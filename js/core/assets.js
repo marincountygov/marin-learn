@@ -82,6 +82,7 @@ function ascii(bytes) {
 
 function safeTextPrefix(bytes, limit) {
   try {
+    // marin-shared-helpers: allow (a short look at the start of a package file to sniff its type, not a file the reader opened)
     return new TextDecoder('utf-8', { fatal: false }).decode(bytes.slice(0, limit));
   } catch {
     return '';
