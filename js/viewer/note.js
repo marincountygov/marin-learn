@@ -155,8 +155,11 @@ function sectionCopyMarkdown(section) {
       return [heading, ...paragraphs(section['marin:text'])].join('\n\n');
     case 'keyTerms':
       return `${heading}\n\n${items.map(item => `- **${item.term}:** ${item.definition}`).join('\n')}`;
-    case 'dosAndDonts':
-      return `${heading}\n\n| Do | Don’t |\n| --- | --- |\n${items.map(item => `| ${item.do} | ${item.dont} |`).join('\n')}`;
+    case 'dosAndDonts': {
+      // A backslash or a pipe inside a table cell would break the row, so each is escaped.
+      const cell = value => String(value).replace(/\\/g, '\\\\').replace(/\|/g, '\\|');
+      return `${heading}\n\n| Do | Don’t |\n| --- | --- |\n${items.map(item => `| ${cell(item.do)} | ${cell(item.dont)} |`).join('\n')}`;
+    }
     case 'questions':
       return `${heading}\n\n${items.map((item, index) => `${index + 1}. ${item}`).join('\n')}`;
     case 'examples': {

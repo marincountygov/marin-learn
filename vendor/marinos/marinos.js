@@ -1624,7 +1624,7 @@
     }
 
     function tableToMarkdown(table) {
-      const rows = Array.from(table.rows).map((row) => Array.from(row.cells).map((cell) => clean(inline(cell)).replace(/\|/g, "\\|")));
+      const rows = Array.from(table.rows).map((row) => Array.from(row.cells).map((cell) => clean(inline(cell)).replace(/\\/g, "\\\\").replace(/\|/g, "\\|")));
       if (!rows.length) return "";
       const width = Math.max(...rows.map((r) => r.length));
       const pad = (r) => Array.from({ length: width }, (_, i) => r[i] ?? "");
