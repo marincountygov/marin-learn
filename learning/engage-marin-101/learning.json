@@ -1,0 +1,2141 @@
+{
+  "@context": [
+    "https://schema.org",
+    {
+      "marin": "https://marincountygov.github.io/marin-learn/ns#"
+    }
+  ],
+  "@graph": [
+    {
+      "@id": "urn:uuid:3805de62-92da-54e3-aea1-42c629611110",
+      "@type": [
+        "LearningResource",
+        "marin:LearningSet"
+      ],
+      "identifier": "engage-marin-101",
+      "name": "Engage Marin 101",
+      "abstract": "Learn how County teams use Engage Marin to ask residents a question and share what they learned.",
+      "description": "Notes, slides, and a quiz about using Engage Marin to invite community ideas, learn what matters, and share what happens next.",
+      "schemaVersion": "1.0.0",
+      "inLanguage": "en-US",
+      "version": "1.0.0",
+      "dateCreated": "2026-10-29",
+      "dateModified": "2026-10-29",
+      "creativeWorkStatus": "published",
+      "educationalLevel": "introductory",
+      "educationalUse": [
+        "orientation",
+        "self-study"
+      ],
+      "learningResourceType": "guide",
+      "timeRequired": "PT20M",
+      "audience": [
+        {
+          "@type": "EducationalAudience",
+          "audienceType": "County executives and staff",
+          "educationalRole": "learner"
+        }
+      ],
+      "keywords": [
+        "community engagement",
+        "public input",
+        "Engage Marin",
+        "outreach",
+        "community partners",
+        "feedback"
+      ],
+      "marin:startResource": {
+        "@id": "urn:uuid:ac07c3b4-c89f-53be-9601-3e6b78fb1a99"
+      },
+      "hasPart": [
+        {
+          "@id": "urn:uuid:ac07c3b4-c89f-53be-9601-3e6b78fb1a99"
+        },
+        {
+          "@id": "urn:uuid:12cd2937-4479-5e5b-af7c-9b3e91ca3439"
+        },
+        {
+          "@id": "urn:uuid:3e92c378-c132-598a-9df5-9a3b16c7046f"
+        },
+        {
+          "@id": "urn:uuid:5dc2eadc-9eb7-5097-b9f9-84b32f8edeb1"
+        },
+        {
+          "@id": "urn:uuid:55afa162-0506-50c8-b8b3-236054af2305"
+        },
+        {
+          "@id": "urn:uuid:3cd9c7a9-8f7e-5bbb-91d1-dae8f7d0082a"
+        },
+        {
+          "@id": "urn:uuid:c711fc91-e14a-5c62-91ca-b3d130986f6a"
+        },
+        {
+          "@id": "urn:uuid:6f00281b-36f9-5d0f-af0c-c128b3cf2a40"
+        },
+        {
+          "@id": "urn:uuid:da17c0dd-1e50-5fbf-9219-d79df3d2f299"
+        },
+        {
+          "@id": "urn:uuid:a71e0bc2-87c2-58b3-b0ad-fce9e90bca2a"
+        },
+        {
+          "@id": "urn:uuid:ba272a4d-79f9-57db-819d-522420ae97f1"
+        },
+        {
+          "@id": "urn:uuid:37a314df-d863-5737-a2d8-0cae9b05e1cf"
+        },
+        {
+          "@id": "urn:uuid:6421c981-a49c-59db-a2ca-8dcd01cac66a"
+        },
+        {
+          "@id": "urn:uuid:c0535a42-ad1d-57c8-9f5d-d8c381a9440b"
+        },
+        {
+          "@id": "urn:uuid:1005927f-bd4e-5da7-be43-a523d6910bd0"
+        },
+        {
+          "@id": "urn:uuid:28494964-5add-55c6-a75b-158c52471aeb"
+        },
+        {
+          "@id": "urn:uuid:13210263-1078-5803-a523-e5d595a2c3ed"
+        },
+        {
+          "@id": "urn:uuid:2e1a9a90-64f2-5061-ae85-82e981dce58b"
+        },
+        {
+          "@id": "urn:uuid:aebfb1e7-9abd-59e2-b283-8c69a0cf9921"
+        },
+        {
+          "@id": "urn:uuid:50e2af5a-5295-53a4-af5f-f94e9522d0c8"
+        },
+        {
+          "@id": "urn:uuid:cb5c4e6c-fc74-5651-b5ff-b099dcb7036b"
+        },
+        {
+          "@id": "urn:uuid:5f5571f2-2d0d-5cb8-9b87-860abae7517a"
+        },
+        {
+          "@id": "urn:uuid:fabaf028-50dc-5d87-9604-a35f9c6ec6f8"
+        },
+        {
+          "@id": "urn:uuid:b26c7b18-a93e-5904-829e-a0c09a9a2716"
+        },
+        {
+          "@id": "urn:uuid:96119246-42bf-5235-bc15-affbcb0f76df"
+        },
+        {
+          "@id": "urn:uuid:314503a6-07a4-5c0a-82cb-944bfd60cfe8"
+        },
+        {
+          "@id": "urn:uuid:086b7e5c-17be-5d73-a0bb-1963d3122c8b"
+        },
+        {
+          "@id": "urn:uuid:4276eca1-e21b-5c58-8587-156e54e5d75a"
+        },
+        {
+          "@id": "urn:uuid:e933525b-a970-55fd-b84e-2ec13bb38cfe"
+        },
+        {
+          "@id": "urn:uuid:211950f2-535b-51d8-9a5e-3c7f2395de8c"
+        },
+        {
+          "@id": "urn:uuid:d4ce09ed-151c-524a-b8e3-577d1fb745a8"
+        },
+        {
+          "@id": "urn:uuid:741a2349-f868-5298-b25f-aac08bca1280"
+        },
+        {
+          "@id": "urn:uuid:33f0d1ed-1d63-5dac-8ec2-3c1b1ab8a62b"
+        },
+        {
+          "@id": "urn:uuid:07e57681-80b3-5e93-b179-01f54b3678ba"
+        },
+        {
+          "@id": "urn:uuid:ec4001df-8b6f-5df8-b2fa-5e531bcaa239"
+        },
+        {
+          "@id": "urn:uuid:17d12b32-20bf-587a-84e1-574c7ac8ef4b"
+        },
+        {
+          "@id": "urn:uuid:ad335574-4635-587b-8d8a-4c3abdc1b9e5"
+        },
+        {
+          "@id": "urn:uuid:09e176e6-f733-5b8e-a067-3ff6f4e9fc89"
+        },
+        {
+          "@id": "urn:uuid:a7bd4548-6350-5237-bcef-c2913ecd51f4"
+        },
+        {
+          "@id": "urn:uuid:7e247407-2024-5809-acd6-b0850ee7216a"
+        },
+        {
+          "@id": "urn:uuid:374c89af-53f1-520c-9681-0ec3e70c9c3c"
+        },
+        {
+          "@id": "urn:uuid:f1702c30-d893-582a-9880-6278700cc67a"
+        },
+        {
+          "@id": "urn:uuid:9bde8807-fd9e-5eaf-af2d-96f2f54464f5"
+        },
+        {
+          "@id": "urn:uuid:2e73713f-d129-571c-8248-c69837d6cd35"
+        },
+        {
+          "@id": "urn:uuid:6742107b-bb06-50f3-ab23-907974d2ae0b"
+        },
+        {
+          "@id": "urn:uuid:99fba714-fb4c-5abc-a245-7c9682c449f7"
+        },
+        {
+          "@id": "urn:uuid:74f84724-2dc7-5826-b3e2-0e084c35496d"
+        },
+        {
+          "@id": "urn:uuid:e2823771-7acf-50ac-9df6-c8015063f45f"
+        },
+        {
+          "@id": "urn:uuid:317d8aa7-4463-5b35-9141-cfdcceea7dc3"
+        },
+        {
+          "@id": "urn:uuid:e31bbd62-f7c8-58e8-bb10-33cfc3247df0"
+        },
+        {
+          "@id": "urn:uuid:94a43959-85ed-5bd1-bbef-f9d68367e89c"
+        },
+        {
+          "@id": "urn:uuid:92ddb364-de90-53d3-b1a2-553977d18190"
+        },
+        {
+          "@id": "urn:uuid:9df26e10-5db6-51af-a83b-2bea34700d95"
+        },
+        {
+          "@id": "urn:uuid:16d4c606-1f74-5de0-a5b4-023063125fc9"
+        },
+        {
+          "@id": "urn:uuid:60220dc8-0625-57d6-897a-b6ed7e03a0a9"
+        },
+        {
+          "@id": "urn:uuid:7e55fae2-8b62-5133-b61c-f1e3ae47a3ee"
+        },
+        {
+          "@id": "urn:uuid:5b3fa75f-d450-5335-b38f-8b84530fb4a4"
+        },
+        {
+          "@id": "urn:uuid:a3971363-643d-5c50-bef3-3a8962b76525"
+        },
+        {
+          "@id": "urn:uuid:9b6dfa9a-ca4e-5a6e-a030-471538be86db"
+        },
+        {
+          "@id": "urn:uuid:ed5c0fe6-7dc5-5c1c-aab5-b7f1d31aa714"
+        },
+        {
+          "@id": "urn:uuid:49925f0a-eb6b-5b44-a6ad-09235100f884"
+        },
+        {
+          "@id": "urn:uuid:bd195f93-bb12-5392-91d0-173407635b94"
+        },
+        {
+          "@id": "urn:uuid:b107022c-073a-5ec6-a4f8-0616cb4738c5"
+        },
+        {
+          "@id": "urn:uuid:1cf688df-7564-52d9-86a2-ddc803246c6e"
+        },
+        {
+          "@id": "urn:uuid:5e363fcc-31f9-5305-8fff-06f55fb1ccf6"
+        },
+        {
+          "@id": "urn:uuid:ce9cb4f9-a475-572a-9482-9d214e89926c"
+        },
+        {
+          "@id": "urn:uuid:24b0aef4-4644-59ce-9b60-fdda8ba703a7"
+        },
+        {
+          "@id": "urn:uuid:c75afc86-8d16-59f8-8668-583045a5d45e"
+        },
+        {
+          "@id": "urn:uuid:ebfd1c60-fb98-561b-93d7-c1418e299c30"
+        },
+        {
+          "@id": "urn:uuid:ef1ec54e-8205-5aae-a493-e22e9069806d"
+        },
+        {
+          "@id": "urn:uuid:b383a428-0112-5988-963c-0f81aa214e4b"
+        },
+        {
+          "@id": "urn:uuid:c1f3054a-4668-5434-af76-8c8e6e925e8e"
+        },
+        {
+          "@id": "urn:uuid:b5bf6736-f045-597c-b3d4-e2faa190d07a"
+        },
+        {
+          "@id": "urn:uuid:fc1f892f-eb7e-5b36-98ca-f3056ed2d067"
+        },
+        {
+          "@id": "urn:uuid:196fd4bc-72eb-5f25-a9e5-b96d3f7fb6f4"
+        },
+        {
+          "@id": "urn:uuid:970a2de2-1871-5b0a-8d59-e23c7e4c9778"
+        }
+      ],
+      "about": [
+        {
+          "@type": "DefinedTerm",
+          "name": "Community engagement"
+        }
+      ]
+    },
+    {
+      "@id": "urn:uuid:ac07c3b4-c89f-53be-9601-3e6b78fb1a99",
+      "@type": [
+        "LearningResource",
+        "marin:Note"
+      ],
+      "identifier": "engage-marin-101-notes",
+      "name": "Engage Marin 101",
+      "abstract": "Learn how County teams use Engage Marin to ask residents a question and share what they learned.",
+      "inLanguage": "en-US",
+      "creativeWorkStatus": "published",
+      "dateCreated": "2026-10-29",
+      "dateModified": "2026-10-29",
+      "audience": [
+        {
+          "@type": "EducationalAudience",
+          "audienceType": "County executives and staff",
+          "educationalRole": "learner"
+        }
+      ],
+      "isBasedOn": [
+        {
+          "@type": "CreativeWork",
+          "name": "Engage Marin Playbook",
+          "url": "https://marincountygov.github.io/marin-docs/guides/engage-marin/"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Engage Marin",
+          "url": "https://engage.marincounty.gov"
+        }
+      ],
+      "marin:sectionSequence": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:12cd2937-4479-5e5b-af7c-9b3e91ca3439"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@id": "urn:uuid:3e92c378-c132-598a-9df5-9a3b16c7046f"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@id": "urn:uuid:5dc2eadc-9eb7-5097-b9f9-84b32f8edeb1"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "item": {
+              "@id": "urn:uuid:55afa162-0506-50c8-b8b3-236054af2305"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 5,
+            "item": {
+              "@id": "urn:uuid:3cd9c7a9-8f7e-5bbb-91d1-dae8f7d0082a"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 6,
+            "item": {
+              "@id": "urn:uuid:c711fc91-e14a-5c62-91ca-b3d130986f6a"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 7,
+            "item": {
+              "@id": "urn:uuid:6f00281b-36f9-5d0f-af0c-c128b3cf2a40"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 8,
+            "item": {
+              "@id": "urn:uuid:da17c0dd-1e50-5fbf-9219-d79df3d2f299"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 9,
+            "item": {
+              "@id": "urn:uuid:a71e0bc2-87c2-58b3-b0ad-fce9e90bca2a"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 10,
+            "item": {
+              "@id": "urn:uuid:ba272a4d-79f9-57db-819d-522420ae97f1"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 11,
+            "item": {
+              "@id": "urn:uuid:37a314df-d863-5737-a2d8-0cae9b05e1cf"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@id": "urn:uuid:12cd2937-4479-5e5b-af7c-9b3e91ca3439",
+      "@type": [
+        "CreativeWork",
+        "marin:NoteSection"
+      ],
+      "identifier": "engage-marin-101-overview",
+      "name": "Overview",
+      "marin:sectionType": "overview",
+      "marin:text": "Engage Marin is the County of Marin’s online platform for community input. It gives people a simple way to share ideas and give feedback. That feedback helps shape County decisions. You can ask one question. You can also bring several related questions together in a campaign. Every engagement follows the same eight steps. They are plan, create, partner, launch, monitor, organize, update, and close. Your team brings the topic and community knowledge. The Engage Marin team helps you plan, launch, and manage the conversation."
+    },
+    {
+      "@id": "urn:uuid:3e92c378-c132-598a-9df5-9a3b16c7046f",
+      "@type": [
+        "CreativeWork",
+        "marin:NoteSection"
+      ],
+      "identifier": "engage-marin-101-why-it-matters",
+      "name": "Why it matters",
+      "marin:sectionType": "whyItMatters",
+      "marin:items": [
+        "You reach more people and hear different views.",
+        "You learn what matters to the community.",
+        "People get one simple place to share ideas and give feedback.",
+        "Their feedback helps shape County decisions.",
+        "People know they were heard, even if the County cannot act on every idea."
+      ]
+    },
+    {
+      "@id": "urn:uuid:5dc2eadc-9eb7-5097-b9f9-84b32f8edeb1",
+      "@type": [
+        "CreativeWork",
+        "marin:NoteSection"
+      ],
+      "identifier": "engage-marin-101-problem",
+      "name": "Problem",
+      "marin:sectionType": "problem",
+      "marin:text": "County channels may not reach everyone. Some people may never hear about a chance to share ideas. Others share ideas and never learn what happened."
+    },
+    {
+      "@id": "urn:uuid:55afa162-0506-50c8-b8b3-236054af2305",
+      "@type": [
+        "CreativeWork",
+        "marin:NoteSection"
+      ],
+      "identifier": "engage-marin-101-solution",
+      "name": "Solution",
+      "marin:sectionType": "solution",
+      "marin:text": "Start with three questions: What do you want to learn? Who do you want to hear from? How will you use their feedback? Then follow the eight steps, work with community partners early, and close with a recap that says what you heard and what happens next."
+    },
+    {
+      "@id": "urn:uuid:3cd9c7a9-8f7e-5bbb-91d1-dae8f7d0082a",
+      "@type": [
+        "CreativeWork",
+        "marin:NoteSection"
+      ],
+      "identifier": "engage-marin-101-user-stories",
+      "name": "User stories",
+      "marin:sectionType": "userStories",
+      "marin:items": [
+        "As a project lead, I want a clear question and plan, so I can invite useful ideas.",
+        "As a team member, I want to work with community partners early, so I can reach more people.",
+        "As a project lead, I want to share what we learned, so people see how their input helped.",
+        "As a resident, I want to know what happened, so I can see how my ideas were used."
+      ]
+    },
+    {
+      "@id": "urn:uuid:c711fc91-e14a-5c62-91ca-b3d130986f6a",
+      "@type": [
+        "CreativeWork",
+        "marin:NoteSection"
+      ],
+      "identifier": "engage-marin-101-key-terms",
+      "name": "Key terms",
+      "marin:sectionType": "keyTerms",
+      "marin:items": [
+        {
+          "term": "Engage Marin",
+          "definition": "The County’s online platform where people share ideas, give feedback, and help shape decisions."
+        },
+        {
+          "term": "Campaign",
+          "definition": "Several related questions brought together under one larger effort."
+        },
+        {
+          "term": "Question",
+          "definition": "Where people share ideas, comment, and vote. It has its own page, updates, themes, and reports."
+        },
+        {
+          "term": "Community partner",
+          "definition": "A trusted local group, such as a nonprofit, school, or neighborhood group, that helps invite people."
+        },
+        {
+          "term": "Theme",
+          "definition": "A group of related ideas that helps you see what people are saying across many responses."
+        },
+        {
+          "term": "Update",
+          "definition": "A post that shares progress and keeps people informed while a question is open."
+        },
+        {
+          "term": "About page",
+          "definition": "A page that gives people background on a question: what, why, who, when, and next steps."
+        },
+        {
+          "term": "First post",
+          "definition": "A welcome post that starts the conversation and shows that someone is listening."
+        },
+        {
+          "term": "Closing the loop",
+          "definition": "Telling people what you heard, what you learned, and what happens next."
+        }
+      ]
+    },
+    {
+      "@id": "urn:uuid:6f00281b-36f9-5d0f-af0c-c128b3cf2a40",
+      "@type": [
+        "CreativeWork",
+        "marin:NoteSection"
+      ],
+      "identifier": "engage-marin-101-dos-and-donts",
+      "name": "Do’s and don’ts",
+      "marin:sectionType": "dosAndDonts",
+      "marin:items": [
+        {
+          "do": "Ask one short, open question.",
+          "dont": "Lead people toward a preferred answer."
+        },
+        {
+          "do": "Use plain language.",
+          "dont": "Use jargon or internal project names."
+        },
+        {
+          "do": "Invite community partners early.",
+          "dont": "Wait until your question is ready to publish."
+        },
+        {
+          "do": "Focus on what people want to share.",
+          "dont": "Write about the County instead of the people taking part."
+        },
+        {
+          "do": "Share a recap when the question closes.",
+          "dont": "Let the engagement end without explaining what happened."
+        }
+      ]
+    },
+    {
+      "@id": "urn:uuid:da17c0dd-1e50-5fbf-9219-d79df3d2f299",
+      "@type": [
+        "CreativeWork",
+        "marin:NoteSection"
+      ],
+      "identifier": "engage-marin-101-questions",
+      "name": "Questions to ask",
+      "marin:sectionType": "questions",
+      "marin:items": [
+        "What do we want to learn?",
+        "Who do we want to hear from?",
+        "How will we use their feedback?",
+        "Which community partners could help us reach people?",
+        "Who on our team will lead the effort and follow the conversation?",
+        "Is our question short, open, and neutral?",
+        "How will we tell people what we learned?"
+      ]
+    },
+    {
+      "@id": "urn:uuid:a71e0bc2-87c2-58b3-b0ad-fce9e90bca2a",
+      "@type": [
+        "CreativeWork",
+        "marin:NoteSection"
+      ],
+      "identifier": "engage-marin-101-checklist",
+      "name": "Checklist",
+      "marin:sectionType": "checklist",
+      "marin:items": [
+        "We know what we want to learn.",
+        "We know who we want to reach.",
+        "We have a clear question or campaign.",
+        "We have identified community partners.",
+        "We have an outreach plan.",
+        "We have an About page and a welcome post.",
+        "Someone will monitor activity and post updates.",
+        "We have a plan to share results."
+      ]
+    },
+    {
+      "@id": "urn:uuid:ba272a4d-79f9-57db-819d-522420ae97f1",
+      "@type": [
+        "CreativeWork",
+        "marin:NoteSection"
+      ],
+      "identifier": "engage-marin-101-mantras",
+      "name": "Mantras",
+      "marin:sectionType": "mantras",
+      "marin:items": [
+        "Start with a question. End with an answer.",
+        "Partner early.",
+        "Listen, learn, and show how input matters.",
+        "Close the loop."
+      ]
+    },
+    {
+      "@id": "urn:uuid:37a314df-d863-5737-a2d8-0cae9b05e1cf",
+      "@type": [
+        "CreativeWork",
+        "marin:NoteSection"
+      ],
+      "identifier": "engage-marin-101-learn-more",
+      "name": "Sources",
+      "marin:sectionType": "learnMore",
+      "marin:items": [
+        {
+          "title": "Engage Marin Playbook",
+          "url": "https://marincountygov.github.io/marin-docs/guides/engage-marin/"
+        },
+        {
+          "title": "Engage Marin",
+          "url": "https://engage.marincounty.gov"
+        }
+      ]
+    },
+    {
+      "@id": "urn:uuid:6421c981-a49c-59db-a2ca-8dcd01cac66a",
+      "@type": [
+        "PresentationDigitalDocument",
+        "marin:Presentation"
+      ],
+      "identifier": "engage-marin-101-slides",
+      "name": "Engage Marin 101 — slides",
+      "abstract": "Slides for walking a team through Engage Marin 101.",
+      "learningResourceType": "presentation",
+      "isBasedOn": [
+        {
+          "@id": "urn:uuid:ac07c3b4-c89f-53be-9601-3e6b78fb1a99"
+        }
+      ],
+      "marin:slideSequence": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:bd195f93-bb12-5392-91d0-173407635b94"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@id": "urn:uuid:b107022c-073a-5ec6-a4f8-0616cb4738c5"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@id": "urn:uuid:1cf688df-7564-52d9-86a2-ddc803246c6e"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "item": {
+              "@id": "urn:uuid:5e363fcc-31f9-5305-8fff-06f55fb1ccf6"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 5,
+            "item": {
+              "@id": "urn:uuid:ce9cb4f9-a475-572a-9482-9d214e89926c"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 6,
+            "item": {
+              "@id": "urn:uuid:24b0aef4-4644-59ce-9b60-fdda8ba703a7"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 7,
+            "item": {
+              "@id": "urn:uuid:c75afc86-8d16-59f8-8668-583045a5d45e"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 8,
+            "item": {
+              "@id": "urn:uuid:ebfd1c60-fb98-561b-93d7-c1418e299c30"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 9,
+            "item": {
+              "@id": "urn:uuid:ef1ec54e-8205-5aae-a493-e22e9069806d"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 10,
+            "item": {
+              "@id": "urn:uuid:b383a428-0112-5988-963c-0f81aa214e4b"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 11,
+            "item": {
+              "@id": "urn:uuid:c1f3054a-4668-5434-af76-8c8e6e925e8e"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 12,
+            "item": {
+              "@id": "urn:uuid:b5bf6736-f045-597c-b3d4-e2faa190d07a"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 13,
+            "item": {
+              "@id": "urn:uuid:fc1f892f-eb7e-5b36-98ca-f3056ed2d067"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 14,
+            "item": {
+              "@id": "urn:uuid:196fd4bc-72eb-5f25-a9e5-b96d3f7fb6f4"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 15,
+            "item": {
+              "@id": "urn:uuid:970a2de2-1871-5b0a-8d59-e23c7e4c9778"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@id": "urn:uuid:c0535a42-ad1d-57c8-9f5d-d8c381a9440b",
+      "@type": [
+        "marin:GradeScale"
+      ],
+      "identifier": "engage-marin-101-grades",
+      "name": "Engage Marin 101 — quiz grades",
+      "marin:gradeBands": [
+        {
+          "name": "A",
+          "minPercent": 90,
+          "marin:message": "Excellent. You can explain how to run an engagement and ask the right questions."
+        },
+        {
+          "name": "B",
+          "minPercent": 80,
+          "marin:message": "Strong work. Keep asking how you will use the feedback and tell people what you learned."
+        },
+        {
+          "name": "C",
+          "minPercent": 70,
+          "marin:message": "A sound start. Read the explanations, then check the notes for the ones you missed."
+        },
+        {
+          "name": "D",
+          "minPercent": 60,
+          "marin:message": "Go back to the key terms and the do’s and don’ts in the notes, then try again."
+        },
+        {
+          "name": "F",
+          "minPercent": 0,
+          "marin:message": "Start with the notes. Then take the quiz again."
+        }
+      ]
+    },
+    {
+      "@id": "urn:uuid:1005927f-bd4e-5da7-be43-a523d6910bd0",
+      "@type": [
+        "CreativeWork",
+        "marin:AssessmentItem"
+      ],
+      "identifier": "q01-why-it-matters",
+      "name": "Which is a reason to ask residents for input?",
+      "text": "Which is a reason to ask residents for input?",
+      "isBasedOn": [
+        {
+          "@id": "urn:uuid:3e92c378-c132-598a-9df5-9a3b16c7046f"
+        }
+      ],
+      "marin:interactionType": "single-select",
+      "marin:options": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:28494964-5add-55c6-a75b-158c52471aeb"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@id": "urn:uuid:13210263-1078-5803-a523-e5d595a2c3ed"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@id": "urn:uuid:2e1a9a90-64f2-5061-ae85-82e981dce58b"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "item": {
+              "@id": "urn:uuid:aebfb1e7-9abd-59e2-b283-8c69a0cf9921"
+            }
+          }
+        ]
+      },
+      "marin:correctResponse": [
+        {
+          "@id": "urn:uuid:13210263-1078-5803-a523-e5d595a2c3ed"
+        }
+      ],
+      "marin:hint": "Think about who you hear from.",
+      "marin:explanation": "Why it matters says you reach more people and hear different views.",
+      "marin:shuffleOptions": true
+    },
+    {
+      "@id": "urn:uuid:28494964-5add-55c6-a75b-158c52471aeb",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q01-a",
+      "text": "You can decide the result before people share."
+    },
+    {
+      "@id": "urn:uuid:13210263-1078-5803-a523-e5d595a2c3ed",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q01-b",
+      "text": "You reach more people and hear different views."
+    },
+    {
+      "@id": "urn:uuid:2e1a9a90-64f2-5061-ae85-82e981dce58b",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q01-c",
+      "text": "You keep every idea inside the County team."
+    },
+    {
+      "@id": "urn:uuid:aebfb1e7-9abd-59e2-b283-8c69a0cf9921",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q01-d",
+      "text": "You avoid hearing from people who disagree."
+    },
+    {
+      "@id": "urn:uuid:50e2af5a-5295-53a4-af5f-f94e9522d0c8",
+      "@type": [
+        "CreativeWork",
+        "marin:AssessmentItem"
+      ],
+      "identifier": "q02-problem",
+      "name": "What can happen when an engagement ends with no word on what happened?",
+      "text": "What can happen when an engagement ends with no word on what happened?",
+      "isBasedOn": [
+        {
+          "@id": "urn:uuid:5dc2eadc-9eb7-5097-b9f9-84b32f8edeb1"
+        }
+      ],
+      "marin:interactionType": "single-select",
+      "marin:options": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:cb5c4e6c-fc74-5651-b5ff-b099dcb7036b"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@id": "urn:uuid:5f5571f2-2d0d-5cb8-9b87-860abae7517a"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@id": "urn:uuid:fabaf028-50dc-5d87-9604-a35f9c6ec6f8"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "item": {
+              "@id": "urn:uuid:b26c7b18-a93e-5904-829e-a0c09a9a2716"
+            }
+          }
+        ]
+      },
+      "marin:correctResponse": [
+        {
+          "@id": "urn:uuid:b26c7b18-a93e-5904-829e-a0c09a9a2716"
+        }
+      ],
+      "marin:hint": "Think about what people want to hear back.",
+      "marin:explanation": "The Problem section says some people share ideas and never learn what happened.",
+      "marin:shuffleOptions": true
+    },
+    {
+      "@id": "urn:uuid:cb5c4e6c-fc74-5651-b5ff-b099dcb7036b",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q02-a",
+      "text": "The question opens again by itself."
+    },
+    {
+      "@id": "urn:uuid:5f5571f2-2d0d-5cb8-9b87-860abae7517a",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q02-b",
+      "text": "Partners lose their links."
+    },
+    {
+      "@id": "urn:uuid:fabaf028-50dc-5d87-9604-a35f9c6ec6f8",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q02-c",
+      "text": "The platform deletes every idea."
+    },
+    {
+      "@id": "urn:uuid:b26c7b18-a93e-5904-829e-a0c09a9a2716",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q02-d",
+      "text": "People share ideas and never learn what happened."
+    },
+    {
+      "@id": "urn:uuid:96119246-42bf-5235-bc15-affbcb0f76df",
+      "@type": [
+        "CreativeWork",
+        "marin:AssessmentItem"
+      ],
+      "identifier": "q03-solution",
+      "name": "What does the Solution say to do first?",
+      "text": "What does the Solution say to do first?",
+      "isBasedOn": [
+        {
+          "@id": "urn:uuid:55afa162-0506-50c8-b8b3-236054af2305"
+        }
+      ],
+      "marin:interactionType": "single-select",
+      "marin:options": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:314503a6-07a4-5c0a-82cb-944bfd60cfe8"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@id": "urn:uuid:086b7e5c-17be-5d73-a0bb-1963d3122c8b"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@id": "urn:uuid:4276eca1-e21b-5c58-8587-156e54e5d75a"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "item": {
+              "@id": "urn:uuid:e933525b-a970-55fd-b84e-2ec13bb38cfe"
+            }
+          }
+        ]
+      },
+      "marin:correctResponse": [
+        {
+          "@id": "urn:uuid:086b7e5c-17be-5d73-a0bb-1963d3122c8b"
+        }
+      ],
+      "marin:hint": "It starts with three questions.",
+      "marin:explanation": "The Solution section starts with three questions: what you want to learn, who you want to hear from, and how you will use their feedback.",
+      "marin:shuffleOptions": true
+    },
+    {
+      "@id": "urn:uuid:314503a6-07a4-5c0a-82cb-944bfd60cfe8",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q03-a",
+      "text": "Publish a campaign right away."
+    },
+    {
+      "@id": "urn:uuid:086b7e5c-17be-5d73-a0bb-1963d3122c8b",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q03-b",
+      "text": "Ask three questions about what to learn, who to hear from, and how to use feedback."
+    },
+    {
+      "@id": "urn:uuid:4276eca1-e21b-5c58-8587-156e54e5d75a",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q03-c",
+      "text": "Write the final recap."
+    },
+    {
+      "@id": "urn:uuid:e933525b-a970-55fd-b84e-2ec13bb38cfe",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q03-d",
+      "text": "Choose the title of the welcome video."
+    },
+    {
+      "@id": "urn:uuid:211950f2-535b-51d8-9a5e-3c7f2395de8c",
+      "@type": [
+        "CreativeWork",
+        "marin:AssessmentItem"
+      ],
+      "identifier": "q04-key-terms",
+      "name": "What is a campaign?",
+      "text": "What is a campaign?",
+      "isBasedOn": [
+        {
+          "@id": "urn:uuid:c711fc91-e14a-5c62-91ca-b3d130986f6a"
+        }
+      ],
+      "marin:interactionType": "single-select",
+      "marin:options": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:d4ce09ed-151c-524a-b8e3-577d1fb745a8"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@id": "urn:uuid:741a2349-f868-5298-b25f-aac08bca1280"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@id": "urn:uuid:33f0d1ed-1d63-5dac-8ec2-3c1b1ab8a62b"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "item": {
+              "@id": "urn:uuid:07e57681-80b3-5e93-b179-01f54b3678ba"
+            }
+          }
+        ]
+      },
+      "marin:correctResponse": [
+        {
+          "@id": "urn:uuid:33f0d1ed-1d63-5dac-8ec2-3c1b1ab8a62b"
+        }
+      ],
+      "marin:hint": "It brings questions together.",
+      "marin:explanation": "Key terms defines a campaign as several related questions brought together under one larger effort.",
+      "marin:shuffleOptions": true
+    },
+    {
+      "@id": "urn:uuid:d4ce09ed-151c-524a-b8e3-577d1fb745a8",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q04-a",
+      "text": "A group of ideas about one topic."
+    },
+    {
+      "@id": "urn:uuid:741a2349-f868-5298-b25f-aac08bca1280",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q04-b",
+      "text": "A post that shares progress."
+    },
+    {
+      "@id": "urn:uuid:33f0d1ed-1d63-5dac-8ec2-3c1b1ab8a62b",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q04-c",
+      "text": "Several related questions brought together under one larger effort."
+    },
+    {
+      "@id": "urn:uuid:07e57681-80b3-5e93-b179-01f54b3678ba",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q04-d",
+      "text": "A page with background on a question."
+    },
+    {
+      "@id": "urn:uuid:ec4001df-8b6f-5df8-b2fa-5e531bcaa239",
+      "@type": [
+        "CreativeWork",
+        "marin:AssessmentItem"
+      ],
+      "identifier": "q05-key-terms",
+      "name": "A theme is a group of related ideas that helps you see what people are saying.",
+      "text": "A theme is a group of related ideas that helps you see what people are saying.",
+      "isBasedOn": [
+        {
+          "@id": "urn:uuid:c711fc91-e14a-5c62-91ca-b3d130986f6a"
+        }
+      ],
+      "marin:interactionType": "true-false",
+      "marin:options": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:17d12b32-20bf-587a-84e1-574c7ac8ef4b"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@id": "urn:uuid:ad335574-4635-587b-8d8a-4c3abdc1b9e5"
+            }
+          }
+        ]
+      },
+      "marin:correctResponse": [
+        {
+          "@id": "urn:uuid:17d12b32-20bf-587a-84e1-574c7ac8ef4b"
+        }
+      ],
+      "marin:hint": "Think about grouping ideas.",
+      "marin:explanation": "Key terms defines a theme as a group of related ideas that helps you see what people are saying across many responses.",
+      "marin:shuffleOptions": false
+    },
+    {
+      "@id": "urn:uuid:17d12b32-20bf-587a-84e1-574c7ac8ef4b",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "true",
+      "text": "True"
+    },
+    {
+      "@id": "urn:uuid:ad335574-4635-587b-8d8a-4c3abdc1b9e5",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "false",
+      "text": "False"
+    },
+    {
+      "@id": "urn:uuid:09e176e6-f733-5b8e-a067-3ff6f4e9fc89",
+      "@type": [
+        "CreativeWork",
+        "marin:AssessmentItem"
+      ],
+      "identifier": "q06-key-terms",
+      "name": "What does closing the loop mean?",
+      "text": "What does closing the loop mean?",
+      "isBasedOn": [
+        {
+          "@id": "urn:uuid:c711fc91-e14a-5c62-91ca-b3d130986f6a"
+        }
+      ],
+      "marin:interactionType": "single-select",
+      "marin:options": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:a7bd4548-6350-5237-bcef-c2913ecd51f4"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@id": "urn:uuid:7e247407-2024-5809-acd6-b0850ee7216a"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@id": "urn:uuid:374c89af-53f1-520c-9681-0ec3e70c9c3c"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "item": {
+              "@id": "urn:uuid:f1702c30-d893-582a-9880-6278700cc67a"
+            }
+          }
+        ]
+      },
+      "marin:correctResponse": [
+        {
+          "@id": "urn:uuid:a7bd4548-6350-5237-bcef-c2913ecd51f4"
+        }
+      ],
+      "marin:hint": "It is about telling people what happened.",
+      "marin:explanation": "Key terms defines closing the loop as telling people what you heard, what you learned, and what happens next.",
+      "marin:shuffleOptions": true
+    },
+    {
+      "@id": "urn:uuid:a7bd4548-6350-5237-bcef-c2913ecd51f4",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q06-a",
+      "text": "Telling people what you heard, what you learned, and what happens next."
+    },
+    {
+      "@id": "urn:uuid:7e247407-2024-5809-acd6-b0850ee7216a",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q06-b",
+      "text": "Ending a question so no one can read it."
+    },
+    {
+      "@id": "urn:uuid:374c89af-53f1-520c-9681-0ec3e70c9c3c",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q06-c",
+      "text": "Turning off partner links."
+    },
+    {
+      "@id": "urn:uuid:f1702c30-d893-582a-9880-6278700cc67a",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q06-d",
+      "text": "Sending one more reminder to join."
+    },
+    {
+      "@id": "urn:uuid:9bde8807-fd9e-5eaf-af2d-96f2f54464f5",
+      "@type": [
+        "CreativeWork",
+        "marin:AssessmentItem"
+      ],
+      "identifier": "q07-dos-and-donts",
+      "name": "Which is a Do when you write a question?",
+      "text": "Which is a Do when you write a question?",
+      "isBasedOn": [
+        {
+          "@id": "urn:uuid:6f00281b-36f9-5d0f-af0c-c128b3cf2a40"
+        }
+      ],
+      "marin:interactionType": "single-select",
+      "marin:options": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:2e73713f-d129-571c-8248-c69837d6cd35"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@id": "urn:uuid:6742107b-bb06-50f3-ab23-907974d2ae0b"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@id": "urn:uuid:99fba714-fb4c-5abc-a245-7c9682c449f7"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "item": {
+              "@id": "urn:uuid:74f84724-2dc7-5826-b3e2-0e084c35496d"
+            }
+          }
+        ]
+      },
+      "marin:correctResponse": [
+        {
+          "@id": "urn:uuid:99fba714-fb4c-5abc-a245-7c9682c449f7"
+        }
+      ],
+      "marin:hint": "Short, open, and neutral.",
+      "marin:explanation": "Do’s and don’ts says to ask one short, open question.",
+      "marin:shuffleOptions": true
+    },
+    {
+      "@id": "urn:uuid:2e73713f-d129-571c-8248-c69837d6cd35",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q07-a",
+      "text": "Use internal project names."
+    },
+    {
+      "@id": "urn:uuid:6742107b-bb06-50f3-ab23-907974d2ae0b",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q07-b",
+      "text": "Lead people toward a preferred answer."
+    },
+    {
+      "@id": "urn:uuid:99fba714-fb4c-5abc-a245-7c9682c449f7",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q07-c",
+      "text": "Ask one short, open question."
+    },
+    {
+      "@id": "urn:uuid:74f84724-2dc7-5826-b3e2-0e084c35496d",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q07-d",
+      "text": "Invite partners after you publish."
+    },
+    {
+      "@id": "urn:uuid:e2823771-7acf-50ac-9df6-c8015063f45f",
+      "@type": [
+        "CreativeWork",
+        "marin:AssessmentItem"
+      ],
+      "identifier": "q08-dos-and-donts",
+      "name": "A good invitation focuses on the County, not on the people taking part.",
+      "text": "A good invitation focuses on the County, not on the people taking part.",
+      "isBasedOn": [
+        {
+          "@id": "urn:uuid:6f00281b-36f9-5d0f-af0c-c128b3cf2a40"
+        }
+      ],
+      "marin:interactionType": "true-false",
+      "marin:options": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:317d8aa7-4463-5b35-9141-cfdcceea7dc3"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@id": "urn:uuid:e31bbd62-f7c8-58e8-bb10-33cfc3247df0"
+            }
+          }
+        ]
+      },
+      "marin:correctResponse": [
+        {
+          "@id": "urn:uuid:e31bbd62-f7c8-58e8-bb10-33cfc3247df0"
+        }
+      ],
+      "marin:hint": "Think about who the invitation is for.",
+      "marin:explanation": "Do’s and don’ts says to focus on what people want to share, not to write about the County instead of the people taking part.",
+      "marin:shuffleOptions": false
+    },
+    {
+      "@id": "urn:uuid:317d8aa7-4463-5b35-9141-cfdcceea7dc3",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "true",
+      "text": "True"
+    },
+    {
+      "@id": "urn:uuid:e31bbd62-f7c8-58e8-bb10-33cfc3247df0",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "false",
+      "text": "False"
+    },
+    {
+      "@id": "urn:uuid:94a43959-85ed-5bd1-bbef-f9d68367e89c",
+      "@type": [
+        "CreativeWork",
+        "marin:AssessmentItem"
+      ],
+      "identifier": "q09-questions",
+      "name": "Which is one of the first questions to ask?",
+      "text": "Which is one of the first questions to ask?",
+      "isBasedOn": [
+        {
+          "@id": "urn:uuid:da17c0dd-1e50-5fbf-9219-d79df3d2f299"
+        }
+      ],
+      "marin:interactionType": "single-select",
+      "marin:options": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:92ddb364-de90-53d3-b1a2-553977d18190"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@id": "urn:uuid:9df26e10-5db6-51af-a83b-2bea34700d95"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@id": "urn:uuid:16d4c606-1f74-5de0-a5b4-023063125fc9"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "item": {
+              "@id": "urn:uuid:60220dc8-0625-57d6-897a-b6ed7e03a0a9"
+            }
+          }
+        ]
+      },
+      "marin:correctResponse": [
+        {
+          "@id": "urn:uuid:16d4c606-1f74-5de0-a5b4-023063125fc9"
+        }
+      ],
+      "marin:hint": "It is about what happens to the feedback.",
+      "marin:explanation": "Questions to ask includes how you will use their feedback.",
+      "marin:shuffleOptions": true
+    },
+    {
+      "@id": "urn:uuid:92ddb364-de90-53d3-b1a2-553977d18190",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q09-a",
+      "text": "Which video format should we use?"
+    },
+    {
+      "@id": "urn:uuid:9df26e10-5db6-51af-a83b-2bea34700d95",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q09-b",
+      "text": "What color should our logo be?"
+    },
+    {
+      "@id": "urn:uuid:16d4c606-1f74-5de0-a5b4-023063125fc9",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q09-c",
+      "text": "How will we use their feedback?"
+    },
+    {
+      "@id": "urn:uuid:60220dc8-0625-57d6-897a-b6ed7e03a0a9",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q09-d",
+      "text": "Who will write the About page?"
+    },
+    {
+      "@id": "urn:uuid:7e55fae2-8b62-5133-b61c-f1e3ae47a3ee",
+      "@type": [
+        "CreativeWork",
+        "marin:AssessmentItem"
+      ],
+      "identifier": "q10-checklist",
+      "name": "Which statement belongs on the checklist?",
+      "text": "Which statement belongs on the checklist?",
+      "isBasedOn": [
+        {
+          "@id": "urn:uuid:a71e0bc2-87c2-58b3-b0ad-fce9e90bca2a"
+        }
+      ],
+      "marin:interactionType": "single-select",
+      "marin:options": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:5b3fa75f-d450-5335-b38f-8b84530fb4a4"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@id": "urn:uuid:a3971363-643d-5c50-bef3-3a8962b76525"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@id": "urn:uuid:9b6dfa9a-ca4e-5a6e-a030-471538be86db"
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "item": {
+              "@id": "urn:uuid:ed5c0fe6-7dc5-5c1c-aab5-b7f1d31aa714"
+            }
+          }
+        ]
+      },
+      "marin:correctResponse": [
+        {
+          "@id": "urn:uuid:ed5c0fe6-7dc5-5c1c-aab5-b7f1d31aa714"
+        }
+      ],
+      "marin:hint": "Someone has to follow the conversation.",
+      "marin:explanation": "The Checklist says someone will monitor activity and post updates.",
+      "marin:shuffleOptions": true
+    },
+    {
+      "@id": "urn:uuid:5b3fa75f-d450-5335-b38f-8b84530fb4a4",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q10-a",
+      "text": "We will wait to share what we learned."
+    },
+    {
+      "@id": "urn:uuid:a3971363-643d-5c50-bef3-3a8962b76525",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q10-b",
+      "text": "We will invite partners after we launch."
+    },
+    {
+      "@id": "urn:uuid:9b6dfa9a-ca4e-5a6e-a030-471538be86db",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q10-c",
+      "text": "We have written the answer before asking the question."
+    },
+    {
+      "@id": "urn:uuid:ed5c0fe6-7dc5-5c1c-aab5-b7f1d31aa714",
+      "@type": [
+        "CreativeWork",
+        "marin:ResponseOption"
+      ],
+      "identifier": "q10-d",
+      "text": "Someone will monitor activity and post updates."
+    },
+    {
+      "@id": "urn:uuid:49925f0a-eb6b-5b44-a6ad-09235100f884",
+      "@type": [
+        "LearningResource",
+        "marin:Assessment"
+      ],
+      "identifier": "engage-marin-101-quiz",
+      "name": "Engage Marin 101 — quiz",
+      "abstract": "Ten questions to check what you learned about Engage Marin.",
+      "learningResourceType": "quiz",
+      "educationalUse": [
+        "assessment"
+      ],
+      "interactivityType": "active",
+      "isBasedOn": [
+        {
+          "@id": "urn:uuid:ac07c3b4-c89f-53be-9601-3e6b78fb1a99"
+        }
+      ],
+      "marin:itemSequence": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:1005927f-bd4e-5da7-be43-a523d6910bd0"
+            },
+            "marin:weight": 1
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@id": "urn:uuid:50e2af5a-5295-53a4-af5f-f94e9522d0c8"
+            },
+            "marin:weight": 1
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@id": "urn:uuid:96119246-42bf-5235-bc15-affbcb0f76df"
+            },
+            "marin:weight": 1
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "item": {
+              "@id": "urn:uuid:211950f2-535b-51d8-9a5e-3c7f2395de8c"
+            },
+            "marin:weight": 1
+          },
+          {
+            "@type": "ListItem",
+            "position": 5,
+            "item": {
+              "@id": "urn:uuid:ec4001df-8b6f-5df8-b2fa-5e531bcaa239"
+            },
+            "marin:weight": 1
+          },
+          {
+            "@type": "ListItem",
+            "position": 6,
+            "item": {
+              "@id": "urn:uuid:09e176e6-f733-5b8e-a067-3ff6f4e9fc89"
+            },
+            "marin:weight": 1
+          },
+          {
+            "@type": "ListItem",
+            "position": 7,
+            "item": {
+              "@id": "urn:uuid:9bde8807-fd9e-5eaf-af2d-96f2f54464f5"
+            },
+            "marin:weight": 1
+          },
+          {
+            "@type": "ListItem",
+            "position": 8,
+            "item": {
+              "@id": "urn:uuid:e2823771-7acf-50ac-9df6-c8015063f45f"
+            },
+            "marin:weight": 1
+          },
+          {
+            "@type": "ListItem",
+            "position": 9,
+            "item": {
+              "@id": "urn:uuid:94a43959-85ed-5bd1-bbef-f9d68367e89c"
+            },
+            "marin:weight": 1
+          },
+          {
+            "@type": "ListItem",
+            "position": 10,
+            "item": {
+              "@id": "urn:uuid:7e55fae2-8b62-5133-b61c-f1e3ae47a3ee"
+            },
+            "marin:weight": 1
+          }
+        ]
+      },
+      "marin:selectionPolicy": {
+        "mode": "all",
+        "shuffle": true
+      },
+      "marin:scoringPolicy": {
+        "method": "weighted-sum",
+        "passingPercent": 70,
+        "gradeScale": {
+          "@id": "urn:uuid:c0535a42-ad1d-57c8-9f5d-d8c381a9440b"
+        }
+      },
+      "marin:feedbackPolicy": {
+        "timing": "after-assessment",
+        "showCorrectResponses": true,
+        "showOptionFeedback": true,
+        "showExplanation": true
+      }
+    },
+    {
+      "@id": "urn:uuid:bd195f93-bb12-5392-91d0-173407635b94",
+      "@type": [
+        "CreativeWork",
+        "marin:Slide"
+      ],
+      "identifier": "engage-marin-101-notes-slide-01",
+      "name": "Engage Marin 101",
+      "marin:layout": "title"
+    },
+    {
+      "@id": "urn:uuid:b107022c-073a-5ec6-a4f8-0616cb4738c5",
+      "@type": [
+        "CreativeWork",
+        "marin:Slide"
+      ],
+      "identifier": "engage-marin-101-notes-slide-02",
+      "name": "Overview",
+      "marin:layout": "content",
+      "marin:contentSequence": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:12cd2937-4479-5e5b-af7c-9b3e91ca3439"
+            },
+            "marin:displayMode": "full"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "urn:uuid:1cf688df-7564-52d9-86a2-ddc803246c6e",
+      "@type": [
+        "CreativeWork",
+        "marin:Slide"
+      ],
+      "identifier": "engage-marin-101-notes-slide-03",
+      "name": "Why it matters (1 of 2)",
+      "marin:layout": "content",
+      "marin:contentSequence": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:3e92c378-c132-598a-9df5-9a3b16c7046f"
+            },
+            "marin:displayMode": "full",
+            "marin:itemRange": {
+              "first": 1,
+              "last": 3
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@id": "urn:uuid:5e363fcc-31f9-5305-8fff-06f55fb1ccf6",
+      "@type": [
+        "CreativeWork",
+        "marin:Slide"
+      ],
+      "identifier": "engage-marin-101-notes-slide-04",
+      "name": "Why it matters (2 of 2)",
+      "marin:layout": "content",
+      "marin:contentSequence": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:3e92c378-c132-598a-9df5-9a3b16c7046f"
+            },
+            "marin:displayMode": "full",
+            "marin:itemRange": {
+              "first": 4,
+              "last": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@id": "urn:uuid:ce9cb4f9-a475-572a-9482-9d214e89926c",
+      "@type": [
+        "CreativeWork",
+        "marin:Slide"
+      ],
+      "identifier": "engage-marin-101-notes-slide-05",
+      "name": "Problem and solution",
+      "marin:layout": "split",
+      "marin:contentSequence": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:5dc2eadc-9eb7-5097-b9f9-84b32f8edeb1"
+            },
+            "marin:displayMode": "full"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@id": "urn:uuid:55afa162-0506-50c8-b8b3-236054af2305"
+            },
+            "marin:displayMode": "full"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "urn:uuid:24b0aef4-4644-59ce-9b60-fdda8ba703a7",
+      "@type": [
+        "CreativeWork",
+        "marin:Slide"
+      ],
+      "identifier": "engage-marin-101-notes-slide-06",
+      "name": "User stories",
+      "marin:layout": "content",
+      "marin:contentSequence": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:3cd9c7a9-8f7e-5bbb-91d1-dae8f7d0082a"
+            },
+            "marin:displayMode": "full"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "urn:uuid:c75afc86-8d16-59f8-8668-583045a5d45e",
+      "@type": [
+        "CreativeWork",
+        "marin:Slide"
+      ],
+      "identifier": "engage-marin-101-notes-slide-07",
+      "name": "Key terms (1 of 3)",
+      "marin:layout": "content",
+      "marin:contentSequence": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:c711fc91-e14a-5c62-91ca-b3d130986f6a"
+            },
+            "marin:displayMode": "full",
+            "marin:itemRange": {
+              "first": 1,
+              "last": 3
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@id": "urn:uuid:ebfd1c60-fb98-561b-93d7-c1418e299c30",
+      "@type": [
+        "CreativeWork",
+        "marin:Slide"
+      ],
+      "identifier": "engage-marin-101-notes-slide-08",
+      "name": "Key terms (2 of 3)",
+      "marin:layout": "content",
+      "marin:contentSequence": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:c711fc91-e14a-5c62-91ca-b3d130986f6a"
+            },
+            "marin:displayMode": "full",
+            "marin:itemRange": {
+              "first": 4,
+              "last": 6
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@id": "urn:uuid:ef1ec54e-8205-5aae-a493-e22e9069806d",
+      "@type": [
+        "CreativeWork",
+        "marin:Slide"
+      ],
+      "identifier": "engage-marin-101-notes-slide-09",
+      "name": "Key terms (3 of 3)",
+      "marin:layout": "content",
+      "marin:contentSequence": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:c711fc91-e14a-5c62-91ca-b3d130986f6a"
+            },
+            "marin:displayMode": "full",
+            "marin:itemRange": {
+              "first": 7,
+              "last": 9
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@id": "urn:uuid:b383a428-0112-5988-963c-0f81aa214e4b",
+      "@type": [
+        "CreativeWork",
+        "marin:Slide"
+      ],
+      "identifier": "engage-marin-101-notes-slide-10",
+      "name": "Do’s and don’ts (1 of 2)",
+      "marin:layout": "content",
+      "marin:contentSequence": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:6f00281b-36f9-5d0f-af0c-c128b3cf2a40"
+            },
+            "marin:displayMode": "full",
+            "marin:itemRange": {
+              "first": 1,
+              "last": 3
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@id": "urn:uuid:c1f3054a-4668-5434-af76-8c8e6e925e8e",
+      "@type": [
+        "CreativeWork",
+        "marin:Slide"
+      ],
+      "identifier": "engage-marin-101-notes-slide-11",
+      "name": "Do’s and don’ts (2 of 2)",
+      "marin:layout": "content",
+      "marin:contentSequence": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:6f00281b-36f9-5d0f-af0c-c128b3cf2a40"
+            },
+            "marin:displayMode": "full",
+            "marin:itemRange": {
+              "first": 4,
+              "last": 5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@id": "urn:uuid:b5bf6736-f045-597c-b3d4-e2faa190d07a",
+      "@type": [
+        "CreativeWork",
+        "marin:Slide"
+      ],
+      "identifier": "engage-marin-101-notes-slide-12",
+      "name": "Questions to ask",
+      "marin:layout": "content",
+      "marin:contentSequence": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:da17c0dd-1e50-5fbf-9219-d79df3d2f299"
+            },
+            "marin:displayMode": "full"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "urn:uuid:fc1f892f-eb7e-5b36-98ca-f3056ed2d067",
+      "@type": [
+        "CreativeWork",
+        "marin:Slide"
+      ],
+      "identifier": "engage-marin-101-notes-slide-13",
+      "name": "Checklist",
+      "marin:layout": "content",
+      "marin:contentSequence": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:a71e0bc2-87c2-58b3-b0ad-fce9e90bca2a"
+            },
+            "marin:displayMode": "full"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "urn:uuid:196fd4bc-72eb-5f25-a9e5-b96d3f7fb6f4",
+      "@type": [
+        "CreativeWork",
+        "marin:Slide"
+      ],
+      "identifier": "engage-marin-101-notes-slide-14",
+      "name": "Mantras",
+      "marin:layout": "content",
+      "marin:contentSequence": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:ba272a4d-79f9-57db-819d-522420ae97f1"
+            },
+            "marin:displayMode": "full"
+          }
+        ]
+      }
+    },
+    {
+      "@id": "urn:uuid:970a2de2-1871-5b0a-8d59-e23c7e4c9778",
+      "@type": [
+        "CreativeWork",
+        "marin:Slide"
+      ],
+      "identifier": "engage-marin-101-notes-slide-15",
+      "name": "Sources",
+      "marin:layout": "content",
+      "marin:contentSequence": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "urn:uuid:37a314df-d863-5737-a2d8-0cae9b05e1cf"
+            },
+            "marin:displayMode": "full"
+          }
+        ]
+      }
+    }
+  ]
+}

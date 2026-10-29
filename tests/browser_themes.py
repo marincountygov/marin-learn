@@ -72,7 +72,7 @@ def run() -> None:
             require(page.locator("#themes").evaluate("el => el.previousElementSibling.matches('.catalog-controls')"),
                     "Theme badges should sit directly below the search bar")
             names = page.locator("#theme-badges a.app-badge").all_text_contents()
-            require(len(names) == 7 and names[0] == "Digital services", f"Theme badges are wrong: {names}")
+            require(len(names) == 8 and names[0] == "Digital services" and names[-1] == "Community engagement", f"Theme badges are wrong: {names}")
             page.locator("#theme-badges a.app-badge", has_text="AI").click()
             page.locator("h2", has_text="AI").first.wait_for()
             require(page.url.endswith("?theme=ai"), "Theme badge on the homepage did not open its page")
@@ -85,10 +85,13 @@ def run() -> None:
             require(page.locator(".landing-page .course-card h3").all_text_contents() == ["API 101", "Data 101", "Schema 101"],
                     "Data theme should list API 101, Data 101 and Schema 101")
 
-            # The catalog lists API 101, Data 101 and Schema 101 only; MarinOS 101 is no longer in Marin Learn.
+            # The catalog lists API 101, Data 101, Engage Marin 101 and Schema 101 only; MarinOS 101 is no longer in Marin Learn.
             page.goto(base_url, wait_until="networkidle")
-            require(page.locator("#catalog-grid .course-card h3").all_text_contents() == ["API 101", "Data 101", "Schema 101"],
-                    "The catalog should list API 101, Data 101 and Schema 101 only")
+            require(page.locator("#catalog-grid .course-card h3").all_text_contents() == ["API 101", "Data 101", "Engage Marin 101", "Schema 101"],
+                    "The catalog should list API 101, Data 101, Engage Marin 101 and Schema 101 only")
+            page.locator("#theme-badges a.app-badge", has_text="Community engagement").click()
+            page.locator("h2", has_text="Community engagement").first.wait_for()
+            require(page.locator(".landing-page .course-card h3").all_text_contents() == ["Engage Marin 101"], "The Community engagement theme lists Engage Marin 101")
             page.goto(f"{base_url}?theme=digital-services", wait_until="networkidle")
             require(page.locator(".landing-page .course-card h3").all_text_contents() == ["API 101"], "Digital services lists API 101")
             page.goto(f"{base_url}?set=marinos-foundations", wait_until="networkidle")

@@ -28,6 +28,10 @@
     {
       "name": "Ways of working",
       "description": "Work in short cycles, show progress, and learn as you go."
+    },
+    {
+      "name": "Community engagement",
+      "description": "Hear from residents and show what you learned."
     }
   ],
   "items": [
@@ -85,6 +89,33 @@
         "assessments": 1
       },
       "revision": "aa27a79f7972"
+    },
+    {
+      "setId": "urn:uuid:3805de62-92da-54e3-aea1-42c629611110",
+      "identifier": "engage-marin-101",
+      "name": "Engage Marin 101",
+      "abstract": "Learn how County teams use Engage Marin to ask residents a question and share what they learned.",
+      "educationalLevel": "introductory",
+      "inLanguage": "en-US",
+      "keywords": [
+        "community engagement",
+        "public input",
+        "Engage Marin",
+        "outreach",
+        "community partners",
+        "feedback"
+      ],
+      "themes": [
+        "Community engagement"
+      ],
+      "graphUrl": "learning/engage-marin-101/learning.json",
+      "resourceCounts": {
+        "notes": 1,
+        "materials": 0,
+        "presentations": 1,
+        "assessments": 1
+      },
+      "revision": "97f90f587d80"
     },
     {
       "setId": "urn:uuid:87dd853c-724f-5fda-8808-002a06c92d5a",

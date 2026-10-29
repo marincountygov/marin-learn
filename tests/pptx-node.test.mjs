@@ -90,7 +90,8 @@ test('Node CLI argument and package discovery contracts remain deterministic', a
   assert.deepEqual(files.map((value) => path.basename(value)), [
     'county-leaders-guide-to-apis.zip',
     'county-leaders-guide-to-data.zip',
-    'county-leaders-guide-to-schemas.zip'
+    'county-leaders-guide-to-schemas.zip',
+    'engage-marin-101.zip'
   ]);
 });
 

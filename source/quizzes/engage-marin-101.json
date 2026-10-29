@@ -1,0 +1,252 @@
+{
+  "name": "Engage Marin 101 — quiz",
+  "identifier": "engage-marin-101-quiz",
+  "abstract": "Ten questions to check what you learned about Engage Marin.",
+  "passingPercent": 70,
+  "courseDescription": "Notes, slides, and a quiz about using Engage Marin to invite community ideas, learn what matters, and share what happens next.",
+  "grades": [
+    {
+      "name": "A",
+      "minPercent": 90,
+      "message": "Excellent. You can explain how to run an engagement and ask the right questions."
+    },
+    {
+      "name": "B",
+      "minPercent": 80,
+      "message": "Strong work. Keep asking how you will use the feedback and tell people what you learned."
+    },
+    {
+      "name": "C",
+      "minPercent": 70,
+      "message": "A sound start. Read the explanations, then check the notes for the ones you missed."
+    },
+    {
+      "name": "D",
+      "minPercent": 60,
+      "message": "Go back to the key terms and the do’s and don’ts in the notes, then try again."
+    },
+    {
+      "name": "F",
+      "minPercent": 0,
+      "message": "Start with the notes. Then take the quiz again."
+    }
+  ],
+  "questions": [
+    {
+      "section": "whyItMatters",
+      "type": "single-select",
+      "text": "Which is a reason to ask residents for input?",
+      "options": [
+        {
+          "text": "You can decide the result before people share.",
+          "correct": false
+        },
+        {
+          "text": "You reach more people and hear different views.",
+          "correct": true
+        },
+        {
+          "text": "You keep every idea inside the County team.",
+          "correct": false
+        },
+        {
+          "text": "You avoid hearing from people who disagree.",
+          "correct": false
+        }
+      ],
+      "hint": "Think about who you hear from.",
+      "explanation": "Why it matters says you reach more people and hear different views."
+    },
+    {
+      "section": "problem",
+      "type": "single-select",
+      "text": "What can happen when an engagement ends with no word on what happened?",
+      "options": [
+        {
+          "text": "The question opens again by itself.",
+          "correct": false
+        },
+        {
+          "text": "Partners lose their links.",
+          "correct": false
+        },
+        {
+          "text": "The platform deletes every idea.",
+          "correct": false
+        },
+        {
+          "text": "People share ideas and never learn what happened.",
+          "correct": true
+        }
+      ],
+      "hint": "Think about what people want to hear back.",
+      "explanation": "The Problem section says some people share ideas and never learn what happened."
+    },
+    {
+      "section": "solution",
+      "type": "single-select",
+      "text": "What does the Solution say to do first?",
+      "options": [
+        {
+          "text": "Publish a campaign right away.",
+          "correct": false
+        },
+        {
+          "text": "Ask three questions about what to learn, who to hear from, and how to use feedback.",
+          "correct": true
+        },
+        {
+          "text": "Write the final recap.",
+          "correct": false
+        },
+        {
+          "text": "Choose the title of the welcome video.",
+          "correct": false
+        }
+      ],
+      "hint": "It starts with three questions.",
+      "explanation": "The Solution section starts with three questions: what you want to learn, who you want to hear from, and how you will use their feedback."
+    },
+    {
+      "section": "keyTerms",
+      "type": "single-select",
+      "text": "What is a campaign?",
+      "options": [
+        {
+          "text": "A group of ideas about one topic.",
+          "correct": false
+        },
+        {
+          "text": "A post that shares progress.",
+          "correct": false
+        },
+        {
+          "text": "Several related questions brought together under one larger effort.",
+          "correct": true
+        },
+        {
+          "text": "A page with background on a question.",
+          "correct": false
+        }
+      ],
+      "hint": "It brings questions together.",
+      "explanation": "Key terms defines a campaign as several related questions brought together under one larger effort."
+    },
+    {
+      "section": "keyTerms",
+      "type": "true-false",
+      "text": "A theme is a group of related ideas that helps you see what people are saying.",
+      "answer": true,
+      "hint": "Think about grouping ideas.",
+      "explanation": "Key terms defines a theme as a group of related ideas that helps you see what people are saying across many responses."
+    },
+    {
+      "section": "keyTerms",
+      "type": "single-select",
+      "text": "What does closing the loop mean?",
+      "options": [
+        {
+          "text": "Telling people what you heard, what you learned, and what happens next.",
+          "correct": true
+        },
+        {
+          "text": "Ending a question so no one can read it.",
+          "correct": false
+        },
+        {
+          "text": "Turning off partner links.",
+          "correct": false
+        },
+        {
+          "text": "Sending one more reminder to join.",
+          "correct": false
+        }
+      ],
+      "hint": "It is about telling people what happened.",
+      "explanation": "Key terms defines closing the loop as telling people what you heard, what you learned, and what happens next."
+    },
+    {
+      "section": "dosAndDonts",
+      "type": "single-select",
+      "text": "Which is a Do when you write a question?",
+      "options": [
+        {
+          "text": "Use internal project names.",
+          "correct": false
+        },
+        {
+          "text": "Lead people toward a preferred answer.",
+          "correct": false
+        },
+        {
+          "text": "Ask one short, open question.",
+          "correct": true
+        },
+        {
+          "text": "Invite partners after you publish.",
+          "correct": false
+        }
+      ],
+      "hint": "Short, open, and neutral.",
+      "explanation": "Do’s and don’ts says to ask one short, open question."
+    },
+    {
+      "section": "dosAndDonts",
+      "type": "true-false",
+      "text": "A good invitation focuses on the County, not on the people taking part.",
+      "answer": false,
+      "hint": "Think about who the invitation is for.",
+      "explanation": "Do’s and don’ts says to focus on what people want to share, not to write about the County instead of the people taking part."
+    },
+    {
+      "section": "questions",
+      "type": "single-select",
+      "text": "Which is one of the first questions to ask?",
+      "options": [
+        {
+          "text": "Which video format should we use?",
+          "correct": false
+        },
+        {
+          "text": "What color should our logo be?",
+          "correct": false
+        },
+        {
+          "text": "How will we use their feedback?",
+          "correct": true
+        },
+        {
+          "text": "Who will write the About page?",
+          "correct": false
+        }
+      ],
+      "hint": "It is about what happens to the feedback.",
+      "explanation": "Questions to ask includes how you will use their feedback."
+    },
+    {
+      "section": "checklist",
+      "type": "single-select",
+      "text": "Which statement belongs on the checklist?",
+      "options": [
+        {
+          "text": "We will wait to share what we learned.",
+          "correct": false
+        },
+        {
+          "text": "We will invite partners after we launch.",
+          "correct": false
+        },
+        {
+          "text": "We have written the answer before asking the question.",
+          "correct": false
+        },
+        {
+          "text": "Someone will monitor activity and post updates.",
+          "correct": true
+        }
+      ],
+      "hint": "Someone has to follow the conversation.",
+      "explanation": "The Checklist says someone will monitor activity and post updates."
+    }
+  ]
+}
