@@ -7,6 +7,7 @@
     { "name": "Buying and vendors", "description": "Buy technology based on needs and hold vendors to results." },
     { "name": "Teams and ownership", "description": "Give services clear owners and build teams around them." },
     { "name": "Product thinking", "description": "Manage services as ongoing work that improves over time." },
-    { "name": "Ways of working", "description": "Work in short cycles, show progress, and learn as you go." }
+    { "name": "Ways of working", "description": "Work in short cycles, show progress, and learn as you go." },
+    { "name": "Community engagement", "description": "Hear from residents and show what you learned." }
   ]
 }
