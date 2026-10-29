@@ -3,13 +3,14 @@ import { NOTE_SECTIONS } from '../core/constants.js';
 import { readingMinutes, sectionText, itemText } from '../core/note.js';
 import { escapeAttr, escapeHtml } from '../core/utils.js';
 import { breadcrumbHtml, wireBreadcrumb } from './breadcrumb.js';
-import { copyRich, copyText } from './clipboard.js';
+import { copyText } from './clipboard.js';
 import { resourceCard, RESOURCE_KINDS } from './landing.js';
 import { themeBadgesHtml } from './course-card.js';
 
 // Lucide icons for the action buttons.
 const ICONS = {
   share: '<path d="M12 2v13"/><path d="m16 6-4-4-4 4"/><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/>',
+  link: '<path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>',
   copy: '<rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>',
   printer: '<path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 9V3a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v6"/><rect x="6" y="14" width="12" height="8" rx="1"/>'
 };
@@ -142,6 +143,37 @@ function sectionCopyHtml(section) {
   }
 }
 
+function sectionCopyMarkdown(section) {
+  const rule = ruleFor(section);
+  const items = section['marin:items'] || [];
+  const heading = `## ${rule.label}`;
+  const link = item => `[${item.title}](${item.url})`;
+  switch (section['marin:sectionType']) {
+    case 'overview':
+    case 'problem':
+    case 'solution':
+      return [heading, ...paragraphs(section['marin:text'])].join('\n\n');
+    case 'keyTerms':
+      return `${heading}\n\n${items.map(item => `- **${item.term}:** ${item.definition}`).join('\n')}`;
+    case 'dosAndDonts': {
+      // A backslash or a pipe inside a table cell would break the row, so each is escaped.
+      const cell = value => String(value).replace(/\\/g, '\\\\').replace(/\|/g, '\\|');
+      return `${heading}\n\n| Do | Don’t |\n| --- | --- |\n${items.map(item => `| ${cell(item.do)} | ${cell(item.dont)} |`).join('\n')}`;
+    }
+    case 'questions':
+      return `${heading}\n\n${items.map((item, index) => `${index + 1}. ${item}`).join('\n')}`;
+    case 'examples': {
+      const list = items.length ? `\n\n${items.map(item => `- ${link(item)}`).join('\n')}` : '';
+      const samples = (section['marin:code'] || []).map(sample => `### ${sample.title}\n\n\`\`\`${sample.language || ''}\n${sample.code}\n\`\`\``).join('\n\n');
+      return `${heading}${list}${samples ? `\n\n${samples}` : ''}`;
+    }
+    case 'learnMore':
+      return `${heading}\n\n${items.map(item => `- ${link(item)}`).join('\n')}`;
+    default:
+      return `${heading}\n\n${items.map(item => `- ${itemText(item)}`).join('\n')}`;
+  }
+}
+
 function sectionCopyText(section) {
   const rule = ruleFor(section);
   const items = section['marin:items'] || [];
@@ -182,28 +214,50 @@ export function noteCopy(note, sections, only = null) {
     + chosen.map(sectionCopyHtml).join('');
   const text = (only ? [] : [noteHeading(note), note.abstract || '', ''])
     .concat(chosen.map(sectionCopyText).join('\n\n')).join('\n').trim();
-  return { html, text };
+  const markdown = (only ? [] : [`# ${noteHeading(note)}`, note.abstract || '']).filter(Boolean)
+    .concat(chosen.map(sectionCopyMarkdown)).join('\n\n').trim();
+  return { html, text, markdown };
 }
 
-// Share, Copy note, and Print appear above and below the note.
-function actionButtons(where) {
+// Copy link, Copy (Text, HTML or Markdown) and Print sit above the note, in that order.
+const CARET = '<svg class="menu-toggle__caret" aria-hidden="true" viewBox="0 0 16 16"><path d="M4 6l4 4 4-4"/></svg>';
+function actionButtons() {
   return `
-    <div class="action-group" role="group" aria-label="Note actions">
-      <button type="button" class="action-button" data-note-action="share" data-where="${where}" aria-label="Share this note" title="Share">${icon('share')}</button>
-      <button type="button" class="action-button" data-note-action="copy" data-where="${where}" aria-label="Copy note" title="Copy note">${icon('copy')}</button>
-      <button type="button" class="action-button" data-note-action="print" data-where="${where}" aria-label="Print note" title="Print">${icon('printer')}</button>
+    <div class="action-group" role="group" aria-label="Copy link">
+      <button type="button" class="action-button" data-note-action="share" aria-label="Copy link" title="Copy link">${icon('link')}</button>
+    </div>
+    <div class="menu">
+      <button type="button" class="action-button menu-toggle" aria-expanded="false" aria-controls="note-copy-panel" aria-label="Copy note, choose a format" title="Copy note">${icon('copy')}${CARET}</button>
+      <div id="note-copy-panel" class="menu-panel" hidden>
+        <button type="button" data-button-kind="menu-item" data-copy-format="text">Text</button>
+        <button type="button" data-button-kind="menu-item" data-copy-format="html">HTML</button>
+        <button type="button" data-button-kind="menu-item" data-copy-format="markdown">Markdown</button>
+      </div>
+    </div>
+    <div class="action-group" role="group" aria-label="Print">
+      <button type="button" class="action-button" data-note-action="print" aria-label="Print note" title="Print">${icon('printer')}</button>
     </div>`;
 }
 
-function fallbackHtml(where) {
+function fallbackHtml() {
   return `
-    <div id="copy-fallback-${where}" class="note-copy-fallback" hidden>
-      <label for="copy-fallback-text-${where}">${COPY_FAILED}</label>
-      <textarea id="copy-fallback-text-${where}" rows="8" readonly></textarea>
+    <div id="copy-fallback" class="note-copy-fallback" hidden>
+      <label for="copy-fallback-text">${COPY_FAILED}</label>
+      <textarea id="copy-fallback-text" rows="8" readonly></textarea>
     </div>`;
 }
 
 // ---- Page ------------------------------------------------------------------------
+
+// The course's themes sit in a box of their own, below Sources.
+function themesHtml(themes) {
+  if (!themes || !themes.length) return '';
+  return `
+    <section class="note-section note-section--themes" id="note-themes" aria-labelledby="note-themes-heading">
+      <h2 id="note-themes-heading">Themes</h2>
+      ${themeBadgesHtml(themes)}
+    </section>`;
+}
 
 export function renderNotePage(container, setSlug, note, graphData, catalogEntry, onNavigate) {
   const sections = noteSections(graphData, note);
@@ -217,7 +271,7 @@ export function renderNotePage(container, setSlug, note, graphData, catalogEntry
       <aside class="reader-sidebar" aria-label="On this page">
         <nav class="reader-toc" data-on-this-page-line="140">
           <h4>On this page</h4>
-          <ul>${sections.map(section => `<li><a href="#${sectionId(section)}">${escapeHtml(ruleFor(section).label)}</a></li>`).join('')}</ul>
+          <ul>${sections.map(section => `<li><a href="#${sectionId(section)}">${escapeHtml(ruleFor(section).label)}</a></li>`).join('')}${(catalogEntry.themes || []).length ? '<li><a href="#note-themes">Themes</a></li>' : ''}</ul>
         </nav>
       </aside>
 
@@ -227,20 +281,13 @@ export function renderNotePage(container, setSlug, note, graphData, catalogEntry
           ${note.abstract ? `<p class="reader-abstract">${escapeHtml(note.abstract)}</p>` : ''}
           <p class="note-meta"><span>${minutes} min read</span></p>
           <div class="action-toolbar note-actions">
-            ${actionButtons('top')}
+            ${actionButtons()}
           </div>
           <p class="doc-action-status note-status" id="note-status" role="status" aria-live="polite"></p>
-          ${fallbackHtml('top')}
+          ${fallbackHtml()}
         </header>
 
-        <div class="note-body">${sections.map(section => sectionHtml(section, {})).join('')}</div>
-
-        <div class="action-toolbar note-actions note-actions--bottom">
-          ${actionButtons('bottom')}
-        </div>
-        <p class="doc-action-status note-status" id="note-status-bottom" role="status" aria-live="polite"></p>
-        ${fallbackHtml('bottom')}
-        ${themeBadgesHtml(catalogEntry.themes)}
+        <div class="note-body">${sections.map(section => sectionHtml(section, {})).join('')}${themesHtml(catalogEntry.themes)}</div>
 
         ${nextCards.length ? `<section class="reader-next" aria-label="Slides and quiz"><div class="catalog-grid landing-resource-grid">${nextCards.join('')}</div></section>` : ''}
       </div>
@@ -274,38 +321,33 @@ export function renderNotePage(container, setSlug, note, graphData, catalogEntry
 }
 
 function wireActions(container, setSlug, note, sections) {
-  // Each row has its own status line and its own copy-it-by-hand box.
-  const statusFor = where => container.querySelector(where === 'top' ? '#note-status' : '#note-status-bottom');
+  const status = container.querySelector('#note-status');
+  const fallback = container.querySelector('#copy-fallback');
 
-  const copyNote = async where => {
-    const status = statusFor(where);
-    const fallback = container.querySelector(`#copy-fallback-${where}`);
-    const { html, text } = noteCopy(note, sections);
-    container.querySelectorAll('.note-copy-fallback').forEach(box => { box.hidden = true; });
-    if (await copyRich(html, text)) {
-      status.textContent = 'Note copied. Paste it into Word.';
-    } else {
-      status.textContent = COPY_FAILED;
+  // Copy offers Text, HTML and Markdown through the shell's menus; the shell copies, and shows the text in a box when it cannot.
+  window.marinFormatMenus(container.querySelector('.note-actions'), () => noteCopy(note, sections), {
+    status,
+    onFail: text => {
       fallback.hidden = false;
       const box = fallback.querySelector('textarea');
       box.value = text;
       box.focus();
       box.select();
     }
-  };
-
-  const share = async where => {
-    statusFor(where).textContent = (await copyText(window.location.href))
-      ? 'Link copied'
-      : 'Could not copy. Copy the link from the address bar.';
-  };
+  });
+  container.querySelector('.note-actions').addEventListener('click', event => {
+    if (event.target.closest('[data-copy-format]')) fallback.hidden = true;
+  });
 
   container.querySelectorAll('[data-note-action]').forEach(button => {
-    const where = button.dataset.where;
-    button.addEventListener('click', () => {
-      if (button.dataset.noteAction === 'share') share(where);
-      else if (button.dataset.noteAction === 'copy') copyNote(where);
-      else window.print();
+    button.addEventListener('click', async () => {
+      if (button.dataset.noteAction === 'share') {
+        status.textContent = (await copyText(window.location.href))
+          ? 'Link copied'
+          : 'Could not copy. Copy the link from the address bar.';
+      } else {
+        window.print();
+      }
     });
   });
 }

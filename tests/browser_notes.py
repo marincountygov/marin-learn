@@ -71,12 +71,14 @@ def run() -> None:
             require("min read" in page.locator(".note-meta").inner_text(), "Reading time is missing")
             require(page.locator(".note-meta .app-badge").count() == 0 and page.locator(".note-header a.app-badge").count() == 0,
                     "No Note badge, and no theme badges in the header")
-            require(page.locator(".note-main > .catalog-card-meta a.app-badge").all_text_contents() == ["Data"], "The course's theme badges sit at the bottom of the page")
-            require(page.locator(".note-main > .catalog-card-meta a.app-badge").first.get_attribute("href") == "?theme=data", "Theme badge should link to its theme page")
-            require(page.evaluate("document.querySelector('.note-main > .catalog-card-meta').getBoundingClientRect().top >= document.querySelector('[data-note-action][data-where=bottom]').getBoundingClientRect().bottom"),
-                    "Theme badges belong below the bottom Share, Copy note, and Print buttons")
-            require(page.locator(".note-section h2").all_text_contents() == SECTIONS, "Sections are missing or out of order")
-            require(page.locator(".reader-toc a").all_text_contents() == SECTIONS, "On this page list is wrong")
+            require(page.locator("#note-themes .catalog-card-meta a.app-badge").all_text_contents() == ["Data"], "The course's theme badges sit in a Themes box")
+            require(page.locator("#note-themes .catalog-card-meta a.app-badge").first.get_attribute("href") == "?theme=data", "Theme badge should link to its theme page")
+            require(page.locator("#note-themes h2").inner_text() == "Themes", "The box is headed Themes")
+            require(page.evaluate("document.querySelector('#note-themes').getBoundingClientRect().top >= document.querySelector('.note-section--learnMore').getBoundingClientRect().bottom"),
+                    "The Themes box belongs below Sources")
+            require(page.locator(".note-main > .catalog-card-meta").count() == 0, "No loose theme badges outside the box")
+            require(page.locator(".note-section h2").all_text_contents() == SECTIONS + ["Themes"], "Sections are missing or out of order")
+            require(page.locator(".reader-toc a").all_text_contents() == SECTIONS + ["Themes"], "On this page list is wrong")
             require(page.locator("main main").count() == 0, "There must be one main landmark")
             require(page.locator("dl.note-terms dt").count() == 6, "Key terms should be a definition list")
             require(page.locator(".note-pair").count() == 4 and page.locator(".note-do .note-pair-label").first.inner_text() == "Do",
@@ -85,11 +87,10 @@ def run() -> None:
                     "Questions should be a bulleted list")
             require(page.locator(".note-section--mantras ul li").count() == 3, "Mantras should be a list")
             require(page.locator(".note-section-header, [data-copy-section]").count() == 0, "No copy button per section")
-            require(page.locator("[data-note-action][data-where=top] svg").count() == 3 and page.locator("[data-note-action][data-where=bottom] svg").count() == 3,
-                    "Share, Copy note, and Print need icons, above and below the note")
-            require(page.locator("[data-note-action]").evaluate_all("els => els.every(e => e.textContent.trim() === '' && e.getAttribute('aria-label') && e.title)"),
-                    "Share, Copy note, and Print are icon-only, named by aria-label and title")
-            require(page.locator("[data-where=top]").first.evaluate("e => e.parentElement.classList.contains('action-group')"), "The three buttons are one cluster")
+            order = page.evaluate("""() => [...document.querySelectorAll('.note-actions > .action-group > button, .note-actions > .menu > button')].map((b) => [b.getAttribute('aria-label'), b.textContent.trim(), b.hasAttribute('title'), !!b.querySelector('svg')])""")
+            require([o[0] for o in order] == ["Copy link", "Copy note, choose a format", "Print note"], f"The buttons are in the standard order, once, above the note: {order}")
+            require(all(o[1] == "" and o[2] and o[3] for o in order), f"Copy link, Copy and Print are icon-only with a title: {order}")
+            require(page.locator("[data-note-action]").count() == 2 and page.locator(".note-actions--bottom, #note-status-bottom").count() == 0, "No buttons below the note")
             require(page.locator(".reader-next .app-card p").all_text_contents() == ["Go through the Plain language 101 slides.", "Take the Plain language 101 quiz."],
                     "Slides and Quiz cards need a description from context")
             require(page.locator(".note-section--examples a").first.get_attribute("href") == "https://example.gov/one", "Example link is wrong")
@@ -108,7 +109,7 @@ def run() -> None:
             require(page.locator(".reader-toc a[aria-current]").count() == 1, "Only one link is current")
             page.evaluate("window.scrollTo(0, document.documentElement.scrollHeight)")
             page.wait_for_timeout(300)
-            require(active() == "Sources", f"The last section should be current at the bottom, got {active()}")
+            require(active() == "Themes", f"The last section should be current at the bottom, got {active()}")
             page.evaluate("window.scrollTo(0, 0)")
             page.wait_for_timeout(300)
             require(active() == "Overview", "Overview should be current again at the top")
@@ -123,31 +124,30 @@ def run() -> None:
             page.locator(".note-code-status", has_text="Code copied").wait_for()
             require(page.evaluate("navigator.clipboard.readText()") == '{\n  "requestId": "SR-1042",\n  "status": "new"\n}', "Copy code copied the wrong text")
 
-            # Share, copy the whole note, copy one section.
-            page.click("[data-note-action=share][data-where=top]")
+            # Copy link, then copy the whole note as Text, HTML and Markdown.
+            page.click("[data-note-action=share]")
             page.locator("#note-status", has_text="Link copied").wait_for()
-            require(page.evaluate("navigator.clipboard.readText()") == f"{base}{NOTE}", "Share copied the wrong link")
-            page.click("[data-note-action=copy][data-where=top]")
-            page.locator("#note-status", has_text="Note copied").wait_for()
+            require(page.evaluate("navigator.clipboard.readText()") == f"{base}{NOTE}", "Copy link copied the wrong link")
+            page.click("button[aria-controls=note-copy-panel]")
+            require(page.locator("#note-copy-panel button").all_text_contents() == ["Text", "HTML", "Markdown"], "Copy lists Text, HTML and Markdown")
+            page.click("#note-copy-panel [data-copy-format=text]")
+            page.locator("#note-status", has_text="Copied rich text").wait_for()
+            whole = read_html(page)
             copied = page.evaluate("navigator.clipboard.readText()")
             require(copied.startswith("Plain language 101 notes") and "Key terms" in copied and "- Do: Lead with what the reader needs." in copied,
                     f"Copied text is wrong: {copied[:120]!r}")
-            # Share from the bottom of the note.
-            page.click("[data-note-action=share][data-where=bottom]")
-            page.locator("#note-status-bottom", has_text="Link copied").wait_for()
-            require(page.evaluate("navigator.clipboard.readText()") == f"{base}{NOTE}", "Bottom Share copied the wrong link")
-            require(page.locator("[data-note-action=print][data-where=bottom]").count() == 1, "Print belongs at the bottom too")
-
-            # Copy note again from the bottom of the note.
-            page.click("[data-note-action=copy][data-where=bottom]")
-            page.locator("#note-status-bottom", has_text="Note copied").wait_for()
-            require(page.evaluate("navigator.clipboard.readText()") == copied, "The bottom Copy note should copy the same text")
-            require("<h1>Plain language 101 notes</h1>" in read_html(page), "Copied HTML should start with the title")
-            page.click("[data-note-action=copy][data-where=top]")
-            page.locator("#note-status", has_text="Note copied").wait_for()
-            whole = read_html(page)
+            require("<h1>Plain language 101 notes</h1>" in whole, "Copied HTML should start with the title")
             require('<table border="1"' in whole and 'href="https://strategy.data.gov/principles/"' in whole and "class=" not in whole,
                     "Pasted HTML should use plain tables, absolute links, and no classes")
+            page.click("button[aria-controls=note-copy-panel]")
+            page.click("#note-copy-panel [data-copy-format=html]")
+            page.locator("#note-status", has_text="Copied HTML").wait_for()
+            require(page.evaluate("navigator.clipboard.readText()").startswith("<h1>Plain language 101 notes</h1>"), "Copy HTML copies the source")
+            page.click("button[aria-controls=note-copy-panel]")
+            page.click("#note-copy-panel [data-copy-format=markdown]")
+            page.locator("#note-status", has_text="Copied Markdown").wait_for()
+            markdown = page.evaluate("navigator.clipboard.readText()")
+            require(markdown.startswith("# Plain language 101 notes\n\n") and "## Key terms\n\n- **" in markdown and "| Do | Don’t |" in markdown and "](https://" in markdown, f"Copy Markdown: {markdown[:160]!r}")
 
             # Checklist: boxes work from the keyboard, nothing is saved, and the old help text is gone.
             boxes = page.locator("[data-check-index]")

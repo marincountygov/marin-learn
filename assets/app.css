@@ -1474,10 +1474,6 @@ a.app-badge:hover {
   margin-bottom: 0.25rem;
 }
 
-.note-actions--bottom {
-  margin-top: 2.5rem;
-}
-
 .note-status {
   min-height: 1.5rem;
   margin: 0.25rem 0 0;
@@ -1663,7 +1659,6 @@ a.app-badge:hover {
   .note-actions,
   .note-status,
   .note-copy-fallback,
-  .note-actions--bottom,
   .note-code-copy,
   .note-code-status,
   .reader-next {
