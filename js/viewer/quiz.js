@@ -1,5 +1,6 @@
 // Marin Learn - Quiz Viewer and Assessment Engine (Phase 7)
 import { actionIcon } from './action-icons.js';
+import { copyText } from './clipboard.js';
 import { loadLearningSetGraph, hasType } from '../core/graph.js';
 import { parseMarkdownToHtml } from '../core/markdown.js';
 import { breadcrumbHtml, wireBreadcrumb } from './breadcrumb.js';
@@ -425,12 +426,9 @@ export async function renderQuizViewer(container, setSlug, resourceSlug, catalog
           courseUrl.toString()
         ].join('\n');
         const status = document.getElementById('share-status');
-        try {
-          await navigator.clipboard.writeText(text);
-          status.textContent = 'Results copied.';
-        } catch {
-          status.textContent = 'Could not copy. Select and copy the results by hand.';
-        }
+        status.textContent = (await copyText(text))
+          ? 'Results copied.'
+          : 'Could not copy. Select and copy the results by hand.';
       });
       document.getElementById('return-landing').addEventListener('click', () => {
         onNavigate({ set: setSlug, view: null, resource: null });

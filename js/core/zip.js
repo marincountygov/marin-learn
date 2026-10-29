@@ -241,6 +241,7 @@ function decodeName(bytes, flags) {
   if (!(flags & 0x0800)) {
     try { return textDecoder(bytes); } catch { /* continue */ }
   }
+  // marin-shared-helpers: allow (a ZIP entry name that is not UTF-8 is an error, not a guess)
   try { return new TextDecoder('utf-8', { fatal: true }).decode(bytes); }
   catch { throw new ZipError('ZIP', 'zip-name-encoding', 'ZIP entry name is not valid UTF-8.'); }
 }

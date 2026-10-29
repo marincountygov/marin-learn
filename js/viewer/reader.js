@@ -2,6 +2,7 @@
 import { loadLearningSetGraph, hasType } from '../core/graph.js';
 import { parseMarkdownToHtml } from '../core/markdown.js';
 import { breadcrumbHtml, wireBreadcrumb } from './breadcrumb.js';
+import { copyText } from './clipboard.js';
 import { resourceCard, RESOURCE_KINDS } from './landing.js';
 import { renderNotePage } from './note.js';
 
@@ -184,12 +185,9 @@ export async function renderContinuousReader(container, setSlug, resourceSlug, c
     const shareButton = container.querySelector('#share-notes');
     const shareStatus = container.querySelector('.doc-action-status');
     shareButton.addEventListener('click', async () => {
-      try {
-        await navigator.clipboard.writeText(window.location.href);
-        shareStatus.textContent = 'Link copied';
-      } catch {
-        shareStatus.textContent = 'Could not copy. Copy the link from the address bar.';
-      }
+      shareStatus.textContent = (await copyText(window.location.href))
+        ? 'Link copied'
+        : 'Could not copy. Copy the link from the address bar.';
     });
 
     // Deck and quiz cards use real links; ordinary clicks stay in the app.
