@@ -391,6 +391,7 @@ export async function renderQuizViewer(container, setSlug, resourceSlug, catalog
                 <button type="button" class="action-button menu-toggle" id="copy-results" aria-expanded="false" aria-controls="quiz-copy-panel" aria-label="Copy results, choose a format" title="Copy results"><svg aria-hidden="true" viewBox="0 0 24 24"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg><svg class="menu-toggle__caret" aria-hidden="true" viewBox="0 0 16 16"><path d="M4 6l4 4 4-4"/></svg></button>
                 <div id="quiz-copy-panel" class="menu-panel" hidden>
                   <button type="button" data-button-kind="menu-item" data-copy-format="text">Text</button>
+                  <button type="button" data-button-kind="menu-item" data-copy-format="html">HTML</button>
                   <button type="button" data-button-kind="menu-item" data-copy-format="markdown">Markdown</button>
                 </div>
               </div>
@@ -417,7 +418,7 @@ export async function renderQuizViewer(container, setSlug, resourceSlug, catalog
 
       wireBreadcrumb(container, onNavigate);
       wireSectionLinks(container, setSlug, onNavigate);
-      // Copy results offers Text and Markdown through the shell's menus.
+      // Copy results offers Text, HTML and Markdown through the shell's menus.
       const courseUrl = new URL(window.location.href);
       courseUrl.search = new URLSearchParams({ set: setSlug }).toString();
       courseUrl.hash = '';
