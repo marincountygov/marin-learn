@@ -1,6 +1,5 @@
 // Marin Learn - Quiz Viewer and Assessment Engine (Phase 7)
 import { actionIcon } from './action-icons.js';
-import { copyText } from './clipboard.js';
 import { loadLearningSetGraph, hasType } from '../core/graph.js';
 import { parseMarkdownToHtml } from '../core/markdown.js';
 import { breadcrumbHtml, wireBreadcrumb } from './breadcrumb.js';
@@ -388,7 +387,13 @@ export async function renderQuizViewer(container, setSlug, resourceSlug, catalog
             </div>
 
             <div class="quiz-share">
-              <div class="action-group" role="group" aria-label="Share"><button type="button" id="share-results" class="action-button" aria-label="Share results" title="Share"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 2v13"/><path d="m16 6-4-4-4 4"/><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/></svg></button></div>
+              <div class="menu">
+                <button type="button" class="action-button menu-toggle" id="copy-results" aria-expanded="false" aria-controls="quiz-copy-panel" aria-label="Copy results, choose a format" title="Copy results"><svg aria-hidden="true" viewBox="0 0 24 24"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg><svg class="menu-toggle__caret" aria-hidden="true" viewBox="0 0 16 16"><path d="M4 6l4 4 4-4"/></svg></button>
+                <div id="quiz-copy-panel" class="menu-panel" hidden>
+                  <button type="button" data-button-kind="menu-item" data-copy-format="text">Text</button>
+                  <button type="button" data-button-kind="menu-item" data-copy-format="markdown">Markdown</button>
+                </div>
+              </div>
               <p id="share-status" class="quiz-share-status" role="status" aria-live="polite"></p>
             </div>
 
@@ -412,24 +417,20 @@ export async function renderQuizViewer(container, setSlug, resourceSlug, catalog
 
       wireBreadcrumb(container, onNavigate);
       wireSectionLinks(container, setSlug, onNavigate);
-      document.getElementById('share-results').addEventListener('click', async () => {
-        const courseUrl = new URL(window.location.href);
-        courseUrl.search = new URLSearchParams({ set: setSlug }).toString();
-        courseUrl.hash = '';
-        // Plain text for chat and email. The party popper is the real emoji character (U+1F389),
-        // because chat tools such as Teams do not turn pasted :shortcodes: into emoji.
-        const text = [
-          passed ? `I passed the ${quizTitle}! \u{1F389}` : `I did not pass the ${quizTitle}.`,
-          `${gradeName} / ${percentage}%`,
-          '',
-          `Take the ${catalogEntry.name} course:`,
-          courseUrl.toString()
-        ].join('\n');
-        const status = document.getElementById('share-status');
-        status.textContent = (await copyText(text))
-          ? 'Results copied.'
-          : 'Could not copy. Select and copy the results by hand.';
-      });
+      // Copy results offers Text and Markdown through the shell's menus.
+      const courseUrl = new URL(window.location.href);
+      courseUrl.search = new URLSearchParams({ set: setSlug }).toString();
+      courseUrl.hash = '';
+      // The party popper is the real emoji character (U+1F389), because chat tools such as Teams do not turn pasted :shortcodes: into emoji.
+      const headline = passed ? `I passed the ${quizTitle}! \u{1F389}` : `I did not pass the ${quizTitle}.`;
+      const score = `${gradeName} / ${percentage}%`;
+      const courseLine = `Take the ${catalogEntry.name} course:`;
+      const results = {
+        text: [headline, score, '', courseLine, courseUrl.toString()].join('\n'),
+        html: `<p>${escapeHtml(headline)}</p><p>${escapeHtml(score)}</p><p>${escapeHtml(courseLine)} <a href="${escapeHtml(courseUrl.toString())}">${escapeHtml(catalogEntry.name)}</a></p>`,
+        markdown: [headline, '', `**${score}**`, '', `Take the [${catalogEntry.name}](${courseUrl.toString()}) course.`].join('\n')
+      };
+      window.marinFormatMenus(container.querySelector('.quiz-share'), results, { status: document.getElementById('share-status') });
       document.getElementById('return-landing').addEventListener('click', () => {
         onNavigate({ set: setSlug, view: null, resource: null });
       });

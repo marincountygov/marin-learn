@@ -6,6 +6,9 @@ Existing applications do not automatically inherit these changes. Template chang
 
 ## Unreleased
 
+- The button that copies a note's address is now "Copy link" with the link icon, not "Share" with the share icon.
+- On a note, Copy is one icon button with a menu of Text, HTML and Markdown, and Copy link, Copy and Print appear once, above the note. The course's theme badges sit in a Themes box below Sources. On a quiz result, "Share results" is now "Copy results" with a menu of Text and Markdown.
+
 - Say "Slides" instead of "Deck" or "Slide deck" everywhere learners and authors see it: the course cards, page headings, breadcrumbs, the editor, PowerPoint messages, and the Data 101 and Schema 101 packages. Code names such as `deck` and the `slides` page address are unchanged.
 - Remove the PDF code. Publishing no longer builds a PDF for each course, and `scripts/generate_pdf.py` and its old spec are gone. The Download PDF button was already hidden. Browser printing still works.
 - Update to the app shell with the "On this page" helper. Marin Learn drops its own scroll-tracking code and uses the shell's. Declare in `marin.yml` that Marin Learn uses no AI and no outside services, so the Tech page no longer says "Not documented".
