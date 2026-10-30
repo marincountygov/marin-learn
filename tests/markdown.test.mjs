@@ -5,6 +5,7 @@ import {
   extractMarkdownReferences,
   parseMarkdown,
   renderMarkdown,
+  serializeMarkdown,
   validateMarkdown
 } from '../js/core/markdown.js';
 
@@ -43,4 +44,14 @@ test('stable Marin references are extracted and validated', () => {
     hasAsset: (value) => value === uuid
   });
   assert.equal(diagnostics.filter((item) => item.severity === 'error').length, 0);
+});
+
+test('a table cell keeps a literal backslash and a literal pipe through a save and reload', () => {
+  const ast = parseMarkdown('| Path | Choice |\n| --- | --- |\n| C:\\\\data\\\\ | a\\|b |\n');
+  const once = canonicalizeMarkdown(serializeMarkdown(ast));
+  assert.match(once, /\| C:\\\\data\\\\ \| a\\\|b \|/);
+  assert.equal(canonicalizeMarkdown(serializeMarkdown(parseMarkdown(once))), once, 'a second save changes nothing');
+  const table = parseMarkdown(once).find((node) => node.type === 'table');
+  assert.equal(table.rows.length, 1);
+  assert.equal(table.rows[0].length, 2, 'the pipe stays inside its cell');
 });
