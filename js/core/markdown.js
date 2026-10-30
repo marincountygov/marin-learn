@@ -384,8 +384,12 @@ function serializeInline(nodes) {
   }).join('');
 }
 
+// A pipe ends a table cell unless a backslash escapes it. The text is already escaped (a backslash in it is `\\`), so a
+// pipe needs `\|` exactly when an even number of backslashes come before it, the same rule splitTableRow reads by.
 function serializeInlineCell(nodes) {
-  return serializeInline(nodes).replace(/\|/g, '\\|').replace(/\n/g, ' ');
+  return serializeInline(nodes)
+    .replace(/(\\*)\|/g, (match, slashes) => (slashes.length % 2 === 0 ? `${slashes}\\|` : match))
+    .replace(/\n/g, ' ');
 }
 
 function escapeMarkdownText(text) {
