@@ -22,6 +22,8 @@ import time
 from urllib.parse import urlsplit
 import zipfile
 
+from html_fixture import remove_from_html
+
 ROOT = Path(__file__).resolve().parents[1]
 
 
@@ -153,9 +155,7 @@ def inline_module(path: Path, cache: dict[Path, str] | None = None) -> str:
 
 def inline_editor_html() -> str:
     html = (ROOT / "editor/index.html").read_text(encoding="utf-8")
-    html = re.sub(r'<meta\b[^>]*http-equiv="Content-Security-Policy"[^>]*>', '', html, flags=re.I)
-    html = re.sub(r'<script\b[^>]*>.*?</script>', '', html, flags=re.S | re.I)
-    html = re.sub(r'<link\b[^>]*rel="stylesheet"[^>]*>', '', html, flags=re.I)
+    html = remove_from_html(html, "csp", "scripts", "stylesheets")
 
     shell_css = (ROOT / "vendor/marinos/marinos.css").read_text(encoding="utf-8")
     manifest = json.loads((ROOT / "vendor/marinos/manifest.json").read_text(encoding="utf-8"))
