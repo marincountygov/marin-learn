@@ -6,7 +6,7 @@
     return;
   }
 
-  const SHELL_VERSION = "1.22.0";
+  const SHELL_VERSION = "1.22.1";
   const MARIN_UI_VERSION = "1.31.0";
   const MARINOS_URL = "https://marincountygov.github.io/marin-os/";
   const MARINOS_STATUS_URL = `${MARINOS_URL}#status`;
@@ -1563,8 +1563,11 @@
       }
     }
 
-    function clean(text) {
-      return text.replace(/\s+/g, " ").trim();
+    // A <br> is marked while the text is read, so collapsing spaces keeps it. A paragraph keeps its line breaks; a heading,
+    // list item or table cell turns each one into a space.
+    function clean(text, keepBreaks = false) {
+      const collapsed = text.replace(/\s+/g, " ");
+      return (keepBreaks ? collapsed.replace(/ ?\u0001 ?/g, "  \n") : collapsed.replace(/\u0001/g, " ").replace(/\s+/g, " ")).trim();
     }
 
     // ---- Markdown -------------------------------------------------------------------------------------
@@ -1592,7 +1595,7 @@
               out += child.getAttribute("href") ? `[${text.trim()}](${absolute(child.getAttribute("href"))})` : text;
               break;
             case "BR":
-              out += "  \n";
+              out += "\u0001";
               break;
             case "INPUT":
               out += child.type === "checkbox" ? (child.checked ? "[x] " : "[ ] ") : "";
@@ -1639,7 +1642,7 @@
       if (/^H[1-6]$/.test(tag)) {
         out.push(`${"#".repeat(Number(tag[1]))} ${clean(inline(el))}`);
       } else if (tag === "P") {
-        const text = clean(inline(el));
+        const text = clean(inline(el), true);
         if (text) out.push(text);
       } else if (tag === "UL" || tag === "OL") {
         out.push(listToMarkdown(el, 0));
@@ -1656,7 +1659,7 @@
         // A wrapper (section, div, aside): read what is inside it.
         let loose = document.createElement("p");
         const flush = () => {
-          const text = clean(inline(loose));
+          const text = clean(inline(loose), true);
           if (text) out.push(text);
           loose = document.createElement("p");
         };

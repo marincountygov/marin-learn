@@ -6,6 +6,7 @@ Existing applications do not automatically inherit these changes. Template chang
 
 ## Unreleased
 
+- Copy results on a quiz result now offers Text, HTML and Markdown. The app uses the shell that keeps line breaks in Markdown.
 - The button that copies a note's address is now "Copy link" with the link icon, not "Share" with the share icon.
 - On a note, Copy is one icon button with a menu of Text, HTML and Markdown, and Copy link, Copy and Print appear once, above the note. The course's theme badges sit in a Themes box below Sources. On a quiz result, "Share results" is now "Copy results" with a menu of Text and Markdown.
 
