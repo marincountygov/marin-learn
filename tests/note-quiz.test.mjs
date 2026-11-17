@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import { copyFile, mkdtemp, readFile } from 'node:fs/promises';
+import { copyFile, mkdtemp, readFile, writeFile } from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
 import test from 'node:test';
@@ -8,7 +8,7 @@ import { createExampleNotePackage, EXAMPLE_NOTE_IDS } from '../examples/example-
 import { MAX_QUIZ_QUESTIONS, NOTE_SECTIONS } from '../js/core/constants.js';
 import { getObject, getObjects } from '../js/core/model.js';
 import { applyNoteQuiz } from '../js/core/note-quiz.js';
-import { importLearningPackage } from '../js/core/package.js';
+import { exportLearningPackage, importLearningPackage } from '../js/core/package.js';
 import { validateJsonSchema } from '../js/core/schema-validator.js';
 import { validatePackage } from '../js/core/validate.js';
 import { buildQuizForPackage } from '../scripts/build_note_quiz.mjs';
@@ -172,6 +172,14 @@ test('the package check script reports no problems for the published courses and
     const result = await checkPackage(path.join(ROOT, 'packages', `${slug}.zip`));
     assert.deepEqual([result.errors.length, result.warnings.length], [0, 0], slug);
   }
-  const legacy = await checkPackage(path.join(ROOT, 'archive', 'county-leaders-guide-to-data-with-old-quiz-2026-10-15.zip'));
-  assert.ok(legacy.errors.some((entry) => entry.code === 'quiz-too-many-questions'), 'the old 16-question quiz is refused');
+  // A package whose quiz has one question too many, made from a published course, is refused.
+  const tooLong = await load(COURSES[0][0]);
+  const [quiz] = getObjects(tooLong, 'marin:Assessment');
+  const list = quiz['marin:itemSequence'].itemListElement;
+  while (list.length <= MAX_QUIZ_QUESTIONS) list.push({ ...list[list.length - 1], position: list.length + 1 });
+  const { bytes } = await exportLearningPackage(tooLong, { allowInvalid: true });
+  const file = path.join(await mkdtemp(path.join(os.tmpdir(), 'too-long-quiz-')), 'too-long-quiz.zip');
+  await writeFile(file, bytes);
+  const refused = await checkPackage(file);
+  assert.ok(refused.errors.some((entry) => entry.code === 'quiz-too-many-questions'), `a quiz of ${list.length} questions is refused`);
 });
