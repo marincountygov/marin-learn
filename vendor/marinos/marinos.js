@@ -6,8 +6,8 @@
     return;
   }
 
-  const SHELL_VERSION = "2.0.0";
-  const MARIN_UI_VERSION = "1.36.0";
+  const SHELL_VERSION = "2.1.0";
+  const MARIN_UI_VERSION = "1.37.0";
   const MARINOS_URL = "https://marincountygov.github.io/marin-os/";
   const MARINOS_STATUS_URL = `${MARINOS_URL}#status`;
   const CATALOG_URL = `${MARINOS_URL}catalog.json`;
@@ -1632,12 +1632,18 @@
       const lead = resetPending ? "Filters reset. " : "";
       resetPending = false;
       window.clearTimeout(resetTimer);
-      const message = lead + (text || (count === 0 ? "No results." : `${count} ${count === 1 ? "result" : "results"}.`));
+      // text may be a string, or a node an app built (a line with some words in another weight).
+      const isNode = Boolean(text && typeof text === "object" && text.nodeType);
+      const message = lead + (isNode ? text.textContent : text || (count === 0 ? "No results." : `${count} ${count === 1 ? "result" : "results"}.`));
       if (!resultsEl) {
         announce(message);
         return;
       }
-      resultsEl.textContent = message;
+      // "Filters reset." is for the ear: it sits in a visually hidden span in front of the app's own words, so the line a
+      // sighted person reads stays the app's line.
+      const spoken = lead ? [make("span", { class: "visually-hidden", text: lead })] : [];
+      if (isNode) resultsEl.replaceChildren(...spoken, text);
+      else resultsEl.replaceChildren(...spoken, text || (count === 0 ? "No results." : `${count} ${count === 1 ? "result" : "results"}.`));
       if (count === 0) {
         const again = make("button", { type: "button", class: "action-button", text: "Reset filters" });
         again.addEventListener("click", reset);
@@ -1661,6 +1667,80 @@
         note.textContent = `(${counts[input.value] ?? 0})`;
       });
     }
+
+    // Matching. The file names the record field each group looks at ("field": "themes", a dot path such as
+    // "venue.name"; a list of values counts as each of them) and the fields the search reads ("search.fields").
+    // matchesRecord(record) is true when (it is not called matches: that name is the browser's own Element.matches, which
+    // selector tools call on every element) the record fits the search and every group that has a choice (OR inside a
+    // group, AND across groups); a group with no "field" is the app's own to apply. skip leaves groups out.
+    // updateCounts(records) shows beside every choice how many of the records would match if that choice were
+    // added, which leaves out its own group so its other choices stay visible.
+    const valuesAt = (record, path) => {
+      let found = [record];
+      String(path).split(".").forEach((key) => {
+        found = found.flatMap((one) => (one == null ? [] : [].concat(one).map((item) => item?.[key])))
+          .flatMap((item) => (Array.isArray(item) ? item : [item])).filter((item) => item != null && item !== "");
+      });
+      return found.map((item) => String(item).trim());
+    };
+    const searchCache = new WeakMap();
+    const searchTextOf = (record) => {
+      if (!searchCache.has(record)) searchCache.set(record, config.search.fields.map((field) => valuesAt(record, field).join(" ")).join(" ").toLowerCase());
+      return searchCache.get(record);
+    };
+    column.matchesRecord = (record, options = {}) => {
+      const skip = options.skip || [];
+      const query = state.search.trim().toLowerCase();
+      if (query && config.search?.fields?.length) {
+        const words = config.search.match === "words" ? query.split(/\s+/) : [query];
+        const text = searchTextOf(record);
+        if (!words.every((word) => text.includes(word))) return false;
+      }
+      return groups.every((group) => {
+        if (!group.field || skip.includes(group.id)) return true;
+        const value = state.groups[group.id];
+        if (group.type === "date-range") {
+          if (!value.from && !value.to) return true;
+          const day = (valuesAt(record, group.field)[0] || "").slice(0, 10);
+          return Boolean(day) && !(value.from && day < value.from) && !(value.to && day > value.to);
+        }
+        const chosen = isMany(group) ? value : value === "" ? [] : [value];
+        if (!chosen.length) return true;
+        const have = valuesAt(record, group.field);
+        return chosen.some((one) => have.includes(one));
+      });
+    };
+    column.filter = (records, options) => records.filter((record) => column.matchesRecord(record, options));
+    // options.extra(record) is the app's own test (a time window, a tab), applied to every count; options.skip
+    // { groupId: [other group ids] } leaves more groups out of one group's counts.
+    column.updateCounts = (records, options = {}) => {
+      const extra = options.extra || (() => true);
+      groups.forEach((group) => {
+        if (!group.field || group.type === "date-range" || !controls[group.id]?.list) return;
+        const skip = [group.id, ...((options.skip || {})[group.id] || [])];
+        const by = group.groupBy || [];
+        const paths = new Map(group.list.map((option) => [option.value, option.path]));
+        const counts = {};
+        const totals = {};
+        by.length && group.list.forEach((option) => {
+          for (let depth = 1; depth <= Math.min(option.path.length, by.length); depth += 1) totals[option.path.slice(0, depth).join(" / ")] = 0;
+        });
+        records.forEach((record) => {
+          if (!extra(record) || !column.matchesRecord(record, { skip })) return;
+          const values = [...new Set(valuesAt(record, group.field))];
+          values.forEach((value) => { counts[value] = (counts[value] || 0) + 1; });
+          if (!by.length) return;
+          const keys = new Set();
+          values.forEach((value) => {
+            const path = paths.get(value) || [];
+            for (let depth = 1; depth <= Math.min(path.length, by.length); depth += 1) keys.add(path.slice(0, depth).join(" / "));
+          });
+          keys.forEach((key) => { totals[key] = (totals[key] || 0) + 1; });
+        });
+        setCounts(group.id, counts);
+        if (by.length) column.setGroupCounts(group.id, totals);
+      });
+    };
 
     // The pinned title row hides what sits under it, so a field tabbed into view must stop below it
     // (WCAG 2.2 Focus Not Obscured): the panel's scroll padding follows the title row's real height.

@@ -2,7 +2,13 @@
   "$schema": "vendor/marinos/filter-panel.schema.json",
   "schemaVersion": "1.0.0",
   "search": {
-    "id": "catalog-search"
+    "id": "catalog-search",
+    "fields": [
+      "name",
+      "abstract",
+      "keywords",
+      "themes"
+    ]
   },
   "groups": [
     {
@@ -15,7 +21,8 @@
         "from": "catalog.json",
         "records": "items",
         "valueField": "themes"
-      }
+      },
+      "field": "themes"
     }
   ]
 }
