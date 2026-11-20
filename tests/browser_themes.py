@@ -69,8 +69,8 @@ def run() -> None:
             # Homepage Themes section: a badge for every theme.
             page.goto(base_url, wait_until="networkidle")
             require(page.locator("#themes h2").count() == 0, "Themes should have no heading")
-            require(page.locator("#themes").evaluate("el => el.previousElementSibling.matches('.catalog-controls')"),
-                    "Theme badges should sit directly below the search bar")
+            require(page.locator("#themes").evaluate("el => el.parentElement.matches('.search-results') && el === el.parentElement.firstElementChild"),
+                    "Theme badges should be the first thing beside the filter column")
             names = page.locator("#theme-badges a.app-badge").all_text_contents()
             require(len(names) == 8 and names[0] == "Digital services" and names[-1] == "Community engagement", f"Theme badges are wrong: {names}")
             page.locator("#theme-badges a.app-badge", has_text="AI").click()
