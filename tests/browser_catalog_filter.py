@@ -69,23 +69,41 @@ def run() -> None:
                 # The column is the shell's: its words come from filters.json, its choices from catalog.json.
                 require(page.inner_text(f"{PANEL}-title") == "Filter" and page.inner_text(f"{PANEL} .search-input-field label") == "Search", "Title and search label")
                 require(page.locator(f"{PANEL} [placeholder]").count() == 0, "No placeholders")
-                require(page.inner_text("#theme-facet legend") == "Themes", "The group shows its name")
-                options = page.eval_on_selector_all(f"{PANEL}-theme option", "els => els.map(e => e.textContent)")
-                require(options == ["All themes"] + [t["name"] for t in CATALOG["themes"]], f"Themes come from catalog.json: {options}")
+                require(page.inner_text("#theme-facet legend") == "Themes" and page.inner_text("#theme-summary") == "All themes", "The group shows its name and its All text")
+                page.click("#theme-summary")
+                # Themes are checkboxes (several at once), listed from the courses in catalog.json, each with its course count.
                 everything = [i["name"] for i in CATALOG["items"]]
+                counts = {}
+                for item in CATALOG["items"]:
+                    for theme in item.get("themes") or []:
+                        counts[theme] = counts.get(theme, 0) + 1
+                shown = page.eval_on_selector_all("#theme-options li", "els => els.map(e => e.textContent.trim().replace(/\\s+/g, ' '))")
+                require(sorted(shown) == sorted(f"{name} ({n})" for name, n in counts.items()), f"Themes come from the courses, with counts: {shown}")
+                require(page.locator("#theme-facet select").count() == 0, "Themes are not a drop-down")
                 require(sorted(cards(page)) == sorted(everything), "Every course shows to begin with")
                 require(page.inner_text("#catalog-status").startswith(f"{len(everything)} results"), page.inner_text("#catalog-status"))
 
-                # A theme, then search, then nothing matching: the list, the address and the message follow.
-                page.select_option(f"{PANEL}-theme", "Data")
+                # One theme, then a second: the list widens (a course with either theme), the address and counts follow.
+                page.check("#theme-options input[value='Data']")
                 want = sorted(i["name"] for i in CATALOG["items"] if "Data" in (i.get("themes") or []))
                 require(sorted(cards(page)) == want and "themes=Data" in page.url, f"A theme filters the courses: {cards(page)} {page.url}")
+                page.check("#theme-options input[value='Community engagement']")
+                union = sorted(i["name"] for i in CATALOG["items"] if {"Data", "Community engagement"} & set(i.get("themes") or []))
+                require(sorted(cards(page)) == union, f"Two themes show a course with either: {cards(page)}")
+                require(page.inner_text("#theme-summary") == "2 selected" and page.url.count("themes=") == 2, f"The summary and address follow: {page.url}")
+                page.uncheck("#theme-options input[value='Data']")
+                page.uncheck("#theme-options input[value='Community engagement']")
+                # Search narrows the counts, and nothing matching offers Reset.
                 page.fill("#catalog-search", "zzzz")
                 page.wait_for_function("document.getElementById('catalog-status').textContent.startsWith('No results.')")
                 require(page.locator("#catalog-status button", has_text="Reset filters").count() == 1, "Nothing matching offers Reset filters")
                 page.click("#catalog-status button")
                 page.wait_for_function("document.getElementById('catalog-grid').children.length === %d" % len(everything))
                 require("q=" not in page.url and "themes=" not in page.url, f"Reset clears the address: {page.url}")
+
+                # The catalog home has no row of theme badges above the heading, and the Help section has a top border.
+                require(page.locator("#themes, #theme-badges").count() == 0, "No theme badges above the Catalog heading")
+                require(page.evaluate("getComputedStyle(document.getElementById('support')).borderTopWidth") == "1px", "The Help section has a border on top")
 
                 # Opening a course, a note, the slides, a quiz or a theme page leaves the filter behind, and Back brings it
                 # back with what was typed.

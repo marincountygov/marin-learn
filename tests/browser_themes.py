@@ -66,21 +66,14 @@ def run() -> None:
             require(page.locator(".landing-page .course-card h3").all_text_contents() == ["Schema 101"],
                     "Theme page lists the wrong courses")
 
-            # Homepage Themes section: a badge for every theme.
+            # The homepage has no row of theme badges (the Themes filter in the column does that job); a theme page
+            # is reached from a course page's badges, or by its address.
             page.goto(base_url, wait_until="networkidle")
-            require(page.locator("#themes h2").count() == 0, "Themes should have no heading")
-            require(page.locator("#themes").evaluate("el => el.parentElement.matches('.search-results') && el === el.parentElement.firstElementChild"),
-                    "Theme badges should be the first thing beside the filter column")
-            names = page.locator("#theme-badges a.app-badge").all_text_contents()
-            require(len(names) == 8 and names[0] == "Digital services" and names[-1] == "Community engagement", f"Theme badges are wrong: {names}")
-            page.locator("#theme-badges a.app-badge", has_text="AI").click()
-            page.locator("h2", has_text="AI").first.wait_for()
-            require(page.url.endswith("?theme=ai"), "Theme badge on the homepage did not open its page")
-
-            # Course cards carry no badges; a theme page lists every course in the theme.
-            page.goto(base_url, wait_until="networkidle")
+            require(page.locator("#themes, #theme-badges").count() == 0, "The homepage should not show a row of theme badges")
             require(page.locator("#catalog-grid a.app-badge").count() == 0, "Course cards should not show theme badges")
-            page.locator("#theme-badges a.app-badge", has_text="Data").click()
+            page.goto(f"{base_url}?theme=ai", wait_until="networkidle")
+            page.locator("h2", has_text="AI").first.wait_for()
+            page.goto(f"{base_url}?theme=data", wait_until="networkidle")
             page.locator("h2", has_text="Data").first.wait_for()
             require(page.locator(".landing-page .course-card h3").all_text_contents() == ["API 101", "Data 101", "Schema 101"],
                     "Data theme should list API 101, Data 101 and Schema 101")
@@ -89,7 +82,7 @@ def run() -> None:
             page.goto(base_url, wait_until="networkidle")
             require(page.locator("#catalog-grid .course-card h3").all_text_contents() == ["API 101", "Data 101", "Engage Marin 101", "Schema 101"],
                     "The catalog should list API 101, Data 101, Engage Marin 101 and Schema 101 only")
-            page.locator("#theme-badges a.app-badge", has_text="Community engagement").click()
+            page.goto(f"{base_url}?theme=community-engagement", wait_until="networkidle")
             page.locator("h2", has_text="Community engagement").first.wait_for()
             require(page.locator(".landing-page .course-card h3").all_text_contents() == ["Engage Marin 101"], "The Community engagement theme lists Engage Marin 101")
             page.goto(f"{base_url}?theme=digital-services", wait_until="networkidle")

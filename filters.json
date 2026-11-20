@@ -6,16 +6,15 @@
   },
   "groups": [
     {
-      "type": "select",
+      "type": "checkbox",
       "id": "theme",
       "label": "Themes",
       "allLabel": "All themes",
       "param": "themes",
       "options": {
         "from": "catalog.json",
-        "records": "themes",
-        "valueField": "name",
-        "order": "data"
+        "records": "items",
+        "valueField": "themes"
       }
     }
   ]

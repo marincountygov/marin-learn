@@ -6,7 +6,7 @@ import { renderSlideViewer } from '../js/viewer/slides.js';
 import { renderQuizViewer } from '../js/viewer/quiz.js';
 import { breadcrumbHtml, wireBreadcrumb } from '../js/viewer/breadcrumb.js';
 import { renderThemePage } from '../js/viewer/themes.js';
-import { courseCardHtml, themeBadgesHtml } from '../js/viewer/course-card.js';
+import { courseCardHtml } from '../js/viewer/course-card.js';
 
 document.addEventListener('DOMContentLoaded', async () => {
   const startSection = document.getElementById('start');
@@ -85,14 +85,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     if (!catalogGrid) return;
 
-    // Themes section: a badge for every theme, each linking to its theme page.
-    const themesSection = document.getElementById('themes');
-    if (catalogThemes.length) {
-      document.getElementById('theme-badges').innerHTML = themeBadgesHtml(catalogThemes.map(theme => theme.name));
-      wireBreadcrumb(themesSection, newRoute => navigateToRoute(newRoute));
-      themesSection.hidden = false;
-    }
-
     if (catalogItems.length === 0) {
       catalogStatus.textContent = 'The catalog is empty or did not load.';
       return;
@@ -102,19 +94,23 @@ document.addEventListener('DOMContentLoaded', async () => {
       if (!column?.filterState) return;
       const { search, groups } = column.filterState;
       const query = search.toLowerCase().trim();
-      const selectedTheme = groups.theme;
+      const selectedThemes = groups.theme;
 
-      const filtered = catalogItems.filter(item => {
+      const matchesQuery = item => {
         const name = (item.name || '').toLowerCase();
         const abstract = (item.abstract || '').toLowerCase();
         const keywords = (item.keywords || []).join(' ').toLowerCase();
         const themes = (item.themes || []).join(' ').toLowerCase();
+        return !query || name.includes(query) || abstract.includes(query) || keywords.includes(query) || themes.includes(query);
+      };
+      // Themes combine with OR: a course shows when it has any chosen theme. With none chosen, every course shows.
+      const filtered = catalogItems.filter(item => matchesQuery(item) &&
+        (!selectedThemes.length || selectedThemes.some(theme => (item.themes || []).includes(theme))));
 
-        const matchesQuery = !query || name.includes(query) || abstract.includes(query) || keywords.includes(query) || themes.includes(query);
-        const matchesTheme = !selectedTheme || (item.themes || []).includes(selectedTheme);
-
-        return matchesQuery && matchesTheme;
-      });
+      // Each theme's count is the courses the search leaves, so a choice shows what it would add.
+      const counts = {};
+      catalogItems.filter(matchesQuery).forEach(item => (item.themes || []).forEach(theme => { counts[theme] = (counts[theme] || 0) + 1; }));
+      column.setCounts('theme', counts);
 
       catalogGrid.innerHTML = filtered.map(courseCardHtml).join('');
       wireBreadcrumb(catalogGrid, newRoute => navigateToRoute(newRoute));
