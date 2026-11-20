@@ -90,27 +90,13 @@ document.addEventListener('DOMContentLoaded', async () => {
       return;
     }
 
+    // The column does the matching: filters.json names the item field the Themes group looks at and the fields the
+    // search reads. A course shows when it has any chosen theme; with none chosen every course shows.
     function renderGrid() {
       if (!column?.filterState) return;
-      const { search, groups } = column.filterState;
-      const query = search.toLowerCase().trim();
-      const selectedThemes = groups.theme;
-
-      const matchesQuery = item => {
-        const name = (item.name || '').toLowerCase();
-        const abstract = (item.abstract || '').toLowerCase();
-        const keywords = (item.keywords || []).join(' ').toLowerCase();
-        const themes = (item.themes || []).join(' ').toLowerCase();
-        return !query || name.includes(query) || abstract.includes(query) || keywords.includes(query) || themes.includes(query);
-      };
-      // Themes combine with OR: a course shows when it has any chosen theme. With none chosen, every course shows.
-      const filtered = catalogItems.filter(item => matchesQuery(item) &&
-        (!selectedThemes.length || selectedThemes.some(theme => (item.themes || []).includes(theme))));
-
+      const filtered = column.filter(catalogItems);
       // Each theme's count is the courses the search leaves, so a choice shows what it would add.
-      const counts = {};
-      catalogItems.filter(matchesQuery).forEach(item => (item.themes || []).forEach(theme => { counts[theme] = (counts[theme] || 0) + 1; }));
-      column.setCounts('theme', counts);
+      column.updateCounts(catalogItems);
 
       catalogGrid.innerHTML = filtered.map(courseCardHtml).join('');
       wireBreadcrumb(catalogGrid, newRoute => navigateToRoute(newRoute));
