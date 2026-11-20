@@ -101,31 +101,6 @@
 }
 
 /* Catalog */
-.catalog-controls {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin-bottom: 0.75rem;
-  align-items: flex-end;
-}
-
-.catalog-search-group {
-  flex: 1 1 18rem;
-  min-width: 0;
-}
-
-.catalog-filter-group {
-  flex: 0 1 12.5rem;
-}
-
-.catalog-label {
-  display: block;
-  margin-bottom: 0.375rem;
-  color: var(--learn-muted);
-  font-size: 0.875rem;
-  font-weight: 600;
-}
-
 .catalog-status {
   display: flex;
   align-items: center;
@@ -1317,14 +1292,6 @@ a.app-badge:hover {
 }
 
 @media (max-width: 43.75rem) {
-  .catalog-controls {
-    align-items: stretch;
-  }
-
-  .catalog-filter-group {
-    flex: 1 1 100%;
-  }
-
   .slides-top-bar,
   .quiz-top-bar {
     display: grid;

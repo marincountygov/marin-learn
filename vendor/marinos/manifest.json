@@ -1,8 +1,8 @@
 {
   "schema": 1,
   "name": "Marin App Shell",
-  "shellVersion": "1.24.0",
-  "marinUiVersion": "1.34.0",
+  "shellVersion": "2.0.0",
+  "marinUiVersion": "1.36.0",
   "installPath": "vendor/marinos",
   "fontPathContract": [
     "../fonts/Jost-wght.ttf",
@@ -246,20 +246,28 @@
   },
   "files": {
     "README.md": {
-      "bytes": 1607,
-      "sha256": "7d7cc20ec731654fa1db61378d784bed0b45fd661e284964a00e36181428e20b"
+      "bytes": 1605,
+      "sha256": "7658cf00701994bb82fe186d912be634d274bd426052ac1d3f28cd35eb41aa34"
     },
     "audit-buttons.py": {
       "bytes": 5813,
       "sha256": "7d9e9ed92ca27e78b64526c635301bb49f5302c0281bb71fe6dbe4b0aacaaba8"
+    },
+    "audit-filter-column.py": {
+      "bytes": 10176,
+      "sha256": "974d9827d82e7ce7cf3fac0e62fdd6646ca48d48c52143ddb33fb6e5edec91b0"
     },
     "audit-shared-helpers.py": {
       "bytes": 3754,
       "sha256": "efab1285ae085aee08bd82c4641ef4c625eb01f9d8ec1bd92f313359eb7dd477"
     },
     "brand-source.json": {
-      "bytes": 10297,
-      "sha256": "92b8c7581621a3a47053b8793d1b23bfcb49bd150e629e53beec0564769accd2"
+      "bytes": 10511,
+      "sha256": "206c0a4ce72fc5c6c9fc616ab4d3f5ead6b2b41a7fadcfc6b55ed55d03783cf3"
+    },
+    "filter-panel.schema.json": {
+      "bytes": 13896,
+      "sha256": "04d35497fa7fc6dac4089beec3d52c66adf6732ec612721b3a92922077ba8504"
     },
     "icons/lucide/LICENSE": {
       "bytes": 3208,
@@ -450,12 +458,12 @@
       "sha256": "01cd5ffb3a528c219a86e49a814c6c53bd8a69b9a3c305dd237074ba1c811af7"
     },
     "marinos.css": {
-      "bytes": 144797,
-      "sha256": "b94b00ea9814148dfb463a9959bf2936ccf980fb471daf9a8e25f8e73b284663"
+      "bytes": 147266,
+      "sha256": "9b93b522ea0695585adad58f340b1fdb4e814fcfe53c7e0ecc10d5115ba5cd99"
     },
     "marinos.js": {
-      "bytes": 160730,
-      "sha256": "2012e1222b508935ad381158da27f0bb1e569a02562b369e5a6b6fa68507129b"
+      "bytes": 188692,
+      "sha256": "6069076aafa89fd3d7a55a597fac4de3e9826931fecda1acb3cc647adce4d883"
     }
   }
 }

@@ -77,8 +77,9 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 
   function initCatalogUI() {
-    const searchInput = document.getElementById('catalog-search');
-    const themeFilter = document.getElementById('theme-filter');
+    // The filter column (search and Themes) is drawn by the shell from filters.json, and only on this page: a course,
+    // a note, the slides, a quiz or a theme page replaces it, so none of them has a filter.
+    const column = document.querySelector('[data-filter-column]');
     const catalogStatus = document.getElementById('catalog-status');
     const catalogGrid = document.getElementById('catalog-grid');
 
@@ -92,21 +93,16 @@ document.addEventListener('DOMContentLoaded', async () => {
       themesSection.hidden = false;
     }
 
-    catalogThemes.forEach(theme => {
-      const option = document.createElement('option');
-      option.value = theme.name;
-      option.textContent = theme.name;
-      themeFilter.appendChild(option);
-    });
-
     if (catalogItems.length === 0) {
       catalogStatus.textContent = 'The catalog is empty or did not load.';
       return;
     }
 
     function renderGrid() {
-      const query = (searchInput.value || '').toLowerCase().trim();
-      const selectedTheme = themeFilter.value;
+      if (!column?.filterState) return;
+      const { search, groups } = column.filterState;
+      const query = search.toLowerCase().trim();
+      const selectedTheme = groups.theme;
 
       const filtered = catalogItems.filter(item => {
         const name = (item.name || '').toLowerCase();
@@ -120,22 +116,16 @@ document.addEventListener('DOMContentLoaded', async () => {
         return matchesQuery && matchesTheme;
       });
 
-      catalogStatus.textContent = '';
-      catalogGrid.innerHTML = '';
-
-      if (filtered.length === 0) {
-        catalogStatus.textContent = 'Nothing in the catalog matches your search or filter.';
-        return;
-      }
-
       catalogGrid.innerHTML = filtered.map(courseCardHtml).join('');
       wireBreadcrumb(catalogGrid, newRoute => navigateToRoute(newRoute));
+      // The column says how many courses are showing, or that none are, with a Reset filters button.
+      column.setResults(filtered.length);
     }
 
-    searchInput.addEventListener('input', renderGrid);
-    themeFilter.addEventListener('change', renderGrid);
-
-    renderGrid();
+    column.addEventListener('marin-filter-change', renderGrid);
+    // The column is drawn once its own files have loaded, which can be after this page is built.
+    if (column.setOptions) renderGrid();
+    else column.addEventListener('marin-filter-ready', renderGrid, { once: true });
   }
 
   function escapeHtml(str) {

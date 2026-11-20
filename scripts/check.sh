@@ -41,6 +41,8 @@ for path, problem, label in found:
 print(f"{len(found)} button(s) to update in marin-learn (the editor is not audited)")
 sys.exit(1 if found else 0)
 PY
+# The catalog filter must come from filters.json and the shell, with no hand-written column.
+python3 "$ROOT_DIR/vendor/marinos/audit-filter-column.py" "$ROOT_DIR" --fail
 python3 "$ROOT_DIR/tests/test_publish.py"
 python3 "$ROOT_DIR/tests/test_notes_publish.py"
 python3 "$ROOT_DIR/scripts/check_published.py"
@@ -62,6 +64,7 @@ if [[ "$RUN_BROWSER" == 1 ]]; then
   python3 "$ROOT_DIR/tests/browser_smoke.py"
   python3 "$ROOT_DIR/tests/browser_viewer_landing_cards.py"
   python3 "$ROOT_DIR/tests/browser_themes.py"
+  python3 "$ROOT_DIR/tests/browser_catalog_filter.py"
   python3 "$ROOT_DIR/tests/browser_quiz_results.py"
   python3 "$ROOT_DIR/tests/browser_notes.py"
   python3 "$ROOT_DIR/tests/browser_note_decks.py"

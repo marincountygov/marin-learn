@@ -40,28 +40,19 @@
       </section>
 
       <template id="catalog-home-template">
-        <h2 id="search-heading">Search</h2>
+        <div class="search-layout">
+          <div class="search-side" data-filter-column="filters.json" data-filter-name="catalog"></div>
 
-        <div class="catalog-controls" role="region" aria-label="Catalog search and filters">
-          <div class="catalog-search-group">
-            <label for="catalog-search" class="catalog-label">Search Marin Learn</label>
-            <input type="search" id="catalog-search" placeholder="Search title, description, or keywords..." aria-label="Search Marin Learn">
-          </div>
-          <div class="catalog-filter-group">
-            <label for="theme-filter" class="catalog-label">Theme</label>
-            <select id="theme-filter" aria-label="Filter by theme">
-              <option value="">All themes</option>
-            </select>
+          <div class="search-results">
+            <div id="themes" role="group" aria-label="Themes" hidden>
+              <div id="theme-badges"></div>
+            </div>
+
+            <h2 id="courses-heading">Catalog</h2>
+            <div id="catalog-status" class="catalog-status" data-filter-results>Loading Marin Learn…</div>
+            <div id="catalog-grid" class="catalog-grid" aria-labelledby="courses-heading"></div>
           </div>
         </div>
-
-        <div id="themes" role="group" aria-label="Themes" hidden>
-          <div id="theme-badges"></div>
-        </div>
-
-        <h2 id="courses-heading">Catalog</h2>
-        <div id="catalog-status" class="catalog-status" aria-live="polite">Loading Marin Learn…</div>
-        <div id="catalog-grid" class="catalog-grid" aria-labelledby="courses-heading"></div>
       </template>
 
       <section id="support" class="support-section" data-tab-section="start" aria-labelledby="support-heading">
