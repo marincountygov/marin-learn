@@ -167,10 +167,6 @@
   align-items: center;
 }
 
-#themes {
-  margin-bottom: 2rem;
-}
-
 /* Theme badges match Marin Mentions: the shell's plain .app-badge at regular weight. */
 a.app-badge {
   color: var(--app-text);
@@ -184,6 +180,8 @@ a.app-badge:hover {
 
 .support-section {
   margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--learn-border-subtle);
 }
 
 .support-section .action-group {
