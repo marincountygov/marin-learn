@@ -1,5 +1,4 @@
-import { canonicalizeMarkdown, renderMarkdown } from '../../js/core/markdown.js';
-import { safeFragment } from './safe-html.js';
+import { canonicalizeMarkdown, renderMarkdownDom } from '../../js/core/markdown.js';
 
 const BLOCK_TAGS = new Set(['P', 'H1', 'H2', 'H3', 'H4', 'H5', 'H6', 'BLOCKQUOTE', 'PRE', 'LI', 'UL', 'OL', 'TABLE', 'DIV']);
 // The text styles a block can be changed to: the Text style menu's options and the Quote and Code block commands. Each value is the tag to make.
@@ -41,7 +40,7 @@ export function createMarkdownEditor({ markdown = '', label = 'Content', dialogs
   `;
 
   const surface = root.querySelector('.editor-rich-surface');
-  surface.replaceChildren(safeFragment(renderMarkdown(markdown, renderOptions) || '<p><br></p>'));
+  surface.replaceChildren(renderedFragment(markdown, renderOptions));
   normalizeEditorDom(surface);
 
   let savedRange = null;
@@ -90,16 +89,16 @@ export function createMarkdownEditor({ markdown = '', label = 'Content', dialogs
     event.preventDefault();
     const html = event.clipboardData?.getData('text/html');
     const text = event.clipboardData?.getData('text/plain') || '';
-    let fragmentHtml;
+    // Pasted HTML is only read, never inserted: it becomes Markdown, and the nodes are built from that Markdown (renderMarkdownDom), so no pasted markup
+    // reaches the page.
+    let markdown;
     if (html) {
       const documentValue = new DOMParser().parseFromString(html, 'text/html');
-      const normalized = htmlToMarkdown(documentValue.body);
-      fragmentHtml = renderMarkdown(normalized, renderOptions);
+      markdown = htmlToMarkdown(documentValue.body);
     } else {
-      const normalized = plainTextToMarkdown(text);
-      fragmentHtml = renderMarkdown(normalized, renderOptions);
+      markdown = plainTextToMarkdown(text);
     }
-    insertHtmlAtSelection(surface, fragmentHtml || '<p><br></p>');
+    insertFragmentAtSelection(surface, renderedFragment(markdown, renderOptions));
     normalizeEditorDom(surface);
   });
 
@@ -124,7 +123,7 @@ export function createMarkdownEditor({ markdown = '', label = 'Content', dialogs
       return canonicalizeMarkdown(htmlToMarkdown(surface));
     },
     setMarkdown(value) {
-      surface.replaceChildren(safeFragment(renderMarkdown(value, renderOptions) || '<p><br></p>'));
+      surface.replaceChildren(renderedFragment(value, renderOptions));
       normalizeEditorDom(surface);
     },
     focus() {
@@ -508,9 +507,18 @@ async function insertImage(surface, onSelectImage, dialogs, invoker) {
   }
 }
 
-function insertHtmlAtSelection(surface, html) {
-  // The HTML is what renderMarkdown made from the pasted text; safeFragment builds the nodes from its short list of elements and attributes.
-  const fragment = safeFragment(html);
+// The nodes of some Markdown, built without parsing any HTML (renderMarkdownDom); an empty result is one empty paragraph, as the editor always has one.
+function renderedFragment(markdown, renderOptions) {
+  const fragment = renderMarkdownDom(markdown, renderOptions);
+  if (!fragment.childNodes.length) {
+    const paragraph = document.createElement('p');
+    paragraph.append(document.createElement('br'));
+    fragment.append(paragraph);
+  }
+  return fragment;
+}
+
+function insertFragmentAtSelection(surface, fragment) {
   const selection = window.getSelection();
   if (!selection?.rangeCount || !surface.contains(selection.getRangeAt(0).commonAncestorContainer)) {
     surface.append(fragment);

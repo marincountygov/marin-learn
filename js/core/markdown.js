@@ -327,6 +327,103 @@ function resolveLink(destination, options) {
   }
 }
 
+// ---- The same HTML, built as DOM nodes ------------------------------------------------------------------------
+// renderMarkdown returns HTML text. The rich editor needs nodes, and getting them by parsing HTML text is what a security scan rightly distrusts, even
+// when the text was escaped. renderMarkdownDom builds the same nodes straight from the parsed Markdown: every element is made with createElement from a
+// name written in this file, every piece of text is set as text, and the few attributes are set from checked values. No HTML is parsed, so nothing in
+// the Markdown (or in what a person pasted before it became Markdown) can become markup. tests/browser_editor_paste_security.py compares it with
+// renderMarkdown on every construct, so the two cannot drift apart.
+const SAFE_HREF = /^(?:#|https?:|mailto:|tel:|marin-ref:)/i;
+const SAFE_IMAGE_SOURCE = /^(?:data:image\/(?:png|jpe?g|gif|webp|avif|bmp|svg\+xml);base64,[A-Za-z0-9+/=\s]*|blob:)/i;
+const SAFE_LANGUAGE = /^[\w+#.-]{1,40}$/;
+const HEADING_TAGS = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
+
+function domElement(tag, attributes = [], children = []) {
+  const element = document.createElement(tag);
+  for (const [name, attributeValue] of attributes) element.setAttribute(name, attributeValue);
+  for (const child of children) element.append(child);
+  return element;
+}
+
+const domText = (text) => document.createTextNode(String(text));
+
+export function renderMarkdownDom(value, options = {}) {
+  const ast = Array.isArray(value) ? value : parseMarkdown(value);
+  const fragment = document.createDocumentFragment();
+  for (const node of ast) {
+    const element = domBlock(node, options);
+    if (element) fragment.append(element);
+  }
+  return fragment;
+}
+
+function domBlock(node, options) {
+  switch (node.type) {
+    case 'paragraph': return domElement('p', [], domInline(node.children, options));
+    case 'heading': {
+      const tag = HEADING_TAGS[node.level - 1];
+      return tag ? domElement(tag, [], domInline(node.children, options)) : domElement('p', [], domInline(node.children, options));
+    }
+    case 'codeBlock': {
+      const attributes = node.language && SAFE_LANGUAGE.test(node.language) ? [['class', `language-${node.language}`]] : [];
+      return domElement('pre', [], [domElement('code', attributes, [domText(node.value)])]);
+    }
+    case 'blockquote': return domElement('blockquote', [], node.children.map((child) => domBlock(child, options)).filter(Boolean));
+    case 'list': {
+      const items = node.items.map((blocks) => domElement('li', [], blocks.map((child) => domBlock(child, options)).filter(Boolean)));
+      if (!node.ordered) return domElement('ul', [], items);
+      return domElement('ol', node.start !== 1 ? [['start', String(node.start)]] : [], items);
+    }
+    case 'table': {
+      const head = domElement('thead', [], [domElement('tr', [], node.header.map((cell) => domElement('th', [['scope', 'col']], domInline(cell, options))))]);
+      const body = domElement('tbody', [], node.rows.map((row) => domElement('tr', [], row.map((cell) => domElement('td', [], domInline(cell, options))))));
+      return domElement('div', [['class', 'table-scroll'], ['tabindex', '0'], ['role', 'region'], ['aria-label', 'Scrollable table']], [domElement('table', [], [head, body])]);
+    }
+    default: return null;
+  }
+}
+
+function domInline(nodes, options) {
+  const out = [];
+  for (const node of nodes) {
+    switch (node.type) {
+      case 'text': out.push(domText(node.value)); break;
+      case 'strong': out.push(domElement('strong', [], domInline(node.children, options))); break;
+      case 'em': out.push(domElement('em', [], domInline(node.children, options))); break;
+      case 'code': out.push(domElement('code', [], [domText(node.value)])); break;
+      case 'link': {
+        const destination = resolveLink(node.destination, options);
+        if (!destination.valid || !SAFE_HREF.test(destination.href)) {
+          out.push(domElement('span', [['class', 'broken-reference'], ['title', destination.message || 'Unsafe or unsupported link scheme.']], domInline(node.children, options)));
+          break;
+        }
+        const attributes = [['href', destination.href]];
+        if (destination.internal) attributes.push(['data-marin-ref', destination.uuid]);
+        if (/^https?:/i.test(destination.href)) attributes.push(['rel', 'noopener noreferrer']);
+        out.push(domElement('a', attributes, domInline(node.children, options)));
+        break;
+      }
+      case 'image': {
+        const match = node.destination.match(MARIN_ASSET_RE);
+        if (!match) {
+          out.push(domElement('span', [['class', 'broken-reference']], [domText('[Invalid image]')]));
+          break;
+        }
+        const uuid = match[1].toLowerCase();
+        const source = options.resolveAsset?.(uuid);
+        if (!source || !SAFE_IMAGE_SOURCE.test(source)) {
+          out.push(domElement('span', [['class', 'broken-reference'], ['data-marin-asset', uuid]], [domText(`[Missing image: ${node.alt || 'decorative'}]`)]));
+          break;
+        }
+        out.push(domElement('img', [['src', source], ['alt', node.alt], ['data-marin-asset', uuid]]));
+        break;
+      }
+      default: break;
+    }
+  }
+  return out;
+}
+
 export function serializeMarkdown(ast) {
   const source = ast.map((node) => serializeBlock(node, 0)).filter(Boolean).join('\n\n');
   return canonicalizeMarkdown(source);

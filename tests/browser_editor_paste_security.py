@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
 """Browser coverage for what the rich editor does with hostile input (docs/editor/TESTING.md, U10: "No script/event handler/style execution; safe link protocols").
 
-  1. safeFragment (editor/assets/safe-html.js) leaves what the editor really produces exactly as it is, and builds nothing from what it should not.
-  2. A hostile paste (script, event handlers, javascript: links, svg, iframe, style, forms) runs nothing and leaves only the supported structure; an ordinary
+  1. renderMarkdownDom (js/core/markdown.js) builds exactly the nodes renderMarkdown describes, for every construct the editor produces, without parsing HTML.
+  2. Hostile Markdown (raw HTML, javascript: and data: links and images, hostile asset and reference sources) becomes text or a broken-reference marker, never markup.
+  3. A hostile paste (script, event handlers, javascript: links, svg, iframe, style, forms) runs nothing and leaves only the supported structure; an ordinary
      paste keeps its headings, list, table and link.
-  3. The Text style menu cannot make an element that is not one of its styles.
-  4. A table cell that holds a backslash and a pipe stays one cell and comes back unchanged.
+  4. The Text style menu cannot make an element that is not one of its styles.
+  5. A table cell that holds a backslash and a pipe stays one cell and comes back unchanged.
 """
 from __future__ import annotations
 
@@ -21,29 +22,25 @@ from tests.browser_editor_smoke import configure, require, serve
 GIF = "data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
 UUID = "123e4567-e89b-42d3-a456-426614174000"
 
+# Markdown a person could write or paste, and the options the page could hand the renderer, that try to bring markup in.
 HOSTILE = [
-    '<p onclick="window.__xss=1">x</p>',
-    '<a href="javascript:window.__xss=2">x</a>',
-    '<a href=" JaVaScRiPt:window.__xss=2">x</a>',
-    '<a href="data:text/html,<script>window.__xss=2</script>">x</a>',
-    '<a href="vbscript:msgbox(1)">x</a>',
-    '<img src="x" onerror="window.__xss=3">',
-    '<img src="javascript:window.__xss=3">',
-    '<img src="data:text/html;base64,PHNjcmlwdD4=">',
-    '<script>window.__xss=4</script>',
-    '<<script>script>window.__xss=4</script>',
-    '<svg onload="window.__xss=5"><script>window.__xss=5</script></svg>',
-    '<math><mi xlink:href="javascript:window.__xss=5">x</mi></math>',
-    '<iframe srcdoc="<script>parent.__xss=6</script>"></iframe>',
-    '<object data="javascript:window.__xss=6"></object><embed src="javascript:window.__xss=6">',
-    '<style>*{display:none}</style><p style="position:fixed;inset:0">x</p>',
-    '<form action="javascript:window.__xss=7"><input name="a"><button>go</button></form>',
-    '<link rel="stylesheet" href="https://example.invalid/x.css"><meta http-equiv="refresh" content="0;url=javascript:window.__xss=7"><base href="https://example.invalid/">',
-    '<p class="x" id="y" data-evil="1" title="t" onmouseover="window.__xss=8">x</p>',
-    '<details open ontoggle="window.__xss=9"><summary>x</summary></details>',
-    '<template><script>window.__xss=10</script></template>',
-    '<table onclick="window.__xss=11"><tr onclick="window.__xss=11"><td onclick="window.__xss=11">x</td></tr></table>',
-    '<span class="broken-reference" onclick="window.__xss=12" title="ok">x</span>',
+    "<script>window.__xss=1</script>",
+    '<img src=x onerror="window.__xss=2">',
+    '<p onclick="window.__xss=3">x</p>',
+    "<svg onload=window.__xss=4></svg><iframe srcdoc=\"<script>parent.__xss=5</script>\"></iframe>",
+    "<style>*{display:none}</style><form action=javascript:window.__xss=6><input></form>",
+    "[click](javascript:window.__xss=7)",
+    "[click](JaVaScRiPt:window.__xss=7)",
+    "[click]( javascript:window.__xss=7)",
+    "[click](data:text/html,<script>window.__xss=8</script>)",
+    "[click](vbscript:msgbox(1))",
+    "[click](//example.invalid/x)",
+    "![pic](javascript:window.__xss=9)",
+    "![pic](https://example.invalid/tracker.png)",
+    "![x](marin-asset:{uuid}) and [y](marin-ref:{uuid})",
+    "**bold <b onmouseover=window.__xss=10>x</b>** and `<script>`",
+    "# <script>window.__xss=11</script>\n\n> <iframe src=javascript:window.__xss=11></iframe>\n\n- <img src=x onerror=window.__xss=11>",
+    "| <script>x</script> | b |\n| --- | --- |\n| <img src=x onerror=window.__xss=12> | d |",
 ]
 
 SAMPLE_MARKDOWN = f"""## A heading
@@ -82,52 +79,72 @@ def run() -> None:
             page = context.new_page()
             page.goto(f"{base_url}editor/", wait_until="networkidle")
 
-            # 1. What the editor produces passes through unchanged, and nothing listed as hostile does.
+            # 1. The nodes are the ones renderMarkdown describes, for every construct the editor produces.
             same = page.evaluate("""async ([markdown, gif, uuid]) => {
-              const { renderMarkdown } = await import('/js/core/markdown.js');
-              const { safeFragment } = await import('/editor/assets/safe-html.js');
-              const html = renderMarkdown(markdown, { resolveRef: (id) => `marin-ref:${id}`, resolveAsset: () => gif });
+              const { renderMarkdown, renderMarkdownDom } = await import('/js/core/markdown.js');
+              const options = { resolveRef: (id) => `marin-ref:${id}`, resolveAsset: () => gif };
+              const html = renderMarkdown(markdown, options);
               const original = document.createElement('template');
               original.innerHTML = html;
-              const clean = document.createElement('div');
-              clean.append(safeFragment(html));
-              return { html, original: original.innerHTML, clean: clean.innerHTML };
+              const built = document.createElement('div');
+              built.append(renderMarkdownDom(markdown, options));
+              const missing = document.createElement('div');
+              missing.append(renderMarkdownDom('![a picture](marin-asset:' + uuid + ') and ![bad](x)', { resolveAsset: () => null }));
+              const missingHtml = document.createElement('template');
+              missingHtml.innerHTML = renderMarkdown('![a picture](marin-asset:' + uuid + ') and ![bad](x)', { resolveAsset: () => null });
+              const broken = document.createElement('div');
+              broken.append(renderMarkdownDom('[no](javascript:x) and [yes](marin-ref:' + uuid + ')', { resolveRef: () => false }));
+              const brokenHtml = document.createElement('template');
+              brokenHtml.innerHTML = renderMarkdown('[no](javascript:x) and [yes](marin-ref:' + uuid + ')', { resolveRef: () => false });
+              return { html, original: original.innerHTML, built: built.innerHTML, missing: missing.innerHTML, missingHtml: missingHtml.innerHTML, broken: broken.innerHTML, brokenHtml: brokenHtml.innerHTML };
             }""", [SAMPLE_MARKDOWN, GIF, UUID])
             for needle in ("<h2>", "<strong>", "<em>", "<code>", 'href="https://example.org/a?b=c&amp;d=e"', 'href="mailto:', 'href="tel:', f'href="marin-ref:{UUID}"',
                            "<img ", "<blockquote>", "<ol>", '<code class="language-python">', '<th scope="col">', 'class="table-scroll"'):
                 require(needle in same["html"], f"The sample does not exercise {needle!r}: {same['html'][:200]}")
-            require(same["clean"] == same["original"], f"The sanitizer changed what the editor produces:\n{same['original']}\n{same['clean']}")
+            require(same["built"] == same["original"], f"renderMarkdownDom and renderMarkdown differ:\n{same['original']}\n{same['built']}")
+            require(same["missing"] == same["missingHtml"] and "broken-reference" in same["missing"], f"A missing or invalid image differs:\n{same['missingHtml']}\n{same['missing']}")
+            require(same["broken"] == same["brokenHtml"] and "broken-reference" in same["broken"], f"A broken link differs:\n{same['brokenHtml']}\n{same['broken']}")
 
-            leaks = page.evaluate("""async (cases) => {
-              const { safeFragment } = await import('/editor/assets/safe-html.js');
+            # 2. Hostile Markdown becomes text or a broken-reference marker, never markup.
+            leaks = page.evaluate(r"""async ([cases, uuid]) => {
+              const { renderMarkdownDom } = await import('/js/core/markdown.js');
               const found = [];
-              for (const html of cases) {
-                const box = document.createElement('div');
-                box.append(safeFragment(html));
-                const bad = [];
-                if (box.querySelector('script, style, iframe, object, embed, svg, math, form, input, button, link, meta, base, template, details')) bad.push('element');
-                for (const element of box.querySelectorAll('*')) {
-                  for (const attribute of element.attributes) {
-                    if (/^on/i.test(attribute.name) || ['style', 'id', 'srcdoc', 'data-evil', 'action', 'formaction'].includes(attribute.name)) bad.push(`attribute ${attribute.name}`);
-                    if (/^\\s*(javascript|vbscript):/i.test(attribute.value) || /^\\s*data:text/i.test(attribute.value)) bad.push(`value ${attribute.value}`);
+              const variants = [
+                { resolveRef: (id) => `marin-ref:${id}`, resolveAsset: () => 'data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=' },
+                { resolveRef: () => 'javascript:window.__xss=20', resolveAsset: () => 'javascript:window.__xss=21' },
+                { resolveRef: () => 'data:text/html,<script>window.__xss=22</script>', resolveAsset: () => 'data:text/html;base64,PHNjcmlwdD4=' },
+                { resolveRef: () => 'https://example.invalid/x" onclick="window.__xss=23', resolveAsset: () => 'https://example.invalid/x.png" onerror="window.__xss=24' },
+              ];
+              for (const template of cases) {
+                const markdown = template.replaceAll('{uuid}', uuid);
+                for (const options of variants) {
+                  const box = document.createElement('div');
+                  box.append(renderMarkdownDom(markdown, options));
+                  const bad = [];
+                  const allowed = new Set(['P', 'H1', 'H2', 'H3', 'H4', 'H5', 'H6', 'PRE', 'CODE', 'BLOCKQUOTE', 'UL', 'OL', 'LI', 'TABLE', 'THEAD', 'TBODY', 'TR', 'TH', 'TD', 'DIV', 'STRONG', 'EM', 'A', 'IMG', 'SPAN']);
+                  for (const element of box.querySelectorAll('*')) {
+                    if (!allowed.has(element.tagName)) bad.push(`element ${element.tagName}`);
+                    for (const attribute of element.attributes) {
+                      if (/^on/i.test(attribute.name) || attribute.name === 'style') bad.push(`attribute ${attribute.name}`);
+                      if (attribute.name === 'href' && !/^(#|https?:|mailto:|tel:|marin-ref:)/i.test(attribute.value)) bad.push(`href ${attribute.value}`);
+                      if (attribute.name === 'src' && !/^(data:image\/(png|jpe?g|gif|webp|avif|bmp|svg\+xml);base64,|blob:)/i.test(attribute.value)) bad.push(`src ${attribute.value}`);
+                    }
                   }
+                  if (bad.length) found.push({ markdown, bad });
                 }
-                if (box.querySelector('a[href^="javascript" i], a[href^=" javascript" i]')) bad.push('javascript link');
-                if (bad.length) found.push({ html, bad });
               }
               return found;
-            }""", HOSTILE)
-            require(not leaks, f"Hostile markup survived safeFragment: {leaks}")
-
-            kept = page.evaluate("""async () => {
-              const { safeFragment } = await import('/editor/assets/safe-html.js');
+            }""", [HOSTILE, UUID])
+            require(not leaks, f"Hostile Markdown became markup: {leaks[:3]}")
+            shown = page.evaluate("""async () => {
+              const { renderMarkdownDom } = await import('/js/core/markdown.js');
               const box = document.createElement('div');
-              box.append(safeFragment('<p onclick="x()">Keep <a href="javascript:x()">this</a> text</p><img src="x" onerror="x()"><span class="broken-reference" onclick="x()" title="ok">gone</span>'));
-              return box.innerHTML;
+              box.append(renderMarkdownDom('<script>window.__xss=1</script> and [x](javascript:window.__xss=2)', {}));
+              return { html: box.innerHTML, text: box.textContent, xss: window.__xss ?? null };
             }""")
-            require(kept == '<p>Keep <a>this</a> text</p><span class="broken-reference" title="ok">gone</span>', f"The words stay and the danger goes: {kept!r}")
+            require(shown["xss"] is None and "<script>" in shown["text"] and "<script" not in shown["html"].replace("&lt;script", ""), f"Raw HTML shows as text: {shown}")
 
-            # 2. A hostile paste into the editor runs nothing; an ordinary paste keeps its structure.
+            # 3. A hostile paste into the editor runs nothing; an ordinary paste keeps its structure.
             paste = """async ([html, text]) => {
               const { createMarkdownEditor } = await import('/editor/assets/rich-editor.js');
               const editor = createMarkdownEditor({ markdown: '', label: 'Test', dialogs: { requestText() {}, requestFields() {} } });
@@ -170,7 +187,7 @@ def run() -> None:
                 require(expected in result["markdown"], f"An ordinary paste keeps {expected!r}: {result['markdown']!r}")
             require(not result["danger"], f"Office styles came through: {result['danger']}")
 
-            # 3. The Text style menu makes only its own styles.
+            # 4. The Text style menu makes only its own styles.
             style = page.evaluate("""async () => {
               const { createMarkdownEditor } = await import('/editor/assets/rich-editor.js');
               const editor = createMarkdownEditor({ markdown: 'One paragraph', label: 'Test', dialogs: { requestText() {}, requestFields() {} } });
@@ -201,7 +218,7 @@ def run() -> None:
             require(style["afterBad"] == "<p>One paragraph</p>" and style["xss"] is None, f"An unknown style changed the block: {style}")
             require(style["afterGood"] == "<h3>One paragraph</h3>", f"A real style still works: {style}")
 
-            # 4. A cell with a backslash and a pipe stays one cell and comes back as it was.
+            # 5. A cell with a backslash and a pipe stays one cell and comes back as it was.
             table = page.evaluate("""async () => {
               const { createMarkdownEditor } = await import('/editor/assets/rich-editor.js');
               const editor = createMarkdownEditor({ markdown: '', label: 'Test', dialogs: { requestText() {}, requestFields() {} } });
