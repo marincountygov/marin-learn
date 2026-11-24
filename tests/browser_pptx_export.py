@@ -298,8 +298,11 @@ def test_generation_and_diagnostics(context, base_url: str | None, requests: lis
             "PowerPoint deck selection did not re-enable after success")
     require(page.locator("#btn-export-pptx").get_attribute("aria-disabled") == "false",
             "PowerPoint download retained a stale disabled state")
-    require(page.locator("#btn-export-pptx").evaluate("element => document.activeElement === element"),
-            "Focus did not return to the PowerPoint download button")
+    # Focus goes back on the next animation frame, after the success message is drawn, so wait for it instead of checking in the same instant.
+    try:
+        page.wait_for_function("() => document.activeElement === document.getElementById('btn-export-pptx')", timeout=3000)
+    except Exception:
+        raise AssertionError("Focus did not return to the PowerPoint download button")
     require(page.locator("#editor-status-message").get_by_text(
         "PowerPoint downloaded. It was generated in this browser and was not added to the learning package.",
         exact=True,
