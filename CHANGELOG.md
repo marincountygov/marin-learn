@@ -6,6 +6,7 @@ Existing applications do not automatically inherit these changes. Template chang
 
 ## Unreleased
 
+- Security scan fixes in the rich editor. The editor now builds the HTML it shows from a short list of allowed elements and attributes (`editor/assets/safe-html.js`), a second layer under the Markdown renderer, so pasted or loaded content cannot bring a script, an event handler, a style, a link that runs code, or an element nobody listed. The Text style menu can only make its own styles (it could make any element). A table cell with inline code that holds a backslash and a pipe no longer splits its row. A new browser test (`tests/browser_editor_paste_security.py`) covers hostile and ordinary pastes.
 - Remove the `archive/` folder of old course packages (six zips). Git keeps them. The one test that used an old package now builds its quiz with one question too many from a published course.
 - Copy results on a quiz result now offers Text, HTML and Markdown. The app uses the shell that keeps line breaks in Markdown.
 - The button that copies a note's address is now "Copy link" with the link icon, not "Share" with the share icon.

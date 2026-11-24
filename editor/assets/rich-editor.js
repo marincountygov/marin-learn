@@ -1,6 +1,9 @@
 import { canonicalizeMarkdown, renderMarkdown } from '../../js/core/markdown.js';
+import { safeFragment } from './safe-html.js';
 
 const BLOCK_TAGS = new Set(['P', 'H1', 'H2', 'H3', 'H4', 'H5', 'H6', 'BLOCKQUOTE', 'PRE', 'LI', 'UL', 'OL', 'TABLE', 'DIV']);
+// The text styles a block can be changed to: the Text style menu's options and the Quote and Code block commands. Each value is the tag to make.
+const BLOCK_STYLES = new Map([['p', 'p'], ['h2', 'h2'], ['h3', 'h3'], ['h4', 'h4'], ['blockquote', 'blockquote'], ['pre', 'pre']]);
 const IGNORED_TAGS = new Set(['SCRIPT', 'STYLE', 'IFRAME', 'OBJECT', 'EMBED', 'NOSCRIPT', 'META', 'LINK', 'HEAD']);
 const SAFE_LINK = /^(https?:|mailto:|tel:|marin-ref:)/i;
 const SAFE_ASSET_REFERENCE = /^(?:marin-asset:|urn:uuid:)?[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
@@ -38,7 +41,7 @@ export function createMarkdownEditor({ markdown = '', label = 'Content', dialogs
   `;
 
   const surface = root.querySelector('.editor-rich-surface');
-  surface.innerHTML = renderMarkdown(markdown, renderOptions) || '<p><br></p>';
+  surface.replaceChildren(safeFragment(renderMarkdown(markdown, renderOptions) || '<p><br></p>'));
   normalizeEditorDom(surface);
 
   let savedRange = null;
@@ -121,7 +124,7 @@ export function createMarkdownEditor({ markdown = '', label = 'Content', dialogs
       return canonicalizeMarkdown(htmlToMarkdown(surface));
     },
     setMarkdown(value) {
-      surface.innerHTML = renderMarkdown(value, renderOptions) || '<p><br></p>';
+      surface.replaceChildren(safeFragment(renderMarkdown(value, renderOptions) || '<p><br></p>'));
       normalizeEditorDom(surface);
     },
     focus() {
@@ -240,12 +243,18 @@ function listToMarkdown(list, depth) {
     .join('\n');
 }
 
+// A pipe ends a table cell unless a backslash escapes it. The cell text is already Markdown (a literal backslash in it is `\\`), so a pipe needs `\|`
+// exactly when an even number of backslashes come before it: the same rule js/core/markdown.js writes cells by and splitTableRow reads them by.
+function escapeCellPipes(markdown) {
+  return markdown.replace(/(\\*)\|/g, (match, slashes) => (slashes.length % 2 === 0 ? `${slashes}\\|` : match));
+}
+
 function tableToMarkdown(table) {
   const rows = [...table.querySelectorAll('tr')];
   if (!rows.length) return '';
   const matrix = rows.map((row) => [...row.children]
     .filter((cell) => ['TH', 'TD'].includes(cell.tagName))
-    .map((cell) => inlineChildren(cell).replace(/\|/g, '\\|').trim()));
+    .map((cell) => escapeCellPipes(inlineChildren(cell)).trim()));
   const width = Math.max(...matrix.map((row) => row.length));
   if (!width) return '';
   const header = matrix[0];
@@ -266,7 +275,10 @@ function setBlockTag(surface, tagName) {
   if (!selection?.rangeCount) return;
   const block = closestBlock(selection.anchorNode, surface);
   if (!block) return;
-  const normalizedTag = tagName.toLowerCase();
+  // Only the styles the Text style menu offers (and the two commands below): the name comes from a form control, never from a tag of the user's choosing.
+  const replacementTag = BLOCK_STYLES.get(String(tagName).toLowerCase());
+  if (!replacementTag) return;
+  const normalizedTag = replacementTag;
   if (normalizedTag === 'pre') {
     const pre = document.createElement('pre');
     const code = document.createElement('code');
@@ -286,7 +298,7 @@ function setBlockTag(surface, tagName) {
     placeCaretAtEnd(paragraph);
     return;
   }
-  const replacement = document.createElement(normalizedTag);
+  const replacement = document.createElement(replacementTag);
   replacement.append(...block.childNodes);
   block.replaceWith(replacement);
   placeCaretAtEnd(replacement);
@@ -497,9 +509,8 @@ async function insertImage(surface, onSelectImage, dialogs, invoker) {
 }
 
 function insertHtmlAtSelection(surface, html) {
-  const template = document.createElement('template');
-  template.innerHTML = html;
-  const fragment = template.content;
+  // The HTML is what renderMarkdown made from the pasted text; safeFragment builds the nodes from its short list of elements and attributes.
+  const fragment = safeFragment(html);
   const selection = window.getSelection();
   if (!selection?.rangeCount || !surface.contains(selection.getRangeAt(0).commonAncestorContainer)) {
     surface.append(fragment);

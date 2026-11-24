@@ -75,7 +75,7 @@ The handoff archive's `npm test` command tests only the isolated historical core
 | U07 | Word paste | Supported paragraphs/headings/lists/tables preserved; style stripped |
 | U08 | Google Docs paste | Same; embedded links safe; invalid attrs excluded |
 | U09 | Outlook/Teams paste | Handles signatures/formatting and plaintext fallback safely |
-| U10 | Web HTML paste | No script/event handler/style execution; safe link protocols |
+| U10 | Web HTML paste | No script/event handler/style execution; safe link protocols (automated: `tests/browser_editor_paste_security.py`) |
 | U11 | Plain text paste | Readable paragraphs; normal undo and selection |
 | U12 | Paste unsupported structure | Clear warning when substantive meaning would be lost |
 | U13 | Paste/drag image | Asset step, explicit alt/decorative choice, no unsafe embedded data URL |

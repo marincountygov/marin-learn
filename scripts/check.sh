@@ -70,6 +70,7 @@ if [[ "$RUN_BROWSER" == 1 ]]; then
   python3 "$ROOT_DIR/tests/browser_note_decks.py"
   python3 "$ROOT_DIR/tests/browser_security.py"
   python3 "$ROOT_DIR/tests/browser_editor_smoke.py"
+  python3 "$ROOT_DIR/tests/browser_editor_paste_security.py"
   python3 "$ROOT_DIR/tests/browser_editor_dialogs.py"
   python3 "$ROOT_DIR/tests/browser_editor_reorder.py"
   python3 "$ROOT_DIR/tests/browser_presentation_semantics.py"
