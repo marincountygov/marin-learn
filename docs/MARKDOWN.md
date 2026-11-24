@@ -246,7 +246,7 @@ Example:
 
 `*` and `+` list markers MAY be accepted on import but MUST be normalized to `-` on export.
 
-Nested lists are supported under CommonMark list rules.
+Nested lists are supported under CommonMark list rules. A list ends at the first block that is not indented under its last item: a table, code block, heading, quotation or paragraph that follows a list (after a blank line, or starting at the list's own margin) is its own block, not part of the last item.
 
 Authors SHOULD avoid unnecessary deep nesting. Authoring interfaces SHOULD warn when list nesting becomes difficult to understand, generally beyond three levels.
 
