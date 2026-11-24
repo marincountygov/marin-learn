@@ -116,9 +116,14 @@ function parseList(lines, start, end, baseIndent, ordered) {
         if (index < end) {
           const afterBlank = listMatch(lines[index]);
           if (afterBlank && afterBlank.indent <= baseIndent) break;
+          // CommonMark: after a blank line, a line that is not indented under the item is not part of it, so the list ends. (A table or a code block
+          // that follows a list used to be taken into its last item.)
+          if (lines[index].trim() && indentOf(lines[index]) <= baseIndent) break;
         }
         continue;
       }
+      // A heading, quotation, code fence or table that starts at the list's own margin begins a new block even with no blank line before it.
+      if (indentOf(lines[index]) <= baseIndent && isBlockStartOutsideList(lines, index, end)) break;
       const strip = Math.min(lines[index].length, baseIndent + 2);
       itemLines.push(lines[index].slice(strip));
       index += 1;
@@ -126,6 +131,19 @@ function parseList(lines, start, end, baseIndent, ordered) {
     items.push(parseMarkdown(itemLines.join('\n')));
   }
   return { node: { type: 'list', ordered, start: startNumber, items }, next: index };
+}
+
+function indentOf(line) {
+  return String(line).match(/^\s*/)[0].replace(/\t/g, '    ').length;
+}
+
+// The blocks that can start a line without a blank line before them and are not a list: a code fence, a heading, a quotation or a table.
+function isBlockStartOutsideList(lines, index, end) {
+  const line = lines[index] || '';
+  if (/^\s*(`{3,}|~{3,})/.test(line)) return true;
+  if (/^(#{2,6})\s+/.test(line)) return true;
+  if (/^\s*>\s?/.test(line)) return true;
+  return isTableStart(lines, index, end);
 }
 
 function listMatch(line) {

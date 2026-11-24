@@ -180,12 +180,14 @@ def run() -> None:
             require("javascript:" not in result["markdown"] and "javascript:" not in result["html"], "No javascript: link remains")
 
             word = ('<h2 style="font-family:Calibri">Key procedures</h2><p class="MsoNormal">Step <b>one</b>, see <a href="https://example.org/guide">the guide</a>.</p>'
+                    '<ul><li class="MsoListParagraph">First</li><li class="MsoListParagraph">Second</li></ul>'
                     '<table><tr><td>Role</td><td>Duty</td></tr><tr><td>Director</td><td>Approval</td></tr></table>'
-                    '<ul><li class="MsoListParagraph">First</li><li class="MsoListParagraph">Second</li></ul>')  # a table after a list is a known gap of the Markdown parser
+                    '<h2>After the table</h2><p>A closing paragraph.</p>')  # a list, then a table, then more: each stays its own block
             result = page.evaluate(paste, [word, "Key procedures"])
-            for expected in ("## Key procedures", "Step **one**", "[the guide](https://example.org/guide)", "- First", "- Second", "| Role | Duty |", "| Director | Approval |"):
+            for expected in ("## Key procedures", "Step **one**", "[the guide](https://example.org/guide)", "- First", "- Second", "| Role | Duty |", "| Director | Approval |", "## After the table", "A closing paragraph."):
                 require(expected in result["markdown"], f"An ordinary paste keeps {expected!r}: {result['markdown']!r}")
             require(not result["danger"], f"Office styles came through: {result['danger']}")
+            require("<table" in result["html"] and result["html"].count("<li>") == 2 and "<li><p>Second</p><p>" not in result["html"], f"The table is a table, outside the list: {result['html']!r}")
 
             # 4. The Text style menu makes only its own styles.
             style = page.evaluate("""async () => {
