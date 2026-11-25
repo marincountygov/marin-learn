@@ -887,6 +887,7 @@ a.app-badge:hover {
   margin-bottom: 0;
 }
 
+/* audit-cards: exempt (Learn's quiz panel is drawn on Learn's own surface colors) */
 .quiz-main-card {
   display: flex;
   flex-direction: column;
@@ -1164,6 +1165,7 @@ a.app-badge:hover {
   gap: 1.25rem;
 }
 
+/* audit-cards: exempt (Learn's review panel is drawn on Learn's own surface colors) */
 .review-card {
   gap: 1rem;
   padding: 1.5rem;
