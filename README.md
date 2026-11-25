@@ -38,7 +38,7 @@ Use the complete structure in `index.html`, not the abbreviated example above. T
 
 ## Standard navigation
 
-The header contains **About** and **Updates**, with no default Start item. Clicking the header's app identity (icon, name, or description) follows `./` to reload the application's root and default workflow. This is normal navigation, not a state-preserving tab switch; unsaved in-memory work can be lost.
+The header holds only the app's own tabs (none by default) and has no Start item; About, Updates, Security, Accessibility and Tech are in the footer. Clicking the header's app identity (icon, name, or description) follows `./` to reload the application's root and default workflow. This is normal navigation, not a state-preserving tab switch; unsaved in-memory work can be lost.
 
 The footer has the plain-text app name, **About**, **Security**, **Accessibility**, and **Updates**, followed by the MarinOS catalog link. The footer app name is not a link.
 

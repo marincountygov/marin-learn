@@ -43,6 +43,8 @@ sys.exit(1 if found else 0)
 PY
 # The catalog filter must come from filters.json and the shell, with no hand-written column.
 python3 "$ROOT_DIR/vendor/marinos/audit-filter-column.py" "$ROOT_DIR" --fail
+# An h1 has one of two sizes (Marin UI 1.41.0); this lists app CSS that sets its own size and must list nothing.
+python3 "$ROOT_DIR/vendor/marinos/audit-h1.py" "$ROOT_DIR" --fail
 python3 "$ROOT_DIR/tests/test_publish.py"
 python3 "$ROOT_DIR/tests/test_notes_publish.py"
 python3 "$ROOT_DIR/scripts/check_published.py"
