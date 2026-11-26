@@ -19,6 +19,18 @@ PANEL = "#catalog-filter-panel"
 NO_FILTER = "[data-filter-column], .search-sidebar, .filter-toggle, #catalog-search"
 
 
+
+def wait_until(page, expression, timeout=10000):
+    """Poll with evaluate. wait_for_function evaluates a string in the page, which the page's Content Security Policy (no
+    unsafe-eval) refuses when the browser is not set to bypass it; evaluate is not affected."""
+    waited = 0
+    while waited <= timeout:
+        if page.evaluate(f"() => Boolean({expression})"):
+            return
+        page.wait_for_timeout(100)
+        waited += 100
+    raise AssertionError(f"Timed out waiting for: {expression}")
+
 def require(condition: bool, message: str) -> None:
     if not condition:
         raise AssertionError(message)
@@ -64,7 +76,7 @@ def run() -> None:
                 page.on("pageerror", lambda e: errors.append(str(e)))
                 page.goto(base, wait_until="networkidle")
                 page.wait_for_selector(f"{PANEL} #theme-facet", state="attached")
-                page.wait_for_function("document.getElementById('catalog-status').textContent.includes('results')")
+                wait_until(page, "document.getElementById('catalog-status').textContent.includes('results')")
 
                 # The column is the shell's: its words come from filters.json, its choices from catalog.json.
                 require(page.inner_text(f"{PANEL}-title") == "Filter" and page.inner_text(f"{PANEL} .search-input-field label") == "Search", "Title and search label")
@@ -95,10 +107,10 @@ def run() -> None:
                 page.uncheck("#theme-options input[value='Community engagement']")
                 # Search narrows the counts, and nothing matching offers Reset.
                 page.fill("#catalog-search", "zzzz")
-                page.wait_for_function("document.getElementById('catalog-status').textContent.startsWith('No results.')")
+                wait_until(page, "document.getElementById('catalog-status').textContent.startsWith('No results.')")
                 require(page.locator("#catalog-status button", has_text="Reset filters").count() == 1, "Nothing matching offers Reset filters")
                 page.click("#catalog-status button")
-                page.wait_for_function("document.getElementById('catalog-grid').children.length === %d" % len(everything))
+                wait_until(page, "document.getElementById('catalog-grid').children.length === %d" % len(everything))
                 require("q=" not in page.url and "themes=" not in page.url, f"Reset clears the address: {page.url}")
 
                 # The catalog home has no row of theme badges above the heading, and the Help section has a top border.
@@ -108,7 +120,7 @@ def run() -> None:
                 # Opening a course, a note, the slides, a quiz or a theme page leaves the filter behind, and Back brings it
                 # back with what was typed.
                 page.fill("#catalog-search", "api")
-                page.wait_for_function("document.getElementById('catalog-grid').children.length === 1")
+                wait_until(page, "document.getElementById('catalog-grid').children.length === 1")
                 page.locator("#catalog-grid .course-card a").first.click()
                 page.wait_for_selector(".landing-page")
                 require(page.locator(NO_FILTER).count() == 0, "A course page has no filter")
