@@ -34,7 +34,7 @@ js/pptx/validate.js
 Validated Uint8Array + manifest
 ```
 
-The renderer never reads the public-viewer DOM or editor DOM. HTML and PPTX are sibling renderers of the same normalized presentation semantics.
+The renderer never reads the public-viewer DOM. HTML and PPTX are sibling renderers of the same normalized presentation semantics.
 
 ## Module responsibilities
 
@@ -52,7 +52,6 @@ The renderer never reads the public-viewer DOM or editor DOM. HTML and PPTX are 
 | `js/pptx/runtime-browser.js` | Lazy same-origin loading of the vendored browser bundle |
 | `js/pptx/runtime-node.js` | Hash verification and isolated Node execution of the same vendored bundle |
 | `js/pptx/errors.js` | Typed export errors and stable diagnostics |
-| `editor/assets/pptx-export.js` | Review and Download selection, preflight presentation, diagnostics, browser download, and focus/busy state |
 | `scripts/generate_pptx.mjs` | Canonical-package Node adapter and review-artifact writer |
 | `scripts/validate_pptx.py` | Independent standard-library OOXML and manifest validation |
 | `scripts/render_pptx.py` | LibreOffice/Poppler PDF, PNG, and montage evidence |
@@ -141,33 +140,11 @@ Diagnostics are separated by responsibility:
 - **Authoring/layout failures:** missing abstract, duplicate title, unsupported layout cardinality, table limits, or overflow.
 - **Exporter-integrity failures:** invalid ZIP/XML structure, metadata mismatch, duplicate IDs after remediation, missing title placeholder, alt-path leak, language failure, or geometry defects.
 
-Source and authoring failures are shown in Review and Download with plain-language diagnostics and **Fix** actions when the affected deck or slide is known. Exporter-integrity failures are treated as internal defects and never produce a downloadable file.
+Source and authoring failures are reported by `scripts/generate_pptx.mjs` with plain-language diagnostics that name the affected deck or slide when it is known. Exporter-integrity failures are treated as internal defects and never produce a downloadable file.
 
 ## Browser integration
 
-The editor adapter is intentionally thin:
-
-```text
-Review and Download
-        │
-        ├── list canonical presentations
-        ├── run preflight without PptxGenJS
-        ├── render blocking errors / nonblocking warnings
-        └── author activates Download PowerPoint
-                    │
-                    ▼
-          lazy same-origin runtime load
-                    │
-                    ▼
-          public exporter API pipeline
-                    │
-                    ▼
-            validated Blob download
-```
-
-The controller keeps an explicit valid deck selection, otherwise prefers the currently active Slide Decks deck, otherwise uses graph order. It does not store generated files or mutate the package. Re-entering Review and Download reruns preflight against current in-memory data.
-
-The standard browser regression serves the checked-in application over HTTP and therefore exercises the exact meta CSP and the real lazy runtime request. A separately invoked in-memory mode exists only for restricted execution environments that block all browser navigation; it replaces browser storage and runtime loading with test adapters while retaining the actual editor controller, PptxGenJS generation, postprocessor, validator, Blob download, and downloaded OOXML checks.
+There is no PowerPoint screen in the browser. The editor that hosted it was removed, so the exporter runs from `scripts/generate_pptx.mjs`. `js/pptx/runtime-browser.js`, the lazy same-origin loader for the vendored browser bundle, stays in place for a future download control. A browser control would run preflight without PptxGenJS, load the runtime only on request, run the public exporter pipeline, and download a validated Blob.
 
 ## Repository review integration
 

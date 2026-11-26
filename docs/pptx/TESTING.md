@@ -12,25 +12,11 @@ bash scripts/check.sh
 
 This performs JavaScript syntax checks, verifies the vendored dependency manifest and licenses, runs every Node test, and runs the Python security, package, publication, template, Node-adapter, independent-PPTX-validator, deterministic release-fixture, and release-gate tests. It does not require LibreOffice.
 
-The browser suite includes the PowerPoint authoring workflow:
-
-```bash
-bash scripts/check.sh --browser
-```
-
-The standard PowerPoint browser test serves the checked-in application over HTTP. It therefore exercises the real meta Content Security Policy, same-origin dynamic runtime load, browser Blob download, and production module graph.
-
-A restricted execution environment that blocks all browser navigation may run the component-equivalent fallback directly:
-
-```bash
-python3 tests/browser_pptx_export.py --in-memory
-```
-
-The fallback uses real Chromium, the actual editor controller, the reviewed PptxGenJS bundle, OOXML postprocessor, validator, and downloaded file checks. It substitutes only browser storage and dynamic script loading so it does not replace the standard CSP/same-origin test in normal CI.
+The PowerPoint checks run from the command line (see Repository review commands below). The browser screen that once hosted them was removed with the editor, and so were its browser tests.
 
 ## Repository review commands
 
-Generate all canonical package presentations with the same exporter used by the browser:
+Generate all canonical package presentations with the exporter:
 
 ```bash
 node scripts/generate_pptx.mjs packages \
@@ -112,30 +98,6 @@ A newly initialized record is expected to produce `hold`; that is the correct st
 
 ## PPTX-specific automated coverage
 
-
-### `tests/pptx-editor-ui.test.mjs`
-
-- selected-deck precedence and invalid-selection fallback;
-- plain-language slide context and removal of repeated context in rendered diagnostics;
-- required Review and Download controls and explanatory content;
-- lazy runtime contract: the runtime bundle is not included in editor HTML;
-- editor wiring to active slide-deck selection, presentation-scoped preflight, busy state, focus restoration, and browser download.
-
-### `tests/browser_pptx_export.py`
-
-- accessible PowerPoint region and control names;
-- no-deck empty state and keyboard activation of **Open Slide Decks**;
-- automatic selection of an imported presentation;
-- preflight without loading PptxGenJS;
-- nonblocking warning state with enabled download;
-- blocking duplicate-title diagnostic with disabled download and **Fix** routing;
-- internal generation failure with no download, no authoring **Fix**, retry availability, and focus on the failure heading;
-- `aria-busy`, disabled controls, and stable busy label during generation;
-- valid `.pptx` download name, ZIP structure, slide count, notes count, and document language;
-- successful live status and focus return to **Download PowerPoint**;
-- no mutation of the in-memory learning package or local-save status;
-- narrow-screen horizontal reflow;
-- in standard mode, exactly one same-origin runtime request and no PPTX CDN request.
 
 ### `tests/pptx-export.test.mjs`
 
@@ -274,8 +236,6 @@ Run the complete gate before first pilot release and whenever PptxGenJS, JSZip, 
 A ready disposition records the tested scope only. It does not establish universal accessibility, universal compatibility, or WCAG conformance for every future presentation. Public publication remains a separate approval.
 
 ## Browser acceptance boundary
-
-PPTX-2 runs the production generation pipeline in Chromium and verifies the resulting OOXML package. The standard HTTP mode is still required before release because it is the mode that proves the checked-in CSP permits the same-origin runtime and that the runtime is requested only after author activation. The `--in-memory` mode is evidence for environments where navigation is administratively blocked, not a substitute for that deployment test.
 
 Safe SVG assets still require a representative browser fixture whenever SVG behavior changes because PptxGenJS uses browser image/canvas APIs for its fallback representation. Manual PowerPoint and assistive-technology acceptance remain separate release gates.
 

@@ -243,56 +243,6 @@ export async function buildPresentationModel({
   };
 }
 
-/**
- * Replace a Slide content sequence from editor rows while preserving the original
- * ListItem object for rows that already existed. This prevents unrelated edits
- * from discarding supported source properties.
- */
-export function setSlideContentSequence(slide, rows = []) {
-  if (!slide || typeof slide !== 'object') {
-    throw new PresentationModelError('A Slide object is required.', 'slide-required');
-  }
-  if (!Array.isArray(rows)) {
-    throw new PresentationModelError('Slide content rows must be an array.', 'slide-content-rows-invalid');
-  }
-
-  const originalEntries = orderedListItems(slide, 'marin:contentSequence');
-  if (!rows.length) {
-    delete slide['marin:contentSequence'];
-    return null;
-  }
-
-  const nextEntries = rows.map((row, index) => {
-    const itemId = String(row?.itemId || '');
-    if (!itemId) {
-      throw new PresentationModelError(`Content block ${index + 1} has no selected ContentUnit.`, 'slide-content-required');
-    }
-    const displayMode = row?.displayMode ?? DEFAULT_SLIDE_DISPLAY_MODE;
-    if (!SLIDE_DISPLAY_MODES.includes(displayMode)) {
-      throw new PresentationModelError(`Content block ${index + 1} has an unsupported display mode.`, 'slide-display-mode-invalid');
-    }
-
-    const sourceIndex = Number(row?.sourceIndex);
-    const source = Number.isInteger(sourceIndex) && sourceIndex >= 0
-      ? originalEntries[sourceIndex]
-      : null;
-    const entry = source ? deepClone(source) : {};
-    entry['@type'] = 'ListItem';
-    entry.position = index + 1;
-    entry.item = { '@id': itemId };
-    entry['marin:displayMode'] = displayMode;
-    return entry;
-  });
-
-  const sequence = slide['marin:contentSequence'] && typeof slide['marin:contentSequence'] === 'object'
-    ? slide['marin:contentSequence']
-    : {};
-  sequence['@type'] = 'ItemList';
-  sequence.itemListElement = nextEntries;
-  slide['marin:contentSequence'] = sequence;
-  return sequence;
-}
-
 function graphArray(graphDocument) {
   const graph = graphDocument?.['@graph'];
   if (!Array.isArray(graph)) {

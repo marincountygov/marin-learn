@@ -136,7 +136,6 @@ export function createExampleNotePackage({ status = 'published', withExamples = 
   root.hasPart = objects.slice(1).map((object) => ref(object['@id']));
 
   return {
-    editorStateVersion: 1,
     graphDocument: { '@context': structuredClone(JSONLD_CONTEXT), '@graph': objects },
     contentFiles: {},
     assetFiles: {},

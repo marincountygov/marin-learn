@@ -11,7 +11,6 @@ test('the reader loads MarinOS before its viewer-specific stylesheet', async () 
 
   assert.ok(shellIndex >= 0, 'root viewer must load the vendored MarinOS stylesheet');
   assert.ok(viewerIndex > shellIndex, 'viewer CSS must extend MarinOS rather than precede it');
-  assert.doesNotMatch(html, /href="editor\/assets\/app\.css"/);
 });
 
 test('viewer styling inherits Pico and MarinOS theme tokens without hard-coded theme colors', async () => {

@@ -3,7 +3,6 @@
 **Status:** Approved product decisions; phased implementation and review required  
 **Target:** Marin Learn learner-facing viewer, v1; **new viewer-first build**  
 **Suggested repository location:** `docs/viewer/SPEC.md`  
-**Relationship to editor:** Preserve editor compatibility, but **do not incorporate the previously built editor until a separately authorized later integration phase**.
 
 ## 0. Mandatory implementation protocol (read first)
 
@@ -12,7 +11,6 @@ This specification describes the completed viewer, **not permission to implement
 ### 0.1 Greenfield, template-first starting point
 
 - Start with the **current MarinOS application template supplied in the working project**, using its prescribed App Shell installation/synchronization mechanism. The latest checked-out `marin-app-template`, `marin-app-shell`, `marin-ui`, and applicable Marin digital standards are implementation sources of truth. Record the actual versions/commits and `marin.yml` values before changing files.
-- **Do not use `marin-learn-v0.1.0` or its editor as the project scaffold.** Do not relocate, copy, refactor, import, or silently reuse that editor during viewer phases. Treat it as a future integration source supplied by the user later.
 - If the template, shell, UI dependencies, accessibility standards, approved schema, or reference fixture are not present in the workspace, identify the missing item and request it. Do not recreate MarinOS components from memory or fabricate versions, fonts, assets, or test results.
 - Keep the deployed application static and independent of runtime Node.js, external CDNs, and backend services. Development/build tools MAY use Node.js where supported by the current template.
 - Preserve the template's shell-owned header, identity, status indicator, navigation/footer mechanisms, font assets, Lucide icons, and standard informational destinations. Use existing MarinOS components and CSS tokens before writing new app-specific styles. Never replace managed shell files with a look-alike implementation.
@@ -42,12 +40,6 @@ Each phase MUST leave the repository buildable and the previously approved funct
 
 Any deviation from the supplied template MUST be documented with a reason and user approval. Do not invent new design patterns when an approved MarinOS pattern already fits.
 
-### 0.4 Deferred editor integration
-
-Viewer v1 is independently usable **without any editor code**. During viewer development, keep the graph loader, Markdown parser, renderers, and assessment evaluator in documented modules that an editor can later reuse. Do not introduce editor dependencies, editor navigation, WYSIWYG, ZIP authoring, or IndexedDB recovery into the learner bundle.
-
-**Editor integration is an entirely separate final project phase** initiated only after the user reviews and accepts the standalone viewer and supplies the authoritative current editor. At that point, compare shared contracts, identify necessary adaptations, and request approval for the integration plan before changing either application. The viewer's release MUST NOT be blocked on obtaining the old editor.
-
 ---
 
 ## 1. Purpose
@@ -58,7 +50,7 @@ The primary experience is consumption, not authoring. The application's default 
 
 The viewer MUST use the approved Marin Learn v1 schema and **retain one Markdown file per ContentUnit**. It MUST NOT require Markdown-to-JSON compilation, a backend, database, authentication, or a runtime Node.js service.
 
-**Build order matters:** The standalone viewer MUST be implemented and accepted in incremental phases before the user elects to integrate the separate, previously built editor. This file is the implementation handoff to OpenCode Desktop, not a request for a single-shot implementation.
+**Build order matters:** The viewer MUST be implemented and accepted in incremental phases. This file is the implementation handoff to OpenCode Desktop, not a request for a single-shot implementation.
 
 ## 2. Authoritative contracts
 
@@ -67,7 +59,6 @@ The following existing specifications remain authoritative and MUST NOT be silen
 1. `schema/marin-learn-v1.schema.json` — structured JSON-LD-style object graph and vocabulary.
 2. `docs/MARKDOWN.md` — supported Markdown, headings, links, image references, and rendering obligations.
 3. `docs/PACKAGE.md` — canonical `learning.json`, `content/`, `assets/`, identity, reference, and security rules.
-4. Existing editor `SPEC.md` — authoring and export behavior; **reference for later interoperability only, not a source of application scaffolding or an early-phase implementation dependency**.
 
 The viewer is a consumer of those contracts, not another content format. New derived publication artifacts such as `catalog.json` MUST be documented separately from canonical content and MUST NOT be placed inside a conforming source package.
 
@@ -83,7 +74,6 @@ The key words **MUST**, **MUST NOT**, **SHOULD**, and **MAY** express normative 
 | View navigation | **Learning-set landing page** with contextual navigation among resources; not permanent Read / Slides / Quiz tabs |
 | Source structure | One `learning.json` graph plus individual `content/*.md` files and packaged `assets/` |
 | Application | Static, browser-only, MarinOS-styled; no production Node.js requirement |
-| Authoring | **Deferred integration:** viewer starts independently; user supplies current editor for a later separately approved phase |
 | Learner data | No accounts, grades database, completion records, or telemetry in v1 |
 
 ## 4. Scope and non-goals
@@ -111,7 +101,6 @@ These are **end-state v1 requirements**. Each is delivered only in its assigned 
 - Server-rendered documents, precompiled runtime JSON, or precompiled Markdown HTML.
 - Arbitrary slide animations, editable slide positioning, or a full presenter-console application.
 - Protected quiz answer keys or high-stakes proctored testing.
-- **Integrating, migrating, or rewriting the existing editor as part of the standalone viewer build.**
 
 ## 5. Information architecture
 
@@ -136,7 +125,7 @@ On desktop, use the normal MarinOS application shell and compact navigation. Avo
 
 ## 6. Publication structure
 
-A conforming ZIP package remains the publishing input. A publish-time script or GitHub Action validates and expands approved packages into static files, preserving the authored Markdown bytes and graph semantics. The reference ZIP can be supplied independently of the editor; no editor integration is required to publish it.
+A conforming ZIP package remains the publishing input. A publish-time script or GitHub Action validates and expands approved packages into static files, preserving the authored Markdown bytes and graph semantics. The reference ZIP can be supplied independently.
 
 Illustrative deployed layout:
 
@@ -166,8 +155,6 @@ dist/
 The ZIP is a source/interchange artifact; the viewer fetches the published files over HTTP and does not need to download or unzip a package to render it.
 
 The publication step MAY use Node.js in CI. Node.js MUST NOT be required on the static production host.
-
-The `/editor/` route is **not part of the initial viewer deployment**. It may be added only in the later editor-integration phase; no empty or nonfunctional editor link may appear in learner navigation.
 
 ## 7. Catalog: source, generation, and lifecycle
 
@@ -300,7 +287,7 @@ Rules:
 - The learning-set landing page MUST remain reachable from every view.
 - Do not force a full page reload for ordinary in-app navigation; update URL history and handle `popstate`.
 - Section/table-of-contents anchors SHOULD use stable identifiers; deep links to a ContentUnit MUST preserve its location in an actual Material. If the same unit is used in multiple materials, the URL MUST identify the containing Material.
-- A published slug rename requires an explicit alias/redirect policy if older links must continue working; the editor's stable `@id` does not automatically preserve public slug URLs.
+- A published slug rename requires an explicit alias/redirect policy if older links must continue working; a package's stable `@id` does not automatically preserve public slug URLs.
 
 ## 11. Continuous reading viewer
 
@@ -353,7 +340,7 @@ Preserve the approved referenced-content display modes:
 
 `full`, `abstract`, `title`.
 
-The viewer and editor preview MUST resolve presentation, slide, ordered content, display-mode, Markdown, and speaker-note semantics through the shared model in `js/core/presentation.js`. Their surrounding interface and CSS may differ, but shared slide content is rendered through `js/renderers/slides-html.js` or must pass explicit semantic-equivalence tests. A slide MUST use referenced canonical ContentUnits; slide-specific `name` and speaker notes remain separate metadata. An omitted `marin:displayMode` uses the schema default, `full`.
+The viewer MUST resolve presentation, slide, ordered content, display-mode, Markdown, and speaker-note semantics through the shared model in `js/core/presentation.js`. Shared slide content is rendered through `js/renderers/slides-html.js`. A slide MUST use referenced canonical ContentUnits; slide-specific `name` and speaker notes remain separate metadata. An omitted `marin:displayMode` uses the schema default, `full`.
 
 ### 12.2 Controls
 
@@ -366,7 +353,7 @@ The viewer and editor preview MUST resolve presentation, slide, ordered content,
 
 ### 12.3 Overflow and responsive behavior
 
-The viewer MUST NOT arbitrarily truncate instructional text or shrink it to an unreadable size to force a fit. `abstract` mode requires an actual ContentUnit `abstract`, or publication validation MUST reject that slide reference. `full` mode may have lengthy content; display overflow in a readable, accessible manner and surface a presentational warning to authors in the editor/publisher tooling. Do not substitute an AI-generated summary.
+The viewer MUST NOT arbitrarily truncate instructional text or shrink it to an unreadable size to force a fit. `abstract` mode requires an actual ContentUnit `abstract`, or publication validation MUST reject that slide reference. `full` mode may have lengthy content; display overflow in a readable, accessible manner and surface a presentational warning to authors in the publisher tooling. Do not substitute an AI-generated summary.
 
 Speaker notes MUST be excluded from the projected slide canvas by default and remain available through a separate, accessible presentation control. Fullscreen presentation MUST be operable without a mouse.
 
@@ -451,9 +438,7 @@ The **viewer** MUST centralize the following functionality in documented reusabl
 
 A network-backed loader MAY populate an in-memory package shape (`graph` plus `contentFiles` and `assetFiles`/asset URLs) without changing the canonical schema. Any adapter must preserve `@id` identity and schema meaning.
 
-The reusable module boundaries are an integration contract for the **future** editor, not a directive to bring editor files into the initial viewer repository. After separately approved editor integration, shared code or explicit semantic-equivalence tests MUST ensure both experiences interpret the same learning set consistently.
-
-The viewer MUST NOT download editor-only rich-text, ZIP-authoring, or IndexedDB code merely to consume content.
+The reusable module boundaries (graph loader, Markdown parser, renderers, assessment evaluator) are the contract the viewer, the publish scripts and the PowerPoint exporter share, so they all interpret the same learning set the same way.
 
 ### 14.3 Caching
 
@@ -466,12 +451,12 @@ The viewer MUST NOT download editor-only rich-text, ZIP-authoring, or IndexedDB 
 
 ## 15. MarinOS integration and visual standards
 
-This is a **template-conformance requirement**, not merely a stylistic aspiration. The user is intentionally commissioning a new viewer-first build because the earlier editor did not sufficiently follow MarinOS patterns.
+This is a **template-conformance requirement**, not merely a stylistic aspiration.
 
 - Use the **current template and shell files actually supplied to OpenCode**. Do not rely on the previous Marin Learn implementation as evidence of MarinOS compliance.
 - Inspect `marin.yml`, the App Shell installer/synchronization instructions, current `marin-ui` rules, and applicable Marin digital standards before writing page markup or CSS. Record the versions and actual source locations in the phase-0 review.
 - Preserve shell-managed structure, approved local fonts, Lucide icon sourcing/styling, heading/body roles, application identity/title links, status indicators, header navigation, and footer composition.
-- Required informational destinations remain **About**, **Security**, **Accessibility**, and **Updates**, implemented through the current App Shell mechanism, not one-off imitations. No editor link is required in the standalone viewer.
+- Required informational destinations remain **About**, **Security**, **Accessibility**, and **Updates**, implemented through the current App Shell mechanism, not one-off imitations.
 - Use existing MarinOS spacing, page widths, breakpoints, cards, form styles, and focus patterns. New styling MUST be minimal and scoped to viewer-specific elements such as the slide canvas and document table of contents.
 - Follow the current app template's test and deployment conventions. Do not introduce a replacement CSS framework or a CDN.
 - Compare browser-rendered output against the template's baseline at each visual review gate; include light/dark, desktop/narrow, keyboard focus, and accessibility-tree checks.
@@ -562,9 +547,7 @@ marin-learn/
 
 Actual placement MUST follow the supplied MarinOS template where it differs. Managed shell/vendor files are not shown here but remain owned by the template/installer. Do not fork the renderer or copy the canonical schema into an incompatible replacement.
 
-A future `editor/` directory will be planned **only after** the user supplies and approves integration of the current editor. The standalone viewer does not create placeholder editor routes or copy editor libraries.
-
-The publisher SHOULD accept the existing editor-exported ZIP package as an input format and MAY accept an expanded conforming source directory. Publishing output MUST be equivalent either way; no editor code is required for either path.
+The publisher SHOULD accept a conforming ZIP package as an input format and MAY accept an expanded conforming source directory. Publishing output MUST be equivalent either way.
 
 ## 20. Testing requirements
 
@@ -573,14 +556,14 @@ The publisher SHOULD accept the existing editor-exported ZIP package as an input
 Minimum automated coverage:
 
 1. Catalog generation: one card per published set, metadata fallback, deterministic sorting, duplicate slugs, revision stability, and publication gating.
-2. Publishing: editor ZIP → validated expanded public files; all Markdown bytes preserved; assets preserved; invalid sets rejected; removed sets absent from clean output.
+2. Publishing: conforming ZIP → validated expanded public files; all Markdown bytes preserved; assets preserved; invalid sets rejected; removed sets absent from clean output.
 3. Routing: direct URL, missing resource, multiple resources, Back/Forward, deep-linked sections, nested hosting base path.
 4. Loading: correct per-view fetches, out-of-order Markdown responses, fetch deduplication, cache refresh, and missing-file error recovery.
 5. Reader: sequence order, nested sections, headings, table of contents, stable links, images, print output semantics.
 6. Slides: six layouts, three display modes, notes, navigation, no truncation, fullscreen fallback.
 7. Quizzes: three interaction types, `all` and `random`, fixed attempt selection, option shuffling, all feedback timings, correct response sets, weighted scoring, optional passing scores and grade scales.
 8. Security: unsafe URLs, invalid paths, malformed JSON, raw HTML, active SVG, unexpected references, and no arbitrary graph URL fetches.
-9. Source preservation: canonical graph and Markdown are not altered by publication; stable viewer rendering over the reference fixture. **Editor/viewer equivalence is deferred to the separate editor-integration phase.**
+9. Source preservation: canonical graph and Markdown are not altered by publication; stable viewer rendering over the reference fixture.
 
 ### 20.2 Manual accessibility and browser testing
 
@@ -596,7 +579,7 @@ The existing `marinos-foundations.zip` MUST be used as an end-to-end publication
 
 V1 is acceptable when all of the following are demonstrably true:
 
-1. Visiting the site root opens the catalog, not the editor.
+1. Visiting the site root opens the catalog.
 2. The catalog is generated from published packages, with no manually duplicated narrative or metadata maintenance.
 3. Unpublished content is absent from the deployed public file tree, not merely absent from the catalog.
 4. Selecting a set opens its landing page, not an arbitrarily selected resource.
@@ -607,19 +590,19 @@ V1 is acceptable when all of the following are demonstrably true:
 9. The quiz viewer applies assessment selection, scoring, feedback, and grade policies faithfully and offers meaningful results and source links.
 10. Resource and section URLs are shareable, refreshable, and compatible with browser history on static hosting.
 11. The catalog does not download every learning graph or Markdown file; learner views load only what they use.
-12. Reading, slide, and quiz views use consistent canonical ContentUnit semantics; slide viewer and editor preview share the presentation model and semantic slide renderer.
-13. The standalone viewer installs from the current MarinOS template and passes the phase-1 shell-conformance review; it does not require editor code or an `/editor/` route.
+12. Reading, slide, and quiz views use consistent canonical ContentUnit semantics; the slide viewer and the PowerPoint exporter share the presentation model.
+13. The standalone viewer installs from the current MarinOS template and passes the phase-1 shell-conformance review.
 14. The application uses approved MarinOS visual patterns and passes the required WCAG 2.2 AA verification.
 15. Static deployment works on GitHub Pages or comparable hosting with no runtime backend, external CDN, or Node.js process.
 16. Each implementation phase has a separate documented review package and explicit user approval before subsequent work.
 
 ## 22. Phased OpenCode Desktop implementation — mandatory review gates
 
-**Do not treat these phases as one backlog to implement automatically.** Each phase is a separate user-initiated task. Complete only the currently authorized phase, demonstrate it in the browser, provide its evidence and changed-file list, then STOP for acceptance. Later-phase code, including editor integration, MUST NOT be added speculatively.
+**Do not treat these phases as one backlog to implement automatically.** Each phase is a separate user-initiated task. Complete only the currently authorized phase, demonstrate it in the browser, provide its evidence and changed-file list, then STOP for acceptance. Later-phase code MUST NOT be added speculatively.
 
 ### Phase 0 — Inspect inputs and establish the compliance baseline (no feature implementation)
 
-**Work:** Inspect the user-supplied current MarinOS template, shell, UI, digital/accessibility standards, the canonical schema, Markdown and package specs, and the example package. Report actual versions/commits and any conflicts or missing dependencies. Propose the smallest initial scaffold and commands to reproduce it. Do not transplant the old editor.
+**Work:** Inspect the user-supplied current MarinOS template, shell, UI, digital/accessibility standards, the canonical schema, Markdown and package specs, and the example package. Report actual versions/commits and any conflicts or missing dependencies. Propose the smallest initial scaffold and commands to reproduce it.
 
 **Review gate:** User approves the concrete source versions, directory conventions, shell integration plan, and phase-1 file scope. **No coding begins before this gate** unless the user explicitly combines phases 0 and 1.
 
@@ -631,7 +614,7 @@ V1 is acceptable when all of the following are demonstrably true:
 
 ### Phase 2 — Standalone publication and generated catalog
 
-**Work:** Implement one narrow CLI/build-time publishing path for a supplied conforming ZIP and clean static output. Validate publication eligibility, source graph, Markdown, assets, references, and clean-output rules. Generate deterministic `catalog.json` from the published set(s). Do not compile Markdown into a master JSON or import editor code.
+**Work:** Implement one narrow CLI/build-time publishing path for a supplied conforming ZIP and clean static output. Validate publication eligibility, source graph, Markdown, assets, references, and clean-output rules. Generate deterministic `catalog.json` from the published set(s). Do not compile Markdown into a master JSON.
 
 **Review gate:** Supply successful publication output, repeatable commands, inspection of `learning.json` and individual `.md` files, catalog sample, rejection examples, and tests for reproducibility and unsafe/draft publication. User approves before connecting it to UI.
 
@@ -667,17 +650,9 @@ V1 is acceptable when all of the following are demonstrably true:
 
 ### Phase 8 — Standalone viewer release gate
 
-**Work:** Execute complete regression, publication security, performance/network, responsive visual, WCAG 2.2 AA, and cross-browser tests. Confirm clean static deployment, catalog discovery, deep-link operation, reading/slide/quiz completeness, and no editor-only dependencies.
+**Work:** Execute complete regression, publication security, performance/network, responsive visual, WCAG 2.2 AA, and cross-browser tests. Confirm clean static deployment, catalog discovery, deep-link operation, reading/slide/quiz completeness.
 
 **Review gate:** Deliver verified build, comprehensive changed-file list, automated test output, explicitly documented manual-test results and outstanding limitations. The user decides whether to accept the standalone viewer.
-
-### Phase 9 — Editor integration (separate project; NOT part of viewer construction)
-
-**Prerequisites:** The standalone viewer has been accepted, the user explicitly requests integration, and the user supplies the authoritative editor implementation at that time.
-
-**First deliverable:** A comparison and integration plan, not immediate code. Review file structure, actual current App Shell versions, compatible/duplicated core modules, route ownership, dependency boundaries, and any migration/test implications. The user approves this plan before any integration modifications.
-
-**Only then:** Integrate the editor under an agreed route (potentially `/editor/`), preserve its ZIP workflows, consolidate shared core safely, and test viewer/editor semantic equivalence and MarinOS fidelity. Do not let the editor introduce its heavyweight runtime into ordinary learner routes.
 
 ### Required phase completion report
 
@@ -694,8 +669,6 @@ Every phase handoff MUST contain:
 ## 23. Future extensions (not v1 commitments)
 
 Full-text Markdown search, optional learner progress storage, named course sequences, additional languages, LMS interoperability, richer presenter tooling, offline caching, alternate publication destinations, and read-only API endpoints are possible future additions. None should change the canonical source package contract merely to serve the viewer.
-
-**Editor integration is separately governed by Phase 9; it is not authorization for the standalone viewer agent to use or rewrite the earlier editor while completing Phases 0–8.**
 
 ---
 

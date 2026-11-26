@@ -91,7 +91,6 @@ export const NOTE_ABSTRACT_MAX = 120;
 export const NOTE_TARGET_GRADE = 6;
 
 export const APP_VERSION = '0.1.0';
-export const EDITOR_STORAGE_VERSION = 1;
 export const MAX_SECTION_DEPTH = 3;
 export const MAX_ZIP_ENTRIES = 500;
 export const MAX_ZIP_TOTAL_BYTES = 100 * 1024 * 1024;
