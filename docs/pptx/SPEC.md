@@ -4,9 +4,9 @@
 
 ## Purpose
 
-Marin Learn can produce an editable Microsoft PowerPoint `.pptx` derivative from one canonical `marin:Presentation`. The derivative is generated from the normalized Marin Learn presentation model, not from rendered HTML, the editor DOM, or screenshots.
+Marin Learn can produce an editable Microsoft PowerPoint `.pptx` derivative from one canonical `marin:Presentation`. The derivative is generated from the normalized Marin Learn presentation model, not from rendered HTML or screenshots.
 
-PPTX remains a derivative. It is not added to the canonical Marin Learn ZIP, stored in the editor workspace, or treated as an authoring source of truth.
+PPTX remains a derivative. It is not added to the canonical Marin Learn ZIP or treated as an authoring source of truth.
 
 ## Implemented scope
 
@@ -135,21 +135,17 @@ For safe SVG, the original vector image remains embedded. Because the Node VM ha
 
 `scripts/validate_pptx.py` is intentionally independent of the JavaScript exporter. It inspects ZIP/XML structure, metadata, language, titles, notes, object IDs, alternative text, decorative metadata, tables, fixed typography, fonts, colors, geometry, links, active-content exclusions, and the generation manifest. `scripts/render_pptx.py` creates PDF/PNG evidence for visual review but does not replace Microsoft PowerPoint acceptance.
 
-## Authoring workflow
+## Command-line workflow
 
-`editor/assets/pptx-export.js` owns the browser interaction but not presentation semantics or OOXML generation. It:
+There is no PowerPoint screen in the browser. `scripts/generate_pptx.mjs` owns the interaction but not presentation semantics or OOXML generation. It:
 
-1. reads available presentations from the current in-memory package;
-2. preserves an explicit valid deck selection, otherwise prefers the active Slide Decks deck, otherwise selects the first deck;
-3. calls `analyzePresentationForPptx()` without loading the PowerPoint runtime;
-4. enables download for a passing preflight, including passing results with warnings;
-5. disables download for blocking presentation diagnostics;
-6. calls `exportPresentationToPptx()` only after an author activates **Download PowerPoint**;
-7. downloads only the final validated bytes returned by the public exporter API.
+1. reads the presentations from a canonical package;
+2. calls `analyzePresentationForPptx()` without loading the PowerPoint runtime;
+3. stops on blocking presentation diagnostics and prints them, naming the deck or slide when it is known;
+4. calls `exportPresentationToPptx()` for a passing preflight, including passing results with warnings;
+5. writes only the final validated bytes returned by the public exporter API.
 
-Projects without a slide deck receive an explicit empty state and an **Open Slide Decks** action. PowerPoint preflight is scoped to the selected deck and does not require an unrelated unfinished quiz or learning material to pass full-package validation. Canonical ZIP export continues to use the existing full-package validation gate.
-
-The PowerPoint section uses `aria-busy`, a polite live region, disabled controls during generation, a stable busy label, and deterministic focus behavior. Successful export returns focus to **Download PowerPoint**. Blocking diagnostics provide a **Fix** action where the affected deck or slide is known. Internal exporter-integrity failures do not offer an authoring repair action and never produce a download.
+PowerPoint preflight is scoped to the selected deck and does not require an unrelated unfinished quiz or learning material to pass full-package validation. Internal exporter-integrity failures never produce a file.
 
 ## Canonical input semantics
 

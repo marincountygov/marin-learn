@@ -1,4 +1,4 @@
-// Marin Learn - Note rules shared by the validator, the viewer, and (later) the editor.
+// Marin Learn - Note rules shared by the validator and the viewer.
 // A Note is a short, structured brief made of twelve sections (see NOTE_SECTIONS).
 import { NOTE_SECTIONS, NOTE_TARGET_GRADE } from './constants.js';
 

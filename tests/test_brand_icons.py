@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Check that the viewer and editor have their own Lucide brand identities."""
+"""Check that the viewer has its Lucide brand identity: the header icon and the favicon match."""
 from __future__ import annotations
 
 from html.parser import HTMLParser
@@ -12,14 +12,6 @@ ROOT = Path(__file__).resolve().parents[1]
 ICONS = {
     "index.html": (
         "M8.3 10a.7.7 0 0 1-.626-1.079L11.4 3a.7.7 0 0 1 1.198-.043L16.3 8.9a.7.7 0 0 1-.572 1.1Z",
-    ),
-    "editor/index.html": (
-        "M13.4 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7.4",
-        "M2 6h4",
-        "M2 10h4",
-        "M2 14h4",
-        "M2 18h4",
-        "M21.378 5.626a1 1 0 1 0-3.004-3.004l-5.01 5.012a2 2 0 0 0-.506.854l-.837 2.87a.5.5 0 0 0 .62.62l2.87-.837a2 2 0 0 0 .854-.506z",
     ),
 }
 
@@ -55,8 +47,7 @@ def main() -> None:
         assert favicon.attrib.get("viewBox") == "0 0 48 48", f"{relative}: invalid favicon viewBox"
         assert path_data(favicon) == expected, f"{relative}: favicon must match header icon"
         assert favicon.find("{*}rect") is not None, f"{relative}: missing MarinOS favicon background"
-    assert ICONS["index.html"] != ICONS["editor/index.html"]
-    print("Viewer and editor Lucide identities: PASS")
+    print("Viewer Lucide identity: PASS")
 
 
 if __name__ == "__main__":

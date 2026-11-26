@@ -1,6 +1,6 @@
 # Marin Learn Notes - SPEC.md
 
-**Status:** Approved plan. Phases 2 (schema and validation), 3 (viewer), and the Data 101 Note from phase 6 are implemented. Problem and Solution sections were added after Why it matters. The editor (phase 4), re-basing the Data 101 deck and quiz, and final testing are not.
+**Status:** Approved plan. Phases 2 (schema and validation), 3 (viewer), and the Data 101 Note from phase 6 are implemented. Problem and Solution sections were added after Why it matters. Re-basing the Data 101 deck and quiz and final testing are not. The authoring editor (phase 4) was removed and is no longer planned.
 **Pilot:** Data 101. Schema 101 and MarinOS 101 keep their current notes until Notes content is supplied for them.
 
 The Note's title is stored without the word notes (limit 60). The page heading and the copied title add it: a Note titled "Data 101" is headed "Data 101 notes".
@@ -96,7 +96,7 @@ Schema.org: `name` is the title. Examples and Sources are authored once, inside 
 
 ## 3B. Quizzes from a Note
 
-A quiz has **at most 10 questions** in total. The JSON Schema, the validator, and the publish script all enforce it, and the editor will stop adding questions at 10. A quiz therefore asks every question, in a shuffled order, and the old random subset from a larger bank is no longer used. A quiz of 10 or fewer that still sets a random pick gets a warning.
+A quiz has **at most 10 questions** in total. The JSON Schema, the validator, and the publish script all enforce it, and a quiz authored by hand stops at 10. A quiz therefore asks every question, in a shuffled order, and the old random subset from a larger bank is no longer used. A quiz of 10 or fewer that still sets a random pick gets a warning.
 
 The Data 101 and Schema 101 quizzes are authored in `source/quizzes/*.json` and built with `node scripts/build_note_quiz.mjs packages/<name>.zip source/quizzes/<name>.json`, which also removes the earlier reading material, content blocks, objectives, and Markdown files that nothing refers to any more.
 
@@ -121,7 +121,7 @@ The Data 101 and Schema 101 quizzes are authored in `source/quizzes/*.json` and 
 - Reading level target: grade 6.
 - The checklist is interactive but keeps nothing. Checked items are not saved, and nothing says "completed". (Local storage was approved and then removed.)
 - Examples are provided by the Marin Learn owner. With none, the section is hidden. No examples or citations are invented.
-- Build order: schema, viewer, editor, catalog, Data 101 content, testing.
+- Build order: schema, viewer, catalog, Data 101 content, testing.
 - There is no PDF export for Notes.
 
 ## 6. Phases
@@ -129,7 +129,7 @@ The Data 101 and Schema 101 quizzes are authored in `source/quizzes/*.json` and 
 1. Assessment (done).
 2. Schema and validation (done): schema types, validator, publish checks, sample Note, tests.
 3. Viewer (done): the Note page on the Notes layout, checklist, copy and print, slide and PowerPoint conversion for sections (a section becomes generated Markdown), quiz source names, Notes counts in the catalog, and the course Notes card showing the Note instead of old reading material.
-4. Editor: the Note form, "Create deck from this Note", and a source-section picker for quiz questions.
+4. Editor (removed): there is no authoring editor. Notes are written as files and published with the scripts.
 5. Catalog: the Notes card opens a Note when the course has one.
 6. Data 101 content: the Note, then a deck and quiz re-based on its sections. The owner approves the text and the old-block-to-new-section mapping. The old Data 101 notes text is archived outside the package.
 7. Testing and documentation.

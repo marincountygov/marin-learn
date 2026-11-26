@@ -41,7 +41,6 @@ export async function importLearningPackage(input, options = {}) {
   }
 
   const pkg = {
-    editorStateVersion: 1,
     graphDocument,
     contentFiles: {},
     assetFiles: {},

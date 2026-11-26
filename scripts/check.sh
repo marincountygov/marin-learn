@@ -26,21 +26,7 @@ python3 "$ROOT_DIR/scripts/sync-security-meta.py" --check
 python3 "$ROOT_DIR/tests/validate_template.py"
 python3 "$ROOT_DIR/tests/test_brand_icons.py"
 python3 "$ROOT_DIR/tests/test_security_meta.py"
-# The button audit, without the editor (a separate authoring app with its own rules).
-python3 - "$ROOT_DIR" <<'PY'
-import importlib.util, sys
-from pathlib import Path
-sys.dont_write_bytecode = True  # importing must not leave a __pycache__ in vendor/marinos
-root = Path(sys.argv[1])
-spec = importlib.util.spec_from_file_location("audit_buttons", root / "vendor/marinos/audit-buttons.py")
-audit = importlib.util.module_from_spec(spec)
-spec.loader.exec_module(audit)
-found = [item for item in audit.audit(root) if not item[0].startswith("editor/")]
-for path, problem, label in found:
-    print(f"{path}: {problem}: {label}")
-print(f"{len(found)} button(s) to update in marin-learn (the editor is not audited)")
-sys.exit(1 if found else 0)
-PY
+python3 "$ROOT_DIR/vendor/marinos/audit-buttons.py" "$ROOT_DIR" --fail
 # The catalog filter must come from filters.json and the shell, with no hand-written column.
 python3 "$ROOT_DIR/vendor/marinos/audit-filter-column.py" "$ROOT_DIR" --fail
 # An h1 has one of two sizes (Marin UI 1.41.0); this lists app CSS that sets its own size and must list nothing.
@@ -55,7 +41,7 @@ python3 "$ROOT_DIR/tests/test_pptx_ci.py"
 if command -v node >/dev/null 2>&1; then
   while IFS= read -r -d '' file; do
     node --check "$file"
-  done < <(find "$ROOT_DIR/assets" "$ROOT_DIR/editor/assets" "$ROOT_DIR/js" "$ROOT_DIR/vendor/marinos" "$ROOT_DIR/vendor/marin-sortable" "$ROOT_DIR/vendor/pptxgenjs" -type f -name '*.js' -print0)
+  done < <(find "$ROOT_DIR/assets" "$ROOT_DIR/js" "$ROOT_DIR/vendor/marinos" "$ROOT_DIR/vendor/pptxgenjs" -type f -name '*.js' -print0)
   node --test "$ROOT_DIR"/tests/*.test.mjs
   python3 "$ROOT_DIR/tests/test_pptx_release.py"
   printf 'JavaScript syntax and unit tests: PASS\n'
@@ -64,7 +50,6 @@ else
 fi
 
 if [[ "$RUN_BROWSER" == 1 ]]; then
-  python3 "$ROOT_DIR/tests/browser_editor_dialog_component.py"
   python3 "$ROOT_DIR/tests/browser_smoke.py"
   python3 "$ROOT_DIR/tests/browser_viewer_landing_cards.py"
   python3 "$ROOT_DIR/tests/browser_themes.py"
@@ -73,12 +58,7 @@ if [[ "$RUN_BROWSER" == 1 ]]; then
   python3 "$ROOT_DIR/tests/browser_notes.py"
   python3 "$ROOT_DIR/tests/browser_note_decks.py"
   python3 "$ROOT_DIR/tests/browser_security.py"
-  python3 "$ROOT_DIR/tests/browser_editor_smoke.py"
-  python3 "$ROOT_DIR/tests/browser_editor_paste_security.py"
-  python3 "$ROOT_DIR/tests/browser_editor_dialogs.py"
-  python3 "$ROOT_DIR/tests/browser_editor_reorder.py"
   python3 "$ROOT_DIR/tests/browser_presentation_semantics.py"
-  python3 "$ROOT_DIR/tests/browser_pptx_export.py"
 else
   printf 'SKIP: Browser tests not requested; run with --browser to include them.\n'
 fi

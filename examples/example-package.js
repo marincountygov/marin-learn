@@ -218,7 +218,6 @@ export function createExamplePackage() {
   asset.contentSize = String(svgBytes.byteLength);
 
   return {
-    editorStateVersion: 1,
     graphDocument: { '@context': structuredClone(JSONLD_CONTEXT), '@graph': objects },
     contentFiles,
     assetFiles: { 'assets/marin-learn-flow.svg': { bytes: svgBytes, type: 'image/svg+xml', originalName: 'marin-learn-flow.svg' } },

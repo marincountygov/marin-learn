@@ -16,7 +16,6 @@ import { exportLearningPackage, importLearningPackage } from '../js/core/package
 import {
   buildPresentationModel,
   DEFAULT_SLIDE_DISPLAY_MODE,
-  setSlideContentSequence
 } from '../js/core/presentation.js';
 import { validatePackage } from '../js/core/validate.js';
 import {
@@ -65,51 +64,6 @@ test('the shared presentation model preserves authored order and applies the sch
   assert.equal(model.slides[0].content[1].markdownStatus, 'not-required');
   assert.deepEqual(loadedPaths, [fullUnit.encoding.contentUrl]);
   assert.equal(model.slides[0].speakerNotesAst[0].type, 'paragraph');
-});
-
-test('setSlideContentSequence preserves original ListItem data while reordering and renumbering', () => {
-  const pkg = createEmptyPackage('Slide editing fixture');
-  const first = createContentUnit(pkg, 'First unit', 'concept');
-  const second = createContentUnit(pkg, 'Second unit', 'concept');
-  const slide = createSlide(pkg, 'Editable split slide', 'split');
-  addContentToSlide(slide, first['@id'], 'abstract');
-  addContentToSlide(slide, second['@id'], 'title');
-  slide['marin:contentSequence'].itemListElement[0].name = 'Preserve first entry data';
-  slide['marin:contentSequence'].itemListElement[1].name = 'Preserve second entry data';
-
-  setSlideContentSequence(slide, [
-    { itemId: second['@id'], displayMode: 'full', sourceIndex: 1 },
-    { itemId: first['@id'], displayMode: 'title', sourceIndex: 0 }
-  ]);
-
-  const entries = slide['marin:contentSequence'].itemListElement;
-  assert.deepEqual(entries.map((entry) => entry.position), [1, 2]);
-  assert.deepEqual(entries.map((entry) => entry.item['@id']), [second['@id'], first['@id']]);
-  assert.deepEqual(entries.map((entry) => entry['marin:displayMode']), ['full', 'title']);
-  assert.deepEqual(entries.map((entry) => entry.name), ['Preserve second entry data', 'Preserve first entry data']);
-});
-
-test('setSlideContentSequence removes the property for content-free title and section slides', () => {
-  const pkg = createEmptyPackage('Content-free structural slides fixture');
-  const deck = createPresentation(pkg, 'Structural slides deck');
-  const unit = createContentUnit(pkg, 'Optional supporting unit', 'overview');
-  pkg.contentFiles[unit.encoding.contentUrl] = 'Optional supporting content.';
-  const titleSlide = createSlide(pkg, 'Title slide', 'title');
-  const sectionSlide = createSlide(pkg, 'Section slide', 'section');
-  addContentToSlide(titleSlide, unit['@id'], 'title');
-  addContentToSlide(sectionSlide, unit['@id'], 'title');
-  addSlideToPresentation(deck, titleSlide['@id']);
-  addSlideToPresentation(deck, sectionSlide['@id']);
-
-  const titleResult = setSlideContentSequence(titleSlide, []);
-  const sectionResult = setSlideContentSequence(sectionSlide, []);
-  const validation = validatePackage(pkg);
-
-  assert.equal(titleResult, null);
-  assert.equal(sectionResult, null);
-  assert.equal(Object.hasOwn(titleSlide, 'marin:contentSequence'), false);
-  assert.equal(Object.hasOwn(sectionSlide, 'marin:contentSequence'), false);
-  assert.deepEqual(validation.errors, []);
 });
 
 test('the shared HTML renderer handles all display modes and speaker notes from the resolved model', async () => {
@@ -195,46 +149,3 @@ test('all published presentation fixtures resolve through the shared model witho
   assert.deepEqual([...modes].sort(), ['full']);
 });
 
-test('a real multi-entry split slide survives editing and package export/reimport', async () => {
-  const bytes = await readFile(join(ROOT, 'packages', 'county-leaders-guide-to-data.zip'));
-  const imported = await importLearningPackage(bytes, { filename: 'county-leaders-guide-to-data.zip' });
-  const graph = imported.pkg.graphDocument['@graph'];
-  const slide = graph.find((object) => (
-    object?.['@type']?.includes('marin:Slide') &&
-    object?.['marin:layout'] === 'split' &&
-    object?.['marin:contentSequence']?.itemListElement?.length === 2
-  ));
-  assert.ok(slide, 'expected a two-entry split slide in the fixture');
-
-  const original = [...slide['marin:contentSequence'].itemListElement]
-    .sort((a, b) => a.position - b.position);
-  setSlideContentSequence(slide, [
-    {
-      itemId: original[1].item['@id'],
-      displayMode: original[1]['marin:displayMode'],
-      sourceIndex: 1
-    },
-    {
-      itemId: original[0].item['@id'],
-      displayMode: original[0]['marin:displayMode'],
-      sourceIndex: 0
-    }
-  ]);
-
-  const exported = await exportLearningPackage(imported.pkg);
-  const reopened = await importLearningPackage(exported.bytes, { filename: 'round-trip.zip' });
-  const reopenedSlide = reopened.pkg.graphDocument['@graph']
-    .find((object) => object?.['@id'] === slide['@id']);
-  const reopenedEntries = reopenedSlide['marin:contentSequence'].itemListElement;
-
-  assert.deepEqual(reopenedEntries.map((entry) => entry.position), [1, 2]);
-  assert.deepEqual(
-    reopenedEntries.map((entry) => entry.item['@id']),
-    [original[1].item['@id'], original[0].item['@id']]
-  );
-  assert.deepEqual(
-    reopenedEntries.map((entry) => entry['marin:displayMode']),
-    [original[1]['marin:displayMode'], original[0]['marin:displayMode']]
-  );
-  assert.equal(reopened.validation.errors.length, 0);
-});

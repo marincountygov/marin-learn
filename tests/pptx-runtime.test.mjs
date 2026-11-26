@@ -22,7 +22,7 @@ test('browser runtime uses existing reviewed globals without loading another scr
 });
 
 test('browser runtime lazy-loads one same-origin script and resolves only after both globals exist', async () => {
-  const globalObject = { location: { href: 'https://example.test/editor/' } };
+  const globalObject = { location: { href: 'https://example.test/app/' } };
   const listeners = new Map();
   const scripts = [];
   const script = {
@@ -60,9 +60,9 @@ test('browser runtime lazy-loads one same-origin script and resolves only after 
 
 
 test('browser runtime rejects a cross-origin dependency source', async () => {
-  const globalObject = { location: { href: 'https://example.test/editor/' } };
+  const globalObject = { location: { href: 'https://example.test/app/' } };
   const documentObject = {
-    baseURI: 'https://example.test/editor/',
+    baseURI: 'https://example.test/app/',
     head: { appendChild() { throw new Error('must not append'); } },
     createElement() { throw new Error('must not create'); }
   };

@@ -20,7 +20,7 @@ export function validatePackage(pkg) {
   const diagnostics = [];
   const add = (severity, stage, code, message, details = {}) => diagnostics.push({ severity, stage, code, message, ...details });
   if (!pkg?.graphDocument) {
-    add('error', 'Structure', 'missing-graph-document', 'The editor state does not contain a graph document.');
+    add('error', 'Structure', 'missing-graph-document', 'The package does not contain a graph document.');
     return summarize(diagnostics);
   }
 
@@ -514,7 +514,6 @@ function routeForObject(object) {
   if (hasType(object, TYPES.OBJECTIVE) || hasType(object, TYPES.DEFINED_TERM_SET)) return 'objectives';
   if (hasType(object, TYPES.CONTENT_UNIT)) return 'content';
   if (hasType(object, TYPES.MATERIAL) || hasType(object, TYPES.SECTION)) return 'materials';
-  // Notes get their own editor route when the Note editor is added.
   if (hasType(object, TYPES.ASSESSMENT) || hasType(object, TYPES.ASSESSMENT_ITEM) || hasType(object, TYPES.RESPONSE_OPTION) || hasType(object, TYPES.GRADE_SCALE)) return 'quizzes';
   if (hasType(object, TYPES.PRESENTATION) || hasType(object, TYPES.SLIDE)) return 'slides';
   if (hasType(object, TYPES.IMAGE) || hasType(object, TYPES.MEDIA)) return 'assets';
